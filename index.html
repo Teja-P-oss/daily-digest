@@ -18,6 +18,7 @@
         <span class="page-art__orb page-art__orb--lime"></span>
         <span class="page-art__orb page-art__orb--blue"></span>
         <span class="page-art__grid"></span>
+        <span class="page-art__cursor" id="cursor-glow"></span>
     </div>
 
     <header class="site-header">
@@ -33,6 +34,10 @@
             </a>
 
             <div class="topbar__actions">
+                <button class="motion-toggle" id="motion-toggle" type="button" aria-label="Pause motion effects" aria-pressed="false" title="Pause motion effects">
+                    <svg class="motion-toggle__pause" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg>
+                    <svg class="motion-toggle__play" aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg>
+                </button>
                 <button class="search-trigger" id="search-trigger" type="button" aria-label="Search digests" aria-expanded="false" aria-controls="search-drawer">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
                     <span>Search digests</span>
@@ -60,19 +65,24 @@
         <section class="hero" aria-labelledby="page-title">
             <div class="hero__copy">
                 <div class="eyebrow"><span></span> Personal intelligence briefing</div>
-                <h1 id="page-title">Stay curious.<br><em>Stay ahead.</em></h1>
+                <h1 id="page-title"><span class="hero-line">Stay curious.</span><span class="hero-line"><em>Stay ahead.</em></span></h1>
                 <p class="hero__intro">Research worth understanding, news worth knowing, and market ideas worth watching—distilled into one focused read.</p>
 
                 <div class="issue-meta">
                     <span class="issue-meta__pulse" aria-hidden="true"></span>
                     <div>
                         <small id="issue-label">Current issue</small>
-                        <strong id="date-subtitle">Loading the latest digest…</strong>
+                        <strong id="date-subtitle" aria-live="polite">Loading the latest digest…</strong>
                     </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="start-reading" href="#research">Start reading <span aria-hidden="true">↓</span></a>
+                    <button class="surprise-button" id="surprise-button" type="button"><span aria-hidden="true">✦</span> Surprise me</button>
                 </div>
             </div>
 
-            <aside class="date-card" aria-label="Digest date navigation">
+            <aside class="date-card interactive-surface" data-tilt aria-label="Digest date navigation">
                 <div class="date-card__top">
                     <span class="date-card__label">Browse the archive</span>
                     <span class="issue-count" id="issue-count">— issues</span>
@@ -114,10 +124,10 @@
     <nav class="section-nav" aria-label="On this page">
         <div class="shell section-nav__inner">
             <span>In this issue</span>
-            <a href="#research">Research</a>
-            <a href="#brief">News brief</a>
-            <a href="#markets">Markets</a>
-            <a href="#takeaways" id="takeaways-nav-link">Takeaways</a>
+            <a href="#research" data-section="research">Research</a>
+            <a href="#brief" data-section="brief">News brief</a>
+            <a href="#markets" data-section="markets">Markets</a>
+            <a href="#takeaways" data-section="takeaways" id="takeaways-nav-link">Takeaways</a>
             <span class="section-nav__progress"><i id="reading-progress"></i></span>
         </div>
     </nav>
@@ -153,11 +163,11 @@
                 <p>The signal from India and around the world, minus the noise.</p>
             </div>
             <div class="news-grid">
-                <article class="news-card news-card--india">
+                <article class="news-card news-card--india interactive-surface" data-tilt>
                     <header><span class="flag" aria-hidden="true">🇮🇳</span><div><small>India</small><h3>Closer to home</h3></div></header>
                     <div class="news-copy" id="india-news-content"><span class="skeleton"></span><span class="skeleton skeleton--short"></span></div>
                 </article>
-                <article class="news-card news-card--world">
+                <article class="news-card news-card--world interactive-surface" data-tilt>
                     <header><span class="flag" aria-hidden="true">🌍</span><div><small>World</small><h3>The global picture</h3></div></header>
                     <div class="news-copy" id="world-news-content"><span class="skeleton"></span><span class="skeleton skeleton--short"></span></div>
                 </article>
@@ -214,6 +224,9 @@
         </div>
     </footer>
 
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+        <span aria-hidden="true">↑</span>
+    </button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="./js/app.js"></script>
 </body>

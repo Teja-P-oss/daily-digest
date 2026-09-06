@@ -5,7 +5,14 @@ const state = {
     searchIndex: null,
     searchOpen: false,
     loadingDate: null,
-    toastTimer: null
+    toastTimer: null,
+    motionPaused: false,
+    reducedMotion: false,
+    revealObserver: null,
+    activeSurface: null,
+    pointerFrame: null,
+    scrollFrame: null,
+    lastSurpriseIndex: -1
 };
 
 const paperConfig = {
@@ -18,6 +25,7 @@ document.addEventListener('DOMContentLoaded', initApp);
 
 async function initApp() {
     bindInterface();
+    setupMotion();
 
     try {
         const response = await fetch('./data/index.json', { cache: 'no-cache' });
@@ -71,6 +79,9 @@ function bindInterface() {
     byId('error-retry').addEventListener('click', () => {
         loadDate(state.loadingDate || state.currentDate || state.availableDates[0], { historyMode: 'replace' });
     });
+    byId('motion-toggle').addEventListener('click', toggleMotion);
+    byId('surprise-button').addEventListener('click', surpriseMe);
+    byId('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: state.motionPaused ? 'auto' : 'smooth' }));
 
     document.addEventListener('keydown', (event) => {
         const target = event.target;
@@ -90,7 +101,9 @@ function bindInterface() {
         if (nextDate && nextDate !== state.currentDate) loadDate(nextDate, { historyMode: 'none' });
     });
 
-    window.addEventListener('scroll', updateReadingProgress, { passive: true });
+    window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
+    document.addEventListener('pointermove', handlePointerMove, { passive: true });
+    document.addEventListener('pointerout', handlePointerOut, { passive: true });
 }
 
 function configureDatePicker() {
@@ -147,6 +160,7 @@ function updateDateInterface(dateString) {
     byId('display-month').textContent = date.toLocaleDateString('en-US', { month: 'long' });
     byId('display-year').textContent = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric' });
     byId('date-picker').value = dateString;
+    animateDateCard();
 
     const olderButton = byId('older-button');
     const newerButton = byId('newer-button');
@@ -185,9 +199,12 @@ function renderDigest(data) {
     renderNews(data?.news);
     renderStocks(data?.stocks);
     renderTakeaways(data?.takeaways);
-    byId('research-count').textContent = Object.values(data?.papers || {}).filter(Boolean).length;
-    byId('news-count').textContent = ['india', 'world'].filter((region) => data?.news?.[region]).length;
-    byId('market-count').textContent = (data?.stocks?.us?.length || 0) + (data?.stocks?.india?.length || 0);
+    animateCounter(byId('research-count'), Object.values(data?.papers || {}).filter(Boolean).length);
+    animateCounter(byId('news-count'), ['india', 'world'].filter((region) => data?.news?.[region]).length);
+    animateCounter(byId('market-count'), (data?.stocks?.us?.length || 0) + (data?.stocks?.india?.length || 0));
+    byId('main-content').classList.remove('is-refreshing');
+    observeAnimatedElements();
+    scheduleScrollUpdate();
 }
 
 function renderPapers(papers = {}) {
@@ -216,7 +233,7 @@ function paperTemplate(kind, paper, index) {
     ].filter(Boolean).join('');
 
     return `
-        <article class="paper-card" data-number="${config.number}" style="--card-index:${index}">
+        <article class="paper-card interactive-surface" data-tilt data-number="${config.number}" style="--card-index:${index}">
             <div class="paper-card__top">
                 <span class="paper-badge paper-badge--${config.badgeClass}">${config.badge}</span>
                 ${metadata ? `<span class="paper-card__meta">${escapeHTML(metadata)}</span>` : ''}
@@ -292,7 +309,7 @@ function renderStockList(containerId, stocks = []) {
         return;
     }
 
-    container.innerHTML = stocks.map((stock) => {
+    container.innerHTML = stocks.map((stock, index) => {
         const change = Number(stock.change);
         const hasChange = Number.isFinite(change);
         const isUp = change >= 0;
@@ -302,7 +319,7 @@ function renderStockList(containerId, stocks = []) {
         ].filter(Boolean).join(' · ');
 
         return `
-            <li>
+            <li class="stock-item" style="--stock-index:${index}">
                 <div class="stock-row">
                     <div class="stock-identity">
                         <span class="stock-ticker">${escapeHTML(stock.symbol || '—')}</span>
@@ -337,6 +354,7 @@ function renderTakeaways(takeaways) {
 }
 
 function showLoadingState() {
+    byId('main-content').classList.add('is-refreshing');
     byId('papers-container').innerHTML = [1, 2, 3].map(() => '<article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>').join('');
     byId('india-news-content').innerHTML = '<span class="skeleton"></span><span class="skeleton skeleton--short"></span>';
     byId('world-news-content').innerHTML = '<span class="skeleton"></span><span class="skeleton skeleton--short"></span>';
@@ -352,7 +370,10 @@ function openSearch() {
 
     state.searchOpen = true;
     document.body.classList.add('search-open');
-    byId('search-drawer').hidden = false;
+    const drawer = byId('search-drawer');
+    drawer.hidden = false;
+    drawer.classList.remove('is-opening');
+    requestAnimationFrame(() => drawer.classList.add('is-opening'));
     byId('search-trigger').setAttribute('aria-expanded', 'true');
     renderRecentIssues();
     requestAnimationFrame(() => byId('global-search').focus());
@@ -370,12 +391,12 @@ function closeSearch() {
 
 function renderRecentIssues() {
     byId('search-hint').textContent = 'Search across dates, research, news, markets, and takeaways.';
-    byId('search-results').innerHTML = state.availableDates.slice(0, 6).map((date) => searchResultTemplate({
+    byId('search-results').innerHTML = state.availableDates.slice(0, 6).map((date, index) => searchResultTemplate({
         date,
         section: 'research',
         title: formatDate(date, 'long'),
         summary: date === state.availableDates[0] ? 'Latest published issue' : 'Open this archived issue'
-    })).join('');
+    }, index)).join('');
 }
 
 async function runSearch() {
@@ -409,7 +430,7 @@ async function runSearch() {
         ? `${matches.length}${matches.length === 30 ? '+' : ''} result${matches.length === 1 ? '' : 's'} for “${input.value.trim()}”`
         : `No results for “${input.value.trim()}”`;
     resultsContainer.innerHTML = matches.length
-        ? matches.map(searchResultTemplate).join('')
+        ? matches.map((entry, index) => searchResultTemplate(entry, index)).join('')
         : '<div class="search-empty"><strong>No match found.</strong><span>Try a date, paper title, topic, or ticker.</span></div>';
 }
 
@@ -487,9 +508,9 @@ function prepareSearchEntry(entry) {
     };
 }
 
-function searchResultTemplate(entry) {
+function searchResultTemplate(entry, index = 0) {
     return `
-        <button class="search-result" type="button" data-date="${escapeAttribute(entry.date)}" data-section="${escapeAttribute(entry.section || 'research')}">
+        <button class="search-result" type="button" style="--result-index:${index}" data-date="${escapeAttribute(entry.date)}" data-section="${escapeAttribute(entry.section || 'research')}">
             <span class="search-result__date">${escapeHTML(formatDate(entry.date, 'compact'))}</span>
             <span class="search-result__body"><strong>${escapeHTML(entry.title)}</strong><span>${escapeHTML(truncate(plainText(entry.summary), 105))}</span></span>
             <span class="search-result__arrow" aria-hidden="true">↗</span>
@@ -507,11 +528,200 @@ async function handleSearchSelection(event) {
     requestAnimationFrame(() => document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
 }
 
+function setupMotion() {
+    state.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    state.motionPaused = state.reducedMotion;
+    document.documentElement.classList.add('motion-ready');
+    updateMotionControl();
+
+    if ('IntersectionObserver' in window && !state.motionPaused) {
+        state.revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }
+
+    observeAnimatedElements();
+    scheduleScrollUpdate();
+}
+
+function observeAnimatedElements() {
+    const targets = [...document.querySelectorAll([
+        '.section-heading',
+        '.paper-card:not(.loading-card)',
+        '.news-card',
+        '.markets-card',
+        '.takeaway-heading',
+        '.takeaways-layout'
+    ].join(','))];
+
+    targets.forEach((element, index) => {
+        if (element.classList.contains('reveal-item')) return;
+        element.classList.add('reveal-item');
+        element.style.setProperty('--reveal-delay', `${(index % 4) * 70}ms`);
+
+        if (state.motionPaused || !state.revealObserver) element.classList.add('is-revealed');
+        else state.revealObserver.observe(element);
+    });
+}
+
+function toggleMotion() {
+    state.motionPaused = !state.motionPaused;
+    updateMotionControl();
+
+    if (state.motionPaused) {
+        resetInteractiveSurface(state.activeSurface);
+        document.querySelectorAll('.reveal-item').forEach((element) => element.classList.add('is-revealed'));
+        showToast('Motion effects paused.');
+    } else {
+        showToast('Motion effects are back on.');
+    }
+}
+
+function updateMotionControl() {
+    const control = byId('motion-toggle');
+    document.documentElement.classList.toggle('animations-paused', state.motionPaused);
+    control.setAttribute('aria-pressed', String(state.motionPaused));
+    control.setAttribute('aria-label', state.motionPaused ? 'Resume motion effects' : 'Pause motion effects');
+    control.title = state.motionPaused ? 'Resume motion effects' : 'Pause motion effects';
+}
+
+function handlePointerMove(event) {
+    if (state.motionPaused || state.reducedMotion || !window.matchMedia('(pointer: fine)').matches) return;
+    if (state.pointerFrame) return;
+
+    state.pointerFrame = requestAnimationFrame(() => {
+        state.pointerFrame = null;
+        document.documentElement.style.setProperty('--cursor-x', `${event.clientX}px`);
+        document.documentElement.style.setProperty('--cursor-y', `${event.clientY}px`);
+
+        const surface = event.target.closest?.('[data-tilt]');
+        if (state.activeSurface && state.activeSurface !== surface) resetInteractiveSurface(state.activeSurface);
+        if (!surface) return;
+
+        const bounds = surface.getBoundingClientRect();
+        const x = event.clientX - bounds.left;
+        const y = event.clientY - bounds.top;
+        const horizontal = (x / bounds.width - 0.5) * 2;
+        const vertical = (y / bounds.height - 0.5) * 2;
+        surface.style.setProperty('--pointer-x', `${x}px`);
+        surface.style.setProperty('--pointer-y', `${y}px`);
+        surface.style.setProperty('--rotate-x', `${vertical * -1.5}deg`);
+        surface.style.setProperty('--rotate-y', `${horizontal * 2}deg`);
+        surface.style.setProperty('--surface-lift', '-3px');
+        surface.classList.add('is-interacting');
+        state.activeSurface = surface;
+    });
+}
+
+function handlePointerOut(event) {
+    const surface = event.target.closest?.('[data-tilt]');
+    if (!surface || surface.contains(event.relatedTarget)) return;
+    resetInteractiveSurface(surface);
+}
+
+function resetInteractiveSurface(surface) {
+    if (!surface) return;
+    surface.style.setProperty('--rotate-x', '0deg');
+    surface.style.setProperty('--rotate-y', '0deg');
+    surface.style.setProperty('--surface-lift', '0px');
+    surface.classList.remove('is-interacting');
+    if (state.activeSurface === surface) state.activeSurface = null;
+}
+
+function surpriseMe() {
+    const cards = [...document.querySelectorAll('.paper-card:not(.loading-card)')];
+    if (!cards.length) {
+        showToast('The research cards are still loading.');
+        return;
+    }
+
+    const nextIndex = cards.length === 1
+        ? 0
+        : (state.lastSurpriseIndex + 1 + Math.floor(Math.random() * (cards.length - 1))) % cards.length;
+    const card = cards[nextIndex];
+    const button = byId('surprise-button');
+    state.lastSurpriseIndex = nextIndex;
+    cards.forEach((item) => item.classList.remove('is-spotlighted'));
+    button.classList.add('is-finding');
+    button.innerHTML = '<span aria-hidden="true">✦</span> Found one!';
+    card.scrollIntoView({ behavior: state.motionPaused ? 'auto' : 'smooth', block: 'center' });
+    window.setTimeout(() => {
+        card.classList.add('is-spotlighted');
+        card.querySelector('details')?.setAttribute('open', '');
+    }, state.motionPaused ? 0 : 450);
+    window.setTimeout(() => card.classList.remove('is-spotlighted'), 1800);
+    window.setTimeout(() => {
+        button.classList.remove('is-finding');
+        button.innerHTML = '<span aria-hidden="true">✦</span> Surprise me';
+    }, 1350);
+}
+
+function animateCounter(element, target) {
+    const finalValue = Number(target) || 0;
+    const token = String(Date.now() + Math.random());
+    element.dataset.counterToken = token;
+
+    if (state.motionPaused || finalValue === 0) {
+        element.textContent = finalValue;
+        return;
+    }
+
+    const start = performance.now();
+    const duration = 650;
+    element.classList.add('is-counting');
+
+    const tick = (now) => {
+        if (element.dataset.counterToken !== token) return;
+        const progress = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = Math.round(finalValue * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+        else element.classList.remove('is-counting');
+    };
+
+    requestAnimationFrame(tick);
+}
+
+function animateDateCard() {
+    const card = document.querySelector('.date-card');
+    card.classList.remove('is-changing');
+    void card.offsetWidth;
+    card.classList.add('is-changing');
+    window.setTimeout(() => card.classList.remove('is-changing'), 500);
+}
+
+function scheduleScrollUpdate() {
+    if (state.scrollFrame) return;
+    state.scrollFrame = requestAnimationFrame(() => {
+        state.scrollFrame = null;
+        updateReadingProgress();
+    });
+}
+
 function updateReadingProgress() {
     const root = document.documentElement;
     const scrollable = root.scrollHeight - window.innerHeight;
     const progress = scrollable > 0 ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100)) : 0;
     byId('reading-progress').style.width = `${progress}%`;
+    byId('back-to-top').style.setProperty('--scroll-progress', `${progress * 3.6}deg`);
+    byId('back-to-top').classList.toggle('is-visible', window.scrollY > 560);
+    document.querySelector('.site-header').classList.toggle('is-scrolled', window.scrollY > 12);
+
+    const sections = [...document.querySelectorAll('.content-section:not([hidden])')];
+    let activeSection = sections[0]?.id;
+    sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= 190) activeSection = section.id;
+    });
+    document.querySelectorAll('.section-nav a[data-section]').forEach((link) => {
+        const active = link.dataset.section === activeSection;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+    });
 }
 
 function showLoadError(error, dateString) {
