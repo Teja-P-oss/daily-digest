@@ -6,6 +6,11 @@ from pathlib import Path
 from google.antigravity import Agent, LocalAgentConfig, CapabilitiesConfig
 
 async def main():
+    if not (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")):
+        raise RuntimeError(
+            "Missing Gemini credentials. Set GEMINI_API_KEY before running this script."
+        )
+
     print("Initializing Antigravity Agent for scalable website update...")
     
     config = LocalAgentConfig(
