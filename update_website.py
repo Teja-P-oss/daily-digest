@@ -14,7 +14,6 @@ async def main():
     )
     
     script_dir = Path(__file__).parent.resolve()
-    repo_dir = script_dir.parent
     today_str = datetime.datetime.now().strftime("%Y-%m-%d")
     
     prompt = f"""
@@ -27,12 +26,12 @@ async def main():
     IMPORTANT: You do not need to, and should not, read any past daily digest files. Only generate new content for today.
     
     Format everything into the JSON structure required for the website and save it to this new file:
-    {repo_dir}/daily-digest/data/{today_str}.json
+    {script_dir}/data/{today_str}.json
     
-    Next, update the {repo_dir}/daily-digest/data/index.json file. It contains a JSON array of date strings. Prepend "{today_str}" to the array if it is not already there.
+    Next, update the {script_dir}/data/index.json file. It contains a JSON array of date strings. Prepend "{today_str}" to the array if it is not already there.
     
-    After saving the files, use your run_command tool to run these git commands in {repo_dir}:
-    git add daily-digest/data/
+    After saving the files, use your run_command tool to run these git commands in {script_dir}:
+    git add data/
     git commit -m "Automated AI Agent Update: Daily Digest {today_str}"
     git push
     """
