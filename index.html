@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#081211">
+    <meta name="theme-color" content="#10091f">
     <meta name="description" content="A focused daily digest of research, news, and market ideas for curious engineers.">
     <title>Daily Digest — Teja Potti</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +38,13 @@
                     <svg class="motion-toggle__pause" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg>
                     <svg class="motion-toggle__play" aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg>
                 </button>
-                <button class="search-trigger" id="search-trigger" type="button" aria-label="Search digests" aria-expanded="false" aria-controls="search-drawer">
+                <button class="date-search-trigger" id="date-search-trigger" type="button" aria-label="Find an issue by date">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
+                    <span>Find date</span>
+                </button>
+                <button class="search-trigger" id="search-trigger" type="button" aria-label="Search digest content" aria-expanded="false" aria-controls="search-drawer">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-                    <span>Search digests</span>
+                    <span>Search content</span>
                     <kbd>/</kbd>
                 </button>
                 <button class="latest-button" id="latest-button" type="button">Jump to latest</button>
@@ -51,22 +55,21 @@
             <div class="shell search-drawer__inner">
                 <form class="search-form" id="search-form" role="search">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-                    <label class="sr-only" for="global-search">Search all digests, including dates</label>
-                    <input id="global-search" type="search" autocomplete="off" placeholder="Try “Sep 6”, “neural ISP”, or “NVDA”…">
+                    <label class="sr-only" for="global-search">Search content across every digest</label>
+                    <input id="global-search" type="search" autocomplete="off" placeholder="Search a paper, topic, headline, or ticker…">
                     <button class="search-close" id="search-close" type="button" aria-label="Close search">Close</button>
                 </form>
-                <p class="search-hint" id="search-hint">Search across dates, research, news, markets, and takeaways.</p>
+                <p class="search-hint" id="search-hint">Search the content of every published issue. Use Find date for the archive calendar.</p>
                 <div class="search-results" id="search-results" aria-live="polite"></div>
             </div>
         </div>
     </header>
 
     <div class="shell">
-        <section class="hero" aria-labelledby="page-title">
+        <section class="hero hero--compact" aria-labelledby="page-title">
             <div class="hero__copy">
-                <div class="eyebrow"><span></span> Personal intelligence briefing</div>
-                <h1 id="page-title"><span class="hero-line">Stay curious.</span><span class="hero-line"><em>Stay ahead.</em></span></h1>
-                <p class="hero__intro">Research worth understanding, news worth knowing, and market ideas worth watching—distilled into one focused read.</p>
+                <span class="section-kicker">Daily digest</span>
+                <h1 id="page-title"><span class="hero-line" id="date-heading">Loading today’s issue…</span></h1>
 
                 <div class="issue-meta">
                     <span class="issue-meta__pulse" aria-hidden="true"></span>
@@ -78,13 +81,13 @@
 
                 <div class="hero-actions">
                     <a class="start-reading" href="#research">Start reading <span aria-hidden="true">↓</span></a>
-                    <button class="surprise-button" id="surprise-button" type="button"><span aria-hidden="true">✦</span> Surprise me</button>
+                    <button class="surprise-button" id="surprise-button" type="button"><span aria-hidden="true">✦</span> Pick my two</button>
                 </div>
             </div>
 
             <aside class="date-card interactive-surface" data-tilt aria-label="Digest date navigation">
                 <div class="date-card__top">
-                    <span class="date-card__label">Browse the archive</span>
+                    <span class="date-card__label">Find an issue by date</span>
                     <span class="issue-count" id="issue-count">— issues</span>
                 </div>
                 <div class="date-display" aria-hidden="true">
@@ -93,7 +96,7 @@
                 </div>
                 <label class="date-jump" for="date-picker">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
-                    <span>Jump to date</span>
+                    <span>Choose a published date</span>
                     <input id="date-picker" type="date" aria-describedby="date-help">
                 </label>
                 <span class="sr-only" id="date-help">Only dates with a published digest can be opened.</span>
@@ -111,12 +114,12 @@
         </section>
 
         <div class="reading-strip" aria-label="Digest overview">
-            <div><strong id="research-count">3</strong><span>research papers</span></div>
+            <div><strong id="research-count">4</strong><span>research papers</span></div>
             <div><strong id="news-count">2</strong><span>news regions</span></div>
             <div><strong id="market-count">10</strong><span>market ideas</span></div>
-            <div class="reading-strip__time">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 7v5l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-                <span><strong>~1 hour</strong> focused reading</span>
+            <div class="reading-strip__time reading-plan" id="reading-plan">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
+                <span><strong id="selection-count">0 of 2 chosen</strong> your reading plan</span>
             </div>
         </div>
     </div>
@@ -143,11 +146,12 @@
             <div class="section-heading">
                 <div>
                     <span class="section-kicker">Deep dive</span>
-                    <h2 id="research-title">Ideas worth your attention</h2>
+                    <h2 id="research-title">Pick today’s two papers</h2>
                 </div>
-                <p>Three papers. Three perspectives. Built for learning, not skimming.</p>
+                <p>Choose one paper inside your domain and one outside it. The expanded notes are designed to stand alone if you skip the full paper.</p>
             </div>
-            <div class="papers-grid" id="papers-container" aria-live="polite">
+            <div class="papers-collection" id="papers-container" aria-live="polite">
+                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
                 <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
                 <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
                 <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
@@ -160,7 +164,7 @@
                     <span class="section-kicker">Quick scan</span>
                     <h2 id="brief-title">The morning brief</h2>
                 </div>
-                <p>The signal from India and around the world, minus the noise.</p>
+                <p>General news across policy, society, science, technology, climate, geopolitics, and the economy—not another markets recap.</p>
             </div>
             <div class="news-grid">
                 <article class="news-card news-card--india interactive-surface" data-tilt>
@@ -180,7 +184,7 @@
                     <span class="section-kicker">Watchlist</span>
                     <h2 id="markets-title">Market pulse</h2>
                 </div>
-                <p>Interesting movement and the context behind it—not investment advice.</p>
+                <p>A compact watchlist. Open a row only when you want the thesis and risk.</p>
             </div>
             <div class="markets-card">
                 <section class="market-column" aria-labelledby="us-market-title">

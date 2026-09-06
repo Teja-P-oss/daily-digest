@@ -12,13 +12,15 @@ const state = {
     activeSurface: null,
     pointerFrame: null,
     scrollFrame: null,
-    lastSurpriseIndex: -1
+    lastSurpriseIndex: -1,
+    selectedPapers: { inside: null, outside: null }
 };
 
 const paperConfig = {
-    domain: { badge: 'Technical paper', badgeClass: 'domain', number: '01' },
-    tech: { badge: 'AI · ML · CS', badgeClass: 'tech', number: '02' },
-    random: { badge: 'Outside the domain', badgeClass: 'random', number: '03' }
+    domain1: { badge: 'Inside domain · 01', badgeClass: 'domain', number: '01', group: 'inside' },
+    domain2: { badge: 'Inside domain · 02', badgeClass: 'tech', number: '02', group: 'inside' },
+    outside1: { badge: 'Outside domain · 01', badgeClass: 'random', number: '03', group: 'outside' },
+    outside2: { badge: 'Outside domain · 02', badgeClass: 'random-two', number: '04', group: 'outside' }
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
@@ -76,6 +78,8 @@ function bindInterface() {
     byId('search-form').addEventListener('submit', (event) => event.preventDefault());
     byId('global-search').addEventListener('input', debounce(runSearch, 90));
     byId('search-results').addEventListener('click', handleSearchSelection);
+    byId('papers-container').addEventListener('click', handlePaperChoice);
+    byId('date-search-trigger').addEventListener('click', focusDateSearch);
     byId('error-retry').addEventListener('click', () => {
         loadDate(state.loadingDate || state.currentDate || state.availableDates[0], { historyMode: 'replace' });
     });
@@ -125,8 +129,8 @@ async function loadDate(dateString, { historyMode = 'push' } = {}) {
         const data = await fetchDigest(dateString);
         if (state.loadingDate !== dateString) return;
 
-        renderDigest(data);
         state.currentDate = dateString;
+        renderDigest(data, dateString);
         state.loadingDate = null;
         updateDateInterface(dateString);
         updateUrl(dateString, historyMode);
@@ -155,6 +159,7 @@ function updateDateInterface(dateString) {
     const isLatest = index === 0;
 
     byId('date-subtitle').textContent = formatDate(dateString, 'long');
+    byId('date-heading').textContent = formatDate(dateString, 'long');
     byId('issue-label').textContent = isLatest ? 'Latest issue' : 'From the archive';
     byId('display-day').textContent = String(date.getDate()).padStart(2, '0');
     byId('display-month').textContent = date.toLocaleDateString('en-US', { month: 'long' });
@@ -194,8 +199,8 @@ function updateUrl(dateString, historyMode) {
     window.history[method]({ date: dateString }, '', url);
 }
 
-function renderDigest(data) {
-    renderPapers(data?.papers);
+function renderDigest(data, dateString) {
+    renderPapers(data?.papers, dateString);
     renderNews(data?.news);
     renderStocks(data?.stocks);
     renderTakeaways(data?.takeaways);
@@ -207,25 +212,53 @@ function renderDigest(data) {
     scheduleScrollUpdate();
 }
 
-function renderPapers(papers = {}) {
+function renderPapers(papers = {}, dateString = state.currentDate) {
     const container = byId('papers-container');
-    const cards = ['domain', 'tech', 'random']
-        .filter((kind) => papers?.[kind])
-        .map((kind, index) => paperTemplate(kind, papers[kind], index));
+    const normalized = normalizePapers(papers);
+    state.selectedPapers = readPaperSelections(dateString);
+    const groups = [
+        { id: 'inside', kicker: 'Familiar territory', title: 'Inside your domain', note: 'Choose 1 of 2' },
+        { id: 'outside', kicker: 'Broaden the map', title: 'Outside your domain', note: 'Choose 1 of 2' }
+    ];
+    const markup = groups.map((group) => {
+        const papersInGroup = normalized.filter((entry) => entry.config.group === group.id);
+        if (!papersInGroup.length) return '';
+        return `
+            <section class="paper-group" data-paper-group="${group.id}" aria-labelledby="${group.id}-papers-title">
+                <header class="paper-group__heading">
+                    <div><span>${group.kicker}</span><h3 id="${group.id}-papers-title">${group.title}</h3></div>
+                    <small>${group.note}</small>
+                </header>
+                <div class="papers-grid">${papersInGroup.map((entry, index) => paperTemplate(entry.kind, entry.paper, index, entry.config)).join('')}</div>
+            </section>`;
+    }).join('');
 
-    container.innerHTML = cards.length
-        ? cards.join('')
+    container.innerHTML = markup
+        ? markup
         : '<div class="search-empty"><strong>No research papers in this issue.</strong><span>Try another date in the archive.</span></div>';
+    updatePaperSelectionUI();
 }
 
-function paperTemplate(kind, paper, index) {
-    const config = paperConfig[kind];
+function normalizePapers(papers) {
+    const modern = ['domain1', 'domain2', 'outside1', 'outside2']
+        .filter((kind) => papers?.[kind])
+        .map((kind) => ({ kind, paper: papers[kind], config: paperConfig[kind] }));
+    if (modern.length) return modern;
+
+    return [
+        papers?.domain ? { kind: 'domain1', paper: papers.domain, config: paperConfig.domain1 } : null,
+        papers?.tech ? { kind: 'domain2', paper: papers.tech, config: paperConfig.domain2 } : null,
+        papers?.random ? { kind: 'outside1', paper: papers.random, config: paperConfig.outside1 } : null
+    ].filter(Boolean);
+}
+
+function paperTemplate(kind, paper, index, config) {
     const title = paper.title || 'Untitled paper';
     const lead = paper.summary || paper.problem || paper.question || paper.idea || paper.discovery || 'Open the paper to learn more.';
     const metadata = [paper.venue, paper.year || paper.date, paper.field].filter(Boolean).join(' · ');
     const detailFields = getPaperDetails(kind, paper);
     const detailMarkup = detailFields.length
-        ? `<details class="paper-details"><summary>Explore the key ideas</summary><div class="paper-details__content">${detailFields.map(detailTemplate).join('')}</div></details>`
+        ? `<details class="paper-details"><summary>Explore the key ideas <span>~5 min</span></summary><div class="paper-details__content">${detailFields.map(detailTemplate).join('')}</div></details>`
         : '';
     const links = [
         validUrl(paper.link) ? `<a class="paper-link" href="${escapeAttribute(paper.link)}" target="_blank" rel="noopener noreferrer">Read paper <span aria-hidden="true">↗</span></a>` : '',
@@ -233,51 +266,32 @@ function paperTemplate(kind, paper, index) {
     ].filter(Boolean).join('');
 
     return `
-        <article class="paper-card interactive-surface" data-tilt data-number="${config.number}" style="--card-index:${index}">
+        <article class="paper-card interactive-surface" data-tilt data-number="${config.number}" data-paper-id="${kind}" data-paper-group="${config.group}" style="--card-index:${index}">
             <div class="paper-card__top">
                 <span class="paper-badge paper-badge--${config.badgeClass}">${config.badge}</span>
                 ${metadata ? `<span class="paper-card__meta">${escapeHTML(metadata)}</span>` : ''}
             </div>
-            <h3>${escapeHTML(title)}</h3>
+            <h4>${escapeHTML(title)}</h4>
             ${paper.authors ? `<p class="paper-card__byline">By ${escapeHTML(paper.authors)}</p>` : ''}
             <p class="paper-card__summary">${escapeHTML(lead)}</p>
             ${detailMarkup}
-            ${links ? `<footer class="paper-card__footer">${links}</footer>` : ''}
+            <footer class="paper-card__footer">
+                <button class="paper-choice" type="button" data-choose-paper="${kind}" aria-pressed="false"><span aria-hidden="true">○</span> Choose this one</button>
+                ${links}
+            </footer>
         </article>`;
 }
 
 function getPaperDetails(kind, paper) {
-    const common = [
-        ['Why is it difficult?', paper.difficulty],
-        ['Core idea', paper.idea],
-        ['How it works', paper.method],
-        ['Results', paper.results]
-    ];
-
-    if (kind === 'domain') {
-        return [
-            ...common,
-            ['Why you should care', paper.care || paper.takeaway],
-            ['What to learn', paper.learn],
-            ['Concepts to remember', paper.concepts]
-        ].filter(([, value]) => hasValue(value));
-    }
-
-    if (kind === 'tech') {
-        return [
-            ...common,
-            ['Why it matters', paper.matters || paper.takeaway],
-            ['What to learn', paper.learn],
-            ['Key takeaways', paper.takeaways]
-        ].filter(([, value]) => hasValue(value));
-    }
-
     return [
-        ['Question', paper.question],
-        ['Method', paper.method],
-        ['Discovery', paper.discovery || paper.summary],
-        ['Why it is interesting', paper.interesting],
-        ['Surprising takeaway', paper.takeaway]
+        ['Problem or question', paper.problem || paper.question],
+        ['Why is it difficult?', paper.difficulty],
+        ['Core idea', paper.idea || paper.discovery],
+        ['How it works', paper.method],
+        ['Results or evidence', paper.results],
+        ['Why it is worth your time', paper.care || paper.matters || paper.interesting || paper.takeaway],
+        ['What to learn', paper.learn],
+        ['Concepts to remember', paper.concepts || paper.takeaways]
     ].filter(([, value]) => hasValue(value));
 }
 
@@ -289,12 +303,30 @@ function detailTemplate([label, value]) {
 }
 
 function renderNews(news = {}) {
-    byId('india-news-content').innerHTML = news?.india
-        ? sanitizeRichText(news.india)
-        : '<p>No India brief was published for this issue.</p>';
-    byId('world-news-content').innerHTML = news?.world
-        ? sanitizeRichText(news.world)
-        : '<p>No world brief was published for this issue.</p>';
+    renderNewsRegion('india-news-content', news?.india, 'No India brief was published for this issue.');
+    renderNewsRegion('world-news-content', news?.world, 'No world brief was published for this issue.');
+}
+
+function renderNewsRegion(containerId, items, emptyMessage) {
+    const container = byId(containerId);
+    if (Array.isArray(items) && items.length) {
+        container.innerHTML = `<ul class="news-list">${items.map(newsItemTemplate).join('')}</ul>`;
+        return;
+    }
+    container.innerHTML = items ? sanitizeRichText(items) : `<p>${escapeHTML(emptyMessage)}</p>`;
+}
+
+function newsItemTemplate(item) {
+    if (typeof item === 'string') return `<li><p>${escapeHTML(item)}</p></li>`;
+    const link = validUrl(item?.link)
+        ? `<a href="${escapeAttribute(item.link)}" target="_blank" rel="noopener noreferrer" aria-label="Read source for ${escapeAttribute(item.headline || 'news item')}">Source ↗</a>`
+        : '';
+    return `<li>
+        <div class="news-item__top">${item?.category ? `<span>${escapeHTML(item.category)}</span>` : ''}${link}</div>
+        <strong>${escapeHTML(item?.headline || 'Update')}</strong>
+        ${item?.summary ? `<p>${escapeHTML(item.summary)}</p>` : ''}
+        ${item?.why ? `<small><b>Why it matters:</b> ${escapeHTML(item.why)}</small>` : ''}
+    </li>`;
 }
 
 function renderStocks(stocks = {}) {
@@ -318,9 +350,7 @@ function renderStockList(containerId, stocks = []) {
             stock.risk ? `<strong>Risk:</strong> ${escapeHTML(stock.risk)}` : ''
         ].filter(Boolean).join(' · ');
 
-        return `
-            <li class="stock-item" style="--stock-index:${index}">
-                <div class="stock-row">
+        const row = `<div class="stock-row">
                     <div class="stock-identity">
                         <span class="stock-ticker">${escapeHTML(stock.symbol || '—')}</span>
                         <span class="stock-reason" title="${escapeAttribute(stock.reason || '')}">${escapeHTML(stock.reason || 'No context available')}</span>
@@ -329,9 +359,11 @@ function renderStockList(containerId, stocks = []) {
                         <span class="stock-price">${escapeHTML(stock.price || '—')}</span>
                         ${hasChange ? `<span class="stock-change ${isUp ? 'price-up' : 'price-down'}">${isUp ? '↗' : '↘'} ${Math.abs(change).toFixed(2)}%</span>` : ''}
                     </div>
-                </div>
-                ${extra ? `<p class="stock-extra">${extra}</p>` : ''}
-            </li>`;
+                </div>`;
+
+        return extra
+            ? `<li class="stock-item" style="--stock-index:${index}"><details class="stock-details"><summary>${row}<span class="stock-expand" aria-hidden="true">+</span></summary><p class="stock-extra">${extra}</p></details></li>`
+            : `<li class="stock-item" style="--stock-index:${index}">${row}</li>`;
     }).join('');
 }
 
@@ -353,9 +385,71 @@ function renderTakeaways(takeaways) {
     byId('takeaways-explore').textContent = takeaways?.explore || 'Return to the research section and choose one idea to explore more deeply.';
 }
 
+function handlePaperChoice(event) {
+    const button = event.target.closest('[data-choose-paper]');
+    if (!button) return;
+    choosePaper(button.dataset.choosePaper);
+}
+
+function choosePaper(paperId) {
+    const card = document.querySelector(`[data-paper-id="${CSS.escape(paperId)}"]`);
+    if (!card) return;
+    const group = card.dataset.paperGroup;
+    state.selectedPapers[group] = state.selectedPapers[group] === paperId ? null : paperId;
+    savePaperSelections();
+    updatePaperSelectionUI();
+}
+
+function updatePaperSelectionUI() {
+    document.querySelectorAll('[data-paper-id]').forEach((card) => {
+        const selected = state.selectedPapers[card.dataset.paperGroup] === card.dataset.paperId;
+        card.classList.toggle('is-selected', selected);
+        const button = card.querySelector('[data-choose-paper]');
+        if (!button) return;
+        button.setAttribute('aria-pressed', String(selected));
+        button.innerHTML = selected
+            ? '<span aria-hidden="true">✓</span> Chosen for today'
+            : '<span aria-hidden="true">○</span> Choose this one';
+    });
+
+    const chosenCount = ['inside', 'outside'].filter((group) => state.selectedPapers[group]).length;
+    byId('selection-count').textContent = `${chosenCount} of 2 chosen`;
+    byId('reading-plan').classList.toggle('is-complete', chosenCount === 2);
+}
+
+function readPaperSelections(dateString) {
+    try {
+        const saved = JSON.parse(localStorage.getItem(`daily-digest-picks:${dateString}`));
+        return { inside: saved?.inside || null, outside: saved?.outside || null };
+    } catch {
+        return { inside: null, outside: null };
+    }
+}
+
+function savePaperSelections() {
+    if (!state.currentDate) return;
+    try {
+        localStorage.setItem(`daily-digest-picks:${state.currentDate}`, JSON.stringify(state.selectedPapers));
+    } catch {
+        // The reading plan still works for this session when storage is unavailable.
+    }
+}
+
+function focusDateSearch() {
+    const card = document.querySelector('.date-card');
+    const picker = byId('date-picker');
+    picker.focus();
+    try {
+        if (typeof picker.showPicker === 'function') picker.showPicker();
+    } catch {
+        // Focused native date input remains usable when programmatic picker opening is restricted.
+    }
+    card?.scrollIntoView({ behavior: state.motionPaused ? 'auto' : 'smooth', block: 'center' });
+}
+
 function showLoadingState() {
     byId('main-content').classList.add('is-refreshing');
-    byId('papers-container').innerHTML = [1, 2, 3].map(() => '<article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>').join('');
+    byId('papers-container').innerHTML = `<div class="papers-grid">${[1, 2, 3, 4].map(() => '<article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>').join('')}</div>`;
     byId('india-news-content').innerHTML = '<span class="skeleton"></span><span class="skeleton skeleton--short"></span>';
     byId('world-news-content').innerHTML = '<span class="skeleton"></span><span class="skeleton skeleton--short"></span>';
     byId('us-stocks-list').innerHTML = '<li class="stock-skeleton"><span class="skeleton"></span></li>';
@@ -390,7 +484,7 @@ function closeSearch() {
 }
 
 function renderRecentIssues() {
-    byId('search-hint').textContent = 'Search across dates, research, news, markets, and takeaways.';
+    byId('search-hint').textContent = 'Search papers, expanded notes, news, markets, and takeaways across the archive.';
     byId('search-results').innerHTML = state.availableDates.slice(0, 6).map((date, index) => searchResultTemplate({
         date,
         section: 'research',
@@ -437,16 +531,21 @@ async function runSearch() {
 async function buildSearchIndex() {
     if (state.searchIndex) return state.searchIndex;
 
-    const issues = await Promise.all(state.availableDates.map(async (date) => {
-        try {
-            return [date, await fetchDigest(date)];
-        } catch (error) {
-            console.warn(error);
-            return [date, null];
+    try {
+        const response = await fetch('./data/search-index.json', { cache: 'no-cache' });
+        if (response.ok) {
+            const compactIndex = await response.json();
+            if (Array.isArray(compactIndex)) {
+                state.searchIndex = compactIndex.map(prepareSearchEntry);
+                return state.searchIndex;
+            }
         }
-    }));
+    } catch (error) {
+        console.warn('The compact search index is unavailable; using loaded issues only.', error);
+    }
 
-    state.searchIndex = issues.flatMap(([date, data]) => createIssueSearchEntries(date, data));
+    const dateEntries = state.availableDates.flatMap((date) => createIssueSearchEntries(date, state.dataCache.get(date)));
+    state.searchIndex = dateEntries;
     return state.searchIndex;
 }
 
@@ -462,8 +561,8 @@ function createIssueSearchEntries(date, data) {
 
     if (!data) return entries.map(prepareSearchEntry);
 
-    if (data.news?.india) entries.push({ date, section: 'brief', title: 'India news', summary: plainText(data.news.india), content: data.news.india, score: 5 });
-    if (data.news?.world) entries.push({ date, section: 'brief', title: 'World news', summary: plainText(data.news.world), content: data.news.world, score: 5 });
+    if (data.news?.india) entries.push({ date, section: 'brief', title: 'India news', summary: summarizeNews(data.news.india), content: flattenValues(data.news.india), score: 5 });
+    if (data.news?.world) entries.push({ date, section: 'brief', title: 'World news', summary: summarizeNews(data.news.world), content: flattenValues(data.news.world), score: 5 });
 
     Object.entries(data.papers || {}).forEach(([kind, paper]) => {
         if (!paper) return;
@@ -503,9 +602,16 @@ function createIssueSearchEntries(date, data) {
 function prepareSearchEntry(entry) {
     return {
         ...entry,
-        summary: truncate(plainText(entry.summary), 105),
+        summary: truncate(plainText(flattenValues(entry.summary)), 105),
         searchable: normalizeSearch([entry.title, entry.summary, entry.content, dateSearchAliases(entry.date)].join(' '))
     };
+}
+
+function summarizeNews(value) {
+    if (Array.isArray(value)) {
+        return value.slice(0, 2).map((item) => typeof item === 'string' ? item : item?.headline || item?.summary).filter(Boolean).join(' · ');
+    }
+    return plainText(value);
 }
 
 function searchResultTemplate(entry, index = 0) {
@@ -633,30 +739,35 @@ function resetInteractiveSurface(surface) {
 }
 
 function surpriseMe() {
-    const cards = [...document.querySelectorAll('.paper-card:not(.loading-card)')];
-    if (!cards.length) {
+    const insideCards = [...document.querySelectorAll('[data-paper-group="inside"] .paper-card')];
+    const outsideCards = [...document.querySelectorAll('[data-paper-group="outside"] .paper-card')];
+    if (!insideCards.length || !outsideCards.length) {
         showToast('The research cards are still loading.');
         return;
     }
 
-    const nextIndex = cards.length === 1
-        ? 0
-        : (state.lastSurpriseIndex + 1 + Math.floor(Math.random() * (cards.length - 1))) % cards.length;
-    const card = cards[nextIndex];
+    const picks = [
+        insideCards[Math.floor(Math.random() * insideCards.length)],
+        outsideCards[Math.floor(Math.random() * outsideCards.length)]
+    ];
     const button = byId('surprise-button');
-    state.lastSurpriseIndex = nextIndex;
-    cards.forEach((item) => item.classList.remove('is-spotlighted'));
-    button.classList.add('is-finding');
-    button.innerHTML = '<span aria-hidden="true">✦</span> Found one!';
-    card.scrollIntoView({ behavior: state.motionPaused ? 'auto' : 'smooth', block: 'center' });
-    window.setTimeout(() => {
-        card.classList.add('is-spotlighted');
+    document.querySelectorAll('.paper-card').forEach((item) => item.classList.remove('is-spotlighted'));
+    picks.forEach((card) => {
+        state.selectedPapers[card.dataset.paperGroup] = card.dataset.paperId;
         card.querySelector('details')?.setAttribute('open', '');
+    });
+    savePaperSelections();
+    updatePaperSelectionUI();
+    button.classList.add('is-finding');
+    button.innerHTML = '<span aria-hidden="true">✦</span> Two picked!';
+    picks[0].scrollIntoView({ behavior: state.motionPaused ? 'auto' : 'smooth', block: 'center' });
+    window.setTimeout(() => {
+        picks.forEach((card) => card.classList.add('is-spotlighted'));
     }, state.motionPaused ? 0 : 450);
-    window.setTimeout(() => card.classList.remove('is-spotlighted'), 1800);
+    window.setTimeout(() => picks.forEach((card) => card.classList.remove('is-spotlighted')), 1800);
     window.setTimeout(() => {
         button.classList.remove('is-finding');
-        button.innerHTML = '<span aria-hidden="true">✦</span> Surprise me';
+        button.innerHTML = '<span aria-hidden="true">✦</span> Pick my two';
     }, 1350);
 }
 

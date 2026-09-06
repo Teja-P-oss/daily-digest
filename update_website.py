@@ -74,21 +74,21 @@ async def main():
 
     Publish the briefing using this exact high-level structure:
 
-    1. TECHNICAL PAPER OF THE DAY
-    2. AI / ML / COMPUTER SCIENCE PAPER
-    3. OUTSIDE-MY-DOMAIN PAPER
+    1. INSIDE-MY-DOMAIN PAPER — OPTION 1
+    2. INSIDE-MY-DOMAIN PAPER — OPTION 2
+    3. TWO OUTSIDE-MY-DOMAIN PAPERS
     4. INDIA — VERY BRIEF
     5. WORLD — VERY BRIEF
     6. MARKETS — VERY BRIEF
     7. TODAY'S TAKEAWAYS
 
-    The first three sections should contain the majority of the reading material.
+    The four research papers should contain the majority of the reading material. I will choose one inside-domain paper and one outside-domain paper to read, so make both options in each group genuinely distinct and worthwhile.
 
     ---
 
-    # 1. TECHNICAL PAPER OF THE DAY
+    # 1. INSIDE-MY-DOMAIN PAPER — OPTION 1
 
-    Find ONE high-quality research paper that is particularly relevant to my technical background.
+    Find ONE high-quality research paper that is particularly relevant to my technical background. This is the first of two inside-domain choices.
 
     Prefer papers published recently, especially within the last 1–2 years, unless an older paper is exceptionally important.
 
@@ -191,15 +191,15 @@ async def main():
     ### Concepts to remember
     End with a small list of concepts I should remember.
 
-    Do not merely summarize the abstract.
+    Do not merely summarize the abstract. The expanded explanation must be self-contained and detailed enough to deliver most of the paper's practical value even if I do not open the original paper. Aim for roughly 700–1,000 words of substance across the explanation fields, using concrete architecture details, experimental setup, quantitative results, limitations, and engineering implications where the paper supports them.
 
     I want to understand the paper well enough that I could discuss the main idea with another engineer.
 
     ---
 
-    # 2. AI / ML / COMPUTER SCIENCE PAPER
+    # 2. INSIDE-MY-DOMAIN PAPER — OPTION 2
 
-    Find ONE important recent paper from the broader world of:
+    Find ONE important recent paper from the broader world of the topics below. This is the second inside-domain choice and MUST be meaningfully different from option 1:
 
     - Artificial intelligence
     - Machine learning
@@ -232,15 +232,15 @@ async def main():
     - What I should learn
     - 3–5 key takeaways
 
-    Prioritize genuinely influential or technically interesting research rather than papers selected simply because they are popular online.
+    Prioritize genuinely influential or technically interesting research rather than papers selected simply because they are popular online. Give this paper the same self-contained 700–1,000 word expanded treatment as option 1, including limitations and practical engineering implications.
 
     ---
 
-    # 3. OUTSIDE-MY-DOMAIN PAPER
+    # 3. TWO OUTSIDE-MY-DOMAIN PAPERS
 
     This section is specifically for intellectual breadth.
 
-    Every day find ONE interesting research paper from a field substantially outside my normal technical domain.
+    Every day find TWO interesting research papers from fields substantially outside my normal technical domain. The two papers should come from different fields whenever possible so I can choose one genuinely new direction.
 
     Rotate among fields such as:
 
@@ -277,7 +277,7 @@ async def main():
 
     Explain it in an engaging but technically accurate manner.
 
-    Include:
+    For EACH paper include:
 
     - Paper title
     - Authors
@@ -289,17 +289,15 @@ async def main():
     - Why it is interesting
     - One surprising takeaway
 
-    The purpose is to make me intellectually broader.
+    The purpose is to make me intellectually broader. Each expanded explanation must stand on its own if I skip the original paper. Aim for roughly 600–900 words of clear, technically accurate explanation per paper, including background concepts, method, evidence, caveats, and the broader implication.
 
     ---
 
     # 4. INDIA NEWS
 
-    Keep this VERY brief.
+    Give 4–6 important items as concise bullet points.
 
-    Maximum approximately 5 important items.
-
-    Prioritize:
+    Cover GENERAL NEWS, not stock-market commentary. Maintain a varied mix across:
 
     - major government/policy developments
     - economy
@@ -310,6 +308,8 @@ async def main():
     - infrastructure
     - geopolitics involving India
     - developments that could materially affect India
+
+    Do not let business/economy items exceed half of the list. Unless a market event has major national consequences, keep it in the separate Markets section.
 
     For each:
 
@@ -323,11 +323,9 @@ async def main():
 
     # 5. WORLD NEWS
 
-    Keep this VERY brief.
+    Give 4–6 important items as concise bullet points.
 
-    Maximum approximately 5 important items.
-
-    Prioritize:
+    Cover GENERAL NEWS, not stock-market commentary. Maintain a varied mix across:
 
     - geopolitics
     - global economy
@@ -337,6 +335,8 @@ async def main():
     - science
     - major policy changes
     - major international events
+
+    Include non-market developments such as diplomacy, conflict, elections/governance, science, climate, health, society, or major technology policy. Unless a market event has broad global consequences, keep it in the separate Markets section.
 
     Again, focus on significance rather than volume.
 
@@ -468,11 +468,15 @@ async def main():
        JSON STRUCTURE:
        {{
          "news": {{
-           "india": "HTML string with bullet points or paragraphs",
-           "world": "HTML string with bullet points or paragraphs"
+           "india": [
+             {{"category": "Policy/Science/Society/Technology/Economy/etc.", "headline": "Specific headline", "summary": "2–4 sentence explanation", "why": "Why this matters", "link": "Reliable source URL"}}
+           ],
+           "world": [
+             {{"category": "Geopolitics/Science/Climate/Health/Technology/etc.", "headline": "Specific headline", "summary": "2–4 sentence explanation", "why": "Why this matters", "link": "Reliable source URL"}}
+           ]
          }},
          "papers": {{
-           "domain": {{
+           "domain1": {{
              "title": "Title",
              "authors": "Authors",
              "year": "Year",
@@ -488,30 +492,60 @@ async def main():
              "learn": ["Lesson 1", "Lesson 2", "Lesson 3"],
              "concepts": ["Concept 1", "Concept 2"]
            }},
-           "tech": {{
+           "domain2": {{
              "title": "Title",
              "authors": "Authors",
-             "date": "Date",
-             "venue": "Venue",
+             "year": "Year",
+             "venue": "Conference/Journal",
              "link": "URL",
+             "scholar": "URL or null",
+             "summary": "Concise overview",
              "problem": "Problem",
+             "difficulty": "Why difficult",
              "idea": "Key idea",
              "method": "Method",
              "results": "Results",
-             "matters": "Why it matters",
-             "learn": "What I should learn",
-             "takeaways": ["Takeaway 1", "Takeaway 2"]
+             "care": "Why it matters to me",
+             "learn": ["Lesson 1", "Lesson 2", "Lesson 3"],
+             "concepts": ["Concept 1", "Concept 2"]
            }},
-           "random": {{
+           "outside1": {{
              "title": "Title",
              "authors": "Authors",
+             "year": "Year",
+             "venue": "Conference/Journal",
              "field": "Field",
              "link": "URL",
+             "scholar": "URL or null",
+             "summary": "Concise overview",
              "question": "Question",
+             "difficulty": "Why difficult",
+             "idea": "Core idea",
              "method": "Method",
+             "results": "Results/evidence",
              "discovery": "Discovery",
              "interesting": "Why it is interesting",
-             "takeaway": "Surprising takeaway"
+             "learn": ["Lesson 1", "Lesson 2"],
+             "concepts": ["Concept 1", "Concept 2"]
+           }},
+           "outside2": {{
+             "title": "Title",
+             "authors": "Authors",
+             "year": "Year",
+             "venue": "Conference/Journal",
+             "field": "A different outside-domain field",
+             "link": "URL",
+             "scholar": "URL or null",
+             "summary": "Concise overview",
+             "question": "Question",
+             "difficulty": "Why difficult",
+             "idea": "Core idea",
+             "method": "Method",
+             "results": "Results/evidence",
+             "discovery": "Discovery",
+             "interesting": "Why it is interesting",
+             "learn": ["Lesson 1", "Lesson 2"],
+             "concepts": ["Concept 1", "Concept 2"]
            }}
          }},
          "stocks": {{
@@ -529,15 +563,16 @@ async def main():
        }}
        
     3. Next, update the {script_dir}/data/index.json file. It contains a JSON array of date strings. Prepend "{today_str}" to the array if it is not already there.
-    4. Set the publication date to the current date in IST.
-    5. After saving the files, use your run_command tool to run these git commands in {script_dir}:
+    4. Run `python3 {script_dir}/build_search_index.py` to regenerate the compact archive search index. This is required so two years of content remain searchable without the browser downloading hundreds of full daily files.
+    5. Set the publication date to the current date in IST.
+    6. After saving the files, use your run_command tool to run these git commands in {script_dir}:
        git add data/
        git commit -m "Automated AI Agent Update: Daily Digest {today_str}"
        git push
-    6. Verify the published page.
-    7. Make sure all paper/source links work.
-    8. Make sure no previous day's content was accidentally overwritten.
-    9. Ensure there is only ONE briefing for today's date.
+    7. Verify the published page.
+    8. Make sure all paper/source links work.
+    9. Make sure no previous day's content was accidentally overwritten.
+    10. Ensure there is only ONE briefing for today's date.
 
     ---
 
@@ -573,12 +608,13 @@ async def main():
     Before considering the task complete, verify:
 
     [ ] Today's date is correct in IST
-    [ ] Technical paper is relevant to my background
-    [ ] AI/CS paper is genuinely recent/important
-    [ ] Outside-domain paper is genuinely outside my normal expertise
-    [ ] Paper links work
-    [ ] News is current
+    [ ] Two distinct inside-domain papers are relevant to my background
+    [ ] Two outside-domain papers are genuinely outside my expertise and preferably from different fields
+    [ ] All four expanded paper explanations are useful even without reading the originals
+    [ ] All paper links work
+    [ ] India and world news are current, general, varied, and presented as 4–6 useful bullets each
     [ ] Stock information is current
+    [ ] Compact search index was regenerated successfully
     [ ] Website received today's briefing
     [ ] Homepage shows today's briefing
     [ ] Archive contains today's briefing
