@@ -134,7 +134,7 @@ async function loadDate(dateString, { historyMode = 'push' } = {}) {
         state.loadingDate = null;
         updateDateInterface(dateString);
         updateUrl(dateString, historyMode);
-        document.title = `${formatDate(dateString, 'short')} — Daily Digest`;
+        document.title = `${formatDate(dateString, 'short')} — Teja's daily digest`;
     } catch (error) {
         if (state.loadingDate !== dateString) return;
         state.loadingDate = dateString;
