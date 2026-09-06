@@ -1,4 +1,4 @@
-# Local-only files, including the retired API credential file
+# Local credentials and environment overrides
 .env
 .env.*
 !.env.example
