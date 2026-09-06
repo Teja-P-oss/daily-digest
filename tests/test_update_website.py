@@ -7,9 +7,6 @@ from datetime import date
 from pathlib import Path
 from unittest import mock
 
-import httpx2
-from openai import DefaultHttpxClient, OpenAI
-
 import update_website as digest_app
 
 
@@ -134,70 +131,60 @@ class PublishTests(unittest.TestCase):
         with self.assertRaises(digest_app.DigestError):
             digest_app.validate_digest(digest)
 
+    def test_prepared_json_is_validated_and_published(self) -> None:
+        edition = date(2026, 9, 5)
+        prepared = Path(self.temporary.name) / "prepared.json"
+        prepared.write_text(sample_digest().model_dump_json(), encoding="utf-8")
 
-class OpenAIRequestTests(unittest.TestCase):
-    def test_verbosity_is_nested_inside_text_config(self) -> None:
-        captured: dict = {}
-        output = sample_digest().model_dump_json()
-
-        def handler(request: httpx2.Request) -> httpx2.Response:
-            body = json.loads(request.content)
-            captured.update(body)
-            return httpx2.Response(
-                200,
-                json={
-                    "id": "resp_test",
-                    "object": "response",
-                    "created_at": 0,
-                    "completed_at": 1,
-                    "status": "completed",
-                    "error": None,
-                    "incomplete_details": None,
-                    "instructions": body.get("instructions"),
-                    "max_output_tokens": body.get("max_output_tokens"),
-                    "model": body["model"],
-                    "output": [
-                        {
-                            "id": "msg_test",
-                            "type": "message",
-                            "status": "completed",
-                            "role": "assistant",
-                            "content": [
-                                {
-                                    "type": "output_text",
-                                    "text": output,
-                                    "annotations": [],
-                                }
-                            ],
-                        }
-                    ],
-                    "parallel_tool_calls": True,
-                    "previous_response_id": None,
-                    "reasoning": body.get("reasoning"),
-                    "store": True,
-                    "temperature": 1.0,
-                    "text": body["text"],
-                    "tool_choice": "auto",
-                    "tools": body["tools"],
-                    "top_p": 1.0,
-                    "truncation": "disabled",
-                    "usage": None,
-                    "metadata": body.get("metadata", {}),
-                },
+        with mock.patch.object(digest_app, "build_search_index", self.fake_search_builder):
+            result = digest_app.main(
+                ["--date", edition.isoformat(), "--input", str(prepared)]
             )
 
-        client = OpenAI(
-            api_key="test",
-            http_client=DefaultHttpxClient(transport=httpx2.MockTransport(handler)),
-        )
-        result = digest_app.request_digest(
-            "gpt-5.6-terra", date(2026, 9, 6), 8, client=client
-        )
+        self.assertEqual(result, 0)
+        self.assertTrue((self.data_dir / "2026-09-05.json").exists())
+        self.assertEqual(json.loads(self.index_path.read_text()), ["2026-09-05"])
 
-        self.assertIsInstance(result, digest_app.Digest)
-        self.assertNotIn("verbosity", captured)
-        self.assertEqual(captured["text"]["verbosity"], "high")
-        self.assertEqual(captured["text"]["format"]["type"], "json_schema")
+    def test_existing_edition_requires_force_for_external_input(self) -> None:
+        edition = date(2026, 9, 5)
+        (self.data_dir / "2026-09-05.json").write_text(
+            sample_digest().model_dump_json(), encoding="utf-8"
+        )
+        prepared = Path(self.temporary.name) / "replacement.json"
+        prepared.write_text(sample_digest().model_dump_json(), encoding="utf-8")
+
+        with self.assertRaises(digest_app.DigestError):
+            digest_app.main(
+                ["--date", edition.isoformat(), "--input", str(prepared)]
+            )
+
+    def test_force_allows_deliberate_replacement(self) -> None:
+        edition = date(2026, 9, 5)
+        issue_path = self.data_dir / "2026-09-05.json"
+        issue_path.write_text('{"old": true}', encoding="utf-8")
+        prepared = Path(self.temporary.name) / "replacement.json"
+        prepared.write_text(sample_digest().model_dump_json(), encoding="utf-8")
+
+        with mock.patch.object(digest_app, "build_search_index", self.fake_search_builder):
+            result = digest_app.main(
+                [
+                    "--date",
+                    edition.isoformat(),
+                    "--input",
+                    str(prepared),
+                    "--force",
+                ]
+            )
+
+        self.assertEqual(result, 0)
+        self.assertIn("papers", json.loads(issue_path.read_text(encoding="utf-8")))
+
+    def test_invalid_prepared_json_has_readable_error(self) -> None:
+        prepared = Path(self.temporary.name) / "invalid.json"
+        prepared.write_text('{"news": {}}', encoding="utf-8")
+
+        with self.assertRaisesRegex(digest_app.DigestError, "Prepared digest failed validation"):
+            digest_app.load_digest(prepared)
 
 
 if __name__ == "__main__":

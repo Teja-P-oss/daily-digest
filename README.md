@@ -2,44 +2,42 @@
 
 A static, searchable daily research and general-news briefing deployed through Vercel.
 
-## Run from this Mac
+## Generate with your ChatGPT subscription
 
-Create an OpenAI API key and either export it as `OPENAI_API_KEY` or add this line to the
-Git-ignored `local_secrets.sh` file:
+Open this repository in the Codex desktop app while signed in with ChatGPT, then ask:
 
-```bash
-export OPENAI_API_KEY='your-key-here'
+```text
+Generate and publish Teja's Daily Digest for today. Follow DIGEST_BRIEF.md.
 ```
 
-Then run:
+Codex researches the edition, prepares the structured JSON, validates it, updates the search archive,
+commits the data, and pushes it to GitHub. Vercel deploys the resulting commit. This path uses the
+ChatGPT subscription attached to Codex; the repository does not call the OpenAI API and needs no API
+key.
 
-```bash
-bash run.sh
+For a historical edition, include the date:
+
+```text
+Generate and publish Teja's Daily Digest for 2026-08-15. Follow DIGEST_BRIEF.md.
 ```
 
-If today's edition already exists, the command safely keeps it. To deliberately research and
-replace the same date:
+If an edition already exists, it is preserved unless you explicitly ask Codex to replace or refresh
+that date.
+
+## Publish a prepared JSON file manually
+
+The helper remains available for validation and publishing without any AI or API credentials:
 
 ```bash
-bash run.sh --force
+bash run.sh --date 2026-09-06 --input /absolute/path/to/prepared-digest.json
 ```
 
-Generate a missing historical date with:
+Replacing an existing date requires an explicit flag:
 
 ```bash
-bash run.sh --date 2026-08-15
+bash run.sh --date 2026-09-06 --input /absolute/path/to/prepared-digest.json --force
 ```
 
-The runner validates the generated JSON, updates the archive and compact search index, commits the
-data, and pushes it. Vercel deploys the GitHub commit.
-
-## Run from an iPhone while the Mac is off
-
-1. In GitHub, open **Settings → Secrets and variables → Actions**.
-2. Create a repository secret named `OPENAI_API_KEY`.
-3. Open **Actions → Generate Daily Digest → Run workflow**.
-4. Leave the date blank for today's India-time edition, or enter a historical date.
-5. Enable **Replace the edition** only when intentionally refreshing an existing date.
-
-The workflow also runs daily at 7:00 PM India Standard Time. Concurrent runs are serialized, and
-repeat runs are no-ops unless regeneration is explicitly requested.
+The publisher validates the content before touching the archive. If validation or search-index
+generation fails, the existing files are restored. Because GitHub Actions has been removed, the Mac
+and Codex task must be running when an edition is generated.
