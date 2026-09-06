@@ -2,8 +2,8 @@
 .env
 .env.*
 !.env.example
+local_secrets.sh
 
 # Python-generated files
 __pycache__/
 *.py[cod]
-

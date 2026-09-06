@@ -8,6 +8,14 @@ echo "Starting Daily Digest Automation..."
 # Get the directory of this script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
+# Load credentials stored only on this Mac. This file is ignored by Git and is
+# optional so cloud runs can continue to use environment-based repository secrets.
+LOCAL_SECRETS_FILE="$SCRIPT_DIR/local_secrets.sh"
+if [[ -f "$LOCAL_SECRETS_FILE" ]]; then
+    # shellcheck source=/dev/null
+    source "$LOCAL_SECRETS_FILE"
+fi
+
 # Check if Python is installed
 if ! command -v python3 &> /dev/null; then
     echo "python3 could not be found. Please install Python 3.10 or newer."
