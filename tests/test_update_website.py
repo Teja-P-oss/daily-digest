@@ -7,6 +7,9 @@ from datetime import date
 from pathlib import Path
 from unittest import mock
 
+import httpx2
+from openai import DefaultHttpxClient, OpenAI
+
 import update_website as digest_app
 
 
@@ -130,6 +133,71 @@ class PublishTests(unittest.TestCase):
         digest.papers.domain2.title = digest.papers.domain1.title
         with self.assertRaises(digest_app.DigestError):
             digest_app.validate_digest(digest)
+
+
+class OpenAIRequestTests(unittest.TestCase):
+    def test_verbosity_is_nested_inside_text_config(self) -> None:
+        captured: dict = {}
+        output = sample_digest().model_dump_json()
+
+        def handler(request: httpx2.Request) -> httpx2.Response:
+            body = json.loads(request.content)
+            captured.update(body)
+            return httpx2.Response(
+                200,
+                json={
+                    "id": "resp_test",
+                    "object": "response",
+                    "created_at": 0,
+                    "completed_at": 1,
+                    "status": "completed",
+                    "error": None,
+                    "incomplete_details": None,
+                    "instructions": body.get("instructions"),
+                    "max_output_tokens": body.get("max_output_tokens"),
+                    "model": body["model"],
+                    "output": [
+                        {
+                            "id": "msg_test",
+                            "type": "message",
+                            "status": "completed",
+                            "role": "assistant",
+                            "content": [
+                                {
+                                    "type": "output_text",
+                                    "text": output,
+                                    "annotations": [],
+                                }
+                            ],
+                        }
+                    ],
+                    "parallel_tool_calls": True,
+                    "previous_response_id": None,
+                    "reasoning": body.get("reasoning"),
+                    "store": True,
+                    "temperature": 1.0,
+                    "text": body["text"],
+                    "tool_choice": "auto",
+                    "tools": body["tools"],
+                    "top_p": 1.0,
+                    "truncation": "disabled",
+                    "usage": None,
+                    "metadata": body.get("metadata", {}),
+                },
+            )
+
+        client = OpenAI(
+            api_key="test",
+            http_client=DefaultHttpxClient(transport=httpx2.MockTransport(handler)),
+        )
+        result = digest_app.request_digest(
+            "gpt-5.6-terra", date(2026, 9, 6), 8, client=client
+        )
+
+        self.assertIsInstance(result, digest_app.Digest)
+        self.assertNotIn("verbosity", captured)
+        self.assertEqual(captured["text"]["verbosity"], "high")
+        self.assertEqual(captured["text"]["format"]["type"], "json_schema")
 
 
 if __name__ == "__main__":

@@ -224,8 +224,13 @@ def validate_digest(digest: Digest) -> None:
             raise DigestError(f"{label} market list contains duplicate symbols.")
 
 
-def request_digest(model: str, report_date: date, max_tool_calls: int) -> Digest:
-    client = OpenAI(max_retries=5, timeout=1200.0)
+def request_digest(
+    model: str,
+    report_date: date,
+    max_tool_calls: int,
+    client: OpenAI | None = None,
+) -> Digest:
+    client = client or OpenAI(max_retries=5, timeout=1200.0)
     print(f"Researching {report_date.isoformat()} with {model}...")
     response = client.responses.parse(
         model=model,
@@ -252,7 +257,7 @@ def request_digest(model: str, report_date: date, max_tool_calls: int) -> Digest
         max_output_tokens=30000,
         reasoning={"effort": "medium"},
         text_format=Digest,
-        verbosity="high",
+        text={"verbosity": "high"},
         background=True,
         store=True,
         metadata={"edition_date": report_date.isoformat(), "application": "tejas-daily-digest"},
