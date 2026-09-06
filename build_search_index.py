@@ -47,12 +47,25 @@ def news_summary(value: Any) -> str:
 
 
 def issue_entries(date: str, data: dict[str, Any]) -> list[dict[str, Any]]:
+    is_advance = (data.get("edition") or {}).get("kind") == "advance"
     entries: list[dict[str, Any]] = [
-        {"date": date, "section": "research", "title": date, "summary": "Digest archive", "content": date, "score": 10}
+        {
+            "date": date,
+            "section": "research",
+            "title": date,
+            "summary": "Prepared-ahead vacation issue" if is_advance else "Digest archive",
+            "content": compact_terms([date, data.get("edition")], 40),
+            "score": 10,
+        }
     ]
 
     news = data.get("news") or {}
-    for region, label in (("india", "India news"), ("world", "World news")):
+    news_labels = (
+        (("india", "India knowledge"), ("world", "World knowledge"))
+        if is_advance
+        else (("india", "India news"), ("world", "World news"))
+    )
+    for region, label in news_labels:
         if news.get(region):
             entries.append({
                 "date": date,
@@ -76,7 +89,12 @@ def issue_entries(date: str, data: dict[str, Any]) -> list[dict[str, Any]]:
         })
 
     stocks = data.get("stocks") or {}
-    for market, label in (("us", "US market"), ("india", "India market")):
+    market_labels = (
+        (("us", "US company study"), ("india", "India company study"))
+        if is_advance
+        else (("us", "US market"), ("india", "India market"))
+    )
+    for market, label in market_labels:
         for stock in stocks.get(market) or []:
             if not isinstance(stock, dict):
                 continue
@@ -93,7 +111,7 @@ def issue_entries(date: str, data: dict[str, Any]) -> list[dict[str, Any]]:
         entries.append({
             "date": date,
             "section": "takeaways",
-            "title": "Today's takeaways",
+            "title": "Issue takeaways",
             "summary": excerpt(data["takeaways"].get("explore") or data["takeaways"].get("remember"), 180),
             "content": compact_terms(data["takeaways"], 140),
             "score": 4,

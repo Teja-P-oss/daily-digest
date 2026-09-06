@@ -7,6 +7,10 @@ on:
         description: "Optional historical date (YYYY-MM-DD); blank means today in India"
         required: false
         type: string
+      days:
+        description: "Vacation mode: next N future days (1-30); leave date blank"
+        required: false
+        type: string
       regenerate:
         description: "Replace the edition if this date already exists"
         required: false
@@ -23,10 +27,11 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 360
     env:
       OPENAI_MODEL: gpt-5.6-terra
       RUN_DATE: ${{ inputs.date }}
+      RUN_DAYS: ${{ inputs.days }}
       REGENERATE: ${{ inputs.regenerate }}
 
     steps:
@@ -61,6 +66,9 @@ jobs:
           args=()
           if [[ -n "$RUN_DATE" ]]; then
             args+=(--date "$RUN_DATE")
+          fi
+          if [[ -n "$RUN_DAYS" ]]; then
+            args+=(--days "$RUN_DAYS")
           fi
           if [[ "$REGENERATE" == "true" ]]; then
             args+=(--force)

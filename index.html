@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css?v=4">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to the digest</a>
@@ -115,8 +115,8 @@
 
         <div class="reading-strip" aria-label="Digest overview">
             <div><strong id="research-count">4</strong><span>research papers</span></div>
-            <div><strong id="news-count">2</strong><span>news regions</span></div>
-            <div><strong id="market-count">10</strong><span>market ideas</span></div>
+            <div><strong id="news-count">2</strong><span id="news-count-label">news regions</span></div>
+            <div><strong id="market-count">10</strong><span id="market-count-label">market ideas</span></div>
             <div class="reading-strip__time reading-plan" id="reading-plan">
                 <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
                 <span><strong id="selection-count">0 of 2 chosen</strong> your reading plan</span>
@@ -128,8 +128,8 @@
         <div class="shell section-nav__inner">
             <span>In this issue</span>
             <a href="#research" data-section="research">Research</a>
-            <a href="#brief" data-section="brief">News brief</a>
-            <a href="#markets" data-section="markets">Markets</a>
+            <a href="#brief" data-section="brief" id="brief-nav-link">News brief</a>
+            <a href="#markets" data-section="markets" id="markets-nav-link">Markets</a>
             <a href="#takeaways" data-section="takeaways" id="takeaways-nav-link">Takeaways</a>
             <span class="section-nav__progress"><i id="reading-progress"></i></span>
         </div>
@@ -142,11 +142,16 @@
             <button id="error-retry" type="button">Try again</button>
         </div>
 
+        <div class="advance-notice" id="advance-notice" role="note" hidden>
+            <span aria-hidden="true">✦</span>
+            <div><strong>Prepared ahead for your time away</strong><p id="advance-note"></p></div>
+        </div>
+
         <section class="content-section" id="research" aria-labelledby="research-title">
             <div class="section-heading">
                 <div>
                     <span class="section-kicker">Deep dive</span>
-                    <h2 id="research-title">Pick today’s two papers</h2>
+                    <h2 id="research-title">Pick this issue’s two papers</h2>
                 </div>
                 <p>Choose one paper inside your domain and one outside it. The expanded notes are designed to stand alone if you skip the full paper.</p>
             </div>
@@ -164,7 +169,7 @@
                     <span class="section-kicker">Quick scan</span>
                     <h2 id="brief-title">The morning brief</h2>
                 </div>
-                <p>General news across policy, society, science, technology, climate, geopolitics, and the economy—not another markets recap.</p>
+                <p id="brief-description">General news across policy, society, science, technology, climate, geopolitics, and the economy—not another markets recap.</p>
             </div>
             <div class="news-grid">
                 <article class="news-card news-card--india interactive-surface" data-tilt>
@@ -184,16 +189,16 @@
                     <span class="section-kicker">Watchlist</span>
                     <h2 id="markets-title">Market pulse</h2>
                 </div>
-                <p>A compact watchlist. Open a row only when you want the thesis and risk.</p>
+                <p id="markets-description">A compact watchlist. Open a row only when you want the thesis and risk.</p>
             </div>
             <div class="markets-card">
                 <section class="market-column" aria-labelledby="us-market-title">
-                    <div class="market-column__heading"><span>US</span><div><h3 id="us-market-title">Wall Street</h3><small>Top five to research</small></div></div>
+                    <div class="market-column__heading"><span>US</span><div><h3 id="us-market-title">Wall Street</h3><small id="us-market-subtitle">Companies to research</small></div></div>
                     <ul class="stock-list" id="us-stocks-list"><li class="stock-skeleton"><span class="skeleton"></span></li></ul>
                 </section>
                 <div class="market-divider" aria-hidden="true"></div>
                 <section class="market-column" aria-labelledby="india-market-title">
-                    <div class="market-column__heading"><span>IN</span><div><h3 id="india-market-title">Dalal Street</h3><small>Top five to research</small></div></div>
+                    <div class="market-column__heading"><span>IN</span><div><h3 id="india-market-title">Dalal Street</h3><small id="india-market-subtitle">Companies to research</small></div></div>
                     <ul class="stock-list" id="in-stocks-list"><li class="stock-skeleton"><span class="skeleton"></span></li></ul>
                 </section>
             </div>
@@ -202,7 +207,7 @@
         <section class="content-section takeaways-section" id="takeaways" aria-labelledby="takeaways-title">
             <div class="takeaway-heading">
                 <span class="takeaway-heading__icon" aria-hidden="true">✦</span>
-                <div><span class="section-kicker">Pack it with you</span><h2 id="takeaways-title">Today's takeaways</h2></div>
+                <div><span class="section-kicker">Pack it with you</span><h2 id="takeaways-title">This issue’s takeaways</h2></div>
             </div>
             <div class="takeaways-layout">
                 <div>
@@ -232,6 +237,6 @@
         <span aria-hidden="true">↑</span>
     </button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js?v=4"></script>
 </body>
 </html>

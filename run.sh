@@ -1,18 +1,22 @@
 #!/bin/bash
-# Generate and publish an edition through Codex CLI and the user's ChatGPT login.
+# Generate and publish Daily Digest editions through Codex and the user's ChatGPT login.
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 APP_CODEX="/Applications/ChatGPT.app/Contents/Resources/codex"
 TARGET_DATE=""
+DAYS=""
 REPLACE=false
 CHECK_ONLY=false
+MAX_ADVANCE_DAYS=30
 
 usage() {
-    echo "Usage: bash run.sh [--date YYYY-MM-DD] [--force] [--check]"
-    echo "  --date   Generate a specific date; default is today in Asia/Kolkata."
-    echo "  --force  Deliberately replace an existing edition."
+    echo "Usage: bash run.sh [NUMBER_OF_DAYS | --days N] [--date YYYY-MM-DD] [--force] [--check]"
+    echo "  N        Prepare tomorrow through the next N future calendar days (maximum 30)."
+    echo "  --days   Named form of the same vacation-mode argument."
+    echo "  --date   Generate today or a historical date; default is today in Asia/Kolkata."
+    echo "  --force  Deliberately replace editions that already exist."
     echo "  --check  Verify the local Codex installation and ChatGPT login only."
 }
 
@@ -24,6 +28,14 @@ while [[ $# -gt 0 ]]; do
                 exit 2
             fi
             TARGET_DATE="$2"
+            shift 2
+            ;;
+        --days)
+            if [[ $# -lt 2 ]]; then
+                echo "--days requires a number." >&2
+                exit 2
+            fi
+            DAYS="$2"
             shift 2
             ;;
         --force)
@@ -38,6 +50,14 @@ while [[ $# -gt 0 ]]; do
             usage
             exit 0
             ;;
+        [0-9]*)
+            if [[ -n "$DAYS" ]]; then
+                echo "Provide the number of future days only once." >&2
+                exit 2
+            fi
+            DAYS="$1"
+            shift
+            ;;
         *)
             echo "Unknown option: $1" >&2
             usage >&2
@@ -46,10 +66,26 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+if [[ -n "$TARGET_DATE" && -n "$DAYS" ]]; then
+    echo "Use either --date or a number of future days, not both." >&2
+    exit 2
+fi
+
 if [[ -n "$TARGET_DATE" && ! "$TARGET_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
     echo "Date must use YYYY-MM-DD format." >&2
     exit 2
 fi
+
+if [[ -n "$DAYS" ]]; then
+    if [[ ! "$DAYS" =~ ^[0-9]+$ ]] || (( 10#$DAYS < 1 || 10#$DAYS > MAX_ADVANCE_DAYS )); then
+        echo "Number of future days must be between 1 and $MAX_ADVANCE_DAYS." >&2
+        exit 2
+    fi
+    DAYS="$((10#$DAYS))"
+fi
+
+TARGET_DATES=()
+ADVANCE_FLAGS=()
 
 if [[ "$CHECK_ONLY" != "true" ]]; then
     if ! command -v python3 &> /dev/null; then
@@ -57,31 +93,55 @@ if [[ "$CHECK_ONLY" != "true" ]]; then
         exit 1
     fi
 
-    if [[ -z "$TARGET_DATE" ]]; then
-        TARGET_DATE="$(TZ=Asia/Kolkata date +%F)"
-    fi
+    if [[ -n "$DAYS" ]]; then
+        TARGET_OUTPUT="$(python3 - "$DAYS" <<'PY'
+import sys
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
-    if ! python3 - "$TARGET_DATE" <<'PY'
+today = datetime.now(ZoneInfo("Asia/Kolkata")).date()
+for offset in range(1, int(sys.argv[1]) + 1):
+    print(f"{today + timedelta(days=offset)}|true")
+PY
+)"
+    else
+        TARGET_OUTPUT="$(python3 - "$TARGET_DATE" <<'PY'
 import sys
 from datetime import date, datetime
 from zoneinfo import ZoneInfo
 
+today = datetime.now(ZoneInfo("Asia/Kolkata")).date()
 try:
-    requested = date.fromisoformat(sys.argv[1])
+    requested = date.fromisoformat(sys.argv[1]) if sys.argv[1] else today
 except ValueError:
-    raise SystemExit(1)
+    print("Date must be a real date in YYYY-MM-DD format.", file=sys.stderr)
+    raise SystemExit(2)
 
-if requested > datetime.now(ZoneInfo("Asia/Kolkata")).date():
-    raise SystemExit(1)
+if requested > today:
+    print("Use a number of days, such as 'bash run.sh 7', to prepare future editions.", file=sys.stderr)
+    raise SystemExit(2)
+print(f"{requested}|false")
 PY
-    then
-        echo "Date must be a real, non-future date in YYYY-MM-DD format." >&2
-        exit 2
+)" || exit $?
     fi
 
-    if [[ -f "$SCRIPT_DIR/data/$TARGET_DATE.json" && "$REPLACE" != "true" ]]; then
-        echo "Digest for $TARGET_DATE already exists; nothing was changed."
-        echo "Use --force only if you deliberately want to replace it."
+    while IFS='|' read -r date_value advance_value; do
+        [[ -z "$date_value" ]] && continue
+        TARGET_DATES+=("$date_value")
+        ADVANCE_FLAGS+=("$advance_value")
+    done <<< "$TARGET_OUTPUT"
+
+    pending_count=0
+    for date_value in "${TARGET_DATES[@]}"; do
+        if [[ -f "$SCRIPT_DIR/data/$date_value.json" && "$REPLACE" != "true" ]]; then
+            echo "Digest for $date_value already exists; skipping it."
+        else
+            pending_count=$((pending_count + 1))
+        fi
+    done
+
+    if (( pending_count == 0 )); then
+        echo "Nothing to generate. Use --force only if you deliberately want to replace these editions."
         exit 0
     fi
 fi
@@ -110,15 +170,32 @@ if [[ "$CHECK_ONLY" == "true" ]]; then
     exit 0
 fi
 
-DATE_INSTRUCTION="Generate the edition for $TARGET_DATE."
+generated_count=0
+for index in "${!TARGET_DATES[@]}"; do
+    date_value="${TARGET_DATES[$index]}"
+    advance_value="${ADVANCE_FLAGS[$index]}"
 
-if [[ "$REPLACE" == "true" ]]; then
-    REPLACE_INSTRUCTION="The user explicitly requested replacement, so pass --force to publish.sh."
-else
-    REPLACE_INSTRUCTION="Do not replace an existing edition. If one exists, keep it and report that no generation was needed."
-fi
+    if [[ -f "$SCRIPT_DIR/data/$date_value.json" && "$REPLACE" != "true" ]]; then
+        continue
+    fi
 
-PROMPT="You are running the Teja's Daily Digest desktop publishing task. Read AGENTS.md and DIGEST_BRIEF.md before acting. $DATE_INSTRUCTION Use live web search and verify every time-sensitive claim and source URL. Prepare the complete digest JSON in a temporary file outside data/. Do not change application code. Do not call run.sh recursively. Publish only through bash publish.sh with the correct --date and --input arguments. $REPLACE_INSTRUCTION Complete the task only after validation, commit, and push succeed; otherwise preserve the existing archive and explain the failure."
+    if [[ "$REPLACE" == "true" ]]; then
+        replace_instruction="The user explicitly requested replacement, so pass --force to publish.sh."
+    else
+        replace_instruction="Do not replace an existing edition. If one appears before publishing, keep it and report the safe conflict."
+    fi
 
-echo "Launching Codex through your ChatGPT subscription..."
-exec "$CODEX_BIN" --search exec --approve-for-me -C "$SCRIPT_DIR" "$PROMPT"
+    if [[ "$advance_value" == "true" ]]; then
+        mode_instruction="This is an advance vacation edition for a future date. Follow every advance rule in DIGEST_BRIEF.md. Future news and prices are unknowable: use sourced evergreen India/world knowledge, set stock prices to 'Not available — advance edition', set changes to null, and pass --advance to publish.sh."
+    else
+        mode_instruction="This is a current or historical edition. Use real general news and verified market data appropriate to the date. Do not pass --advance to publish.sh."
+    fi
+
+    prompt="You are running the Teja's Daily Digest desktop publishing task. Read AGENTS.md and DIGEST_BRIEF.md before acting. Generate the edition for $date_value. $mode_instruction Use live web search and verify every factual claim and source URL. Check existing archive paper titles and avoid repetition. Prepare the complete digest JSON in a temporary file outside data/. Do not change application code. Do not call run.sh recursively. Publish only through bash publish.sh with the correct --date and --input arguments. $replace_instruction Complete the task only after validation, commit, and push succeed; otherwise preserve the existing archive and explain the failure."
+
+    echo "Launching Codex for $date_value through your ChatGPT subscription..."
+    "$CODEX_BIN" --search exec --approve-for-me -C "$SCRIPT_DIR" "$prompt"
+    generated_count=$((generated_count + 1))
+done
+
+echo "Completed $generated_count digest generation task(s)."

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from unittest import mock
 
@@ -82,6 +82,20 @@ def sample_digest() -> digest_app.Digest:
             explore=paragraph("Explore the relationship between the strongest ideas", 180),
         ),
     )
+
+
+def advance_digest() -> digest_app.Digest:
+    digest = sample_digest()
+    digest.edition = digest_app.Edition(
+        kind="advance",
+        generated_on=digest_app.today_in_ist(),
+        note="Prepared before travel; live news and future market prices were intentionally unavailable.",
+    )
+    for stock in [*digest.stocks.us, *digest.stocks.india]:
+        stock.price = "Not available — advance edition"
+        stock.change = None
+        stock.reason = "Advance company study focused on the business model rather than unknowable future prices."
+    return digest
 
 
 class PublishTests(unittest.TestCase):
@@ -190,8 +204,68 @@ class PublishTests(unittest.TestCase):
         with self.assertRaisesRegex(digest_app.DigestError, "Prepared digest failed validation"):
             digest_app.load_digest(prepared)
 
+    def test_future_date_requires_advance_metadata(self) -> None:
+        future = digest_app.today_in_ist() + timedelta(days=1)
+        with self.assertRaisesRegex(digest_app.DigestError, "advance-edition metadata"):
+            digest_app.validate_digest(sample_digest(), future)
+
+    def test_advance_edition_rejects_invented_market_change(self) -> None:
+        future = digest_app.today_in_ist() + timedelta(days=1)
+        digest = advance_digest()
+        digest.stocks.us[0].change = 1.5
+        with self.assertRaisesRegex(digest_app.DigestError, "must not invent"):
+            digest_app.validate_digest(digest, future)
+
+    def test_advance_metadata_cannot_replace_a_current_issue(self) -> None:
+        with self.assertRaisesRegex(digest_app.DigestError, "current-edition metadata"):
+            digest_app.validate_digest(advance_digest(), digest_app.today_in_ist())
+
+    def test_valid_advance_edition_can_be_published(self) -> None:
+        future = digest_app.today_in_ist() + timedelta(days=1)
+        digest = advance_digest()
+        with mock.patch.object(digest_app, "build_search_index", self.fake_search_builder):
+            issue_path = digest_app.publish_digest(digest, future)
+
+        payload = json.loads(issue_path.read_text(encoding="utf-8"))
+        self.assertEqual(payload["edition"]["kind"], "advance")
+        self.assertIsNone(payload["stocks"]["us"][0]["change"])
+
 
 class OpenAIRequestTests(unittest.TestCase):
+    def test_days_generate_tomorrow_through_requested_horizon(self) -> None:
+        today = digest_app.today_in_ist()
+        self.assertEqual(
+            api_generator.generation_targets(None, 3),
+            [today + timedelta(days=1), today + timedelta(days=2), today + timedelta(days=3)],
+        )
+
+    def test_future_date_requires_days_mode(self) -> None:
+        future = digest_app.today_in_ist() + timedelta(days=1)
+        with self.assertRaisesRegex(digest_app.DigestError, "--days"):
+            api_generator.generation_targets(future, None)
+
+    def test_days_mode_marks_every_api_request_as_advance(self) -> None:
+        today = digest_app.today_in_ist()
+        with tempfile.TemporaryDirectory() as temporary:
+            data_dir = Path(temporary)
+            with (
+                mock.patch.object(api_generator, "DATA_DIR", data_dir),
+                mock.patch.dict("os.environ", {"OPENAI_API_KEY": "test"}),
+                mock.patch.object(
+                    api_generator,
+                    "request_digest",
+                    side_effect=lambda model, report_date, max_tool_calls, advance: advance_digest(),
+                ) as request,
+                mock.patch.object(api_generator, "publish_digest", return_value=data_dir / "issue.json") as publish,
+            ):
+                result = api_generator.main(["--days", "2"])
+
+        self.assertEqual(result, 0)
+        self.assertEqual(request.call_count, 2)
+        self.assertEqual(publish.call_count, 2)
+        self.assertEqual(request.call_args_list[0].args[1], today + timedelta(days=1))
+        self.assertTrue(request.call_args_list[0].kwargs["advance"])
+
     def test_verbosity_is_nested_inside_text_config(self) -> None:
         captured: dict = {}
         output = sample_digest().model_dump_json()

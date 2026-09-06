@@ -5,6 +5,9 @@ in Asia/Kolkata time. If the target is today, prioritize developments from the p
 it is historical, describe what was known on that date and never present later outcomes as though they
 were already known.
 
+Every issue declares an `edition.kind`. Use `current` for today or a historical date. Use `advance`
+only when the target date is still in the future and the issue is being prepared before travel.
+
 ## Editorial standard
 
 Act as a meticulous research editor. Search the live web before making factual claims. Treat every
@@ -46,12 +49,24 @@ core contribution even when he skips the original paper.
 - Avoid celebrity trivia, outrage bait, duplicate stories, and low-signal incremental updates.
 - Each item needs a factual headline, compact explanation, why it matters, category, and direct source.
 
+For an `advance` edition, future news does not exist. Replace both news feeds with sourced evergreen
+learning briefs: India-specific institutions, history, geography, public systems, science, culture, or
+infrastructure in `india`, and durable global science, history, geopolitics, health, environment, or
+technology knowledge in `world`. Use labels such as `India knowledge`, `Science primer`, or
+`World context`. Do not predict headlines, present scheduled events as completed, or reuse the same
+facts across adjacent advance editions.
+
 ### Market watchlist
 
 - Keep this deliberately compact: 3–4 US stocks and 3–4 Indian stocks.
 - Use prices and daily percentage changes valid for the target date. On a weekend or market holiday,
   use the latest completed session and say so in `reason`.
 - These are observations, not buy recommendations. Include a concise thesis and a material risk.
+
+For an `advance` edition, turn this into a company-learning watchlist. Choose durable businesses worth
+understanding, explain the business model or strategic question in `reason`, and retain a concise thesis
+and risk. Because future prices and returns are unknowable, set every `price` to
+`Not available — advance edition` and every `change` to JSON `null`. Never estimate them.
 
 ### Takeaways
 
@@ -66,6 +81,11 @@ Indian prices and US dollar formatting for US prices. The object must have exact
 
 ```json
 {
+  "edition": {
+    "kind": "current",
+    "generated_on": "YYYY-MM-DD",
+    "note": "Current edition, or a clear notice that this issue was prepared in advance."
+  },
   "news": {
     "india": [
       {
@@ -126,3 +146,8 @@ news objects, all four paper keys with the complete paper object, and both stock
 stock objects. Populate every placeholder and do not add extra keys. Before publishing, verify that
 the four paper titles and canonical links are unique, the two outside fields differ, each news region
 uses at least three categories, and stock symbols are unique within their market.
+
+For an advance issue, change `edition.kind` to `advance`, set `generated_on` to the real generation
+date, make `note` explicitly say that live news and market prices were unavailable when prepared, and
+use the `null`/unavailable market values specified above. Research papers and evergreen facts must
+still be real, fully sourced, and known by `generated_on`.

@@ -10,7 +10,7 @@ import re
 import sys
 from datetime import date, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
@@ -83,7 +83,7 @@ class Papers(StrictModel):
 class Stock(StrictModel):
     symbol: str = Field(min_length=1, max_length=30)
     price: str = Field(min_length=1, max_length=40)
-    change: float = Field(ge=-100, le=100)
+    change: float | None = Field(default=None, ge=-100, le=100)
     reason: str = Field(min_length=20, max_length=220)
     thesis: str = Field(min_length=30, max_length=350)
     risk: str = Field(min_length=20, max_length=300)
@@ -99,7 +99,14 @@ class Takeaways(StrictModel):
     explore: str = Field(min_length=120, max_length=1200)
 
 
+class Edition(StrictModel):
+    kind: Literal["current", "advance"]
+    generated_on: date
+    note: str = Field(min_length=30, max_length=300)
+
+
 class Digest(StrictModel):
+    edition: Edition | None = None
     news: News
     papers: Papers
     stocks: Stocks
@@ -117,8 +124,6 @@ def parse_date(value: str) -> date:
         parsed = date.fromisoformat(value)
     except ValueError as error:
         raise argparse.ArgumentTypeError(str(error)) from error
-    if parsed > datetime.now(IST).date():
-        raise argparse.ArgumentTypeError("future dates cannot be generated")
     return parsed
 
 
@@ -126,7 +131,7 @@ def today_in_ist() -> date:
     return datetime.now(IST).date()
 
 
-def validate_digest(digest: Digest) -> None:
+def validate_digest(digest: Digest, report_date: date | None = None) -> None:
     papers = [
         digest.papers.domain1,
         digest.papers.domain2,
@@ -155,6 +160,25 @@ def validate_digest(digest: Digest) -> None:
     for label, items in (("US", digest.stocks.us), ("India", digest.stocks.india)):
         if len({item.symbol.casefold() for item in items}) != len(items):
             raise DigestError(f"{label} market list contains duplicate symbols.")
+
+    if digest.edition and digest.edition.generated_on > today_in_ist():
+        raise DigestError("Edition metadata cannot claim a future generation date.")
+
+    if report_date and report_date > today_in_ist():
+        if not digest.edition or digest.edition.kind != "advance":
+            raise DigestError("Future dates require advance-edition metadata.")
+        if digest.edition.generated_on >= report_date:
+            raise DigestError("An advance edition must be generated before its target date.")
+        for stock in [*digest.stocks.us, *digest.stocks.india]:
+            if stock.change is not None:
+                raise DigestError("Advance editions must not invent stock-price changes.")
+            if stock.price.casefold() not in {"n/a", "not available", "not available — advance edition"}:
+                raise DigestError("Advance editions must mark stock prices as unavailable.")
+    elif report_date:
+        if digest.edition and digest.edition.kind != "current":
+            raise DigestError("Today and historical dates require current-edition metadata.")
+        if any(stock.change is None for stock in [*digest.stocks.us, *digest.stocks.india]):
+            raise DigestError("Current and historical editions require verified stock-price changes.")
 
 
 def load_digest(path: Path) -> Digest:
@@ -210,6 +234,7 @@ def restore_files(snapshots: dict[Path, bytes | None]) -> None:
 
 
 def publish_digest(digest: Digest, report_date: date) -> Path:
+    validate_digest(digest, report_date)
     issue_path = DATA_DIR / f"{report_date.isoformat()}.json"
     search_path = DATA_DIR / "search-index.json"
     paths = (issue_path, INDEX_PATH, search_path)
@@ -274,11 +299,20 @@ def build_parser() -> argparse.ArgumentParser:
         help="prepared JSON file; defaults to data/YYYY-MM-DD.json",
     )
     parser.add_argument("--force", action="store_true", help="replace an existing edition with --input")
+    parser.add_argument(
+        "--advance",
+        action="store_true",
+        help="allow a prepared-ahead edition for a future date",
+    )
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.date > today_in_ist() and not args.advance:
+        raise DigestError("Future dates require --advance; use run.sh --days N to prepare vacation issues.")
+    if args.advance and args.date <= today_in_ist():
+        raise DigestError("--advance is only valid for a future date.")
     issue_path = DATA_DIR / f"{args.date.isoformat()}.json"
     source_path = args.input or issue_path
 
@@ -299,7 +333,8 @@ def main(argv: list[str] | None = None) -> int:
 
     digest = load_digest(source_path)
     published = publish_digest(digest, args.date)
-    print(f"Validated and published {published} with four papers and general news.")
+    content_label = "advance learning briefs" if digest.edition and digest.edition.kind == "advance" else "general news"
+    print(f"Validated and published {published} with four papers and {content_label}.")
     return 0
 
 

@@ -27,11 +27,35 @@ bash run.sh --date 2026-08-15
 
 # Deliberately refresh an existing edition
 bash run.sh --date 2026-08-15 --force
+
+# Vacation mode: prepare tomorrow and the following six days
+bash run.sh 7
+
+# The equivalent named argument
+bash run.sh --days 7
 ```
 
 If Codex is not signed in, run `codex login` and choose ChatGPT. The script also recognizes the Codex
 binary bundled with the ChatGPT desktop app when a separate command-line installation is unavailable.
 The Mac must remain awake while this option runs.
+
+Vacation mode accepts 1–30 days and generates each future calendar date separately. Advance editions
+never pretend to know future headlines or prices: they contain sourced evergreen India/world learning,
+a company-study watchlist with unavailable price fields, and the normal four research papers. The
+website labels these issues **Prepared ahead** and keeps the homepage on the current issue rather than
+jumping to the furthest future date.
+
+Each day is a full, separately researched generation, so a long vacation batch can take substantial
+time and consume corresponding Codex or API usage. The script publishes days one at a time; if a later
+day fails, earlier successfully pushed days remain available and rerunning the same command skips them.
+
+When an advance date actually arrives, replace it with live news and market data using:
+
+```bash
+bash run.sh --force
+```
+
+Or name that date explicitly with `bash run.sh --date YYYY-MM-DD --force`.
 
 You can also open this repository in the Codex desktop app and ask:
 
@@ -48,7 +72,8 @@ uses separately billed OpenAI API credit.
 2. Create a repository secret named `OPENAI_API_KEY`.
 3. Open **Actions → Generate Daily Digest (API) → Run workflow**.
 4. Leave the date blank for today's India-time edition, or enter a historical date.
-5. Enable **Replace the edition** only when intentionally refreshing an existing date.
+5. For vacation mode, leave the date blank and enter the number of future days in **days**.
+6. Enable **Replace the edition** only when intentionally refreshing existing dates.
 
 The Action is intentionally on-demand and is not scheduled, preventing unexpected API spending.
 Concurrent runs are serialized. A repeated run for an existing date exits before calling the API

@@ -13,6 +13,7 @@ const state = {
     pointerFrame: null,
     scrollFrame: null,
     lastSurpriseIndex: -1,
+    isAdvance: false,
     selectedPapers: { inside: null, outside: null }
 };
 
@@ -43,12 +44,12 @@ async function initApp() {
         const requestedDate = new URL(window.location.href).searchParams.get('date');
         const initialDate = state.availableDates.includes(requestedDate)
             ? requestedDate
-            : state.availableDates[0];
+            : getCurrentIssueDate();
 
         await loadDate(initialDate, { historyMode: 'replace' });
 
         if (requestedDate && requestedDate !== initialDate) {
-            showToast(`No digest was published on ${formatDate(requestedDate, 'medium')}. Showing the latest issue.`);
+            showToast(`No digest was published on ${formatDate(requestedDate, 'medium')}. Showing the current issue.`);
         }
     } catch (error) {
         showFatalError(error);
@@ -59,7 +60,8 @@ function bindInterface() {
     byId('older-button').addEventListener('click', () => navigateRelative(1));
     byId('newer-button').addEventListener('click', () => navigateRelative(-1));
     byId('latest-button').addEventListener('click', () => {
-        if (state.availableDates[0]) loadDate(state.availableDates[0]);
+        const currentIssue = getCurrentIssueDate();
+        if (currentIssue) loadDate(currentIssue);
     });
 
     byId('date-picker').addEventListener('change', (event) => {
@@ -69,7 +71,7 @@ function bindInterface() {
             return;
         }
 
-        event.target.value = state.currentDate || state.availableDates[0] || '';
+        event.target.value = state.currentDate || getCurrentIssueDate() || '';
         showToast(`There is no published digest for ${formatDate(selected, 'medium')}. Try another date.`);
     });
 
@@ -81,7 +83,7 @@ function bindInterface() {
     byId('papers-container').addEventListener('click', handlePaperChoice);
     byId('date-search-trigger').addEventListener('click', focusDateSearch);
     byId('error-retry').addEventListener('click', () => {
-        loadDate(state.loadingDate || state.currentDate || state.availableDates[0], { historyMode: 'replace' });
+        loadDate(state.loadingDate || state.currentDate || getCurrentIssueDate(), { historyMode: 'replace' });
     });
     byId('motion-toggle').addEventListener('click', toggleMotion);
     byId('surprise-button').addEventListener('click', surpriseMe);
@@ -101,7 +103,7 @@ function bindInterface() {
 
     window.addEventListener('popstate', () => {
         const requested = new URL(window.location.href).searchParams.get('date');
-        const nextDate = state.availableDates.includes(requested) ? requested : state.availableDates[0];
+        const nextDate = state.availableDates.includes(requested) ? requested : getCurrentIssueDate();
         if (nextDate && nextDate !== state.currentDate) loadDate(nextDate, { historyMode: 'none' });
     });
 
@@ -116,6 +118,24 @@ function configureDatePicker() {
     picker.min = chronological[0];
     picker.max = chronological[chronological.length - 1];
     byId('issue-count').textContent = `${state.availableDates.length} ${state.availableDates.length === 1 ? 'issue' : 'issues'}`;
+}
+
+function todayInIST() {
+    const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kolkata',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+    return `${values.year}-${values.month}-${values.day}`;
+}
+
+function getCurrentIssueDate() {
+    const today = todayInIST();
+    return state.availableDates.find((date) => date <= today)
+        || state.availableDates[state.availableDates.length - 1]
+        || null;
 }
 
 async function loadDate(dateString, { historyMode = 'push' } = {}) {
@@ -156,11 +176,13 @@ async function fetchDigest(dateString) {
 function updateDateInterface(dateString) {
     const date = parseDate(dateString);
     const index = state.availableDates.indexOf(dateString);
-    const isLatest = index === 0;
+    const currentIssue = getCurrentIssueDate();
+    const isCurrent = dateString === currentIssue;
+    const isFuture = dateString > todayInIST();
 
     byId('date-subtitle').textContent = formatDate(dateString, 'long');
     byId('date-heading').textContent = formatDate(dateString, 'long');
-    byId('issue-label').textContent = isLatest ? 'Latest issue' : 'From the archive';
+    byId('issue-label').textContent = state.isAdvance ? 'Prepared ahead' : (isCurrent ? 'Latest issue' : 'From the archive');
     byId('display-day').textContent = String(date.getDate()).padStart(2, '0');
     byId('display-month').textContent = date.toLocaleDateString('en-US', { month: 'long' });
     byId('display-year').textContent = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric' });
@@ -175,8 +197,8 @@ function updateDateInterface(dateString) {
 
     olderButton.disabled = !olderDate;
     newerButton.disabled = !newerDate;
-    latestButton.disabled = isLatest;
-    latestButton.textContent = isLatest ? "You're up to date" : 'Jump to latest';
+    latestButton.disabled = isCurrent;
+    latestButton.textContent = isCurrent ? "You're up to date" : (isFuture ? 'Back to current' : 'Jump to latest');
     olderButton.title = olderDate ? `Open ${formatDate(olderDate, 'medium')}` : 'No older issues';
     newerButton.title = newerDate ? `Open ${formatDate(newerDate, 'medium')}` : 'No newer issues';
 }
@@ -191,7 +213,7 @@ function updateUrl(dateString, historyMode) {
     if (historyMode === 'none') return;
 
     const url = new URL(window.location.href);
-    if (dateString === state.availableDates[0]) url.searchParams.delete('date');
+    if (dateString === getCurrentIssueDate()) url.searchParams.delete('date');
     else url.searchParams.set('date', dateString);
     url.hash = '';
 
@@ -200,6 +222,7 @@ function updateUrl(dateString, historyMode) {
 }
 
 function renderDigest(data, dateString) {
+    renderEditionMode(data?.edition);
     renderPapers(data?.papers, dateString);
     renderNews(data?.news);
     renderStocks(data?.stocks);
@@ -210,6 +233,30 @@ function renderDigest(data, dateString) {
     byId('main-content').classList.remove('is-refreshing');
     observeAnimatedElements();
     scheduleScrollUpdate();
+}
+
+function renderEditionMode(edition) {
+    state.isAdvance = edition?.kind === 'advance';
+    const notice = byId('advance-notice');
+    notice.hidden = !state.isAdvance;
+    byId('advance-note').textContent = state.isAdvance
+        ? (edition?.note || 'Live news and market prices were unavailable when this edition was prepared.')
+        : '';
+
+    byId('brief-title').textContent = state.isAdvance ? 'Knowledge for the road' : 'The morning brief';
+    byId('brief-description').textContent = state.isAdvance
+        ? 'Sourced evergreen context replaces unknowable future headlines in this prepared-ahead edition.'
+        : 'General news across policy, society, science, technology, climate, geopolitics, and the economy—not another markets recap.';
+    byId('markets-title').textContent = state.isAdvance ? 'Companies to understand' : 'Market pulse';
+    byId('markets-description').textContent = state.isAdvance
+        ? 'An evergreen company-learning list; future prices and returns are intentionally left unavailable.'
+        : 'A compact watchlist. Open a row only when you want the thesis and risk.';
+    byId('brief-nav-link').textContent = state.isAdvance ? 'Knowledge brief' : 'News brief';
+    byId('markets-nav-link').textContent = state.isAdvance ? 'Company study' : 'Markets';
+    byId('news-count-label').textContent = state.isAdvance ? 'knowledge regions' : 'news regions';
+    byId('market-count-label').textContent = state.isAdvance ? 'company studies' : 'market ideas';
+    byId('us-market-subtitle').textContent = state.isAdvance ? 'Learn the business' : 'Companies to research';
+    byId('india-market-subtitle').textContent = state.isAdvance ? 'Learn the business' : 'Companies to research';
 }
 
 function renderPapers(papers = {}, dateString = state.currentDate) {
@@ -343,7 +390,7 @@ function renderStockList(containerId, stocks = []) {
 
     container.innerHTML = stocks.map((stock, index) => {
         const change = Number(stock.change);
-        const hasChange = Number.isFinite(change);
+        const hasChange = stock.change !== null && stock.change !== undefined && stock.change !== '' && Number.isFinite(change);
         const isUp = change >= 0;
         const extra = [
             stock.thesis ? `<strong>Thesis:</strong> ${escapeHTML(stock.thesis)}` : '',
@@ -357,7 +404,9 @@ function renderStockList(containerId, stocks = []) {
                     </div>
                     <div class="stock-value">
                         <span class="stock-price">${escapeHTML(stock.price || '—')}</span>
-                        ${hasChange ? `<span class="stock-change ${isUp ? 'price-up' : 'price-down'}">${isUp ? '↗' : '↘'} ${Math.abs(change).toFixed(2)}%</span>` : ''}
+                        ${hasChange
+                            ? `<span class="stock-change ${isUp ? 'price-up' : 'price-down'}">${isUp ? '↗' : '↘'} ${Math.abs(change).toFixed(2)}%</span>`
+                            : '<span class="stock-change stock-unavailable">Study ahead</span>'}
                     </div>
                 </div>`;
 
@@ -408,7 +457,7 @@ function updatePaperSelectionUI() {
         if (!button) return;
         button.setAttribute('aria-pressed', String(selected));
         button.innerHTML = selected
-            ? '<span aria-hidden="true">✓</span> Chosen for today'
+            ? '<span aria-hidden="true">✓</span> Chosen for this issue'
             : '<span aria-hidden="true">○</span> Choose this one';
     });
 
@@ -484,12 +533,18 @@ function closeSearch() {
 }
 
 function renderRecentIssues() {
+    const currentIssue = getCurrentIssueDate();
+    const futureDates = state.availableDates.filter((date) => date > todayInIST()).sort();
+    const pastDates = state.availableDates.filter((date) => date !== currentIssue && date <= todayInIST());
+    const orderedDates = [currentIssue, ...futureDates, ...pastDates].filter(Boolean);
     byId('search-hint').textContent = 'Search papers, expanded notes, news, markets, and takeaways across the archive.';
-    byId('search-results').innerHTML = state.availableDates.slice(0, 6).map((date, index) => searchResultTemplate({
+    byId('search-results').innerHTML = orderedDates.slice(0, 6).map((date, index) => searchResultTemplate({
         date,
         section: 'research',
         title: formatDate(date, 'long'),
-        summary: date === state.availableDates[0] ? 'Latest published issue' : 'Open this archived issue'
+        summary: date === currentIssue
+            ? 'Current published issue'
+            : (date > todayInIST() ? 'Prepared-ahead vacation issue' : 'Open this archived issue')
     }, index)).join('');
 }
 
@@ -550,19 +605,20 @@ async function buildSearchIndex() {
 }
 
 function createIssueSearchEntries(date, data) {
+    const isAdvance = data?.edition?.kind === 'advance';
     const entries = [{
         date,
         section: 'research',
         title: formatDate(date, 'long'),
-        summary: 'Digest archive',
-        content: dateSearchAliases(date),
+        summary: isAdvance ? 'Prepared-ahead vacation issue' : 'Digest archive',
+        content: `${dateSearchAliases(date)} ${flattenValues(data?.edition)}`,
         score: 10
     }];
 
     if (!data) return entries.map(prepareSearchEntry);
 
-    if (data.news?.india) entries.push({ date, section: 'brief', title: 'India news', summary: summarizeNews(data.news.india), content: flattenValues(data.news.india), score: 5 });
-    if (data.news?.world) entries.push({ date, section: 'brief', title: 'World news', summary: summarizeNews(data.news.world), content: flattenValues(data.news.world), score: 5 });
+    if (data.news?.india) entries.push({ date, section: 'brief', title: isAdvance ? 'India knowledge' : 'India news', summary: summarizeNews(data.news.india), content: flattenValues(data.news.india), score: 5 });
+    if (data.news?.world) entries.push({ date, section: 'brief', title: isAdvance ? 'World knowledge' : 'World news', summary: summarizeNews(data.news.world), content: flattenValues(data.news.world), score: 5 });
 
     Object.entries(data.papers || {}).forEach(([kind, paper]) => {
         if (!paper) return;
@@ -576,7 +632,10 @@ function createIssueSearchEntries(date, data) {
         });
     });
 
-    [['us', 'US market'], ['india', 'India market']].forEach(([market, label]) => {
+    const marketLabels = isAdvance
+        ? [['us', 'US company study'], ['india', 'India company study']]
+        : [['us', 'US market'], ['india', 'India market']];
+    marketLabels.forEach(([market, label]) => {
         (data.stocks?.[market] || []).forEach((stock) => entries.push({
             date,
             section: 'markets',
@@ -590,7 +649,7 @@ function createIssueSearchEntries(date, data) {
     if (data.takeaways) entries.push({
         date,
         section: 'takeaways',
-        title: "Today's takeaways",
+        title: 'Issue takeaways',
         summary: data.takeaways.explore || data.takeaways.remember?.[0] || 'Key ideas to remember',
         content: flattenValues(data.takeaways),
         score: 4
