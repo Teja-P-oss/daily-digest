@@ -1,0 +1,287 @@
+{
+  "edition": {
+    "kind": "advance",
+    "generated_on": "2026-09-06",
+    "note": "Advance vacation edition prepared on 2026-09-06; live news and market prices for 2026-09-07 were unavailable when prepared, so evergreen learning briefs and company lessons are provided."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "India knowledge",
+        "headline": "UPI separates the payment interface from the bank account that holds the money",
+        "summary": "The Unified Payments Interface is an instant-payment system developed by the National Payments Corporation of India over IMPS infrastructure. A user can access multiple participating-bank accounts through one app, identify a counterparty with a virtual payment address or QR code, and authorize transfers with a UPI PIN; payer and payee apps need not be supplied by the same bank.",
+        "why": "UPI is a useful systems-design case: standardized interfaces create interoperability while regulated banks continue to hold funds and authenticate transactions.",
+        "link": "https://www.npci.org.in/product/upi/about-upi"
+      },
+      {
+        "category": "Space primer",
+        "headline": "NavIC is a regional positioning, navigation and timing system rather than a global constellation",
+        "summary": "ISRO established Navigation with Indian Constellation to provide position, navigation and timing services across India and a primary service region extending about 1,500 kilometres beyond the national boundary. It offers a Standard Positioning Service for civilian users and an encrypted Restricted Service for authorized strategic users.",
+        "why": "The regional architecture shows how satellite geometry, coverage requirements and national control of timing infrastructure can be traded against the cost of a global constellation.",
+        "link": "https://www.isro.gov.in/SatelliteNavigationServices.html"
+      },
+      {
+        "category": "Constitutional primer",
+        "headline": "Article 280 makes the Finance Commission a recurring mechanism for Indian fiscal federalism",
+        "summary": "Article 280 requires the President to constitute a Finance Commission every five years or earlier. Its recommendations cover the distribution of divisible Union tax proceeds between the Union and states, allocation among states, grants-in-aid principles, and measures to augment state funds that support panchayats and municipalities.",
+        "why": "Understanding this commission clarifies that federal transfers are not merely annual budget choices; they sit inside a recurring constitutional process for balancing revenue powers and spending duties.",
+        "link": "https://fincomindia.nic.in/constitutional-provisions"
+      },
+      {
+        "category": "Heritage engineering",
+        "headline": "Dholavira adapted Harappan urbanism to an arid island through deliberate water engineering",
+        "summary": "The Harappan city of Dholavira occupied Khadir island in present-day Gujarat from roughly 3000 to 1500 BCE. UNESCO records a fortified, planned settlement supplied by two seasonal streams, with reservoirs, drains and systems for collecting and diverting runoff; workshops and trade materials also identify it as a regional manufacturing and exchange centre.",
+        "why": "Dholavira is an early lesson in designing a city around its binding environmental constraint: scarce and seasonal water, not simply around monumental buildings.",
+        "link": "https://whc.unesco.org/en/list/1645"
+      },
+      {
+        "category": "Rail safety primer",
+        "headline": "Kavach adds automatic enforcement to a railway system that otherwise relies on signals and driver response",
+        "summary": "Kavach is the Indian Railways automatic train-protection system specified by the Research Designs and Standards Organisation. Onboard and stationary equipment exchange movement authority and speed restrictions; the onboard unit supervises the train, warns the driver and can apply brakes when permitted speed or authority would be exceeded. The specification targets Safety Integrity Level 4.",
+        "why": "It illustrates a core safety-engineering principle: retain human control in normal operation but add an independent, fail-safe enforcement layer for dangerous deviations.",
+        "link": "https://rdso.indianrailways.gov.in/uploads/files/System%20Requirement%20Specification%20of%20Kavach%20%28The%20Indian%20Railway%20ATP%29%20Amdt-1-26-05-2023.pdf"
+      }
+    ],
+    "world": [
+      {
+        "category": "World context",
+        "headline": "The Antarctic Treaty preserves scientific cooperation while suspending sovereignty disputes",
+        "summary": "Signed in 1959 and in force from 1961, the Antarctic Treaty reserves Antarctica for peaceful purposes, continues freedom of scientific investigation, requires scientific observations and results to be exchanged, and opens stations and equipment to inspection. Article IV protects existing positions on territorial claims while barring new claims or enlargement of claims during the treaty.",
+        "why": "The treaty is a durable example of governing a contested space by freezing the hardest dispute and building verifiable cooperation around shared scientific work.",
+        "link": "https://www.ats.aq/e/antarctictreaty.html?lang=en"
+      },
+      {
+        "category": "Public-health history",
+        "headline": "Smallpox eradication depended on surveillance and containment as well as vaccination",
+        "summary": "WHO intensified the global smallpox eradication programme in 1967 using vaccination, case surveillance and rapid containment. The last known naturally transmitted case occurred in Somalia in 1977, and the World Health Assembly declared eradication in 1980. Smallpox remains the only human infectious disease that WHO has declared eradicated.",
+        "why": "The history corrects a common oversimplification: an effective vaccine was essential, but finding cases and breaking each transmission chain turned a tool into eradication.",
+        "link": "https://www.who.int/emergencies/situations/smallpox/"
+      },
+      {
+        "category": "Environmental governance",
+        "headline": "The Montreal Protocol couples chemical phase-outs with differentiated timetables and implementation support",
+        "summary": "Adopted in 1987, the Montreal Protocol regulates the production and consumption of nearly 100 ozone-depleting substances. It phases controlled chemicals down on schedules that differ for developed and developing countries, while assigning parties duties for trade controls, data reporting and licensing; the treaty achieved universal ratification.",
+        "why": "Its structure is a practical template for environmental cooperation: measurable controls, periodic scientific adjustment, differentiated obligations and support for implementation work together.",
+        "link": "https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol"
+      },
+      {
+        "category": "Food-security systems",
+        "headline": "The Svalbard vault is a backup for genebanks, not a seed collection that replaces them",
+        "summary": "The Svalbard Global Seed Vault accepts duplicate samples from qualifying genebanks free of charge. Deposits remain sealed under black-box conditions: the depositing institution keeps ownership and alone can request their return. NordGen manages operations, while Norway owns and funded the facility; storage is maintained at minus 18 degrees Celsius.",
+        "why": "The design separates primary stewardship from disaster recovery, giving crop diversity the same kind of geographically isolated backup used for other irreplaceable information.",
+        "link": "https://www.seedvault.no/about/purpose-operations-and-organisation/"
+      },
+      {
+        "category": "Digital-infrastructure primer",
+        "headline": "Submarine fibre cables, not satellites, carry nearly all international internet traffic",
+        "summary": "The International Telecommunication Union estimates that submarine telecommunication cables carry about 99 percent of international internet traffic. More than 500 active and planned systems connect continents, but their concentration in physical routes exposes services to anchor and fishing damage, seabed activity, earthquakes, ageing and other hazards.",
+        "why": "The cloud has a physical failure surface: route diversity, repair capacity and cross-border coordination matter as much as application-level redundancy for global connectivity.",
+        "link": "https://www.itu.int/en/mediacentre/backgrounders/Pages/submarine-cable-resilience.aspx"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "title": "Training Neural Networks on RAW and HDR Images for Restoration Tasks",
+      "authors": "Andrew Yanzhe Ke, Lei Luo, Xiaoyu Xiang, Yuchen Fan, Rakesh Ranjan, Alexandre Chapiro, Rafał K. Mantiuk",
+      "year": "2025",
+      "venue": "CVPR 2025 Workshops (NTIRE)",
+      "field": "RAW and HDR image restoration",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/html/Ke_Training_Neural_Networks_on_RAW_and_HDR_Images_for_Restoration_CVPRW_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Training+Neural+Networks+on+RAW+and+HDR+Images+for+Restoration+Tasks",
+      "summary": "The paper asks a deceptively basic pipeline question: in what numeric representation should a restoration network see linear RAW or HDR data? Across super-resolution, deblurring and denoising, perceptually compressed encodings such as PQ, PU21 and μ-law generally train more reliably and reconstruct better than feeding linear values to a conventional L1 objective.",
+      "problem": "RAW and HDR intensities are linear in scene or display light and span orders of magnitude, whereas most neural-restoration recipes were tuned for display-encoded images with a more even numerical distribution. The work seeks a training representation and loss that preserve high dynamic range without allowing a few bright pixels to dominate optimization or starving dark regions of useful gradient signal.",
+      "difficulty": "A transform can improve numerical conditioning while changing the meaning of error, and the best choice may vary across sensor RAW data, absolute-luminance HDR data, architectures and tasks. Evaluation is also awkward: ordinary PSNR and SSIM are not natively perceptual over HDR luminance, while a method that scores well can still introduce visible colour or tone shifts.",
+      "idea": "Make the signal closer to perceptually uniform before learning. PQ, PU21 and μ-law compress large linear values and expand the relative importance of darker values, so a simple pixel loss distributes learning pressure more usefully. The alternative tested is to keep linear network inputs and outputs but alter the loss so that its gradient reflects a perceptual transform.",
+      "method": "The authors construct paired distorted and reference data in both HDR and camera-RAW regimes and evaluate two representative networks for each of three tasks: single-image super-resolution, deblurring and denoising. Each network is retrained under combinations of linear values, PQ, PU21 or μ-law encoding and several losses, including plain L1 and losses derived from perceptual transforms. Outputs are converted consistently for comparison. They report PU21-domain PSNR, PU21-luma SSIM and ColorVideoVDP, which natively models colour HDR visibility, and use paired two-sided statistical tests over multiple images and exposure levels rather than relying on a single average score.",
+      "results": "For the two super-resolution models, perceptual pixel encodings gained about 1.5 to 9 dB over linear-L1 training and avoided colour artifacts seen in linear outputs. GFNNet deblurring improved about 3.8 dB with μ-law or PU21, while MIRNet-v2 gained roughly 2 to 3 dB with its best settings. Perceptual encodings also ranked best for most denoising cases, although metric orderings and the preferred transform were not universal.",
+      "care": "The strongest practical message is about representation, not a universally winning transfer function. PU21 was weak in one deblurring setting, perceptual losses on linear data did not consistently match encoded training, and metrics disagreed when brightness or colour shifted. Before changing a production RAW pipeline, repeat the ablation with the actual sensor distribution, black-level handling, exposure normalization and output rendering path.",
+      "learn": [
+        "Plot training samples and loss gradients by exposure stop; a numerically tiny dark pixel can be perceptually important.",
+        "Treat pixel encoding and loss as one design choice because each determines where optimization effort is spent.",
+        "Evaluate RAW and HDR restoration with both signal metrics and a perceptual HDR metric; metric disagreement is diagnostic evidence.",
+        "Keep an invertible, explicit transform boundary so deployment quantization and colour-pipeline assumptions can be audited."
+      ],
+      "concepts": [
+        "Perceptual uniformity",
+        "PQ transfer function",
+        "PU21 encoding",
+        "μ-law companding",
+        "HDR-aware quality metrics",
+        "Gradient conditioning"
+      ]
+    },
+    "domain2": {
+      "title": "Look-Up Table Compression for Efficient Image Restoration",
+      "authors": "Yinglong Li, Jiacheng Li, Zhiwei Xiong",
+      "year": "2024",
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+      "field": "Efficient on-device image restoration",
+      "link": "https://openaccess.thecvf.com/content/CVPR2024/html/Li_Look-Up_Table_Compression_for_Efficient_Image_Restoration_CVPR_2024_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Look-Up+Table+Compression+for+Efficient+Image+Restoration",
+      "summary": "Diagonal-First Compression attacks the memory cost of neural look-up-table restoration. Natural low-quality patches occupy LUT index space very unevenly, clustering near entries whose pixel values are similar; the method preserves that information-rich diagonal region and samples the rest much more coarsely, retaining integer-friendly lookup inference with far less storage.",
+      "problem": "Spatial LUT restoration replaces neural arithmetic with indexed patch mappings, which is attractive for low-power inference. But every extra input dimension or finer quantization grows storage exponentially, and stronger multi-LUT systems can exceed the cache available on a phone-class processor. The goal is to reduce that footprint without giving back the image quality that justified the learned LUT.",
+      "difficulty": "Uniformly pruning or coarsening a LUT assumes all possible low-resolution patches are equally valuable, although natural patches are highly non-uniform. Compression must retain rare but important edge and texture mappings, provide a cheap deterministic indexing rule, and preserve the latency and dependency advantages of LUT inference; otherwise a smaller table can become a slower or visibly weaker system.",
+      "idea": "Measure which LUT coordinates real patches use, then spend storage according to that distribution. Most coordinates lie near a diagonal where the patch samples have similar intensity. DFC precisely re-indexes this dense diagonal band into a compact table and aggressively subsamples off-diagonal space into a second table, routing each query according to whether it satisfies the diagonal condition.",
+      "method": "The authors first collect occurrence statistics for quantized low-quality patches and formalize the observed diagonal dominance. A diagonal re-indexing stage removes redundant coordinate extent while preserving entries inside a configurable band; a non-diagonal stage uses a larger sampling interval for the sparse remainder. The two compact tables together replace one full spatial LUT, with closed-form storage controlled by diagonal width, number of compressed dimensions and sampling interval. They apply DFC after training SR-LUT, MuLUT and a new multi-branch SPF-LUT, perform LUT-aware fine-tuning, and test ×4 super-resolution, denoising, JPEG deblocking and deblurring on standard datasets.",
+      "results": "The paper reports storage savings of up to 90 percent with negligible quality loss for ×4 super-resolution. In a concrete result, SPF-LUT with DFC used 11.7 percent of the original storage and lost only 0.06 dB PSNR on Set5. The compressed variants maintained close quantitative and visual performance across five super-resolution sets and the additional denoising, deblocking and deblurring evaluations.",
+      "care": "Diagonal dominance is empirical and can shift with bit depth, noise model, CFA packing or an unusual content domain. DFC also compresses spatial LUTs rather than eliminating their limited receptive field and exponential scaling. Reported benchmark quality and theoretical efficiency do not replace profiling of cache misses, interpolation, bandwidth and energy on the target SoC, especially inside a full ISP pipeline.",
+      "learn": [
+        "Profile index occupancy before compressing a LUT; the probability distribution is more informative than its nominal hypercube size.",
+        "Protect dense, information-rich regions and coarsen sparse regions instead of applying one quantizer everywhere.",
+        "Include the indexing and interpolation path in performance measurements because smaller storage alone does not guarantee lower energy.",
+        "Test sensor-specific tails such as saturated highlights, shot-noise shadows and strong colour edges where off-diagonal patches may matter."
+      ],
+      "concepts": [
+        "Spatial look-up table",
+        "Diagonal dominance",
+        "Non-uniform sampling",
+        "LUT-aware fine-tuning",
+        "Cache residency",
+        "Storage-quality trade-off"
+      ]
+    },
+    "outside1": {
+      "title": "The global human impact on biodiversity",
+      "authors": "François Keck, Tianna Peller, Roman Alther, Cécilia Barouillet, Rosetta Blackman, Eric Capo, Teofana Chonova, Marjorie Couton, Lena Fehlinger, Dominik Kirschner, Mara Knüsel, Lucile Muneret, Rebecca Oester, Kálmán Tapolczai, Heng Zhang, Florian Altermatt",
+      "year": "2025",
+      "venue": "Nature",
+      "field": "Biodiversity ecology",
+      "link": "https://www.nature.com/articles/s41586-025-08752-2",
+      "scholar": "https://scholar.google.com/scholar?q=The+global+human+impact+on+biodiversity+Keck",
+      "summary": "This global synthesis distinguishes three questions that the word biodiversity often collapses: does a pressured site retain fewer kinds of organisms, does its community composition shift, and do communities become more alike across space? Human pressures consistently reduced local diversity and shifted composition, but did not produce a clear universal signal of homogenization.",
+      "problem": "Studies of habitat change, pollution, climate change and other pressures often reach apparently conflicting conclusions because they measure different organisms, habitats, spatial scales and dimensions of biodiversity. The authors seek a common quantitative picture that separates local richness from compositional change and spatial homogenization rather than treating them as interchangeable outcomes.",
+      "difficulty": "Ecological studies are heterogeneous and mostly observational: reference and impacted sites differ in design, sampling effort and baseline context. Taxa and regions are unevenly studied, effect sizes are nested within publications, and a community can lose species yet become either more similar to or more distinct from neighbouring communities. A global mean can therefore hide the mechanism needed for conservation action.",
+      "idea": "Encode each impacted-versus-reference comparison along three axes: change in local diversity, displacement in community composition, and change in among-site homogeneity. Synthesizing these axes together exposes consistent pressure signals while testing the popular claim that human activity makes ecological communities everywhere converge on the same set of tolerant species.",
+      "method": "A broad Web of Science search began with 73,632 publications located through 231 keywords. Automated full-text screening for common community-ordination methods, followed by manual eligibility review and extraction, produced 2,133 publications covering 97,783 impacted and reference sites. These yielded 3,667 independent comparisons spanning major organism groups, terrestrial, freshwater and marine habitats, and five predominant human pressures. The authors calculated standardized response measures for local diversity, compositional displacement and spatial homogeneity, then fitted meta-analytic models to examine how pressure type, organism, biome and sampling scale mediated the responses.",
+      "results": "Across the 3,667 comparisons, human pressure distinctly shifted community composition and reduced local diversity in terrestrial, freshwater and marine ecosystems. The analysis found no clear overall tendency toward biotic homogenization, contrary to a common generalization. Direction and magnitude varied materially with the pressure, organism group and spatial scale, and greater species loss was associated with stronger compositional shifts and more differentiated communities.",
+      "care": "The evidence is a synthesis of published comparisons, not a randomized global experiment, so associations cannot establish causality. Searches and source studies have temporal and geographic coverage limits, and screening around commonly reported ordination methods can favour certain designs. The absence of a universal homogenization effect does not mean no location homogenizes; it means that opposing, context-dependent responses do not collapse to one global direction.",
+      "learn": [
+        "Ask which biodiversity dimension is measured before interpreting a claim of gain or loss.",
+        "A stable species count can conceal wholesale replacement of specialists by disturbance-tolerant species.",
+        "Scale is part of the hypothesis: local loss and regional differentiation can occur at the same time.",
+        "Conservation monitoring should retain community identity and composition data, not only headline richness counts."
+      ],
+      "concepts": [
+        "Alpha diversity",
+        "Beta diversity",
+        "Biotic homogenization",
+        "Community composition",
+        "Log response ratio",
+        "Meta-analysis heterogeneity"
+      ]
+    },
+    "outside2": {
+      "title": "Long-term weight loss effects of semaglutide in obesity without diabetes in the SELECT trial",
+      "authors": "Donna H. Ryan et al.",
+      "year": "2024",
+      "venue": "Nature Medicine",
+      "field": "Clinical medicine and obesity",
+      "link": "https://www.nature.com/articles/s41591-024-02996-7",
+      "scholar": "https://scholar.google.com/scholar?q=Long-term+weight+loss+effects+of+semaglutide+in+obesity+without+diabetes+SELECT",
+      "summary": "A prespecified analysis of the large SELECT cardiovascular-outcomes trial examines whether once-weekly semaglutide produces durable weight and waist changes in people with overweight or obesity, established cardiovascular disease and no diabetes. The randomized comparison showed an average treatment effect that plateaued after roughly 65 weeks and remained through four years.",
+      "problem": "Short obesity trials can show initial weight loss without answering whether it persists during long treatment or generalizes across baseline body sizes and demographic groups. SELECT provides a rare opportunity to examine four-year anthropometric outcomes in a cardiovascular-risk population under ordinary secondary-prevention counselling rather than an intensive lifestyle programme built specifically around losing weight.",
+      "difficulty": "Long trials face treatment discontinuation, dose intolerance, missing visits and changing numbers of participants at later time points. Intention-to-treat estimates mix biological efficacy with real adherence, while on-treatment analyses introduce selection. Body mass index and waist circumference are useful but incomplete proxies for fat distribution, lean mass and the health mechanism behind any observed clinical benefit.",
+      "idea": "Use the already randomized, double-blind SELECT cohort to trace weight, waist circumference and waist-to-height ratio over 208 weeks, preserving the placebo comparison and analysing prespecified subgroups. Report both an in-trial estimand, which follows randomized participants regardless of treatment persistence, and an on-treatment view to show how exposure changes the magnitude.",
+      "method": "SELECT randomized 17,604 adults aged at least 45 years, with BMI of at least 27 and established cardiovascular disease but no diabetes, one-to-one to weekly subcutaneous semaglutide or placebo. Dose escalation targeted 2.4 mg after 16 weeks but could be slowed, paused or held below target for tolerability. This prespecified analysis models repeated weight and anthropometric measurements under the intention-to-treat principle, uses multiple imputation for missing landmark data, examines subgroup effects, and contrasts in-trial results with observations before participants had been off assigned treatment for more than 35 days.",
+      "results": "At week 208, mean weight change was −10.2 percent with semaglutide versus −1.5 percent with placebo, a treatment difference of −8.7 percentage points; waist circumference fell 7.7 versus 1.3 centimetres. At week 104, 67.8 percent of semaglutide participants had lost at least 5 percent and 44.2 percent at least 10 percent, versus 21.3 and 6.9 percent on placebo. Weight loss continued to about week 65 and was sustained thereafter; treatment discontinuation was more frequent with semaglutide.",
+      "care": "SELECT studied secondary prevention in people who already had cardiovascular disease; it should not be extrapolated to every person with overweight or obesity. Participants were 72.3 percent male, racial subgroups were limited, BMI below 27 was excluded, and body composition was not measured. The sponsor helped design the trial. The result supports clinical evidence and shared medical decisions, not unsupervised use or a claim that average response predicts an individual's benefit or harm.",
+      "learn": [
+        "Separate the randomized in-trial effect from the on-treatment effect; they answer adherence-aware and exposure-aware questions.",
+        "Read the eligibility criteria before generalizing a treatment result to primary prevention or lower-risk populations.",
+        "A long plateau can be a durable treatment response rather than evidence that the intervention stopped working.",
+        "Track discontinuation and individual-response distributions alongside the mean benefit."
+      ],
+      "concepts": [
+        "Intention-to-treat",
+        "Prespecified analysis",
+        "Treatment estimand",
+        "Multiple imputation",
+        "Anthropometric surrogate",
+        "External validity"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: map how Apple links premium devices, custom silicon, operating systems, distribution and recurring services into one ecosystem.",
+        "thesis": "A large installed base and tight hardware-software integration can support repeat device demand and growing service relationships.",
+        "risk": "Smartphone maturity, supply-chain concentration, platform regulation and expensive product bets can weaken growth or margins."
+      },
+      {
+        "symbol": "GOOGL",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: study an advertising-funded consumer-services engine alongside a consumption and subscription-based cloud platform.",
+        "thesis": "Alphabet can reuse research, data-centre infrastructure and distribution across Search, YouTube, Android, subscriptions and Cloud.",
+        "risk": "AI interfaces may change search economics while antitrust remedies, privacy rules and heavy infrastructure spending pressure returns."
+      },
+      {
+        "symbol": "SNPS",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: understand how electronic-design automation, reusable silicon IP and simulation tools sit upstream of complex products.",
+        "thesis": "Rising chip and system complexity can deepen demand for trusted design, verification, IP and multiphysics workflows.",
+        "risk": "Semiconductor design cycles, customer concentration, export controls and integration of acquired simulation assets can disrupt execution."
+      },
+      {
+        "symbol": "TSM",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: examine the dedicated-foundry model in which TSMC manufactures customer designs without selling competing chips of its own.",
+        "thesis": "Process leadership, manufacturing discipline and a broad design ecosystem can reinforce customer trust and scale advantages.",
+        "risk": "Taiwan geopolitical exposure, extreme capital intensity, technology transitions and semiconductor cyclicality are material risks."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "INFY",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: trace how consulting, technology implementation and outsourced operations turn global enterprise change into repeat work.",
+        "thesis": "Deep client relationships, delivery scale and continual workforce training can sustain a broad digital-transformation franchise.",
+        "risk": "Discretionary IT budgets, pricing pressure, currency moves, talent costs and automation of routine services can slow growth."
+      },
+      {
+        "symbol": "LT",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: study how L&T manages engineering, procurement and construction projects alongside manufacturing and services.",
+        "thesis": "Complex execution capability and long operating experience can position the group for India's infrastructure and industrial investment.",
+        "risk": "Fixed-price contracts, project delays, working-capital demands, commodity inflation and a complicated group structure can dilute returns."
+      },
+      {
+        "symbol": "TRENT",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: compare Westside's differentiated private labels with Zudio's accessible value-fashion format and rapid store replication.",
+        "thesis": "In-house product control and distinct retail formats can compound brand, sourcing and store-productivity advantages at scale.",
+        "risk": "Fast expansion can expose weak store cohorts, fashion inventory errors, lease obligations, competition and valuation sensitivity."
+      },
+      {
+        "symbol": "SUNPHARMA",
+        "price": "Not available — advance edition",
+        "change": null,
+        "reason": "Company lesson: separate Sun Pharma's generics and branded-generics base from its higher-investment specialty-medicine strategy.",
+        "thesis": "A diversified therapy portfolio and specialty pipeline can balance medicine access at scale with differentiated innovation.",
+        "risk": "Manufacturing compliance, US generic pricing, patent outcomes, clinical development and acquisitions can create sharp setbacks."
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "For RAW and HDR learning, numeric representation controls gradient allocation; perceptually compressed encodings delivered gains as large as 9 dB in the reported super-resolution tests.",
+      "A nominally huge LUT can be statistically sparse: preserving its frequently used diagonal region cut storage by up to 90 percent with little benchmark quality loss.",
+      "Biodiversity is multidimensional; fewer local species, changed community identity and greater similarity between places are different signals and need not move together.",
+      "UPI demonstrates how a shared interface can make banks and apps interoperable without moving custody of deposits into the interface layer.",
+      "Smallpox eradication joined a technical tool, vaccination, with an operational system of surveillance, investigation and containment.",
+      "Robust systems keep independent recovery layers: Kavach can enforce safe movement, Svalbard backs up primary genebanks, and cable-route diversity protects global connectivity.",
+      "A four-year randomized result is informative only inside its population: SELECT enrolled people with established cardiovascular disease, BMI of at least 27 and no diabetes."
+    ],
+    "explore": "Combine the RAW/HDR paper's representation lesson with DFC's occupancy-aware storage lesson in one camera experiment. For a real sensor corpus, plot reconstruction error and training-gradient magnitude by exposure stop, then plot LUT-query density by patch contrast and CFA pattern. Test whether a perceptual encoding changes which LUT regions become valuable, and jointly optimize transform, quantization and cache allocation under an on-device energy budget. The same exercise probes a broader theme in the institutional briefs: resilience comes from making interfaces explicit and reserving independent layers for enforcement or recovery, not from assuming the nominal system will always behave as designed."
+  }
+}
