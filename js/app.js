@@ -64,6 +64,7 @@ async function loadDate(dateString) {
         renderNews(data.news);
         renderPapers(data.papers);
         renderStocks(data.stocks);
+        if (data.takeaways) renderTakeaways(data.takeaways);
         
         // Trigger animations
         triggerRevealAnimations();
@@ -127,30 +128,137 @@ function renderNews(newsData) {
 }
 
 function renderPapers(papersData) {
-    if (!papersData) return;
+    const container = document.getElementById('papers-container');
+    if (!papersData || !container) return;
     
-    const p1 = papersData.domain;
-    if (p1) {
-        document.getElementById('paper1-title').textContent = p1.title;
-        document.getElementById('paper1-summary').textContent = p1.summary;
-        document.getElementById('paper1-takeaway').textContent = p1.takeaway;
-        document.getElementById('paper1-link').href = p1.link;
+    container.innerHTML = ''; // Clear skeletons
+    
+    // Domain Paper
+    if (papersData.domain) {
+        const p = papersData.domain;
+        container.innerHTML += `
+            <div class="paper-item">
+                <span class="badge domain-badge">Domain: ISP & AI</span>
+                <h3>${p.title || 'Untitled'}</h3>
+                <div class="paper-meta mb-3">
+                    ${p.authors ? `<span><strong>Authors:</strong> ${p.authors}</span><br>` : ''}
+                    ${p.venue ? `<span><strong>Venue:</strong> ${p.venue}</span> ` : ''}
+                    ${p.year ? `<span><strong>Year:</strong> ${p.year}</span>` : ''}
+                </div>
+                ${p.problem ? `<div class="paper-section"><strong>Problem:</strong> <p>${p.problem}</p></div>` : ''}
+                ${p.difficulty ? `<div class="paper-section"><strong>Difficulty:</strong> <p>${p.difficulty}</p></div>` : ''}
+                ${p.idea ? `<div class="paper-section"><strong>Core Idea:</strong> <p>${p.idea}</p></div>` : ''}
+                ${p.method ? `<div class="paper-section"><strong>Method:</strong> <p>${p.method}</p></div>` : ''}
+                ${p.results ? `<div class="paper-section"><strong>Results:</strong> <p>${p.results}</p></div>` : ''}
+                
+                ${p.care ? `
+                <div class="takeaway mt-3">
+                    <strong>Why should I care:</strong> <span>${p.care}</span>
+                </div>` : ''}
+                
+                ${p.learn && p.learn.length > 0 ? `
+                <div class="paper-section mt-3"><strong>What I should learn:</strong>
+                    <ul class="paper-list">${p.learn.map(l => `<li>${l}</li>`).join('')}</ul>
+                </div>` : ''}
+                
+                ${p.concepts && p.concepts.length > 0 ? `
+                <div class="paper-section mt-3"><strong>Concepts to remember:</strong>
+                    <ul class="paper-list">${p.concepts.map(c => `<li>${c}</li>`).join('')}</ul>
+                </div>` : ''}
+                
+                <div class="paper-links mt-4">
+                    ${p.link ? `<a href="${p.link}" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Read Paper</a>` : ''}
+                    ${p.scholar ? `<a href="${p.scholar}" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">Google Scholar</a>` : ''}
+                </div>
+            </div>
+            <hr class="divider">
+        `;
     }
-
-    const p2 = papersData.tech;
-    if (p2) {
-        document.getElementById('paper2-title').textContent = p2.title;
-        document.getElementById('paper2-summary').textContent = p2.summary;
-        document.getElementById('paper2-takeaway').textContent = p2.takeaway;
-        document.getElementById('paper2-link').href = p2.link;
+    
+    // Tech Paper
+    if (papersData.tech) {
+        const p = papersData.tech;
+        container.innerHTML += `
+            <div class="paper-item">
+                <span class="badge tech-badge">Tech: CS / AI / ML</span>
+                <h3>${p.title || 'Untitled'}</h3>
+                <div class="paper-meta mb-3">
+                    ${p.authors ? `<span><strong>Authors:</strong> ${p.authors}</span><br>` : ''}
+                    ${p.venue ? `<span><strong>Venue:</strong> ${p.venue}</span> ` : ''}
+                    ${p.date ? `<span><strong>Date:</strong> ${p.date}</span>` : ''}
+                </div>
+                ${p.problem ? `<div class="paper-section"><strong>Problem:</strong> <p>${p.problem}</p></div>` : ''}
+                ${p.idea ? `<div class="paper-section"><strong>Key Idea:</strong> <p>${p.idea}</p></div>` : ''}
+                ${p.method ? `<div class="paper-section"><strong>Method:</strong> <p>${p.method}</p></div>` : ''}
+                ${p.results ? `<div class="paper-section"><strong>Results:</strong> <p>${p.results}</p></div>` : ''}
+                
+                ${p.matters ? `
+                <div class="takeaway mt-3">
+                    <strong>Why it matters:</strong> <span>${p.matters}</span>
+                </div>` : ''}
+                
+                ${p.learn ? `<div class="paper-section mt-3"><strong>What I should learn:</strong> <p>${p.learn}</p></div>` : ''}
+                
+                ${p.takeaways && p.takeaways.length > 0 ? `
+                <div class="paper-section mt-3"><strong>Takeaways:</strong>
+                    <ul class="paper-list">${p.takeaways.map(t => `<li>${t}</li>`).join('')}</ul>
+                </div>` : ''}
+                
+                <div class="paper-links mt-4">
+                    ${p.link ? `<a href="${p.link}" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Read Paper</a>` : ''}
+                </div>
+            </div>
+            <hr class="divider">
+        `;
     }
+    
+    // Random Paper
+    if (papersData.random) {
+        const p = papersData.random;
+        container.innerHTML += `
+            <div class="paper-item">
+                <span class="badge random-badge">Explore: Out of Domain</span>
+                <h3>${p.title || 'Untitled'}</h3>
+                <div class="paper-meta mb-3">
+                    ${p.authors ? `<span><strong>Authors:</strong> ${p.authors}</span><br>` : ''}
+                    ${p.field ? `<span><strong>Field:</strong> ${p.field}</span>` : ''}
+                </div>
+                ${p.question ? `<div class="paper-section"><strong>Question:</strong> <p>${p.question}</p></div>` : ''}
+                ${p.method ? `<div class="paper-section"><strong>Method:</strong> <p>${p.method}</p></div>` : ''}
+                ${p.discovery ? `<div class="paper-section"><strong>Discovery:</strong> <p>${p.discovery}</p></div>` : ''}
+                ${p.interesting ? `<div class="paper-section"><strong>Why it is interesting:</strong> <p>${p.interesting}</p></div>` : ''}
+                
+                ${p.takeaway ? `
+                <div class="takeaway mt-3">
+                    <strong>Surprising Takeaway:</strong> <span>${p.takeaway}</span>
+                </div>` : ''}
+                
+                <div class="paper-links mt-4">
+                    ${p.link ? `<a href="${p.link}" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Read Paper</a>` : ''}
+                </div>
+            </div>
+        `;
+    }
+}
 
-    const p3 = papersData.random;
-    if (p3) {
-        document.getElementById('paper3-title').textContent = p3.title;
-        document.getElementById('paper3-summary').textContent = p3.summary;
-        document.getElementById('paper3-takeaway').textContent = p3.takeaway;
-        document.getElementById('paper3-link').href = p3.link;
+function renderTakeaways(takeawaysData) {
+    const section = document.getElementById('takeaways-section');
+    if (!section) return;
+    
+    if (!takeawaysData) {
+        section.style.display = 'none';
+        return;
+    }
+    section.style.display = 'block';
+    
+    const rememberList = document.getElementById('takeaways-remember-list');
+    if (rememberList && takeawaysData.remember) {
+        rememberList.innerHTML = takeawaysData.remember.map(item => \`<li>\${item}</li>\`).join('');
+    }
+    
+    const explore = document.getElementById('takeaways-explore');
+    if (explore && takeawaysData.explore) {
+        explore.innerHTML = \`<span>\${takeawaysData.explore}</span>\`;
     }
 }
 

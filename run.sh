@@ -16,6 +16,10 @@ fi
 echo "Checking/Installing dependencies (google-antigravity)..."
 pip install -q google-antigravity
 
+# Fetch latest from github
+echo "Fetching latest changes from github..."
+git -C "$SCRIPT_DIR" pull --rebase
+
 # Run the python script
 echo "Running AI script..."
 python "$SCRIPT_DIR/update_website.py"
