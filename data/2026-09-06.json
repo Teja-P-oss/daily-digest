@@ -1,64 +1,282 @@
 {
   "news": {
     "india": [
-      {"category":"Science & innovation","headline":"CSIR’s RISE Conclave brings research, startups and industry together in Kolkata","summary":"The September 6–7 conclave focuses on moving publicly funded research toward products and practical deployment, with participation from CSIR laboratories, founders, academia and industry.","why":"India’s research pipeline has more impact when laboratories, capital and manufacturing partners meet early instead of treating technology transfer as an afterthought.","link":"https://www.pib.gov.in/PressReleasePage.aspx?PRID=2305904&lang=2&reg=48"},
-      {"category":"Education","headline":"Vice President calls for education that builds citizens, not only careers","summary":"Speaking in Guwahati, the Vice President argued that institutions should pair professional preparation with democratic responsibility and social awareness.","why":"It frames education policy around civic capacity as well as employability—a useful lens for evaluating future curriculum and institutional reforms.","link":"https://newsonair.gov.in/?cat=national&id=NN1264"},
-      {"category":"Governance","headline":"Andhra Pradesh issues rules for urban local-body elections","summary":"The state notified procedures covering direct elections for mayors, chairpersons and ward members, plus indirect elections for deputy leadership posts.","why":"Local-body rules determine how directly residents can influence the officials responsible for urban services, infrastructure and municipal spending.","link":"https://newsonair.gov.in/?cat=national&id=NN1264"},
-      {"category":"Diplomacy","headline":"India backs a UN resolution on equal-area world maps","summary":"India voted in favour of using equal-area cartographic representations, which show the relative size of countries and continents more accurately than common projection styles.","why":"Map projections influence how people perceive geography and global power; the resolution connects technical accuracy with public communication.","link":"https://newsonair.gov.in/?cat=national&id=NN1264"}
+      {
+        "category": "Science & innovation",
+        "headline": "Kolkata RISE conclave links four CSIR laboratories with industry and startups",
+        "summary": "The sixth RISE conclave brought together CSIR laboratories working on minerals, medicine, materials and machines. The government said the programme produced eight MoUs, four technology transfers, two product launches and a new facility inauguration.",
+        "why": "The concrete test is whether these lab-to-market agreements turn publicly funded research into products, manufacturing capability and regional startup growth beyond India's largest hubs.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2307127&lang=1&reg=3"
+      },
+      {
+        "category": "Biodiversity governance",
+        "headline": "National biodiversity meeting asks local committees to move from registration to action",
+        "summary": "At a two-day meeting in Chandigarh, the National Biodiversity Authority urged states and Union territories to align procedures with the amended biodiversity law and make more than 276,000 Biodiversity Management Committees function effectively on the ground.",
+        "why": "India already has a vast local conservation network on paper; implementation will shape habitat protection, community participation and the fair sharing of benefits from biological resources.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2307120&lang=1&reg=3"
+      },
+      {
+        "category": "Wildlife conservation",
+        "headline": "National workshop focuses on rebuilding safe landscapes for India's vultures",
+        "summary": "A Panchkula workshop convened conservation agencies, veterinarians and researchers around vulture-safe zones, captive breeding, technical capacity and community participation, alongside International Vulture Awareness Day observances.",
+        "why": "Vultures are exceptionally efficient scavengers, so restoring their populations is tied to carcass disposal, disease risk and the resilience of whole landscapes rather than to one species alone.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2307093&lang=2&reg=48"
+      },
+      {
+        "category": "Public safety",
+        "headline": "At least three killed as rescuers search collapsed Delhi student residence",
+        "summary": "A five-storey building used as student accommodation collapsed in Satya Niketan. The Indian Express reported at least three deaths and seven patients taken to AIIMS Trauma Centre while rescue work continued.",
+        "why": "The disaster again puts building safety, enforcement and emergency access in dense urban neighbourhoods under scrutiny, particularly where residential properties house large numbers of students.",
+        "link": "https://indianexpress.com/article/cities/delhi/delhi-satya-niketan-building-collapse-du-students-aiims-trauma-centre-sister-10865948/"
+      },
+      {
+        "category": "Diplomacy",
+        "headline": "Rajnath Singh to visit Sri Lanka for defence and maritime-security talks",
+        "summary": "India announced that Defence Minister Rajnath Singh will visit Sri Lanka from September 8 to 10 with a senior delegation for talks with the country's leadership and engagement with the Indian diaspora.",
+        "why": "Defence coordination with Sri Lanka matters to India's neighbourhood strategy, Indian Ocean awareness and the balance between security cooperation and Colombo's other external relationships.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2307145&lang=1&reg=48"
+      }
     ],
     "world": [
-      {"category":"Geopolitics","headline":"US envoys and Russia discuss possible next steps on the Ukraine war","summary":"Talks in Moscow were described as substantive and covered a possible diplomatic path as well as wider US–Russia issues. The outcome remains uncertain while military pressure continues.","why":"Even limited negotiating movement could affect civilian risk, European security planning and the duration of the conflict.","link":"https://www.aa.com.tr/en/world/morning-briefing-sept-6-2026/4048504"},
-      {"category":"Climate","headline":"Pacific island states press for adaptation funding amid strategic competition","summary":"Leaders meeting in Palau are trying to turn major powers’ growing interest in the Pacific into concrete financing for relocation, resilient infrastructure and disaster readiness.","why":"Small island states contribute little to global emissions but face immediate physical and fiscal consequences from sea-level rise and extreme weather.","link":"https://apnews.com/article/01d2818e230cf866382b65c769456bc5"},
-      {"category":"Environment","headline":"Anak Krakatau eruption disrupts travel and daily life in Indonesia","summary":"A volcanic ash cloud halted flights at five airports, including Jakarta, while also affecting fishing and some school activities.","why":"The disruption shows how a localized geophysical event can propagate through aviation, education and regional supply networks.","link":"https://www.theguardian.com/world/2026/sep/06/all"},
-      {"category":"Security","headline":"Tensions in the Strait of Hormuz raise a wider escalation risk","summary":"Reports of exchanges involving Iran and the United States add uncertainty around one of the world’s most strategically important maritime corridors.","why":"Escalation could affect regional security, shipping and energy supply well beyond the immediate participants.","link":"https://www.aa.com.tr/en/world/morning-briefing-sept-6-2026/4048504"}
+      {
+        "category": "Security",
+        "headline": "Iran claims a strike on a US vessel in the Strait of Hormuz; Washington denies it",
+        "summary": "Iran said it hit an unmanned American vessel in the Strait of Hormuz, a claim the US military rejected. The dispute followed US strikes on three Iranian oil tankers after missiles targeted US Navy warships, according to AP.",
+        "why": "Claims and counterclaims in this narrow shipping corridor can raise the chance of miscalculation and immediately affect expectations for energy flows, insurance and maritime security.",
+        "link": "https://apnews.com/article/iran-us-war-strait-hormuz-ship-attack-a52beec77dc90af3d040d0553837ad20"
+      },
+      {
+        "category": "Diplomacy",
+        "headline": "US envoys meet Zelenskyy in Kyiv after talks with Putin produce no announced breakthrough",
+        "summary": "Steve Witkoff and Jared Kushner made their first official visit to Ukraine for talks with President Volodymyr Zelenskyy. European national-security advisers joined later, after the envoys' lengthy Moscow meeting with Vladimir Putin yielded no public breakthrough.",
+        "why": "The sequence tests whether Washington can bridge positions held by Kyiv, Moscow and European capitals without treating security guarantees or territorial questions as bilateral details.",
+        "link": "https://apnews.com/article/russia-ukraine-war-witkoff-kushner-zelenskyy-putin-44bba3b57b480560d9f48dba7d28534e"
+      },
+      {
+        "category": "Natural hazards",
+        "headline": "Anak Krakatau eruption closes eight Indonesian airports and disrupts mass travel",
+        "summary": "Anak Krakatau erupted early Sunday without reported casualties or evacuation orders. By evening, AP reported eight airport closures, roughly 170,000 affected passengers and 1,558 cancelled flights, including 963 involving Jakarta.",
+        "why": "The disruption shows how a localized volcanic event can propagate rapidly through a tightly connected aviation network even when communities near the volcano avoid immediate loss of life.",
+        "link": "https://apnews.com/article/indonesia-volcano-eruption-airport-flights-cancel-12c3cb67859b2c51054b378d60148d33"
+      },
+      {
+        "category": "Politics",
+        "headline": "Saxony-Anhalt votes in a major test of Germany's firewall against the AfD",
+        "summary": "Voters in the eastern German state of Saxony-Anhalt cast ballots in an election that could give the far-right Alternative for Germany its first postwar state-government opportunity. The final outcome was not yet available in the cited report.",
+        "why": "Coalition arithmetic here will indicate whether mainstream parties can sustain their refusal to govern with the AfD as the party's regional electoral strength grows.",
+        "link": "https://apnews.com/article/germany-saxony-anhalt-election-far-right-afd-c538060710a2495c72425b6468df0d40"
+      },
+      {
+        "category": "Climate disaster",
+        "headline": "Worker rescued after ten days in Nepal tunnel as glacier-linked flood toll mounts",
+        "summary": "Rescuers brought Chinese hydropower worker Lu Haitao out alive after ten days trapped in a 225-metre tunnel. AP reported more than 1,300 deaths and nearly 4,900 people missing after floods believed to have followed a glacier collapse.",
+        "why": "The rescue is a rare success inside a much larger disaster that connects Himalayan cryosphere hazards with infrastructure exposure, downstream warning systems and cross-border workforces.",
+        "link": "https://apnews.com/article/nepal-floods-chinese-man-lu-rescued-family-7096a95447c25b9f49655acd7ac673e4"
+      }
     ]
   },
   "papers": {
     "domain1": {
-      "title":"AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection","authors":"Yujin Wang, Tianyi Xu, Fan Zhang, Tianfan Xue, Jinwei Gu","year":"2024","venue":"arXiv","link":"https://arxiv.org/abs/2410.22939","scholar":"https://scholar.google.com/scholar?q=AdaptiveISP+Learning+an+Adaptive+Image+Signal+Processor+for+Object+Detection","summary":"A task-driven ISP that uses reinforcement learning to choose both processing modules and parameters per image, optimizing detection accuracy while penalizing unnecessary computation.",
-      "problem":"A conventional ISP is tuned for human-perceived image quality and then frozen. That is often a poor front end for detection, recognition or tracking, particularly when scene conditions change. Searching a fresh pipeline with conventional neural architecture search is too slow for a live imaging system.",
-      "difficulty":"The design space mixes discrete choices—such as which module comes next—with continuous parameters such as tone, color and enhancement strength. The objective also has competing terms: downstream accuracy and latency.",
-      "idea":"Treat ISP construction as a sequential decision problem. A lightweight policy observes the current image state, adds one useful module at a time, selects its parameters and can stop when another stage is not worth its compute cost.",
-      "method":"AdaptiveISP models the pipeline as a Markov decision process. At every stage, an RL agent selects an ISP operator and parameters, produces a new image state and receives feedback from a fixed YOLOv3 detector. A cost penalty discourages long pipelines. This greedy, image-conditioned policy avoids an expensive full architecture search and lets bright, low-light and high-dynamic-range scenes receive different processing paths. The detector stays fixed, so improvement must come from a front end that presents task-relevant contrast and color rather than simply producing a visually pleasing photograph.",
-      "results":"On the LOD dataset, the paper reports mAP@0.5 of 71.4 versus 70.1 for a fixed-pipeline baseline with optimized parameters. Its analysis shows the first two stages raising mAP from 67.8 to 70.9, while three additional stages add only 0.5—evidence for conditional early stopping.",
-      "care":"This is a useful pattern for heterogeneous mobile imaging: keep reliable ISP primitives, add a cheap scene-aware controller, and expose task performance plus power or latency as explicit optimization signals. A detector-optimized rendering may not look attractive to a human, and an RL controller also adds verification complexity.",
-      "learn":["Separate the camera objective from the traditional image-quality objective when the consumer is a neural network.","Dynamic depth can save work because most scenes do not need the maximum pipeline.","A frozen downstream model provides a clean signal but can over-specialize the ISP.","Latency belongs inside the reward function, not as a late constraint."],"concepts":["task-driven ISP","Markov decision process","dynamic pipeline depth","accuracy–latency reward","early stopping"]
+      "title": "AdaptiveISP: Learning an Adaptive Image Signal Processor for Object Detection",
+      "authors": "Yujin Wang, Tianyi Xu, Fan Zhang, Tianfan Xue, and Jinwei Gu",
+      "year": "2024",
+      "venue": "Advances in Neural Information Processing Systems 37 (NeurIPS 2024)",
+      "field": "Task-driven image signal processing",
+      "link": "https://papers.neurips.cc/paper_files/paper/2024/hash/cc596a803bedc7a03a87e98c77a22efe-Abstract-Conference.html",
+      "scholar": "https://scholar.google.com/scholar?q=AdaptiveISP%3A+Learning+an+Adaptive+Image+Signal+Processor+for+Object+Detection",
+      "summary": "AdaptiveISP replaces a single fixed image-processing chain with a policy that chooses a short, scene-dependent sequence of differentiable ISP modules and their parameters to improve a downstream detector under a computation budget.",
+      "problem": "A conventional camera ISP is tuned to make images look broadly pleasing, while a vision detector cares about task-relevant evidence. One fixed pipeline is also asked to handle scenes whose noise, illumination, colour and dynamic range differ sharply, creating a mismatch between camera processing and machine perception.",
+      "difficulty": "The design space is mixed and combinatorial: the system must decide which modules to run, in what order, with what continuous parameters and when to stop. A useful policy also has to receive a signal from a fixed detector, remain trainable through image operations and avoid buying marginal accuracy with an impractical amount of processing.",
+      "idea": "Treat ISP construction as a sequential decision problem instead of selecting one static architecture. A learned policy observes the evolving image, selects an operator and its settings, and can stop early, letting easy scenes use a compact path while difficult scenes receive additional task-guided processing.",
+      "method": "The authors formulate adaptive ISP control as a Markov decision process. At each step, a policy examines features of the current image and chooses from a toolbox of differentiable image-processing modules together with continuous parameters; a STOP action ends the chain. The chosen operations transform the input before it reaches a fixed, pretrained object detector. Deep reinforcement learning optimizes the discrete structure decisions and continuous controls using a reward tied to detection quality, while a computational-cost term discourages needlessly long or expensive chains. Because the policy acts sequentially, it can build different operator orders for different scenes rather than merely tune the gains of a fixed graph. Experiments on low-light object detection compare these adaptive paths with conventional and learned fixed ISP baselines and inspect how often modules are selected.",
+      "results": "On the LOD benchmark with a fixed pretrained YOLOv3 detector, the authors report 71.4 mAP at IoU 0.5, compared with 70.1 for their optimized fixed ISP. Their analysis also finds that the policy uses only a few modules for most inputs, supporting the claim that scene adaptation can improve task accuracy without applying the full toolbox every time.",
+      "care": "The paper is a useful blueprint for camera systems built for perception rather than display: pipeline topology itself becomes conditional compute. But its evidence is detector- and benchmark-specific, reinforcement-learning training adds complexity, the operator set remains largely in the RGB image domain, and better detector reward does not guarantee visually pleasing or artifact-free images for people.",
+      "learn": [
+        "How to express a camera pipeline as a sequential policy with a STOP decision.",
+        "Why task loss can select different processing than perceptual image-quality loss.",
+        "How a runtime penalty turns variable pipeline depth into a conditional-compute tradeoff.",
+        "What to measure when comparing adaptive processing with a carefully optimized fixed baseline."
+      ],
+      "concepts": [
+        "Image signal processing",
+        "Markov decision processes",
+        "Deep reinforcement learning",
+        "Conditional computation",
+        "Object detection",
+        "Differentiable image operators"
+      ]
     },
     "domain2": {
-      "title":"MicroISP: Processing 32MP Photos on Mobile Devices with Deep Learning","authors":"Andrey Ignatov, Anastasia Sycheva, Radu Timofte et al.","year":"2022","venue":"ECCV Workshops","link":"https://arxiv.org/abs/2211.06770","scholar":"https://scholar.google.com/scholar?q=MicroISP+Processing+32MP+Photos+on+Mobile+Devices+with+Deep+Learning","summary":"A deliberately compact neural ISP designed around mobile memory and runtime limits, with a scalable architecture that processes full-resolution photographs using standard on-device ML stacks.",
-      "problem":"Neural RAW-to-RGB systems often look impressive on crops or desktop GPUs but become impractical at 32-megapixel resolution. Activation memory, bandwidth and latency—not parameter count alone—can prevent deployment on a phone.",
-      "difficulty":"A full-resolution ISP must preserve fine texture and global tone under tight RAM, cache, thermal and power limits. Tiling saves memory but can introduce seams or destroy global context; aggressive downsampling loses sensor detail.",
-      "idea":"Co-design the network and execution path for edge constraints. MicroISP uses a flexible lightweight model whose complexity can be adjusted to the device, rather than shrinking a desktop architecture after training.",
-      "method":"The work evaluates a compact end-to-end neural photo pipeline on real phones through standard mobile ML libraries. It trains with paired captures from a conventional mobile sensor and a professional 102MP Fujifilm GFX100 reference camera, creating the UltraISP dataset. That pairing asks the model to approximate a high-quality photographic target while retaining a deployment-friendly graph. The scalable design lets implementers select a capacity point for a device class instead of maintaining unrelated models.",
-      "results":"The authors report processing photographs up to 32MP in under one second on recent smartphones and real-time performance at Full HD. They also report visual quality comparable to or better than traditional mobile ISPs and stronger results than earlier efficient deep-learning solutions on their evaluation data.",
-      "care":"The paper is about honest systems engineering: resolution, activation lifetime, operator support and reference-data quality determine whether a neural ISP ships. A medium-format target also bakes one camera’s rendering and optics into supervision, so cross-sensor robustness remains a deployment question.",
-      "learn":["Measure peak activation memory and bandwidth alongside MACs and model size.","Train against references that reflect the intended aesthetic and detail target.","Design a capacity ladder for multiple SoC tiers.","Validate through the actual mobile inference stack."],"concepts":["edge neural ISP","paired camera dataset","activation memory","operator availability","resolution-aware deployment"]
+      "title": "CoDISP: Exploring Compressed Domain Camera ISP with RGB-guided Encoder",
+      "authors": "Molin Zhang, Soumendu Majee, Chengyu Wang, Seok-Jun Lee, and Hamid Sheikh",
+      "year": "2024",
+      "venue": "CVPR Workshops (Mobile AI), 2024",
+      "field": "Mobile camera ISP and memory optimization",
+      "link": "https://openaccess.thecvf.com/content/CVPR2024W/MAI/html/Zhang_CoDISP_Exploring_Compressed_Domain_Camera_ISP_with_RGB-guided_Encoder_CVPRW_2024_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=CoDISP%3A+Exploring+Compressed+Domain+Camera+ISP+with+RGB-guided+Encoder",
+      "summary": "CoDISP learns a compact camera-domain representation and performs demosaicing, denoising and registration on that latent, targeting the bandwidth and memory pressure created by moving full-resolution raw frames through a mobile imaging pipeline.",
+      "problem": "High-resolution and burst photography force mobile systems to store and move large raw tensors between ISP stages. That memory traffic constrains latency, power and the number of frames available for computational photography, yet lossy compression can discard sensor information that later restoration tasks need.",
+      "difficulty": "Raw colour-filter-array data and display-ready RGB images have different sampling structures, and useful compression must preserve information for several downstream tasks rather than one reconstruction score. Training directly from raw data is also restricted by the limited scale and diversity of paired high-resolution camera datasets.",
+      "idea": "First learn a compact latent representation from abundant RGB imagery, then teach a raw encoder to imitate that representation. Camera processing can subsequently operate on the fixed-size latent, making the RGB model a source of supervision for a sensor-domain compressor without requiring an equally large raw corpus.",
+      "method": "Training proceeds in three stages. An RGB encoder-decoder is first trained on approximately 300,000 256-by-256 crops from OpenImages so that a low-channel latent retains enough visual information for reconstruction. A raw encoder is then initialized and guided to produce the same latent representation from simulated colour-filter-array measurements, using an L1 alignment objective against the RGB encoder's features. Finally, task-specific decoders or processing heads learn to work directly from that compressed code for demosaicing, single-frame and multi-frame denoising, and affine registration. The paper studies two-channel latents with spatial resolutions chosen for compression ratios of four and six, evaluates Bayer and Tetra sampling, and describes the representation as fixed-rate rather than entropy-coded. Public Kodak, CLIC and MCM images support reconstruction tests, while an internal high-resolution collection is used for downstream proof-of-concept experiments.",
+      "results": "Across the public reconstruction sets, the paper reports that compression ratios of four and six retain performance close to corresponding non-compressed processing while materially shrinking intermediate storage. The same learned representation supports proof-of-concept single- and multi-frame denoising and registration, suggesting that its usefulness is not confined to decoding an RGB image.",
+      "care": "Moving ISP work into a compact latent could reduce one of mobile imaging's less visible bottlenecks: memory traffic. The evidence is exploratory, however. Some raw mosaics and noise are simulated, downstream tests use internal data, the code is fixed-rate rather than entropy-coded, and the study does not establish end-to-end device latency, energy use or quality across commercial sensors.",
+      "learn": [
+        "How RGB pretraining can supervise a raw-sensor encoder when paired raw data is scarce.",
+        "Why fixed-rate latent size and entropy-coded file size answer different engineering questions.",
+        "How one compressed representation can be tested across reconstruction, denoising and alignment.",
+        "Which dataset and hardware gaps remain before a mobile deployment claim is convincing."
+      ],
+      "concepts": [
+        "Learned image compression",
+        "Raw colour-filter arrays",
+        "Representation distillation",
+        "Demosaicing",
+        "Multi-frame denoising",
+        "Image registration",
+        "Memory bandwidth"
+      ]
     },
     "outside1": {
-      "title":"Membrane potential states gate synaptic consolidation in human neocortical tissue","authors":"Franz X. Mittermaier, Thilo Kalbhenn, Ran Xu et al.","year":"2024","venue":"Nature Communications","field":"Neuroscience","link":"https://www.nature.com/articles/s41467-024-53901-2","scholar":"https://scholar.google.com/scholar?q=Membrane+potential+states+gate+synaptic+consolidation+human+neocortical+tissue","summary":"Experiments in living human cortical tissue suggest that sleep-like UP and DOWN membrane-potential states change axonal signaling and help decide whether recently active synapses stabilize or weaken.",
-      "question":"How can the slow electrical rhythms of non-REM sleep convert a recently reactivated memory into a longer-lasting change in human cortical connections?","difficulty":"The relevant events occur at synapses and axons, yet most human sleep studies measure population signals at the scalp. Direct multi-neuron and axonal recordings from viable human neocortex are rare and technically demanding.",
-      "idea":"Slow-wave timing acts as a gate. DOWN-to-UP transitions alter ion-channel availability, broaden or strengthen presynaptic action potentials and make a postsynaptic spike more likely. Whether that neuron fires then determines whether the connection stabilizes or weakens.",
-      "method":"The researchers used acute neocortical tissue obtained during neurosurgery and performed axonal plus multi-neuron patch-clamp recordings. They imposed membrane-potential patterns resembling sleep UP and DOWN states, measured action-potential shape and synaptic transmission, and tested the lasting effect on connection strength. Depolarized UP-like states inactivated some axonal potassium channels, broadening action potentials. A DOWN interval helped sodium channels recover, so the following UP transition produced stronger axonal signaling.",
-      "results":"UP/DOWN sequences temporarily enhanced transmission between human layer 2/3 pyramidal neurons. When boosted input recruited a postsynaptic action potential, synaptic strength stabilized; when it failed, the connection showed lasting depression.",
-      "interesting":"The study connects a macroscopic feature of sleep to a cellular mechanism in human tissue. Memory consolidation may depend not simply on replay, but on replay inside an electrophysiological window that changes whether synapses cross a plasticity threshold.",
-      "learn":["Timing relative to a network oscillation can change the plasticity outcome of the same input.","Ion-channel recovery and inactivation bridge brain state and learning."],"concepts":["UP/DOWN states","slow-wave sleep","synaptic consolidation","patch clamp","spike-timing gate"]
+      "title": "A postsynaptic burst controls the Hebbian strengthening of human synapses",
+      "authors": "Franz X. Mittermaier, Thilo Kalbhenn, Ran Xu, et al.",
+      "year": "2024",
+      "venue": "Nature Communications",
+      "field": "Human cellular neuroscience",
+      "link": "https://www.nature.com/articles/s41467-024-53901-2",
+      "scholar": "https://scholar.google.com/scholar?q=A+postsynaptic+burst+controls+the+Hebbian+strengthening+of+human+synapses",
+      "summary": "Recordings from living human cortical slices show how a sequence resembling neuronal UP and DOWN states can prepare a synapse for stronger transmission, while a postsynaptic burst determines whether that transient gain becomes lasting potentiation.",
+      "problem": "Cellular accounts of memory rely heavily on rodents and simplified spike-timing rules. The authors ask how naturalistic changes in membrane potential affect transmitter release at connected human cortical neurons, and which event converts a temporary increase in synaptic strength into a durable Hebbian change.",
+      "difficulty": "Healthy human cortical circuits cannot be sampled experimentally at will. Viable tissue comes from neurosurgery, connected neuron pairs are rare, axonal voltage is technically difficult to record, and ex vivo stimulation has to isolate presynaptic excitability, release probability and postsynaptic spiking without confusing them.",
+      "idea": "A prolonged depolarized UP state can inactivate presynaptic Kv1 potassium channels and broaden the next axonal action potential after a recovery period, transiently increasing release. If that stronger input recruits a postsynaptic burst, the burst acts as a gate that stabilizes potentiation; without it, the synapse tends toward depression.",
+      "method": "The team used acute neocortical slices removed during surgery from 33 people treated for refractory epilepsy and 12 treated for tumours. Paired whole-cell recordings from connected layer 2/3 pyramidal neurons measured unitary excitatory postsynaptic potentials, while somato-axonal recordings linked somatic voltage patterns to action-potential width in axons. Controlled depolarizations lasting 50, 200, 500 or 1,000 milliseconds modelled aspects of an UP state, followed by a hyperpolarized interval resembling a DOWN state. Pharmacology and voltage protocols tested the role of slowly recovering Kv1 channels and sodium-channel availability. Longer protocols then paired the enhanced presynaptic input with either successful or absent postsynaptic burst firing to determine which sequence produced persistent potentiation rather than depression.",
+      "results": "Depolarizations of 200, 500 and 1,000 milliseconds increased subsequent EPSP amplitude by 11 ± 4%, 15 ± 3% and 19 ± 5%, while 50 milliseconds did not. A 1,000-millisecond depolarization broadened axonal action potentials by 13 ± 2%. Adding an UP-DOWN-like sequence raised potentiation to 27% in 21 recordings, and enhanced inputs recruited postsynaptic spikes in 83 of 163 trials versus 44 of 163 control trials across six experiments.",
+      "care": "The work links membrane state, axonal ion-channel kinetics and a cellular learning gate in human tissue, offering a mechanistic bridge between cortical rhythms and plasticity. It is not direct evidence about sleep or memory behaviour: the slices came from surgical patients, network states were imposed electrically, and the number of connected-pair and burst-gating experiments was necessarily limited.",
+      "learn": [
+        "How presynaptic action-potential width changes neurotransmitter release.",
+        "Why Kv1 inactivation and sodium-channel recovery favour an UP-then-DOWN sequence.",
+        "How a postsynaptic burst can convert short-lived facilitation into stable potentiation.",
+        "How evidence from human surgical tissue differs from an in-vivo memory experiment."
+      ],
+      "concepts": [
+        "Hebbian plasticity",
+        "Paired patch-clamp recording",
+        "Kv1 potassium channels",
+        "Axonal action potentials",
+        "UP and DOWN states",
+        "Synaptic potentiation"
+      ]
     },
     "outside2": {
-      "title":"Achieving net zero greenhouse gas emissions critical to limit climate tipping risks","authors":"Tessa Möller, Annika Ernest Högner, Carl-Friedrich Schleussner et al.","year":"2024","venue":"Nature Communications","field":"Climate science","link":"https://www.nature.com/articles/s41467-024-49863-0","scholar":"https://scholar.google.com/scholar?q=Achieving+net+zero+greenhouse+gas+emissions+critical+to+limit+climate+tipping+risks","summary":"A model-based study finds that both the height of a warming overshoot and the temperature maintained afterward shape the probability of triggering interacting climate tipping elements.",
-      "question":"If global temperature temporarily exceeds 1.5°C and later falls, how much long-term tipping risk remains—and which properties of the emissions pathway matter most?","difficulty":"Tipping thresholds and transition times are uncertain, components interact, and slow systems such as ice sheets can evolve for centuries after emissions change. A single best-estimate trajectory hides the risk distribution.",
-      "idea":"Treat climate policy pathways as risk distributions rather than a finish-line temperature. Peak overshoot controls much medium-term danger, while long-run stabilization and whether net zero is maintained dominate later risk.",
-      "method":"The authors combine policy-relevant temperature pathways with multiple calibrations of the stylized PyCascades Earth-system model. It represents four interacting elements: Greenland and West Antarctic ice sheets, the Atlantic Meridional Overturning Circulation and the Amazon rainforest. They propagate uncertainty in temperature response, tipping thresholds and transition times, then compare risks through 2300 and toward equilibrium. The simplified model is useful for scenario comparison, not a precise forecast date.",
-      "results":"For a pathway following then-current policies, the study reports a median 45% chance of at least one modeled tipping event by 2300, with a 10–90% range of 23–71%, even if temperature later returns below 1.5°C. Risk rises with each additional 0.1°C of overshoot and accelerates above 2°C.",
-      "interesting":"The engineering analogy is hysteresis in a coupled nonlinear system: returning an input to a nominally safe value does not guarantee restoration of the previous state. Peak stress, dwell time, feedback and the final operating point all matter.",
-      "learn":["An overshoot pathway cannot be judged only by its final temperature.","Maintaining net zero matters because long-term risk depends strongly on stabilization.","Simplified models compare scenarios but are not deterministic forecasts."],"concepts":["climate tipping element","temperature overshoot","hysteresis","coupled risk","net-zero greenhouse gases"]
+      "title": "Achieving net zero greenhouse gas emissions critical to limit climate tipping risks",
+      "authors": "Tessa Möller, Annika Ernest Högner, Carl-Friedrich Schleussner, et al.",
+      "year": "2024",
+      "venue": "Nature Communications",
+      "field": "Climate-system risk modelling",
+      "link": "https://www.nature.com/articles/s41467-024-49863-0",
+      "scholar": "https://scholar.google.com/scholar?q=Achieving+net+zero+greenhouse+gas+emissions+critical+to+limit+climate+tipping+risks",
+      "summary": "A coupled tipping-element model finds that temporary temperature overshoot is not harmless: risk rises with peak warming and its duration, while reaching and sustaining net-zero greenhouse-gas emissions sharply limits long-run exposure.",
+      "problem": "Paris-aligned pathways may exceed 1.5°C before cooling later, but policy discussions often focus on the endpoint and understate what can happen during the overshoot. The study asks how the height, duration and reversal of warming affect the chance of destabilizing major components of the Earth system.",
+      "difficulty": "Tipping thresholds, transition speeds and interactions remain deeply uncertain, and the relevant consequences unfold for centuries to millennia. A model must propagate uncertainty across emissions, global temperature, four heterogeneous Earth-system components and their couplings without presenting an unknowable threshold as a precise forecast.",
+      "idea": "Evaluate entire warming trajectories rather than only their temperature in 2100. Sampling uncertain thresholds and interaction strengths across many scenarios reveals how every increment and year of overshoot accumulates risk, and why net zero is a physical requirement for stabilizing exposure rather than merely a political milestone.",
+      "method": "The authors drive the stylized PyCascades model with emissions trajectories from the PROVIDE v1.2 scenario ensemble and global temperatures emulated by FaIR v1.6.2. Four interacting tipping elements are represented: the Greenland and West Antarctic ice sheets, the Atlantic Meridional Overturning Circulation and the Amazon rainforest. Monte Carlo sampling varies uncertain temperature thresholds, transition times and interaction strengths. The analysis compares pathways with different peak warming, overshoot durations and long-term outcomes, tracking risk through 2300 and, for equilibrium behaviour, over 50,000 years. Scenario groups include low and high overshoots that return below 1.5°C as well as current-policy trajectories. This is a risk framework built from simplified bifurcation dynamics, not a process-resolving Earth-system prediction.",
+      "results": "For the 2020 current-policy scenario, the model gives a 45% median chance of at least one tipping event by 2300, with a 10th-to-90th-percentile range of 23–71%. Low overshoots below 0.1°C have a median risk below 1% and a 0–7% range; high overshoots returning below 1.5°C by 2100 have a median of 2% and remain at or below 10%. Risk rises with each additional 0.1°C and accelerates above 2°C.",
+      "care": "The paper makes delayed climate action legible as accumulated exposure rather than a reversible temperature detour, strengthening the case for rapid net zero and minimal overshoot. Its percentages should not be read as calibrated forecasts: only four elements are modelled, each uses stylized dynamics, and thresholds, couplings and omitted cascades remain uncertain.",
+      "learn": [
+        "Why peak warming and time above a threshold both matter for tipping risk.",
+        "How Monte Carlo sampling carries uncertain thresholds and couplings into risk ranges.",
+        "Why returning below 1.5°C does not erase every consequence of an overshoot.",
+        "Where a stylized tipping model is informative and where it cannot replace Earth-system simulation."
+      ],
+      "concepts": [
+        "Climate tipping elements",
+        "Temperature overshoot",
+        "Net-zero emissions",
+        "Monte Carlo uncertainty",
+        "Earth-system cascades",
+        "Reduced-complexity climate models"
+      ]
     }
   },
   "stocks": {
-    "us":[{"symbol":"NVDA","price":"$115.42","change":1.2,"reason":"Consistent AI hardware demand & stability"},{"symbol":"MSFT","price":"$410.12","change":0.8,"reason":"Cloud and AI enterprise growth"},{"symbol":"MU","price":"$98.34","change":2.5,"reason":"Undervalued semiconductor earnings play"},{"symbol":"JBL","price":"$121.50","change":1.4,"reason":"Trading below historical multiples with solid targets"},{"symbol":"CDNS","price":"$280.20","change":-0.5,"reason":"Lucrative AI enterprise software runway"}],
-    "india":[{"symbol":"HDFCBANK.NS","price":"₹1640.25","change":0.5,"reason":"Consistent performance in private banking"},{"symbol":"CUB.NS","price":"₹155.10","change":1.8,"reason":"Recent brokerage upgrade"},{"symbol":"HINDZINC.NS","price":"₹495.30","change":-1.2,"reason":"Commodity price adjustments"},{"symbol":"TATAPOWER.NS","price":"₹420.75","change":2.1,"reason":"Power generation sector growth"},{"symbol":"ENGINERSIN.NS","price":"₹210.40","change":3.0,"reason":"Capital expenditure & manufacturing boost"}]
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$230.36",
+        "change": 0.84,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares rose 0.84%.",
+        "thesis": "NVIDIA remains the central platform bet on accelerated computing and AI infrastructure demand across chips, systems and software.",
+        "risk": "Valuation, export restrictions, hyperscaler spending shifts and stronger custom-silicon competition can magnify any growth disappointment."
+      },
+      {
+        "symbol": "QCOM",
+        "price": "$168.74",
+        "change": 0.1,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares edged up 0.10%.",
+        "thesis": "Qualcomm combines a profitable handset franchise with optionality in edge AI, automotive connectivity and industrial IoT.",
+        "risk": "Smartphone cyclicality, customer concentration, licensing disputes and geopolitical limits on China exposure remain material."
+      },
+      {
+        "symbol": "MU",
+        "price": "$1,016.59",
+        "change": 6.1,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares jumped 6.10%.",
+        "thesis": "Micron is leveraged to high-bandwidth memory and data-centre demand as AI systems require more memory capacity per accelerator.",
+        "risk": "Memory pricing is intensely cyclical; new supply, heavy capital spending or slower AI orders can reverse earnings momentum quickly."
+      },
+      {
+        "symbol": "AMAT",
+        "price": "$454.71",
+        "change": 4.31,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares advanced 4.31%.",
+        "thesis": "Applied Materials offers broad exposure to the increasing process complexity and capital intensity of advanced semiconductor fabrication.",
+        "risk": "Fab-equipment demand is cyclical and exposed to export controls, customer project timing and concentration among major chipmakers."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,322.00",
+        "change": 1.5,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares gained 1.50%.",
+        "thesis": "Reliance offers diversified exposure to energy, retail and digital services, with optionality from new-energy investments.",
+        "risk": "Large capital commitments, execution across very different businesses, regulation and commodity margins complicate valuation."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹712.10",
+        "change": 0.77,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares added 0.77%.",
+        "thesis": "HDFC Bank's distribution, deposit franchise and underwriting record support long-duration compounding if post-merger integration delivers.",
+        "risk": "Funding costs, net-interest-margin pressure, integration execution and a deterioration in asset quality are the principal watchpoints."
+      },
+      {
+        "symbol": "DIXON",
+        "price": "₹14,240.00",
+        "change": -1.42,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares fell 1.42%.",
+        "thesis": "Dixon is a scaled beneficiary of electronics localization as brands outsource manufacturing and India expands supply-chain capability.",
+        "risk": "Thin contract-manufacturing margins, customer concentration, premium valuation and dependence on policy incentives leave little room for misses."
+      },
+      {
+        "symbol": "TATAPOWER",
+        "price": "₹368.00",
+        "change": 0.63,
+        "reason": "Latest completed session was Friday, September 4 because the edition date is Sunday; shares rose 0.63%.",
+        "thesis": "Tata Power spans generation, distribution and renewables, giving it multiple routes to participate in India's power transition.",
+        "risk": "Leverage, project execution, coal and input costs, regulatory decisions and delayed utility receivables can pressure returns."
+      }
+    ]
   },
   "takeaways": {
-    "remember":["Task-driven ISPs can optimize for a detector rather than human visual preference.","Peak activation memory and supported mobile operators matter as much as parameter count.","Sleep-like UP/DOWN timing can gate whether a human cortical synapse stabilizes or weakens.","Climate overshoot risk depends on peak temperature, duration and the eventual stabilization point.","India’s general-news signal today spans research commercialization, education, local governance and diplomacy."],
-    "explore":"Compare AdaptiveISP’s dynamic module selection with the fixed, deployment-first design of MicroISP: one optimizes which work to do, while the other minimizes the cost of doing it."
+    "remember": [
+      "A static pipeline can be a hidden assumption: AdaptiveISP shows that choosing operations per scene can improve a fixed detector while limiting compute.",
+      "Compression is most useful when downstream tasks can stay in the latent domain; repeatedly decoding full-resolution images gives memory savings back.",
+      "Temporary state changes can open a window without fixing the outcome: human synapses needed a postsynaptic burst to stabilize transient facilitation.",
+      "Climate overshoot has path dependence too; returning below 1.5°C reduces future exposure but cannot guarantee that tipping risks accumulated during the excursion disappear.",
+      "Sunday market numbers belong to Friday's completed session, so the date of the observation matters as much as the displayed percentage.",
+      "From biodiversity committees to vulture-safe zones, institutional presence is only an input; ecological outcomes depend on local capacity and sustained execution."
+    ],
+    "explore": "Trace a shared design question across today's papers: when should a system preserve flexibility, and when should it commit? AdaptiveISP delays commitment to an operator sequence until it sees the scene; CoDISP commits early to a compact representation but tests whether several later tasks remain possible; the synapse paper describes a temporary biochemical window that becomes lasting change only after a postsynaptic burst; and the tipping study warns that crossing a threshold may create dynamics that later cooling cannot simply reverse. For one system you work with, identify its state, its trigger for commitment, the cost of waiting and whether rollback is genuinely available. Then design one measurement that would distinguish reversible adaptation from path-dependent change."
   }
 }
