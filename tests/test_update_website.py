@@ -1,0 +1,136 @@
+from __future__ import annotations
+
+import json
+import tempfile
+import unittest
+from datetime import date
+from pathlib import Path
+from unittest import mock
+
+import update_website as digest_app
+
+
+def paragraph(label: str, length: int = 180) -> str:
+    return (f"{label} supplies verified context, technical detail, evidence, limitations, and practical implications. " * 8)[:length]
+
+
+def paper(title: str, field: str, slug: str) -> digest_app.Paper:
+    return digest_app.Paper(
+        title=title,
+        authors="A. Researcher and B. Researcher",
+        year="2026",
+        venue="Example Conference",
+        field=field,
+        link=f"https://example.com/papers/{slug}",
+        scholar=f"https://scholar.google.com/scholar?q={slug}",
+        summary=paragraph("Summary", 120),
+        problem=paragraph("Problem"),
+        difficulty=paragraph("Difficulty"),
+        idea=paragraph("Idea"),
+        method=paragraph("Method", 320),
+        results=paragraph("Results", 200),
+        care=paragraph("Importance", 200),
+        learn=["Lesson one is concrete.", "Lesson two is concrete.", "Lesson three is concrete."],
+        concepts=["concept one", "concept two", "concept three", "concept four"],
+    )
+
+
+def news(prefix: str) -> list[digest_app.NewsItem]:
+    categories = ["Governance", "Science", "Health", "Environment"]
+    return [
+        digest_app.NewsItem(
+            category=category,
+            headline=f"{prefix} verified headline number {index}",
+            summary=paragraph(f"{prefix} summary {index}", 90),
+            why=paragraph(f"{prefix} importance {index}", 70),
+            link=f"https://example.com/{prefix.casefold()}/{index}",
+        )
+        for index, category in enumerate(categories, 1)
+    ]
+
+
+def stocks(prefix: str) -> list[digest_app.Stock]:
+    return [
+        digest_app.Stock(
+            symbol=f"{prefix}{index}",
+            price=f"${100 + index}",
+            change=float(index),
+            reason="Latest completed session with verified market context.",
+            thesis="The watchlist thesis is concise, evidence-based, and not a recommendation.",
+            risk="Valuation and execution remain material risks.",
+        )
+        for index in range(1, 4)
+    ]
+
+
+def sample_digest() -> digest_app.Digest:
+    return digest_app.Digest(
+        news=digest_app.News(india=news("India"), world=news("World")),
+        papers=digest_app.Papers(
+            domain1=paper("Inside Domain Paper One", "Imaging", "domain-one"),
+            domain2=paper("Inside Domain Paper Two", "Semiconductors", "domain-two"),
+            outside1=paper("Outside Domain Paper One", "Neuroscience", "outside-one"),
+            outside2=paper("Outside Domain Paper Two", "Economics", "outside-two"),
+        ),
+        stocks=digest_app.Stocks(us=stocks("US"), india=stocks("IN")),
+        takeaways=digest_app.Takeaways(
+            remember=[f"Remember verified idea {index}." for index in range(1, 6)],
+            explore=paragraph("Explore the relationship between the strongest ideas", 180),
+        ),
+    )
+
+
+class PublishTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temporary = tempfile.TemporaryDirectory()
+        self.data_dir = Path(self.temporary.name) / "data"
+        self.data_dir.mkdir()
+        self.index_path = self.data_dir / "index.json"
+        self.index_path.write_text("[]\n", encoding="utf-8")
+        self.patch_data = mock.patch.object(digest_app, "DATA_DIR", self.data_dir)
+        self.patch_index = mock.patch.object(digest_app, "INDEX_PATH", self.index_path)
+        self.patch_data.start()
+        self.patch_index.start()
+
+    def tearDown(self) -> None:
+        self.patch_index.stop()
+        self.patch_data.stop()
+        self.temporary.cleanup()
+
+    def fake_search_builder(self) -> None:
+        (self.data_dir / "search-index.json").write_text("[]\n", encoding="utf-8")
+
+    def test_publish_and_repeat_repair_keep_one_date(self) -> None:
+        edition = date(2026, 9, 5)
+        with mock.patch.object(digest_app, "build_search_index", self.fake_search_builder):
+            issue_path = digest_app.publish_digest(sample_digest(), edition)
+            digest_app.repair_existing_archive(edition)
+            digest_app.repair_existing_archive(edition)
+
+        self.assertTrue(issue_path.exists())
+        self.assertEqual(json.loads(self.index_path.read_text()), ["2026-09-05"])
+
+    def test_publish_rolls_back_all_archive_files_on_failure(self) -> None:
+        edition = date(2026, 9, 5)
+        issue_path = self.data_dir / "2026-09-05.json"
+        search_path = self.data_dir / "search-index.json"
+        issue_path.write_text('{"old": true}\n', encoding="utf-8")
+        self.index_path.write_text('["2026-09-05"]\n', encoding="utf-8")
+        search_path.write_text('[{"old": true}]\n', encoding="utf-8")
+        originals = {path: path.read_bytes() for path in (issue_path, self.index_path, search_path)}
+
+        with mock.patch.object(digest_app, "build_search_index", side_effect=RuntimeError("boom")):
+            with self.assertRaises(RuntimeError):
+                digest_app.publish_digest(sample_digest(), edition)
+
+        self.assertEqual({path: path.read_bytes() for path in originals}, originals)
+
+    def test_duplicate_papers_are_rejected(self) -> None:
+        digest = sample_digest()
+        digest.papers.domain2.title = digest.papers.domain1.title
+        with self.assertRaises(digest_app.DigestError):
+            digest_app.validate_digest(digest)
+
+
+if __name__ == "__main__":
+    unittest.main()

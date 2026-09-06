@@ -24,21 +24,21 @@ fi
 
 # Keep credentials out of Git-tracked files. For an interactive local run, ask
 # for the key without echoing it or saving it in shell history. GitHub Actions
-# should provide GEMINI_API_KEY through an encrypted repository secret.
-if [[ -z "${GEMINI_API_KEY:-}" && -z "${GOOGLE_API_KEY:-}" ]]; then
+# provides OPENAI_API_KEY through an encrypted repository secret.
+if [[ -z "${OPENAI_API_KEY:-}" ]]; then
     if [[ -t 0 ]]; then
-        read -r -s -p "Paste your Gemini API key: " GEMINI_API_KEY
+        read -r -s -p "Paste your OpenAI API key: " OPENAI_API_KEY
         echo
-        export GEMINI_API_KEY
+        export OPENAI_API_KEY
     else
-        echo "GEMINI_API_KEY is required for a non-interactive run."
+        echo "OPENAI_API_KEY is required for a non-interactive run."
         exit 1
     fi
 fi
 
-# Install dependencies if they are not already installed
-echo "Checking/Installing dependencies (google-antigravity)..."
-python3 -m pip install -q google-antigravity
+# Install the pinned runtime dependency.
+echo "Checking/Installing OpenAI dependency..."
+python3 -m pip install -q --disable-pip-version-check -r "$SCRIPT_DIR/requirements.txt"
 
 # Fetch latest from github
 echo "Fetching latest changes from github..."
@@ -46,4 +46,17 @@ git -C "$SCRIPT_DIR" pull --rebase
 
 # Run the python script
 echo "Running AI script..."
-python3 "$SCRIPT_DIR/update_website.py"
+python3 "$SCRIPT_DIR/update_website.py" "$@"
+
+# The generator owns only data files. Git operations remain deterministic and
+# happen here after validation and search-index generation succeed.
+git -C "$SCRIPT_DIR" add data/
+if git -C "$SCRIPT_DIR" diff --cached --quiet -- data/; then
+    echo "No digest changes to publish."
+    exit 0
+fi
+
+git -C "$SCRIPT_DIR" commit -m "Update Teja's daily digest" -- data/
+git -C "$SCRIPT_DIR" pull --rebase
+git -C "$SCRIPT_DIR" push
+echo "Digest pushed to GitHub; Vercel deployment should start automatically."
