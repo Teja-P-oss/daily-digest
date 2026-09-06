@@ -1,130 +1,220 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Digest - Teja Potti</title>
-    <meta name="description" content="Personal daily digest of news, research papers, and stocks.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#081211">
+    <meta name="description" content="A focused daily digest of research, news, and market ideas for curious engineers.">
+    <title>Daily Digest — Teja Potti</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <!-- Parallax 3D Background Layer -->
-    <div class="background-effects">
-        <div class="stars"></div>
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-        <div class="glow-orb orb-3"></div>
+    <a class="skip-link" href="#main-content">Skip to the digest</a>
+
+    <div class="page-art" aria-hidden="true">
+        <span class="page-art__orb page-art__orb--lime"></span>
+        <span class="page-art__orb page-art__orb--blue"></span>
+        <span class="page-art__grid"></span>
     </div>
 
-    <header class="animate-header">
-        <div class="container header-container">
-            <div>
-                <h1 id="page-title">Daily Digest</h1>
-                <p id="date-subtitle">Loading index...</p>
+    <header class="site-header">
+        <div class="shell topbar">
+            <a class="brand" href="./" aria-label="Daily Digest home">
+                <span class="brand__mark" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                </span>
+                <span class="brand__copy">
+                    <strong>Daily Digest</strong>
+                    <small>Teja's learning feed</small>
+                </span>
+            </a>
+
+            <div class="topbar__actions">
+                <button class="search-trigger" id="search-trigger" type="button" aria-label="Search digests" aria-expanded="false" aria-controls="search-drawer">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+                    <span>Search digests</span>
+                    <kbd>/</kbd>
+                </button>
+                <button class="latest-button" id="latest-button" type="button">Jump to latest</button>
             </div>
-            <div class="date-picker-wrapper">
-                <select id="date-selector" class="glass-select" aria-label="Select Date">
-                    <option>Loading...</option>
-                </select>
+        </div>
+
+        <div class="search-drawer" id="search-drawer" hidden>
+            <div class="shell search-drawer__inner">
+                <form class="search-form" id="search-form" role="search">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+                    <label class="sr-only" for="global-search">Search all digests, including dates</label>
+                    <input id="global-search" type="search" autocomplete="off" placeholder="Try “Sep 6”, “neural ISP”, or “NVDA”…">
+                    <button class="search-close" id="search-close" type="button" aria-label="Close search">Close</button>
+                </form>
+                <p class="search-hint" id="search-hint">Search across dates, research, news, markets, and takeaways.</p>
+                <div class="search-results" id="search-results" aria-live="polite"></div>
             </div>
         </div>
     </header>
 
-    <main class="container" id="main-content">
-        <!-- News Section -->
-        <section class="card glass-card" id="news-section">
-            <div class="card-header">
-                <span class="icon">📰</span>
-                <h2>Morning Brief</h2>
-            </div>
-            <div class="card-body">
-                <div class="news-item">
-                    <h3>🇮🇳 India</h3>
-                    <p id="india-news-content"><span class="skeleton"></span></p>
-                </div>
-                <div class="news-item">
-                    <h3>🌎 World</h3>
-                    <p id="world-news-content"><span class="skeleton"></span></p>
-                </div>
-            </div>
-        </section>
+    <div class="shell">
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero__copy">
+                <div class="eyebrow"><span></span> Personal intelligence briefing</div>
+                <h1 id="page-title">Stay curious.<br><em>Stay ahead.</em></h1>
+                <p class="hero__intro">Research worth understanding, news worth knowing, and market ideas worth watching—distilled into one focused read.</p>
 
-        <!-- Papers Section -->
-        <section class="card glass-card" id="papers-section">
-            <div class="card-header">
-                <span class="icon">📄</span>
-                <h2>Research Papers</h2>
-            </div>
-            <div class="card-body" id="papers-container">
-                <!-- Skeletons will be replaced by app.js -->
-                <div class="paper-item"><h3 class="skeleton"></h3><p class="skeleton"></p><p class="skeleton"></p></div>
-                <hr class="divider">
-                <div class="paper-item"><h3 class="skeleton"></h3><p class="skeleton"></p><p class="skeleton"></p></div>
-                <hr class="divider">
-                <div class="paper-item"><h3 class="skeleton"></h3><p class="skeleton"></p><p class="skeleton"></p></div>
-            </div>
-        </section>
-
-        <!-- Stocks Section -->
-        <section class="card glass-card" id="stocks-section">
-            <div class="card-header">
-                <span class="icon">📈</span>
-                <h2>Market Movers</h2>
-            </div>
-            <div class="card-body">
-                <div class="stocks-grid">
-                    <div class="stock-market">
-                        <h3>🇺🇸 US Stocks (Top 5)</h3>
-                        <ul id="us-stocks-list" class="stock-list">
-                            <li><span class="skeleton"></span></li>
-                        </ul>
-                    </div>
-                    <div class="stock-market">
-                        <h3>🇮🇳 Indian Stocks (Top 5)</h3>
-                        <ul id="in-stocks-list" class="stock-list">
-                            <li><span class="skeleton"></span></li>
-                        </ul>
+                <div class="issue-meta">
+                    <span class="issue-meta__pulse" aria-hidden="true"></span>
+                    <div>
+                        <small id="issue-label">Current issue</small>
+                        <strong id="date-subtitle">Loading the latest digest…</strong>
                     </div>
                 </div>
             </div>
+
+            <aside class="date-card" aria-label="Digest date navigation">
+                <div class="date-card__top">
+                    <span class="date-card__label">Browse the archive</span>
+                    <span class="issue-count" id="issue-count">— issues</span>
+                </div>
+                <div class="date-display" aria-hidden="true">
+                    <span class="date-display__day" id="display-day">—</span>
+                    <span class="date-display__rest"><strong id="display-month">Loading</strong><small id="display-year">—</small></span>
+                </div>
+                <label class="date-jump" for="date-picker">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
+                    <span>Jump to date</span>
+                    <input id="date-picker" type="date" aria-describedby="date-help">
+                </label>
+                <span class="sr-only" id="date-help">Only dates with a published digest can be opened.</span>
+                <div class="date-nav">
+                    <button id="older-button" type="button">
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+                        <span><small>Go back</small>Older issue</span>
+                    </button>
+                    <button id="newer-button" type="button">
+                        <span><small>Go forward</small>Newer issue</span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </aside>
         </section>
 
-        <!-- Takeaways Section -->
-        <section class="card glass-card" id="takeaways-section">
-            <div class="card-header">
-                <span class="icon">💡</span>
-                <h2>Today's Takeaways</h2>
+        <div class="reading-strip" aria-label="Digest overview">
+            <div><strong id="research-count">3</strong><span>research papers</span></div>
+            <div><strong id="news-count">2</strong><span>news regions</span></div>
+            <div><strong id="market-count">10</strong><span>market ideas</span></div>
+            <div class="reading-strip__time">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 7v5l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                <span><strong>~1 hour</strong> focused reading</span>
             </div>
-            <div class="card-body" id="takeaways-container">
-                <div class="takeaways-content">
-                    <h3>5 Things to Remember</h3>
-                    <ul id="takeaways-remember-list">
-                        <li><span class="skeleton"></span></li>
-                        <li><span class="skeleton"></span></li>
-                        <li><span class="skeleton"></span></li>
-                        <li><span class="skeleton"></span></li>
-                        <li><span class="skeleton"></span></li>
-                    </ul>
-                    <div class="explore-further mt-4">
-                        <h3>One Thing to Explore Further</h3>
-                        <div class="takeaway" id="takeaways-explore">
-                            <span class="skeleton-small"></span>
-                        </div>
-                    </div>
+        </div>
+    </div>
+
+    <nav class="section-nav" aria-label="On this page">
+        <div class="shell section-nav__inner">
+            <span>In this issue</span>
+            <a href="#research">Research</a>
+            <a href="#brief">News brief</a>
+            <a href="#markets">Markets</a>
+            <a href="#takeaways" id="takeaways-nav-link">Takeaways</a>
+            <span class="section-nav__progress"><i id="reading-progress"></i></span>
+        </div>
+    </nav>
+
+    <main class="shell main-content" id="main-content">
+        <div class="error-banner" id="error-banner" role="alert" hidden>
+            <strong>That issue couldn't be loaded.</strong>
+            <span id="error-message">Please try another date.</span>
+            <button id="error-retry" type="button">Try again</button>
+        </div>
+
+        <section class="content-section" id="research" aria-labelledby="research-title">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Deep dive</span>
+                    <h2 id="research-title">Ideas worth your attention</h2>
                 </div>
+                <p>Three papers. Three perspectives. Built for learning, not skimming.</p>
+            </div>
+            <div class="papers-grid" id="papers-container" aria-live="polite">
+                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+            </div>
+        </section>
+
+        <section class="content-section" id="brief" aria-labelledby="brief-title">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Quick scan</span>
+                    <h2 id="brief-title">The morning brief</h2>
+                </div>
+                <p>The signal from India and around the world, minus the noise.</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card news-card--india">
+                    <header><span class="flag" aria-hidden="true">🇮🇳</span><div><small>India</small><h3>Closer to home</h3></div></header>
+                    <div class="news-copy" id="india-news-content"><span class="skeleton"></span><span class="skeleton skeleton--short"></span></div>
+                </article>
+                <article class="news-card news-card--world">
+                    <header><span class="flag" aria-hidden="true">🌍</span><div><small>World</small><h3>The global picture</h3></div></header>
+                    <div class="news-copy" id="world-news-content"><span class="skeleton"></span><span class="skeleton skeleton--short"></span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section" id="markets" aria-labelledby="markets-title">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">Watchlist</span>
+                    <h2 id="markets-title">Market pulse</h2>
+                </div>
+                <p>Interesting movement and the context behind it—not investment advice.</p>
+            </div>
+            <div class="markets-card">
+                <section class="market-column" aria-labelledby="us-market-title">
+                    <div class="market-column__heading"><span>US</span><div><h3 id="us-market-title">Wall Street</h3><small>Top five to research</small></div></div>
+                    <ul class="stock-list" id="us-stocks-list"><li class="stock-skeleton"><span class="skeleton"></span></li></ul>
+                </section>
+                <div class="market-divider" aria-hidden="true"></div>
+                <section class="market-column" aria-labelledby="india-market-title">
+                    <div class="market-column__heading"><span>IN</span><div><h3 id="india-market-title">Dalal Street</h3><small>Top five to research</small></div></div>
+                    <ul class="stock-list" id="in-stocks-list"><li class="stock-skeleton"><span class="skeleton"></span></li></ul>
+                </section>
+            </div>
+        </section>
+
+        <section class="content-section takeaways-section" id="takeaways" aria-labelledby="takeaways-title">
+            <div class="takeaway-heading">
+                <span class="takeaway-heading__icon" aria-hidden="true">✦</span>
+                <div><span class="section-kicker">Pack it with you</span><h2 id="takeaways-title">Today's takeaways</h2></div>
+            </div>
+            <div class="takeaways-layout">
+                <div>
+                    <h3>Five things to remember</h3>
+                    <ol id="takeaways-remember-list"><li><span class="skeleton"></span></li></ol>
+                </div>
+                <aside class="explore-card">
+                    <small>One thing to explore further</small>
+                    <p id="takeaways-explore"><span class="skeleton"></span></p>
+                    <a href="#research">Revisit the research <span aria-hidden="true">↗</span></a>
+                </aside>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>Automated by Antigravity AI for Teja Potti</p>
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="brand brand--footer" aria-label="Daily Digest">
+                <span class="brand__mark" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span class="brand__copy"><strong>Daily Digest</strong><small>One thoughtful read at a time.</small></span>
+            </div>
+            <p>Curated for Teja Potti <span aria-hidden="true">·</span> Updated daily</p>
         </div>
     </footer>
 
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="./js/app.js"></script>
 </body>
 </html>
