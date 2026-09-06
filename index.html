@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Digest - Teja Potti</title>
+    <meta name="description" content="Personal daily digest of news, research papers, and stocks.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- Parallax 3D Background Layer -->
+    <div class="background-effects">
+        <div class="stars"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <header class="animate-header">
+        <div class="container header-container">
+            <div>
+                <h1 id="page-title">Daily Digest</h1>
+                <p id="date-subtitle">Loading index...</p>
+            </div>
+            <div class="date-picker-wrapper">
+                <select id="date-selector" class="glass-select" aria-label="Select Date">
+                    <option>Loading...</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" id="main-content">
+        <!-- News Section -->
+        <section class="card glass-card" id="news-section">
+            <div class="card-header">
+                <span class="icon">📰</span>
+                <h2>Morning Brief</h2>
+            </div>
+            <div class="card-body">
+                <div class="news-item">
+                    <h3>🇮🇳 India</h3>
+                    <p id="india-news-content"><span class="skeleton"></span></p>
+                </div>
+                <div class="news-item">
+                    <h3>🌎 World</h3>
+                    <p id="world-news-content"><span class="skeleton"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Papers Section -->
+        <section class="card glass-card" id="papers-section">
+            <div class="card-header">
+                <span class="icon">📄</span>
+                <h2>Research Papers</h2>
+            </div>
+            <div class="card-body">
+                <!-- Domain Paper -->
+                <div class="paper-item">
+                    <span class="badge domain-badge">Domain: ISP & AI</span>
+                    <h3 id="paper1-title"><span class="skeleton"></span></h3>
+                    <p id="paper1-summary"><span class="skeleton"></span></p>
+                    <div class="takeaway">
+                        <strong>Why read this:</strong> <span id="paper1-takeaway"><span class="skeleton-small"></span></span>
+                    </div>
+                    <a href="#" id="paper1-link" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Read Paper</a>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Tech Paper -->
+                <div class="paper-item">
+                    <span class="badge tech-badge">Tech: CS / AI / ML</span>
+                    <h3 id="paper2-title"><span class="skeleton"></span></h3>
+                    <p id="paper2-summary"><span class="skeleton"></span></p>
+                    <div class="takeaway">
+                        <strong>Why read this:</strong> <span id="paper2-takeaway"><span class="skeleton-small"></span></span>
+                    </div>
+                    <a href="#" id="paper2-link" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Read Paper</a>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Out of Domain Paper -->
+                <div class="paper-item">
+                    <span class="badge random-badge">Explore: Out of Domain</span>
+                    <h3 id="paper3-title"><span class="skeleton"></span></h3>
+                    <p id="paper3-summary"><span class="skeleton"></span></p>
+                    <div class="takeaway">
+                        <strong>Why read this:</strong> <span id="paper3-takeaway"><span class="skeleton-small"></span></span>
+                    </div>
+                    <a href="#" id="paper3-link" class="btn primary-btn" target="_blank" rel="noopener noreferrer">Read Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stocks Section -->
+        <section class="card glass-card" id="stocks-section">
+            <div class="card-header">
+                <span class="icon">📈</span>
+                <h2>Market Movers</h2>
+            </div>
+            <div class="card-body">
+                <div class="stocks-grid">
+                    <div class="stock-market">
+                        <h3>🇺🇸 US Stocks (Top 5)</h3>
+                        <ul id="us-stocks-list" class="stock-list">
+                            <li><span class="skeleton"></span></li>
+                        </ul>
+                    </div>
+                    <div class="stock-market">
+                        <h3>🇮🇳 Indian Stocks (Top 5)</h3>
+                        <ul id="in-stocks-list" class="stock-list">
+                            <li><span class="skeleton"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Automated by Antigravity AI for Teja Potti</p>
+        </div>
+    </footer>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>

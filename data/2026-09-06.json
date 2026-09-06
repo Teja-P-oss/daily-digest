@@ -1,0 +1,42 @@
+{
+    "news": {
+        "india": "Indian equity markets are experiencing a period of correction due to global uncertainties and FII outflows, though analysts remain optimistic on the medium-term outlook citing strong domestic macroeconomic fundamentals. Additionally, there's a strong focus on semiconductor investments locally.",
+        "world": "Global markets are navigating a period of sensitivity due to geopolitical tensions, crude oil price volatility, and evolving U.S. interest rate expectations. September has historically been volatile, and investors are prioritizing companies with strong balance sheets."
+    },
+    "papers": {
+        "domain": {
+            "title": "Neural-Driven ISP Pipelines and AdaptiveISP",
+            "summary": "This research outlines the shift from traditional fixed-algorithm ISP pipelines to Neural ISPs, utilizing deep reinforcement learning to dynamically adjust RAW-to-RGB transformations. It introduces the AdaptiveISP framework to tailor image quality for downstream computer vision tasks.",
+            "takeaway": "As someone working on Snapdragon flagship camera solutions, the transition to task-driven Neural ISPs and hardware-software co-design is highly relevant for optimizing power and latency in next-gen mobile SoCs.",
+            "link": "https://arxiv.org/"
+        },
+        "tech": {
+            "title": "DRIFT: Deep Restoration, ISP Fusion, and Tone-mapping",
+            "summary": "This recent arXiv submission (cs.CV) highlights the merging of multi-frame restoration with ISP and tone-mapping into unified, deep-learning-based architectures, significantly outperforming classical denoising.",
+            "takeaway": "Multi-frame HDR and deep learning-based image enhancement are directly aligned with your tuning work, showing how these pipelines are becoming entirely unified.",
+            "link": "https://arxiv.org/list/cs.CV/recent"
+        },
+        "random": {
+            "title": "Novel Capture Modalities: Lensless Imaging and Event-Based Sensors",
+            "summary": "Explorations in lensless imaging and event-based sensors that break conventional optical physics limits, allowing for high-resolution, wide-field imaging without bulky lens systems.",
+            "takeaway": "It challenges the fundamental 'telephoto physics wall' by suggesting computational compensation for physical limitations.",
+            "link": "https://www.sciencedaily.com/"
+        }
+    },
+    "stocks": {
+        "us": [
+            {"symbol": "NVDA", "price": "$115.42", "change": 1.2, "reason": "Consistent AI hardware demand & stability"},
+            {"symbol": "MSFT", "price": "$410.12", "change": 0.8, "reason": "Cloud and AI enterprise growth"},
+            {"symbol": "MU", "price": "$98.34", "change": 2.5, "reason": "Undervalued semiconductor earnings play"},
+            {"symbol": "JBL", "price": "$121.50", "change": 1.4, "reason": "Trading below historical multiples with solid targets"},
+            {"symbol": "CDNS", "price": "$280.20", "change": -0.5, "reason": "Lucrative AI enterprise software runway"}
+        ],
+        "india": [
+            {"symbol": "HDFCBANK.NS", "price": "₹1640.25", "change": 0.5, "reason": "Consistent performance in private banking"},
+            {"symbol": "CUB.NS", "price": "₹155.10", "change": 1.8, "reason": "Recent brokerage upgrade"},
+            {"symbol": "HINDZINC.NS", "price": "₹495.30", "change": -1.2, "reason": "Commodity price adjustments"},
+            {"symbol": "TATAPOWER.NS", "price": "₹420.75", "change": 2.1, "reason": "Power generation sector growth"},
+            {"symbol": "ENGINERSIN.NS", "price": "₹210.40", "change": 3.0, "reason": "Capital expenditure & manufacturing boost"}
+        ]
+    }
+}
