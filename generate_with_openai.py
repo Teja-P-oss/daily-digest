@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parent
 BRIEF_PATH = ROOT / "DIGEST_BRIEF.md"
 DEFAULT_MODEL = "gpt-5.6-terra"
 ACTIVE_RESPONSE_STATES = {"queued", "in_progress"}
-MAX_ADVANCE_DAYS = 30
+MAX_ADVANCE_DAYS = 7
 
 
 def used_paper_titles(exclude_date: date) -> list[str]:
@@ -152,16 +152,17 @@ def request_digest(
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--date",
-        type=parse_date,
-        help="today or a historical edition date in YYYY-MM-DD",
-    )
-    parser.add_argument(
-        "--days",
+        "days",
+        nargs="?",
         type=int,
         choices=range(1, MAX_ADVANCE_DAYS + 1),
         metavar=f"1-{MAX_ADVANCE_DAYS}",
         help="prepare the next N future calendar days as advance editions",
+    )
+    parser.add_argument(
+        "--date",
+        type=parse_date,
+        help="today or a historical edition date in YYYY-MM-DD",
     )
     parser.add_argument("--force", action="store_true", help="replace an existing edition for this date")
     parser.add_argument(
@@ -182,9 +183,9 @@ def build_parser() -> argparse.ArgumentParser:
 
 def generation_targets(report_date: date | None, days: int | None) -> list[date]:
     if report_date and days:
-        raise DigestError("Use either --date or --days, not both.")
+        raise DigestError("Use either --date or a number of future days, not both.")
     if report_date and report_date > today_in_ist():
-        raise DigestError("Use --days N to prepare future editions safely.")
+        raise DigestError("Use a positional number, such as 2, to prepare future editions safely.")
     if days:
         return [today_in_ist() + timedelta(days=offset) for offset in range(1, days + 1)]
     return [report_date or today_in_ist()]

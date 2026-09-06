@@ -30,16 +30,13 @@ bash run.sh --date 2026-08-15 --force
 
 # Vacation mode: prepare tomorrow and the following six days
 bash run.sh 7
-
-# The equivalent named argument
-bash run.sh --days 7
 ```
 
 If Codex is not signed in, run `codex login` and choose ChatGPT. The script also recognizes the Codex
 binary bundled with the ChatGPT desktop app when a separate command-line installation is unavailable.
 The Mac must remain awake while this option runs.
 
-Vacation mode accepts 1–30 days and generates each future calendar date separately. Advance editions
+Vacation mode accepts 1–7 days and generates each future calendar date separately. Advance editions
 never pretend to know future headlines or prices: they contain sourced evergreen India/world learning,
 a company-study watchlist with unavailable price fields, and the normal four research papers. The
 website labels these issues **Prepared ahead** and keeps the homepage on the current issue rather than

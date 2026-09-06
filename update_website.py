@@ -310,7 +310,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.date > today_in_ist() and not args.advance:
-        raise DigestError("Future dates require --advance; use run.sh --days N to prepare vacation issues.")
+        raise DigestError("Future dates require --advance; use run.sh N to prepare vacation issues.")
     if args.advance and args.date <= today_in_ist():
         raise DigestError("--advance is only valid for a future date.")
     issue_path = DATA_DIR / f"{args.date.isoformat()}.json"

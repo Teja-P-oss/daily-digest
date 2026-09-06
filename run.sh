@@ -9,12 +9,11 @@ TARGET_DATE=""
 DAYS=""
 REPLACE=false
 CHECK_ONLY=false
-MAX_ADVANCE_DAYS=30
+MAX_ADVANCE_DAYS=7
 
 usage() {
-    echo "Usage: bash run.sh [NUMBER_OF_DAYS | --days N] [--date YYYY-MM-DD] [--force] [--check]"
-    echo "  N        Prepare tomorrow through the next N future calendar days (maximum 30)."
-    echo "  --days   Named form of the same vacation-mode argument."
+    echo "Usage: bash run.sh [NUMBER_OF_DAYS] [--date YYYY-MM-DD] [--force] [--check]"
+    echo "  N        Prepare tomorrow through the next N future calendar days (maximum 7)."
     echo "  --date   Generate today or a historical date; default is today in Asia/Kolkata."
     echo "  --force  Deliberately replace editions that already exist."
     echo "  --check  Verify the local Codex installation and ChatGPT login only."
@@ -28,14 +27,6 @@ while [[ $# -gt 0 ]]; do
                 exit 2
             fi
             TARGET_DATE="$2"
-            shift 2
-            ;;
-        --days)
-            if [[ $# -lt 2 ]]; then
-                echo "--days requires a number." >&2
-                exit 2
-            fi
-            DAYS="$2"
             shift 2
             ;;
         --force)

@@ -241,8 +241,13 @@ class OpenAIRequestTests(unittest.TestCase):
 
     def test_future_date_requires_days_mode(self) -> None:
         future = digest_app.today_in_ist() + timedelta(days=1)
-        with self.assertRaisesRegex(digest_app.DigestError, "--days"):
+        with self.assertRaisesRegex(digest_app.DigestError, "positional number"):
             api_generator.generation_targets(future, None)
+
+    def test_future_days_argument_is_positional_and_capped_at_seven(self) -> None:
+        self.assertEqual(api_generator.build_parser().parse_args(["7"]).days, 7)
+        with self.assertRaises(SystemExit):
+            api_generator.build_parser().parse_args(["8"])
 
     def test_days_mode_marks_every_api_request_as_advance(self) -> None:
         today = digest_app.today_in_ist()
@@ -258,7 +263,7 @@ class OpenAIRequestTests(unittest.TestCase):
                 ) as request,
                 mock.patch.object(api_generator, "publish_digest", return_value=data_dir / "issue.json") as publish,
             ):
-                result = api_generator.main(["--days", "2"])
+                result = api_generator.main(["2"])
 
         self.assertEqual(result, 0)
         self.assertEqual(request.call_count, 2)
