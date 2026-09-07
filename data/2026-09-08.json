@@ -1,0 +1,279 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-09-08",
+    "note": "Prepared early on 8 September 2026. Indian prices use the 7 September close; US prices use the 4 September close because US exchanges were closed for Labor Day. Observations, not recommendations."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Defence procurement",
+        "headline": "Defence Acquisition Council clears proposals worth more than ₹1.10 lakh crore",
+        "summary": "India's Defence Acquisition Council granted initial clearance to capital-acquisition proposals spanning all three services, including CBRN reconnaissance vehicles, advanced light helicopters, naval surveillance radars, marine gas turbines and ground-based jammers; the ministry said 98% of the procurement value is intended for Indian industry.",
+        "why": "Acceptance of Necessity starts rather than completes procurement, but the scale and domestic-content target will test India's ability to convert strategic autonomy into qualified production, integration and lifecycle support.",
+        "link": "https://newsonair.gov.in/dac-clears-acquisition-proposals-worth-over-rs-1-10-lakh-cr-for-forces/"
+      },
+      {
+        "category": "Space policy",
+        "headline": "ISRO says private-sector expansion will not diminish its role",
+        "summary": "ISRO responded to employee concerns by saying that mature, scalable work can move to Indian industry while the agency concentrates scientific and technical resources on advanced research, next-generation technology and complex national missions; it described the policy as ecosystem expansion rather than privatisation.",
+        "why": "The important engineering question is how technology transfer, quality assurance, intellectual property and workforce skills will be governed as production scales outside the agency.",
+        "link": "https://newsonair.gov.in/isro-says-space-sector-reforms-focus-on-ecosystem-expansion-not-privatisation/"
+      },
+      {
+        "category": "Environment",
+        "headline": "Lucknow tops India's 2026 clean-air action survey, but misses the PM10 standard",
+        "summary": "Lucknow ranked first among million-plus cities in Swachh Vayu Sarvekshan 2026, followed by Indore and Jabalpur. The survey scores city action under the National Clean Air Programme rather than simply ranking measured air cleanliness, and Lucknow still did not meet the national annual PM10 standard.",
+        "why": "An implementation score and an exposure outcome answer different questions; separating them prevents a high programme ranking from being mistaken for safe air.",
+        "link": "https://indianexpress.com/article/india/swachh-vayu-sarvekshan-2026-lucknow-tops-10867210/"
+      },
+      {
+        "category": "Digital infrastructure",
+        "headline": "APNIC 62 main conference begins in Mumbai after four days of workshops",
+        "summary": "The Asia-Pacific Internet community's APNIC 62 programme runs in Mumbai from 4 to 10 September, with workshops and partner meetings through 7 September and the main conference from 8 to 10 September. It brings Internet experts, government representatives and industry leaders together for technical learning, policy development and decisions related to Internet operations.",
+        "why": "Internet resilience depends on operational practice and routing governance as much as fibre and data centres; the gathering connects Indian operators directly to regional standards and incident lessons.",
+        "link": "https://conference.apnic.net/62/"
+      },
+      {
+        "category": "Urban safety",
+        "headline": "Delhi hostel-collapse toll reaches seven as government promises structural-audit rules",
+        "summary": "Rescuers recovered a seventh victim from the five-storey Satya Niketan building that collapsed on Sunday. Delhi's chief minister said preliminary findings pointed to water accumulation and repair work in the ageing building, and promised periodic structural audits and safety certificates for public-use buildings.",
+        "why": "The follow-up shifts attention from rescue to prevention: enforceable inspection intervals, accountable approvals and safe renovation practices are critical in dense, high-occupancy student housing.",
+        "link": "https://apnews.com/article/7cb4420ce1808209044300131cb1de45"
+      }
+    ],
+    "world": [
+      {
+        "category": "Ukraine diplomacy",
+        "headline": "First official Kyiv visit by US envoys yields no peace breakthrough",
+        "summary": "US envoys Steve Witkoff and Jared Kushner held their first official talks in Kyiv after meeting Vladimir Putin in Moscow. Both sides described the Kyiv discussions positively, but announced no breakthrough toward ending Russia's full-scale invasion.",
+        "why": "Back-to-back meetings can reopen a channel, but the absence of disclosed movement shows that process should not be confused with convergence on territory, security guarantees or enforcement.",
+        "link": "https://apnews.com/article/44bba3b57b480560d9f48dba7d28534e"
+      },
+      {
+        "category": "European politics",
+        "headline": "Serbian government proposes dissolving parliament for an early election",
+        "summary": "Serbia's government formally proposed dissolving parliament, beginning the procedure for an early vote after more than a year of protests triggered by the fatal Novi Sad railway-station canopy collapse. President Aleksandar Vučić is expected to set the election date.",
+        "why": "The ballot will test both the governing party's institutional dominance and whether sustained protest over accountability can translate into electoral power in an EU candidate state.",
+        "link": "https://apnews.com/article/0a0cc41a7ad35637f71ca4dfea09d41a"
+      },
+      {
+        "category": "Climate and health",
+        "headline": "WMO warns that heatwaves and wildfires are eroding air-quality gains",
+        "summary": "The World Meteorological Organization's latest Air Quality and Climate Bulletin says rising fire-smoke exposure and heat-amplified ground-level ozone can undermine reductions in industrial and transport pollution. It calls for better monitoring and coordinated climate and clean-air policy.",
+        "why": "Pollution control cannot treat emissions inventories as static when heat changes ozone chemistry and wildfire smoke crosses borders; forecasting and health-risk models must include those feedbacks.",
+        "link": "https://wmo.int/media/news/wmo-bulletin-shows-air-quality-and-climate-interlinkages"
+      },
+      {
+        "category": "Regional public health",
+        "headline": "South-East Asian governments open WHO regional health-policy session in Timor-Leste",
+        "summary": "The 79th WHO Regional Committee for South-East Asia opened in Dili with member states focusing on stronger health systems, reduced inequalities and coordinated action. Timor-Leste's prime minister emphasised nutrition, safe water, sanitation, education and protection of essential services and health workers.",
+        "why": "Regional health security depends on routine system capacity and social determinants before an emergency begins; the forum is where shared priorities are turned into country commitments.",
+        "link": "https://www.who.int/southeastasia/news/detail/07-09-2026-who-south-east-asia-region-annual-governing-body-meeting-begins-in-timor-leste"
+      },
+      {
+        "category": "Aviation safety",
+        "headline": "Investigators examine fatal Amazon cargo-jet runway overrun in Miami",
+        "summary": "US investigators began examining why an Amazon cargo aircraft overran a runway at Miami International Airport, struck vehicles and caught fire, killing at least five people. Investigators were expected to scrutinise where the aircraft touched down and whether sufficient stopping distance remained.",
+        "why": "Runway overruns couple approach stability, touchdown point, braking performance and airport safety areas; a causal finding could affect training, operational limits and infrastructure design.",
+        "link": "https://apnews.com/article/d5118998e880f380a3fd8786e35fd9bb"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "title": "Beyond RGB: Adaptive Parallel Processing for RAW Object Detection",
+      "authors": "Shani Gamrian, Hila Barel, Feiran Li, Masakazu Yoshimura, and Daisuke Iso",
+      "year": "2025",
+      "venue": "ICCV 2025",
+      "field": "RAW-domain object detection and task-aware ISP",
+      "link": "https://openaccess.thecvf.com/content/ICCV2025/html/Gamrian_Beyond_RGB_Adaptive_Parallel_Processing_for_RAW_Object_Detection_ICCV_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Beyond+RGB+Adaptive+Parallel+Processing+for+RAW+Object+Detection",
+      "summary": "The Raw Adaptation Module replaces a sequential display-oriented ISP with parallel, differentiable branches whose outputs are fused for object detection. A 0.54-million-parameter module improves accuracy across seven RAW datasets and stays robust under synthetic noise and weather while adding about 1.05 ms on an H100 in the authors' test.",
+      "problem": "Conventional camera pipelines transform high-bit-depth, approximately linear sensor measurements into visually pleasing sRGB. Demosaicing, denoising, white balance, tone mapping, sharpening and compression can each suppress or clip information that a detector needs, especially in short exposure, high dynamic range or noisy scenes. Feeding RAW directly avoids some loss but gives a detector a sparse, highly skewed distribution for which standard backbones were not designed.",
+      "difficulty": "An effective task front end must adapt to sensor content and exposure without becoming a second heavy network. Sequential ISP stages are path-dependent: an early gain or tone curve can destroy a highlight before a later stage sees it, and one globally useful transform can hurt another dataset. RAW benchmarks are also small, differ from 12 to 24 bits, use multiple sensors and lighting regimes, and make it easy to confuse extra detector capacity with better preprocessing.",
+      "idea": "Process candidate ISP views in parallel so none has to inherit another branch's irreversible errors, then learn how to fuse them for the final task. RAM predicts image-specific parameters, applies white balance, gamma, tone mapping, normalisation and brightness paths to the same packed RAW input, and uses a reverse-hourglass fusion network to create a task-optimised representation. Detection loss, rather than a photorealistic RGB target, decides which branches matter for each scene.",
+      "method": "The Bayer input is packed into four channels and passed to a shared encoder that predicts adaptive ISP parameters. Separate differentiable branches operate on the common input instead of forming a serial pipeline; their outputs are concatenated and fused through a compact feature module before the detector backbone. The complete system is trained end to end with only object-detection loss and tested with Faster R-CNN, DINO and a frozen COCO-pretrained YOLOX-X. Experiments span LOD dark and normal exposures, ROD day and night HDR, NOD Nikon and Sony sensors, and PASCAL RAW. Ablations compare parallel with sequential layouts, larger backbones, noisy versus denoised inputs, synthetic rain, snow and fog, and branch contributions using Shapley values.",
+      "results": "RAM posts the best reported mAP on all seven evaluated splits: for example 34.9 on LOD-Dark, 40.1 on LOD-Normal and 44.5 on ROD-Night, versus 32.2, 37.5 and 42.6 for the strongest listed sRGB enhancement baseline. On ROD-Night it adds 0.54 M parameters and 1.05 ms to a 12.3 M-parameter, 35.8 ms baseline, reaching 44.5 mAP; a larger RAW ResNet-50 adds 12.47 M parameters yet reaches 34.7. The parallel ablation scores 35.2 and 40.1 mAP on the two LOD splits versus 29.9 and 35.1 for a sequential version. Under synthetic snow, RAM reaches 53.2 mAP versus 39.7 for RAW and 37.4 for sRGB.",
+      "care": "The work makes a strong case for retaining multiple reversible sensor views until the task has enough context to choose among them, and its small parameter increment is practical for architecture studies. But the 1.05 ms figure is measured on a data-centre H100 rather than mobile silicon; memory traffic, fixed-point behaviour and line-buffering are not characterised. Weather corruptions are synthetic, most RAW datasets are modest, detector and front end are generally co-trained, and a task-optimised output may be unsuitable for display or sharing across tasks.",
+      "learn": [
+        "Branch from a common high-bit-depth input when early transforms can clip or suppress information irreversibly.",
+        "Use the downstream metric to learn branch weighting, but keep the transform set interpretable enough to diagnose sensor and exposure failures.",
+        "Separate gains from preprocessing capacity and detector capacity with matched-backbone and frozen-detector experiments.",
+        "Treat GPU latency as an upper-level algorithm result; mobile feasibility still needs bandwidth, tiling, precision, power and thermal measurements."
+      ],
+      "concepts": [
+        "Parallel ISP branches",
+        "Task-optimised representation",
+        "Adaptive ISP parameters",
+        "RAW dynamic range",
+        "Feature fusion",
+        "Shapley ablation"
+      ]
+    },
+    "domain2": {
+      "title": "SnapGen-V: Generating a Five-Second Video within Five Seconds on a Mobile Device",
+      "authors": "Yushu Wu, Zhixing Zhang, Yanyu Li, Yanwu Xu, Anil Kag, Yang Sui, Huseyin Coskun, Ke Ma, Aleksei Lebedev, Ju Hu, Dimitris N. Metaxas, Yanzhi Wang, Sergey Tulyakov, and Jian Ren",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "Mobile video generation and efficient diffusion",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/html/Wu_SnapGen-V_Generating_a_Five-Second_Video_within_Five_Seconds_on_a_CVPR_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=SnapGen-V+Generating+a+Five-Second+Video+within+Five+Seconds+on+a+Mobile+Device",
+      "summary": "SnapGen-V compresses text-to-video diffusion into a 0.6-billion-parameter, four-step UNet that generates 120 frames at 432×768 on an iPhone 16 Pro Max in 4.12 seconds. It combines a pruned image backbone, hardware-profiled temporal-layer search and adversarial fine-tuning, reaching a VBench total of 81.14.",
+      "problem": "Modern video generators are normally cloud workloads because a spatial denoiser must be extended across time and evaluated repeatedly over many high-resolution tokens. That creates a compound edge problem: model weights occupy scarce memory, temporal attention or convolution increases activation storage, dozens of denoising steps multiply latency, and a design that is efficient on a large GPU may map poorly to mobile operators and memory hierarchies.",
+      "difficulty": "Reducing any one cost can damage a different dimension of quality. Removing temporal layers breaks motion consistency; shrinking spatial capacity harms per-frame detail; few-step distillation can lose semantic alignment; and classifier-free guidance doubles important inference work. Architecture search must therefore respect peak memory and measured device latency, not just FLOPs, while training must preserve both high-quality still-image priors and long-range temporal structure in a much smaller student.",
+      "idea": "Start with a compact text-to-image model whose spatial knowledge is already strong, then spend the limited mobile budget only where temporal modelling buys the most quality. Profile candidate temporal attention, cross-attention, 3D attention and convolution blocks at different resolutions; search for a Pareto-efficient layout under latency and memory constraints; then adversarially fine-tune the result so four denoising steps can replace 25 without classifier-free guidance.",
+      "method": "The authors first prune a Stable Diffusion 1.5-derived image UNet, reporting 2.5× size compression and more than 10× spatial-model speedup while retaining comparable image quality. They inflate it with candidate temporal modules and build a hardware lookup table from measured iPhone A18 Pro latency and peak memory at relevant spatiotemporal shapes. Evolutionary search selects module type, position and count while a short proxy training run and VBench supply quality. Final training mixes image and video data. A generator is adversarially fine-tuned against frozen features from the pretrained diffusion model with unified spatial-temporal discriminator heads, reducing inference to four steps and eliminating classifier-free guidance. Evaluation generates 120-frame, 24 fps, 432×768 clips and includes VBench, human preference, model scaling and step-count ablations.",
+      "results": "SnapGen-V uses 0.6 B parameters and four steps, taking 0.47 s on an A100 and 4.12 s on an iPhone 16 Pro Max, with an 81.14 VBench total. Listed baselines do not fit the phone: OpenSora-v1.2 takes 31.00 s on A100 for 79.76, CogVideoX-2B takes 54.09 s for 80.91, and four-step AnimateDiff-LCM takes 1.77 s for 79.42. Human raters preferred SnapGen-V in 44.4% of prompt-alignment comparisons, 48.3% for aesthetics and 49.3% for motion, versus roughly 20–31% for each baseline. Training without the image data reduced total VBench by 2.54 points; scaling temporal layers 2× raised the total only 0.27 while exceeding phone memory.",
+      "care": "The paper is a useful hardware-software co-design template: measured latency and memory shape the search, while distillation attacks the multiplicative step count. Yet 'within five seconds' describes batch generation of a finished five-second clip, not streaming delivery or interactive first-frame latency. Results cover one premium phone, use a public four-channel VAE that limits reconstruction detail, stop at four steps, and report no energy, thermal throttling or sustained-generation data. VBench and small comparative user studies also cannot establish safety or broad prompt coverage.",
+      "learn": [
+        "Optimise peak activation memory and measured operator latency jointly; parameter count and FLOPs alone do not predict phone feasibility.",
+        "Reuse a compact image prior so scarce search and training budget can focus on where temporal modules are indispensable.",
+        "Few-step adversarial fine-tuning removes a multiplicative cost, while eliminating classifier-free guidance avoids duplicate denoiser work.",
+        "Report batch latency, first-frame latency, energy and thermal behaviour separately before calling a video pipeline real time."
+      ],
+      "concepts": [
+        "Latent video diffusion",
+        "Temporal-layer search",
+        "Hardware latency lookup",
+        "Adversarial distillation",
+        "Classifier-free guidance",
+        "Pareto efficiency"
+      ]
+    },
+    "outside1": {
+      "title": "High-throughput method characterizes hundreds of previously unknown antibiotic resistance mutations",
+      "authors": "Matthew J. Jago, Jake K. Soley, Stepan Denisov, Calum J. Walsh, Danna R. Gifford, Benjamin P. Howden, and Mato Lagator",
+      "year": "2025",
+      "venue": "Nature Communications",
+      "field": "Evolutionary microbiology and antimicrobial resistance",
+      "link": "https://www.nature.com/articles/s41467-025-56050-2",
+      "scholar": "https://scholar.google.com/scholar?q=High-throughput+method+characterizes+hundreds+of+previously+unknown+antibiotic+resistance+mutations",
+      "summary": "Quantitative Mutational Scan sequencing pools independently accumulated bacterial mutants, selects them at one minimum inhibitory concentration and deeply sequences the survivors. Across four E. coli backgrounds and three antibiotics, it identified 812 candidate resistance mutations and exposed how regulatory sequence, drug mechanism and a single prior resistance allele redirect evolution.",
+      "problem": "Genome-based antibiotic susceptibility prediction needs a map from sequence variants to resistance phenotypes. Clinical isolates and long laboratory-evolution experiments preferentially reveal common, high-level resistance and confound the effect of a mutation with strain background, treatment environment and linked variants. The much larger space of low-effect, regulatory, synonymous and background-dependent routes remains poorly catalogued even though such steps can seed later high-level resistance.",
+      "difficulty": "Rare beneficial mutations can be lost beneath sequencing noise, while a mutant that happens to arise early can dominate a culture and make recurrence look more likely than it is. Pooling saves work but can hide linkage and hitchhikers. Resistance is also epistatic: an existing rpoB mutation changes transcription and fitness, so the same second drug may select a different route. A screen must preserve broad diversity, apply reproducible selection and discriminate direct resistance from correlated passengers.",
+      "idea": "Measure recurrence across many independently seeded mutant pools instead of counting abundance inside one evolving population. Allow mostly single mutations to accumulate briefly without antibiotics, select survivors at exactly one MIC, pool colonies for deep sequencing, and call a mutation important when it recurs independently. Repeating the design across antibiotics and nearly identical genetic backgrounds turns recurrence into a comparative map of drug specificity and epistasis.",
+      "method": "Each 24-hour accumulation uses 32 parallel subpopulations to reduce jackpot bias from early mutations. The heterogeneous population is spread across ten plates containing one MIC; resistant colonies are pooled and sequenced deeply. LoFreq calls low-frequency single-nucleotide variants and small indels, while breseq detects insertion-sequence mobilisation, followed by conservative filters based on positive selection and cross-replicate recurrence. The study tests wild-type E. coli BW25113 plus three rifampicin-resistant descendants carrying different single-amino-acid changes in rpoB against ciprofloxacin, cycloserine and nitrofurantoin. Three replicates of 12 strain-drug combinations produced 36 samples, with one excluded after sequencing failure. Results were compared across drugs, backgrounds, coding versus regulatory sites and 21,711 external E. coli genomes.",
+      "results": "The final map contains 812 mutations in 251 genes and 49 regulatory features after filters removed 60% of initial calls. Intergenic sites make up 37% of detected mutations although only 13% of the genome is intergenic; nearly half fall in genes not previously connected to resistance, and 13% affect known persistence genes. Multi-drug mutations cluster within less than 15% of a gene and favour moderate- or low-impact changes, whereas antibiotic-specific routes more often disrupt genes across their length; 89% of intergenic mutations are multi-drug. The external search found matching variants in 50 of 251 genes, and one-nucleotide differences among rpoB backgrounds produced distinct secondary-resistance trajectories.",
+      "care": "The method turns experimental recurrence into a high-throughput discovery signal and reminds us that promoters, terminators and even synonymous codons can be functional adaptation sites. It does not directly measure each variant's resistance magnitude, fitness cost or clinical causality. Selection at one MIC and in one laboratory environment may miss concentration-dependent and host-dependent routes; pooled sequencing cannot always separate primary mutations from compensatory changes, and some candidates need individual reconstruction. Evidence is limited to E. coli, three drugs and closely related backgrounds.",
+      "learn": [
+        "Independent recurrence is often a better indicator of evolutionary accessibility than abundance in a single pooled culture.",
+        "Regulatory and synonymous variants deserve explicit analysis when modest expression or translation changes can cross a selection threshold.",
+        "A one-nucleotide background difference can redirect later adaptation, so resistance databases need genotype context rather than flat variant lists.",
+        "Screening at the decision threshold reveals different biology from selecting only extreme survivors."
+      ],
+      "concepts": [
+        "Minimum inhibitory concentration",
+        "Mutational recurrence",
+        "Epistasis",
+        "Regulatory mutation",
+        "Antibiotic persistence",
+        "Jackpot bias"
+      ]
+    },
+    "outside2": {
+      "title": "An experimental test of whether financial incentives constitute undue inducement in decision-making",
+      "authors": "Sandro Ambuehl",
+      "year": "2024",
+      "venue": "Nature Human Behaviour",
+      "field": "Behavioural economics and bioethics",
+      "link": "https://www.nature.com/articles/s41562-024-01817-8",
+      "scholar": "https://scholar.google.com/scholar?q=An+experimental+test+of+whether+financial+incentives+constitute+undue+inducement+in+decision-making",
+      "summary": "Two incentivised experiments separate a behavioural claim from a welfare claim: larger payments do make people seek more encouraging information, but they did not make a transaction acceptable at low pay and harmful at high pay. The result challenges incentive caps justified specifically by impaired decision quality, without resolving fairness or coercion concerns.",
+      "problem": "Payments for clinical research, egg donation, surrogacy and other sensitive transactions are often capped because a large reward might cloud judgement and induce harmful consent. That argument combines two different propositions: incentives may bias which information people seek, and that changed search may reduce their welfare enough that low payments should be permitted but high ones forbidden. Policy frequently assumes the second follows from the first without measuring decision quality against participants' own preferences.",
+      "difficulty": "A credible test needs a real and aversive choice, randomly assigned incentives that do not signal hidden risk, costly or limited information, and a welfare measure that distinguishes regret from ordinary risk-taking. It must value both mistakes—participating when fully informed preferences say no and abstaining when they say yes—and remain meaningful under different ethical weights on losses. Laboratory stakes and student samples also complicate extrapolation to medical or reproductive decisions.",
+      "idea": "Decompose undue inducement into a positive hypothesis about information bias and a normative hypothesis about welfare, then test each separately. Higher incentives rationally change the relative cost of mistaken participation versus mistaken abstention, so even an ideal Bayesian may prefer information more likely to recommend participating. Observing motivated-looking search is therefore insufficient; the decisive test is whether measured choice errors worsen enough at high incentives to justify a cap.",
+      "method": "Experiment 1 randomised 671 US undergraduates to receive $3 or $30 for eating each of five whole insect species. Before committing, participants chose encouraging or discouraging videos; afterward they viewed, touched and smelled the insects and truthfully reported reservation prices, allowing ex-post surplus and harmful choices to be estimated. A no-video control tested whether selected information changed participation. Experiment 2 and extensions involved 406 German students choosing payments of €20 to €80 for a gamble that could lose €100. Participants first selected a bold or cautious imperfect adviser, then revealed certainty equivalents for mathematically equivalent lotteries. Welfare functions varied the weight placed on losses, and extensions changed stakes tenfold, delayed losses three months and varied loss probability from 20% to 80%.",
+      "results": "In Experiment 1, increasing payment from $3 to $30 raised selection of the encouraging video from 81.2% to 88.7% and participation from 38% to 71% when video choice was available. Yet harmful decisions fell from about one fifth at $3 to just under 10% at $30, while positive surplus rose. In Experiment 2, incentives of €70 or more raised choice of the bold adviser from 29.7% to 47.4% and shifted subjective success beliefs from 48.9% to 56.6%; mistakes remained near one fifth and did not grow enough with payment to support a cap. Across welfare weights, the model favoured either allowing all incentive levels or prohibiting all; low-only permission was always suboptimal in these settings.",
+      "care": "The conceptual separation between information choice and welfare is widely useful: a biased-looking intermediate signal need not imply a harmful outcome. But this is not evidence that every high payment is ethical or safe. Participants were students, the choices involved insects and lotteries rather than clinical risk, stakes were limited, and the welfare criteria are consequentialist and preference-based. Distributional justice, desperation, exploitation, informed-consent quality and effects on third parties remain distinct questions; field replication in the actual regulated transactions is necessary.",
+      "learn": [
+        "Do not infer welfare harm from an intermediate behavioural bias without measuring the costs of both action and inaction errors.",
+        "Higher rewards change the opportunity cost of searching for discouraging information, so directional search can be consistent with rational choice.",
+        "A policy cap requires the high incentive to be worse while the low incentive remains acceptable; showing some mistakes at both levels is not enough.",
+        "Keep undue inducement separate from inequality, coercion, exploitation and third-party harm because they require different evidence and remedies."
+      ],
+      "concepts": [
+        "Undue inducement hypothesis",
+        "Motivated information search",
+        "Reservation price",
+        "Certainty equivalent",
+        "Ex-post surplus",
+        "Behavioural welfare economics"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$319.97",
+        "change": -2.51,
+        "reason": "Latest completed US session: Friday, 4 September; Nasdaq was closed on Monday, 7 September for Labor Day. Track product-cycle demand and on-device AI execution.",
+        "thesis": "Apple combines a large installed base, custom silicon, integrated hardware and software, and recurring services revenue that can monetise customer loyalty over long device cycles.",
+        "risk": "Premium-device demand, platform regulation, supply-chain concentration and the cost or pace of competitive AI features can pressure growth and margins."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$230.36",
+        "change": 0.84,
+        "reason": "Latest completed US session: Friday, 4 September; the 7 September session was a market holiday. Watch whether AI infrastructure spending converts into durable demand.",
+        "thesis": "NVIDIA's accelerator architecture, CUDA software ecosystem, networking and systems approach give it a broad platform position in accelerated data-centre computing.",
+        "risk": "Customer concentration, export controls, hyperscaler in-house silicon, supply constraints and an AI-capex slowdown can amplify semiconductor cyclicality."
+      },
+      {
+        "symbol": "GOOGL",
+        "price": "$338.46",
+        "change": -1.17,
+        "reason": "Latest completed US session: Friday, 4 September; US exchanges were closed on 7 September. The strategic question is how AI answers alter search usage and economics.",
+        "thesis": "Alphabet combines global distribution in Search and YouTube with cloud infrastructure, proprietary AI models and large-scale data-centre capability.",
+        "risk": "AI-driven changes to search behaviour, antitrust remedies, traffic-acquisition costs and heavy infrastructure investment could weaken returns."
+      },
+      {
+        "symbol": "QCOM",
+        "price": "$168.74",
+        "change": 0.1,
+        "reason": "Latest completed US session: Friday, 4 September; Nasdaq was closed on 7 September. Track on-device AI, automotive and IoT growth against handset exposure.",
+        "thesis": "Qualcomm combines modem and connectivity leadership, mobile compute and a licensing model, with expansion options in vehicles, PCs and edge devices.",
+        "risk": "Handset cyclicality, customer concentration, export exposure, licensing disputes and modem insourcing by major customers can offset diversification."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹710.50",
+        "change": -0.22,
+        "reason": "Latest completed Indian session: Monday, 7 September. Watch deposit growth, funding cost and whether balance-sheet scale translates into improving operating efficiency.",
+        "thesis": "HDFC Bank has a large retail and corporate franchise, broad distribution and opportunities to deepen customer relationships across banking and financial services.",
+        "risk": "Deposit competition, margin compression, credit deterioration, regulation and execution after a large merger can slow earnings or balance-sheet growth."
+      },
+      {
+        "symbol": "SUNPHARMA",
+        "price": "₹1,895.00",
+        "change": -0.21,
+        "reason": "Latest completed Indian session: Monday, 7 September. Track the mix between domestic formulations, generic competition and higher-value specialty products.",
+        "thesis": "Sun Pharma combines a scaled Indian formulations business with global generics and a specialty portfolio that can diversify revenue and margins.",
+        "risk": "US regulatory observations, generic price erosion, litigation, product concentration and uncertain specialty-pipeline returns can impair growth."
+      },
+      {
+        "symbol": "NTPC",
+        "price": "₹332.00",
+        "change": -0.15,
+        "reason": "Latest completed Indian session: Monday, 7 September. Watch whether renewable additions and grid needs diversify a cash-generative but coal-heavy generation base.",
+        "thesis": "NTPC's operating scale and long-lived power assets provide a base from which to expand renewable generation, storage and related energy infrastructure.",
+        "risk": "Coal exposure, environmental constraints, regulated returns, counterparty receivables and execution of a large capital programme can limit value creation."
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Acceptance of Necessity is an in-principle procurement gate, not a signed defence contract; domestic-content targets still require qualified delivery and lifecycle support.",
+      "A clean-air programme ranking measures action and implementation, while pollutant concentration measures exposure; neither can substitute for the other.",
+      "Parallel RAW preprocessing preserves alternative sensor views until a task loss can decide which transform helps, avoiding the path dependence of a serial ISP.",
+      "Measured device latency and peak activation memory are better architecture-search constraints than parameter count or FLOPs alone.",
+      "Independent mutation recurrence reveals evolutionary accessibility, and regulatory or synonymous changes can matter near a selection threshold.",
+      "An incentive can bias information search without reducing welfare enough to justify a cap; behavioural and normative claims need separate tests.",
+      "A daily stock move belongs to a completed session: India's latest close is 7 September, while the US reference remains 4 September because of Labor Day."
+    ],
+    "explore": "Build a common evaluation harness for the two edge-vision papers. Feed the same high-bit-depth mobile-camera clips through a parallel RAW adaptation front end and a compact temporal diffusion backbone, then profile every branch and temporal block on the target SoC for latency, peak SRAM, DRAM traffic, energy and sustained thermal behaviour. Ask whether the parallel-branch principle can guide temporal modelling: preserve several cheap motion hypotheses until fusion instead of committing early to one heavy attention path. Borrow the outside papers' evidence discipline by tracking independent recurrence across scenes, sensors and temperatures, and by separating intermediate proxy changes from final utility. A branch that improves VBench, mAP or a visual metric is not automatically valuable unless it improves the user task under a stated power and memory budget."
+  }
+}
