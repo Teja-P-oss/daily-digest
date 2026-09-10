@@ -1,0 +1,271 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-09-11",
+    "note": "Current edition for 11 September 2026, prepared in Asia/Kolkata with live news and the latest completed US and Indian market sessions."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Public health",
+        "headline": "India's One Health surveillance network adds genomic capacity",
+        "summary": "ICMR Director-General Rajiv Bahl said five genomic and metagenomic hubs have been established under the National One Health Mission to detect novel or unknown pathogens. The programme is combining syndromic, animal-human-wildlife and wastewater surveillance; monitoring of 13 priority pathogens across 47 cities is planned to expand to 75 cities in 2027.",
+        "why": "Outbreak detection works best when clinical, veterinary, wildlife and environmental signals are joined before hospitals see a surge. The operational test will be whether laboratories share comparable, timely data and whether unusual signals trigger rapid local investigation.",
+        "link": "https://indianexpress.com/article/india/one-health-mission-work-is-in-progress-icmr-dgs-letter-to-mp-10870962/"
+      },
+      {
+        "category": "Agriculture policy",
+        "headline": "Draft Seed Act consultation proposes traceability and faster compensation",
+        "summary": "The Agriculture Ministry consulted farmer groups on a proposed replacement for the 1966 Seed Act after receiving about 18,000 earlier suggestions. The proposal would require commercial seed and planting material to enter a national register and carry QR-based provenance, while preserving farmers' freedom to use, exchange and sell traditional varieties; it also proposes state seed-security funds and compensation after verified failure.",
+        "why": "Seed quality is an information and accountability problem: a traceable packet can link a failed lot to its producer and test record. The design still needs scrutiny around enforcement capacity, data reliability, farmer remedies and the treatment of small producers before it becomes law.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2308922"
+      },
+      {
+        "category": "Digital infrastructure",
+        "headline": "Jharkhand signs state-led agreement for an expanded BharatNet rollout",
+        "summary": "Digital Bharat Nidhi, Jharkhand, BSNL and state entities signed an agreement to implement the amended BharatNet programme through a new state vehicle. The ₹1,684-crore plan covers 4,395 gram panchayats, including conversion of 4,387 links from linear to ring topology, and offers on-demand connectivity to 26,777 villages; the government expects subsidy support for more than four lakh rural fibre connections.",
+        "why": "A ring can preserve service when one fibre path fails, so the topology upgrade matters as much as nominal coverage. Success should be measured through uptime, backhaul capacity, repair times and actual household and institution usage rather than kilometres of fibre alone.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2308726"
+      },
+      {
+        "category": "Economic statistics",
+        "headline": "NSO publishes India's first district estimates for unincorporated enterprises",
+        "summary": "The National Statistics Office released district-level estimates from the Annual Survey of Unincorporated Sector Enterprises 2025 for 757 of the 770 districts in its sampling frame. The top 50 districts account for nearly one-third of establishments, workers and gross value added; 280 districts exceed the national GVA-per-worker average, and women form at least one-third of the sector's workforce in 237 districts.",
+        "why": "State averages hide the geography of informal and small-business activity. District estimates can improve local credit, skilling and infrastructure policy, but users must respect sampling uncertainty and boundary differences instead of treating every point estimate as an exact count.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2308690"
+      },
+      {
+        "category": "Wildlife crime",
+        "headline": "Five rescued orangutans in Odisha prompt an organized-trafficking probe",
+        "summary": "Five juvenile orangutans found in Balasore were moved to a temperature-controlled quarantine facility at Nandankanan Zoological Park, where three males and two females are receiving veterinary monitoring. Officials suspect a human-mediated arrival because orangutans are not native to India; Odisha's Special Task Force is reviewing earlier cases while the animals' exact species remains unconfirmed.",
+        "why": "All three orangutan species are critically endangered, and finding a group far outside its native range may expose a transnational route rather than an isolated animal-welfare case. Species identification, chain-of-custody evidence and cooperation across wildlife agencies will determine whether the network can be traced.",
+        "link": "https://indianexpress.com/article/india/odisha-baby-orangutans-rescue-smuggling-probe-10870841/"
+      }
+    ],
+    "world": [
+      {
+        "category": "Climate",
+        "headline": "Copernicus records the warmest August and a joint all-time monthly high",
+        "summary": "Copernicus ERA5 data put August 2026's global mean surface-air temperature at 16.96°C, 0.85°C above the 1991–2020 August average and 1.65°C above the estimated 1850–1900 level. It was the warmest August in the dataset and effectively tied July 2023 as the warmest month of any name, with a difference below 0.01°C.",
+        "why": "A single month above 1.5°C does not mean the Paris long-term threshold has formally been crossed, but simultaneous record land and extra-polar sea-surface warmth increases heat, rainfall and ecosystem risks. The important signal is the persistence and breadth of the energy imbalance.",
+        "link": "https://climate.copernicus.eu/surface-air-temperature-august-2026"
+      },
+      {
+        "category": "Security and industry",
+        "headline": "Canada links a major drone-production expansion to Ukraine support",
+        "summary": "Prime Minister Mark Carney said Canada plans to produce millions of drones over the next two years and send one-third to Ukraine, while announced contracts would expand Canada's own military drone inventory tenfold. The visit by President Volodymyr Zelenskyy also brought a C$350-million air-defence-interceptor package and more than C$430 million in loan guarantees for Ukrainian gas purchases before winter.",
+        "why": "The plan treats mass-produced unmanned systems as both defence aid and industrial capacity, reflecting how rapidly modern warfare consumes inexpensive platforms and scarce interceptors. Execution will depend on production yield, secure supply chains, software iteration and counter-drone adaptation, not procurement totals alone.",
+        "link": "https://apnews.com/article/russia-ukraine-war-canada-zelenskyy-2a74de6552061bda57a1c5aa4464db52"
+      },
+      {
+        "category": "Education in conflict",
+        "headline": "Attacks on education reach a record across conflict-affected countries",
+        "summary": "A UN account marking the International Day to Protect Education from Attack said at least 9,259 attacks on education occurred in 2024 and 2025, more than 50% above the previous two-year period. More than 10,600 students and educators were killed, injured or abducted, while 258 million children across 87 countries face severe learning disruption and 93 million are out of class.",
+        "why": "A damaged or militarized school removes both learning and a protective routine, increasing exposure to displacement, recruitment and trafficking. Restoring education during conflict therefore belongs inside humanitarian response and civilian-protection planning, not only post-war reconstruction.",
+        "link": "https://unsdg.un.org/latest/stories/record-number-attacks-education-global-fund-warns"
+      },
+      {
+        "category": "Astronomy",
+        "headline": "Chandra archive search reveals 84 hypersoft X-ray sources",
+        "summary": "Researchers searching public Chandra observations found 84 objects across six galaxies that appear at the observatory's lowest X-ray energies but disappear at higher energies, implying unusually intense ultraviolet output. The proposed sources are compact binaries in which a black hole, neutron star or white dwarf accretes material from a companion, although their physical identities are not yet established.",
+        "why": "If confirmed as a coherent population, these hidden systems could illuminate two open questions: which accreting white dwarfs later produce Type Ia supernovae and what supplies some galaxies with enough energetic ultraviolet radiation to ionize interstellar gas. The discovery also shows the scientific return available from reprocessing archival data around an instrument's blind spots.",
+        "link": "https://science.nasa.gov/missions/chandra/nasas-chandra-unveils-mysterious-x-ray-objects/"
+      },
+      {
+        "category": "Red Sea security",
+        "headline": "Houthi forces take Yemen's strategic port city of Mokha",
+        "summary": "Houthi and Yemeni officials told the Associated Press that the Iran-backed group took Mokha, about 80 kilometres from the Bab el-Mandeb Strait. Roughly 12% of the world's oil and other goods pass through that waterway, and the UN envoy for Yemen warned the Security Council that the country had entered a more dangerous phase with consequences beyond its borders.",
+        "why": "Control near Bab el-Mandeb can affect shipping risk, insurance and energy logistics well beyond Yemen, especially while other Gulf routes are disrupted. The development also threatens to reopen a wider front in a conflict whose political settlement and humanitarian recovery remain fragile.",
+        "link": "https://apnews.com/article/mideast-news-gaza-israel-yemen-iran-lebanon-4de45665de2221865501a4c512daa86d"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "title": "Learned Lightweight Smartphone ISP with Unpaired Data",
+      "authors": "Andrei Arhire and Radu Timofte",
+      "year": "2025",
+      "venue": "CVPR 2025 Workshops",
+      "field": "Learned mobile image signal processing",
+      "link": "https://arxiv.org/abs/2505.10420",
+      "scholar": "https://scholar.google.com/scholar?q=Learned+Lightweight+Smartphone+ISP+with+Unpaired+Data",
+      "summary": "This paper asks whether a compact neural ISP can learn the desired colour, texture and perceptual rendering of a high-end camera without pixel-aligned RAW and RGB scenes. It combines a lightweight RAW-to-RGB backbone with feature-space content constraints, specialised colour and texture discriminators, and smoothness regularisation, approaching paired-training quality while avoiding the capture and alignment burden that often dominates learned-ISP dataset creation.",
+      "problem": "End-to-end learned ISPs normally need the same scene captured by a phone sensor and a high-quality reference camera, then geometrically and photometrically aligned at pixel level. Parallax, moving objects, exposure differences, optical distortion and alignment warps turn that requirement into an expensive data-engineering project. Training directly on unmatched RAW inputs and desirable RGB photographs is attractive, but an unconstrained adversarial model can change scene content, hallucinate texture, drift in colour or settle into unstable solutions.",
+      "difficulty": "There is no per-pixel target telling the network which edge, tone or chroma value is correct, and the camera domains differ for reasons beyond rendering style. Low-frequency colour, high-frequency texture and geometric content require different signals, while a tiny mobile backbone has little spare capacity. GAN optimisation adds sensitivity to outliers and hyperparameters. The authors also found real alignment defects even in nominally paired data, removing 17.6% of the Fujifilm UltraISP training samples for local experiments.",
+      "idea": "Separate what must remain invariant from what may be borrowed from an unmatched target distribution. The demosaiced version of each RAW input supplies a content anchor, while adversarial critics learn the colour and texture statistics of professional-camera images. Rather than asking one discriminator to judge everything, the design feeds different pretrained feature levels to dedicated critics, so low-level detail and higher-level perceptual structure can exert distinct pressures on the ISP output.",
+      "method": "The neural ISP is first pretrained for demosaicing and then optimised with a weighted multi-term objective. Content loss compares VGG-19 relu5_4 features; in the unpaired case it uses the luminance channel of a conventionally demosaiced RAW image as the same-scene reference, which discourages structural invention without requiring a paired target. Colour is learned adversarially from blurred, normalised image features, with a Vision Transformer feature extractor improving training stability. Two relativistic texture discriminators process shallow lin0 and deeper lin3 feature maps from an LPIPS-style AlexNet: the shallow path emphasizes edges and fine texture, while the deeper path suppresses perceptually implausible structure. Total-variation loss discourages local artifacts. The authors apply this training recipe to Efficient ISP, RMFA-Net tiny and Robust ISP backbones on Zurich RAW-to-RGB and Fujifilm UltraISP data, evaluating fidelity and real mobile-GPU latency.",
+      "results": "On the Zurich test set, the 3,000-parameter Efficient ISP ran a 1920 by 1088 image in 32.9 ms on a mobile GPU. Unpaired training reached 19.448 dB PSNR, 0.700 SSIM, 0.832 MS-SSIM and 0.239 LPIPS, compared with 19.692 dB, 0.699, 0.837 and 0.198 for the same backbone with paired adversarial training. On the local Fujifilm test set, unpaired Efficient ISP reached 23.0711 dB PSNR and 0.8300 SSIM versus 23.6477 dB and 0.8401 when paired. The result is a practical near-paired trade rather than parity: data collection becomes easier, but measurable fidelity is surrendered.",
+      "care": "The work is useful as an engineering decomposition of the learned-ISP supervision problem. It suggests that camera teams can gather abundant sensor RAW and curated target photographs independently, then spend scarce paired-capture effort on validation and calibration. It also makes the failure modes explicit: adversarial losses need careful tuning, the conventional demosaic becomes a structural teacher, out-of-distribution target images can bias the look, and aggregate metrics cannot guarantee skin-tone fidelity, temporal stability or freedom from hallucination. A production evaluation should therefore add chart accuracy, face and foliage stress cases, burst consistency, NPU operator coverage, power and memory traces.",
+      "learn": [
+        "Use a same-scene demosaiced RAW luminance image as a content constraint when aligned high-quality RGB is unavailable.",
+        "Split colour and texture supervision, and split texture again across shallow and deep perceptual features instead of relying on one monolithic discriminator.",
+        "Treat unpaired training as a data-cost versus fidelity trade: compare it against the identical backbone under paired supervision, not only against unrelated models.",
+        "Measure mobile latency at full output resolution; parameter count alone does not reveal resize, memory-traffic or operator costs."
+      ],
+      "concepts": [
+        "Unpaired image-to-image translation",
+        "Feature-space content loss",
+        "Relativistic adversarial loss",
+        "Perceptual metric layers",
+        "Total-variation regularisation",
+        "RAW-to-RGB domain gap"
+      ]
+    },
+    "domain2": {
+      "title": "CCMNet: Leveraging Calibrated Color Correction Matrices for Cross-Camera Color Constancy",
+      "authors": "Dongyoung Kim, Mahmoud Afifi, Dongyun Kim, Michael S. Brown and Seon Joo Kim",
+      "year": "2025",
+      "venue": "ICCV 2025",
+      "field": "Cross-camera automatic white balance",
+      "link": "https://arxiv.org/abs/2504.07959",
+      "scholar": "https://scholar.google.com/scholar?q=CCMNet+Leveraging+Calibrated+Color+Correction+Matrices+for+Cross-Camera+Color+Constancy",
+      "summary": "CCMNet uses colour-correction matrices already calibrated for a camera to tell a white-balance network how an unseen sensor represents plausible illuminants. It projects a Planckian set of light colours into that camera's RAW space, compresses the result into a camera fingerprint and conditions a lightweight cross-camera estimator, avoiding retraining or a gallery of target-camera images.",
+      "problem": "Illuminant estimation occurs before colour correction, inside a sensor-specific RAW coordinate system. The same physical light therefore produces different RGB triplets on different cameras because their spectral sensitivities differ. A model trained on one group of sensors can interpret an unseen sensor's neutral axis incorrectly. Collecting labelled scenes or even a large unlabeled gallery for every new module defeats the promise of a camera-agnostic automatic-white-balance model.",
+      "difficulty": "Camera identity is not a cosmetic style variable: it changes the geometry of illuminant chromaticities and scene colour statistics. A useful adaptation signal must be compact, available during ISP integration and connected to physical calibration. Training datasets contain only a small number of real cameras, which invites memorisation. The solution must also tolerate devices that expose only one useful CCM, while remaining light enough for an early-pipeline operation that runs on every frame.",
+      "idea": "A calibrated CCM is a compressed measurement of the sensor's colour response because it maps camera RGB into a standard colour space. CCMNet reverses that usual direction conceptually: it samples predefined illuminants along the Planckian locus, maps them through the camera's CCMs into RAW chromaticity space and encodes their sensor-specific path as a Camera Fingerprint Embedding. That embedding conditions the estimator for a never-seen camera. Interpolating between cameras during training creates imaginary sensors and prevents the network from treating the finite training-camera list as classes.",
+      "method": "For each camera, calibrated CCMs associated with different colour temperatures are interpolated and used to project physically plausible illuminants into camera space. Their distribution is represented in a compact uv-histogram and encoded as the Camera Fingerprint Embedding. A hypernetwork uses this embedding to generate camera-adaptive filters for the colour-constancy backbone, which estimates the scene illuminant from the input RAW image. Imaginary-camera augmentation interpolates RAW images, ground-truth illuminants and corresponding CCMs between training cameras, enlarging the space of sensor responses while keeping the three elements consistent. Evaluation follows leave-one-dataset-out tests on Cube+, Gehler-Shi and NUS-8, and a leave-one-sensor-out NUS protocol. The authors also test the method with another backbone and with only a single fixed CCM.",
+      "results": "With both the fingerprint and imaginary-camera augmentation, mean angular error was 1.68 degrees on Cube+, 2.23 degrees on Gehler-Shi and 2.32 degrees on NUS-8; the corresponding medians were 1.16, 1.53 and 1.71 degrees. On a second SIIE backbone, adding both components reduced mean error from 3.39 to 1.91 degrees on Cube+, from 3.67 to 2.99 on Gehler-Shi and from 3.52 to 2.94 on NUS-8. The supplementary evaluation reports a 1.05 MB model and 1.32 ms per image on an RTX 3060 GPU; using one CCM instead of two changed results only slightly.",
+      "care": "The paper shows a strong pattern for camera algorithms: reuse calibration metadata as an adaptation coordinate rather than relearning sensor identity from images. For an ISP team, that can reduce per-module data collection and make a shared AWB model more plausible across SKUs. Its boundaries are equally instructive. The camera fingerprint is built around Planckian illumination and trustworthy CCMs, so off-locus sources, mixed lighting, calibration drift and metadata convention errors remain risks. Desktop timing is not an on-device power result, and benchmark angular error does not capture preference rendering or temporal behaviour. Validation should include LED spectra, mixed illuminants, sensor temperature, lens shading interactions and frame-to-frame stability.",
+      "learn": [
+        "Existing ISP calibration artifacts can serve as low-dimensional conditioning signals for models shared across camera modules.",
+        "Project a physically meaningful reference set into each sensor's coordinates; this is more interpretable than learning an opaque camera ID.",
+        "When real device diversity is scarce, interpolate inputs, labels and calibration metadata together so synthetic cameras remain internally consistent.",
+        "Evaluate both cross-dataset and cross-sensor generalization, because success on familiar sensor families can hide camera memorisation."
+      ],
+      "concepts": [
+        "Color correction matrix",
+        "Planckian locus",
+        "Illuminant angular error",
+        "Hypernetwork conditioning",
+        "Camera fingerprint embedding",
+        "Leave-one-camera-out evaluation"
+      ]
+    },
+    "outside1": {
+      "title": "The spatiotemporal distribution of human pathogens in ancient Eurasia",
+      "authors": "Martin Sikora, Elisabetta Canteri, Antonio Fernandez-Guerra, Nikolay Oskolkov, Rasmus Ågren, Lena Hansson, Evan K. Irving-Pease et al.",
+      "year": "2025",
+      "venue": "Nature 643, 1011–1019",
+      "field": "Archaeogenomics and palaeoepidemiology",
+      "link": "https://www.nature.com/articles/s41586-025-09192-8",
+      "scholar": "https://scholar.google.com/scholar?q=The+spatiotemporal+distribution+of+human+pathogens+in+ancient+Eurasia",
+      "summary": "This study turns 1,313 ancient human genomes into a 37,000-year survey of microbial DNA. After authenticating damaged ancient reads and separating likely pathogens from oral and soil organisms, it maps when different transmission classes appeared. The strongest population-scale pattern is a rise in zoonotic disease around the spread of animal domestication and later steppe pastoralist mobility.",
+      "problem": "The idea that farming, dense settlements and livestock caused a first epidemiological transition is plausible, but much evidence is indirect. Skeletal lesions reveal only a limited set of diseases, historical texts cover recent literate societies and pathogen-genome studies usually begin with one organism already suspected. A broad test needs to screen many individuals, places, periods and microbial taxa without mistaking burial-environment DNA for infections that occurred during life.",
+      "difficulty": "Ancient DNA is short, chemically damaged, sparse and mixed with a large environmental metagenome. Modern reference databases represent some taxa far better than others, so a weak match can indicate damage, an unsampled relative or a false classification. Preservation and burial practices produce strong geographic and temporal sampling bias: 77% of the people here came from western Eurasia and only 3% from southeast Asia. Finally, detection in bone or teeth depends on whether a pathogen reached those tissues, making absence especially ambiguous.",
+      "idea": "Instead of testing bones one pathogen at a time, build a scalable metagenomic authentication pipeline and then analyse the detected organisms by reservoir and transmission mode. Characteristic ancient-DNA damage, read enrichment, genome-wide coverage, sequence identity and mixture checks reduce false positives. Once hits are dated and mapped, changes in zoonotic, vector-borne and person-to-person detections can be compared with archaeological transitions such as domestication and pastoral migration.",
+      "method": "The researchers screened roughly 405 billion shotgun-sequencing reads from 1,313 ancient individuals spanning about 37,000 years. They first classified microbial reads, then focused authentication on 136 bacterial and protozoan genera containing 11,553 species and on 1,356 viral genera containing 259,979 species. Candidate hits were assessed with characteristic ancient-DNA damage, including a metaDMG damage Z-score threshold of at least 1.5, plus read recruitment, average nucleotide identity, genome-coverage evenness and multi-allele rates. Low-read hits received an additional BLAST check. The team distinguished oral microbiome and likely environmental organisms from credible infections, grouped pathogens by likely reservoirs and transmission routes, and used Bayesian change-point and time-series analyses for plague and louse-borne relapsing fever.",
+      "results": "The workflow authenticated 5,486 microbial hits across 1,005 samples, spanning 492 species in 136 genera; 3,384 hits belonged to known human pathogens. Zoonotic pathogens first appeared around 6,500 years ago and peaked roughly 5,000 years ago, aligning with widespread livestock domestication. The screen found 42 putative plague cases, 35 newly reported, and 34 new putative cases of louse-borne relapsing fever. It also extended ancient evidence for hepatitis B into Mesolithic and Neolithic Siberia and identified 15 possible coinfections. These are detection patterns in the sampled remains, not direct prevalence estimates for whole ancient populations.",
+      "care": "The paper supplies direct molecular support for a central claim about how subsistence and mobility changed human disease ecology. Its bigger lesson is methodological: scale comes from reusing archived host-genome reads, but credible discovery requires a stack of orthogonal authenticity checks and explicit treatment of negative evidence. The uneven sample map, tissue tropism, post-mortem contamination and database bias mean that a timeline can show the earliest detected case, not the true origin date. Future sampling in Africa, south and east Asia, and more ordinary burial contexts could substantially redraw the map.",
+      "learn": [
+        "Ancient DNA damage patterns are evidence of age and help distinguish old molecules from modern contamination.",
+        "A microbial taxonomic match is not enough; coverage shape, sequence identity, read enrichment and ecological plausibility must agree.",
+        "The apparent rise of zoonoses near livestock domestication is a sampled molecular pattern consistent with, but not identical to, population prevalence.",
+        "Absence in an ancient tooth or bone can reflect tissue biology and preservation rather than absence of disease."
+      ],
+      "concepts": [
+        "Ancient DNA authentication",
+        "Metagenomic screening",
+        "Average nucleotide identity",
+        "Necrobiome contamination",
+        "First epidemiological transition",
+        "Bayesian change-point detection"
+      ]
+    },
+    "outside2": {
+      "title": "Cooperative climate action under background risk",
+      "authors": "Hao Luo, Hanna de Boer, Oliver Mußhoff and Daniel Hermann",
+      "year": "2025",
+      "venue": "Scientific Reports 15, 27118",
+      "field": "Experimental behavioral economics",
+      "link": "https://www.nature.com/articles/s41598-025-12340-9",
+      "scholar": "https://scholar.google.com/scholar?q=Cooperative+climate+action+under+background+risk",
+      "summary": "Economic theory predicts that an unavoidable second risk should make risk-averse people less willing to gamble private resources on a collective climate target. In a controlled public-goods experiment with real carbon-offset consequences, adding a 20% background risk did not reduce final cooperation. It instead increased first-round contributions, suggesting that visible common danger can sometimes accelerate early coordination under favourable conditions.",
+      "problem": "Climate mitigation is a threshold public good: each person pays privately, benefits are shared, contributions are non-refundable and success depends on strangers. Real decisions also occur alongside war, illness, job loss and other independent hazards. Risk-vulnerability theory predicts that such background risk makes a risk-averse person more cautious toward the climate gamble, but most experiments isolate the focal risk and may therefore overestimate cooperation.",
+      "difficulty": "The design must distinguish a psychological response to background risk from a mechanical reduction in expected payoff. It must also make an abstract climate fund consequential without letting one participant determine the outcome. Repeated rounds create learning, signaling and strategic delay, so end totals can conceal when behaviour changes. Any laboratory result then faces an external-validity gap because students, tokens, fixed probabilities and small anonymous groups differ sharply from voters, firms and states negotiating over decades.",
+      "idea": "Add an independent, unavoidable chance of losing remaining private wealth to a standard collective-risk climate game, then create a second treatment that multiplies surviving wealth to restore the control group's expected-payoff difference. If both risk treatments behave similarly, the comparison separates background-risk exposure from the changed financial incentive. Linking contributions to real carbon offsets gives the public account a small real-world consequence.",
+      "method": "The main analysis used 312 participants arranged in fixed anonymous groups of six, yielding 52 groups split across a control and two treatments. Over ten periods, each person allocated tokens between a private account and a public climate fund; the group had to contribute at least 120 tokens to avoid a 90% loss applied when the target failed. Treatment T1 added a 20% independent probability of losing all remaining private tokens even when the climate threshold was reached. T2 added the same background risk but multiplied surviving private tokens by 1.25, equalising the relevant expected-payoff contrast with control. Participants received contribution feedback after each round, completed a separate risk task and questionnaire, and the researchers tested group success, cumulative individual contributions and first-period behaviour.",
+      "results": "Fifteen of 17 control groups and 15 of 17 T1 groups reached the threshold, both 88.2%; 17 of 18 T2 groups succeeded, or 94.4%. The success-rate difference was not statistically significant across conditions, with p = 0.774. Average first-period group contributions were 10.94 tokens in control, 12.94 in T1 and 12.78 in T2; both treatment-control comparisons were significant at the 5% level, with p = 0.033 and p = 0.021. Background risk did not significantly alter cumulative individual contributions, and measured risk attitudes did not predict contribution levels.",
+      "care": "The surprising result is not that crises always improve climate cooperation; it is that a clean theoretical effect disappeared in a high-salience, high-success coordination environment and shifted the timing of contributions. Early generosity may work as a signal that stabilises later cooperation. The limitations prevent broad policy claims: the sample was mainly students, failure already carried a 90% loss, risk was fixed at 20%, carbon offsets may have added moral utility and only 52 groups determined group-level inference. A valuable follow-up would vary communication, inequality, repeated shocks and the observability of early commitments in larger field populations.",
+      "learn": [
+        "Separate the behavioural effect of a risk from the payoff arithmetic it changes; T2's multiplier is an identification device.",
+        "In repeated collective action, contribution timing can matter even when final totals look the same.",
+        "A null final effect can coexist with a statistically detectable first-round response, so inspect mechanisms rather than only endpoints.",
+        "High baseline success, a student sample and real carbon offsets narrow the range over which the conclusion should be generalized."
+      ],
+      "concepts": [
+        "Threshold public-goods game",
+        "Background risk",
+        "Risk vulnerability",
+        "Expected-payoff control",
+        "Early cooperation signal",
+        "External validity"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$223.67",
+        "change": -0.91,
+        "reason": "9 September close, the latest completed US session available for this IST-morning edition; the daily move is measured against the prior close.",
+        "thesis": "NVIDIA's accelerator, networking and software stack remains a central platform for large-scale AI training and inference infrastructure.",
+        "risk": "Export controls, customer concentration, custom accelerators and a pause in hyperscaler capital spending could reduce growth or valuation."
+      },
+      {
+        "symbol": "GOOGL",
+        "price": "$330.65",
+        "change": -2.28,
+        "reason": "9 September close, the latest completed US session available for this IST-morning edition; the daily move is measured against the prior close.",
+        "thesis": "Alphabet combines search cash flow with Cloud, proprietary AI models and custom compute, providing several routes to monetize inference demand.",
+        "risk": "AI capital expenditure may outrun returns while competition and antitrust remedies weaken search distribution or advertising economics."
+      },
+      {
+        "symbol": "XOM",
+        "price": "$164.23",
+        "change": 2.22,
+        "reason": "9 September close, the latest completed US session available for this IST-morning edition; the gain accompanied higher oil prices and energy-sector strength.",
+        "thesis": "ExxonMobil's integrated upstream, refining and chemicals footprint can generate strong cash flow when geopolitical constraints tighten energy supply.",
+        "risk": "De-escalation, weaker demand, project overruns, regulation and long-run energy-transition pressures can reverse commodity-driven earnings strength."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,276.00",
+        "change": -0.23,
+        "reason": "10 September NSE close, the latest completed Indian session; the daily percentage change is calculated against the previous close.",
+        "thesis": "Reliance's energy cash flows support scaled telecom, retail and new-energy platforms, creating several potential long-duration growth engines.",
+        "risk": "High capital intensity, weaker refining or petrochemical margins and execution across consumer and new-energy projects may depress returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹687.80",
+        "change": 0.1,
+        "reason": "10 September NSE close, the latest completed Indian session; the daily percentage change is calculated against the previous close.",
+        "thesis": "A broad deposit franchise and retail and corporate distribution network support durable credit compounding as merger integration matures.",
+        "risk": "Deposit competition, net-interest-margin pressure, unsecured-credit stress or slower integration benefits could weaken profitability and asset quality."
+      },
+      {
+        "symbol": "LT",
+        "price": "₹3,935.00",
+        "change": 0.32,
+        "reason": "10 September NSE close, the latest completed Indian session; the daily percentage change is calculated against the previous close.",
+        "thesis": "Larsen & Toubro's engineering depth and order book provide exposure to India's infrastructure, defence, energy and industrial capital expenditure.",
+        "risk": "Fixed-price execution, cost inflation, working-capital demands, project delays and dependence on large public orders can pressure cash conversion."
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Unpaired learned-ISP training becomes credible when scene structure, low-frequency colour and high-frequency texture receive separate, auditable constraints.",
+      "CCMs can do double duty: besides correcting colour, they encode enough sensor response to condition a cross-camera AWB model without target-camera retraining.",
+      "The August climate record is a global energy signal, while one month above 1.5°C is not itself the Paris Agreement's long-term threshold test.",
+      "Ring topology in rural broadband is a resilience choice; coverage counts are incomplete without uptime, repair time, capacity and adoption measures.",
+      "Ancient pathogen detections support a zoonotic transition near livestock domestication, but preservation and tissue bias make nondetection weak evidence.",
+      "In collective-risk experiments, background danger changed the timing of cooperation more than the final success rate, showing why early-round behaviour matters.",
+      "A price and daily change are session-specific observations: this issue uses 9 September for US stocks and 10 September for Indian stocks because of the IST publication window."
+    ],
+    "explore": "Investigate calibration metadata as a general bridge between physical systems and learned adaptation. CCMNet turns a small, trusted set of matrices into a camera fingerprint; BharatNet's ring-versus-linear topology similarly encodes assumptions about failure and recovery before any usage model is applied. A useful next project would catalogue which mobile-camera calibration artifacts—CCMs, black levels, noise profiles, lens-shading grids and exposure metadata—can condition one shared neural ISP, then design leave-one-sensor-out tests that measure not only image metrics but also uncertainty, temporal stability, power and graceful failure when metadata is wrong. The archaeogenomics paper offers the matching discipline: a single signal is not proof, so deployment gates should combine calibration consistency, output statistics and independent scene checks."
+  }
+}
