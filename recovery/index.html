@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17352c">
+  <meta name="description" content="Teja's calm, family-friendly 14-day listening room for PRK recovery.">
+  <title>Teja's Listening Room</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip" href="#day-view">Skip to today</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Teja's Listening Room home"><span class="brand-mark" aria-hidden="true">◖</span><span>Teja's Listening Room</span></a>
+    <button class="quiet-button" id="speak-button" type="button" aria-pressed="false">🔊 Read this day aloud</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">14 gentle days · Sep 12–25</p>
+        <h1>Rest your eyes.<br><em>Keep your mind company.</em></h1>
+        <p class="hero-copy">A family-friendly listening plan made for PRK recovery: thoughtful conversations, Telugu laughter, and story worlds. One day at a time.</p>
+      </div>
+      <aside class="family-note">
+        <span aria-hidden="true">☀️</span>
+        <div><strong>For the family DJ</strong><p>Pick the day, press a large orange play button, and keep the screen dim. Teja only needs to listen.</p></div>
+      </aside>
+    </section>
+
+    <section class="day-picker" aria-label="Choose a recovery day">
+      <button class="nav-button" id="previous-day" type="button" aria-label="Previous day">←</button>
+      <label for="day-select"><span>Now playing</span><select id="day-select" aria-label="Choose day"></select></label>
+      <button class="nav-button" id="next-day" type="button" aria-label="Next day">→</button>
+    </section>
+
+    <section class="day-view" id="day-view" tabindex="-1" aria-live="polite">
+      <div class="day-heading">
+        <div><p class="eyebrow" id="day-date"></p><h2 id="day-title"></h2><p id="day-mood"></p></div>
+        <div class="progress-ring" id="progress-ring" aria-label="Day progress"><strong id="progress-number">0/3</strong><span>played</span></div>
+      </div>
+      <div class="tracks" id="tracks"></div>
+      <div class="day-done">
+        <button id="finish-day" type="button">✓ Mark this day complete</button>
+        <p id="finish-message">Progress stays saved on this device.</p>
+      </div>
+    </section>
+
+    <section class="all-days">
+      <div class="section-title"><div><p class="eyebrow">The full journey</p><h2>Fourteen days, no decisions</h2></div><p>Gentle at first, then gradually more curious and playful.</p></div>
+      <div class="calendar" id="calendar"></div>
+    </section>
+
+    <section class="care-card">
+      <span aria-hidden="true">🌿</span>
+      <div><h2>Comfort comes first</h2><p>Keep volume comfortable and follow your surgeon’s instructions. Pause anytime you feel tired. This page is entertainment, not medical guidance.</p></div>
+    </section>
+  </main>
+
+  <footer><strong>Made for Teja, with calm in mind.</strong><span>Family-friendly picks · external links open in YouTube</span></footer>
+  <script src="./app.js"></script>
+</body>
+</html>
