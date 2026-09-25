@@ -1,0 +1,279 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-09-26",
+    "note": "Current Saturday edition; market prices use the latest completed session on Friday, 25 September 2026."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Disaster resilience",
+        "headline": "Heavy rain triggers a damaging landslide in West Sikkim",
+        "summary": "A major landslide struck Rimbi village in West Sikkim's Gyalshing district after sustained rain, damaging houses and government quarters. No casualties had been reported, while blocked roads and damaged infrastructure complicated local assessment and response.",
+        "why": "The episode shows how intense rain, unstable slopes and fragile road access can combine into a high-consequence Himalayan infrastructure problem even without loss of life.",
+        "link": "https://indianexpress.com/article/india/sikkim-landslide-rimbi-gyalshing-houses-damaged-prem-singh-tamang-10893235/"
+      },
+      {
+        "category": "Quantum technology",
+        "headline": "DRDO backs an indigenous millikelvin refrigerator for quantum systems",
+        "summary": "DRDO awarded its first high-value project under the Technology Development Fund's new deep-tech route to Zero mK India. The project aims to build a dilution refrigerator capable of reaching 20 millikelvin for quantum computing and other cryogenic research.",
+        "why": "Dilution refrigeration is a critical enabling layer for several quantum-computing architectures; domestic capability would reduce dependence on a small overseas supplier base and strengthen India's hardware stack.",
+        "link": "https://www.pib.gov.in/PressReleaseDetail.aspx?PRID=2314535&lang=1&reg=6"
+      },
+      {
+        "category": "Water governance",
+        "headline": "India International Water Week focuses on climate-resilient management",
+        "summary": "The ninth India International Water Week ran from 22 to 26 September around the theme Climate Resilient Water Management. Its sessions brought policy attention to groundwater, river basins, urban water, reuse, irrigation and the financing of resilient systems.",
+        "why": "India's water risks cross administrative and engineering boundaries, so durable progress depends on linking hydrology, institutions, demand management, data and climate adaptation rather than treating projects in isolation.",
+        "link": "https://www.pib.gov.in/FeaturesDeatils.aspx?ModuleId=2&NoteId=160157&id=160157&lang=2&reg=48"
+      },
+      {
+        "category": "Education and innovation",
+        "headline": "Seva First Innovation Challenge opens to southern students",
+        "summary": "The Education Ministry, AICTE and UGC launched the Seva First Innovation Challenge at IISc Bengaluru for learners from schools, ITIs, polytechnics and higher-education institutions across five southern states and three Union territories. Entries are organised around five public-service themes.",
+        "why": "A common challenge spanning school to university can expose more learners to problem definition, prototyping and public-interest engineering while building bridges between different education tracks.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2314396&lang=2&reg=48&v=3"
+      },
+      {
+        "category": "Conservation",
+        "headline": "Environment Ministry begins the sixth evaluation cycle for tiger reserves",
+        "summary": "The Environment Ministry launched the sixth cycle of Management Effectiveness Evaluation for India's tiger reserves and released the MEE-TR 2026 manual. The exercise reviews whether reserve management systems and conservation work are translating into effective outcomes.",
+        "why": "Tiger counts alone cannot diagnose reserve quality; repeated management audits make planning, habitat work, connectivity, tourism pressure and operational gaps more visible and comparable over time.",
+        "link": "https://www.pib.gov.in/PressReleaseDetail.aspx?PRID=2314795&reg=48&lang=2"
+      }
+    ],
+    "world": [
+      {
+        "category": "Geopolitics",
+        "headline": "Trump-Xi White House summit stresses process over breakthroughs",
+        "summary": "US President Donald Trump hosted Chinese President Xi Jinping at the White House on 24 September. The meeting produced warm public symbolism and claims of progress on trade mechanisms and market access, but no sweeping settlement of the two powers' strategic disputes.",
+        "why": "Even limited working mechanisms can reduce miscalculation between the world's two largest economies, while the lack of a grand bargain keeps technology, trade and security risks structurally high.",
+        "link": "https://www.aol.com/articles/trump-wrap-xi-summit-tour-050729000.html"
+      },
+      {
+        "category": "Middle East",
+        "headline": "Delegates walk out during Netanyahu's UN General Assembly address",
+        "summary": "Dozens of delegates left the UN General Assembly hall as Israeli Prime Minister Benjamin Netanyahu defended his government's conduct and criticised European leaders. The address came amid continuing international pressure over the war and ahead of Israel's 27 October election.",
+        "why": "The walkout is a visible measure of Israel's diplomatic isolation and shows how the conflict is reshaping alliances, domestic politics and the practical space for negotiated outcomes.",
+        "link": "https://www.al-monitor.com/index.php/originals/2026/09/un-netanyahu-defends-israel-delegates-walk-out"
+      },
+      {
+        "category": "Global health",
+        "headline": "UN leaders reconvene on pandemic prevention and preparedness",
+        "summary": "The UN General Assembly convened its second high-level meeting on pandemic prevention, preparedness and response on 25 September. The meeting was designed to culminate in a concise political declaration centred on equity and solidarity after recent progress on the WHO Pandemic Agreement and International Health Regulations.",
+        "why": "Pandemic readiness depends on financing, surveillance, supply access and trust before a crisis begins; political commitments matter only if they become funded national capabilities and interoperable international systems.",
+        "link": "https://www.un.org/pga/81/2026/09/14/high-level-meeting-pandemic-prevention-preparedness-and-response/"
+      },
+      {
+        "category": "Climate and weather",
+        "headline": "Hurricane Polo reaches Category 5 strength off Mexico",
+        "summary": "Hurricane Polo underwent explosive intensification in the eastern Pacific earlier in the week. A National Hurricane Center advisory measured maximum sustained winds of 180 mph and a central pressure of 892 millibars while warnings covered part of Mexico's southwest coast.",
+        "why": "Polo's rapid strengthening illustrates the forecasting and civil-protection challenge posed by very intense tropical cyclones, where the available time for coastal preparation can shrink abruptly.",
+        "link": "https://www.nhc.noaa.gov/archive/2026/ep17/ep172026.public.009.shtml"
+      },
+      {
+        "category": "Science and technology",
+        "headline": "Japan's Shunkai system demonstrates a full-stack neutral-atom quantum computer",
+        "summary": "Japan's Shunkai project has put a roughly 50-qubit neutral-atom quantum computer into operation with locally developed hardware and software. The room-temperature atom platform uses optical tweezers, while its roadmap targets 10,000 physical qubits by March 2031 rather than claiming that scale today.",
+        "why": "A domestic full stack gives researchers control over the hardware-software boundary, but the ambitious qubit target should be judged by gate fidelity, connectivity, error control and usable workloads, not count alone.",
+        "link": "https://www.livescience.com/technology/quantum/japan-switches-on-its-first-full-stack-room-temperature-quantum-computer-and-scientists-plan-to-scale-it-up-to-10-000-qubits"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "title": "Multimodal Large Language Model-Guided ISP Hyperparameter Optimization with Dynamic Preference Learning",
+      "authors": "Xinyu Sun, Zhikun Zhao, Congyan Lang, Bing Li, Juan Wang",
+      "year": "2025",
+      "venue": "IEEE/CVF International Conference on Computer Vision",
+      "field": "Computational photography and camera ISP optimization",
+      "link": "https://openaccess.thecvf.com/content/ICCV2025/html/Sun_Multimodal_Large_Language_Model-Guided_ISP_Hyperparameter_Optimization_with_Dynamic_Preference_ICCV_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Multimodal+Large+Language+Model-Guided+ISP+Hyperparameter+Optimization+with+Dynamic+Preference+Learning",
+      "summary": "This paper treats ISP tuning as a preference-learning problem guided by multimodal descriptions of both scene semantics and low-level image quality. Instead of asking one fixed scalar metric to represent every scene, it generates context-dependent comparisons and uses them to optimise ISP hyperparameters.",
+      "problem": "An ISP exposes many coupled parameters, and the setting that produces the best-looking image or the best downstream vision result changes with content, illumination and task. Hand tuning is expensive, brute-force search scales poorly, and a fixed objective such as PSNR or a generic image-quality score cannot reliably encode scene-dependent trade-offs among detail, noise, colour, tone and task utility.",
+      "difficulty": "The search space is continuous and interactions between stages make it non-separable: changing denoising affects texture, sharpening, detection and perceived noise at once. More fundamentally, supervision is ambiguous. Two outputs can exchange wins across local detail, naturalness and semantic usefulness, so a static ranking signal can teach the optimiser the wrong preference for a new scene.",
+      "idea": "Use a multimodal large language model as a structured observer rather than as the ISP itself. It describes high-level scene content and low-level quality defects; a dynamic perception module turns those descriptions into scene-aware signals. Candidate output pairs are then generated and ranked dynamically, providing preference data that better reflects the current image and task than one universal score.",
+      "method": "The pipeline renders candidate images from synthetic RAW inputs under different ISP hyperparameters. An MLLM produces semantic and quality descriptions, and the Multimodal Dynamic Perception Module combines visual features with those descriptions so that the preference model can condition its judgement on both what is in the scene and how the rendering behaves. Dynamic Pair Generation selects informative candidate pairs rather than keeping a fixed comparison set. Direct Preference Optimization then learns from the preferred and rejected settings without requiring a separately fitted scalar reward model. The authors evaluate the resulting tuning strategy on COCO-derived synthetic RAW data for object detection and instance segmentation, and also report full-reference image-quality measures. Ablations compare the complete combination of semantic guidance, dynamic perception and preference learning with reduced variants and a baseline.",
+      "results": "In the reported ablation, the complete system improves detection mAP at IoU 0.5 from 0.601 to 0.653 and mAP across 0.5:0.95 from 0.407 to 0.454. Instance-segmentation mAP across 0.5:0.95 rises from 0.340 to 0.373. Image fidelity also improves: SSIM increases from 0.805 to 0.863 and PSNR from 27.265 to 34.264 dB. The joint gains matter because they indicate that better task utility did not require sacrificing the measured rendering quality in this evaluation.",
+      "care": "The evidence is based heavily on synthetic RAW generated from COCO, so the domain gap to real sensor noise, lens shading, colour calibration, motion and hardware-specific ISP behaviour remains important. MLLM descriptions can be unstable or confidently wrong, and the paper does not establish mobile latency, power or tuning cost. PSNR and SSIM are incomplete perceptual measures, while gains against an expert-tuned reference depend on how that reference and the parameter bounds were chosen.",
+      "learn": [
+        "Separate preference generation from the optimizer: better comparisons can be more valuable than a more elaborate search algorithm fed by a weak objective.",
+        "Condition tuning on scene semantics and visible defects, because a single global weighting of noise, texture, colour and task accuracy is rarely optimal.",
+        "For deployment, reproduce the comparison process on real sensor captures and measure runtime, energy, temporal stability and failure modes before trusting synthetic-RAW gains."
+      ],
+      "concepts": [
+        "Direct Preference Optimization",
+        "Multimodal quality description",
+        "Dynamic pair generation",
+        "Scene-conditioned ISP tuning",
+        "Synthetic RAW domain gap"
+      ]
+    },
+    "domain2": {
+      "title": "NTIRE 2026 Challenge on Efficient Burst HDR and Restoration: Datasets, Methods, and Results",
+      "authors": "Hyunhee Park, Eunpil Park, Sangmin Lee, Radu Timofte, et al.",
+      "year": "2026",
+      "venue": "CVPR Workshops, New Trends in Image Restoration and Enhancement",
+      "field": "Efficient burst computational photography",
+      "link": "https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/papers/Park_NTIRE_2026_Challenge_on_Efficient_Burst_HDR_and_Restoration_Datasets_CVPRW_2026_paper.pdf",
+      "scholar": "https://scholar.google.com/scholar?q=NTIRE+2026+Challenge+on+Efficient+Burst+HDR+and+Restoration+Datasets+Methods+and+Results",
+      "summary": "This challenge report benchmarks practical burst restoration under explicit model-size and compute limits. Nine RAW frames must be aligned and fused into an HDR, restored RGB image while staying below five million parameters and 100 GFLOPs, making it unusually relevant to constrained camera pipelines.",
+      "problem": "A burst can recover dynamic range, reduce noise and restore detail that no single exposure contains, but a useful mobile-style system must do this without an enormous network. The challenge asks methods to transform nine RAW frames into a clean RGB result while respecting hard efficiency limits, so accuracy cannot be purchased simply with a larger backbone or unconstrained multi-frame attention.",
+      "difficulty": "Frames differ through motion, exposure, noise and clipping, which makes registration imperfect exactly where fusion is most valuable. RAW inputs also require colour and tone reconstruction, not only denoising. Meanwhile, a 100-GFLOP ceiling at 768 by 1536 resolution and a five-million-parameter limit force careful reuse of features, selective alignment and memory-aware fusion; parameter count alone does not predict latency.",
+      "idea": "Treat efficiency as part of the restoration objective rather than as a compression step performed after training. The strongest entries allocate computation selectively: they align or aggregate burst evidence with lightweight pyramids, recurrent or deformable modules, and compact attention, then reserve reconstruction capacity for ambiguous detail and saturated regions. The report's real contribution is the common resource envelope that makes accuracy-cost comparisons meaningful.",
+      "method": "The organisers provide 300 training scenes, 20 validation scenes and 20 hidden test scenes. Each scene contains nine RAW frames and an RGB ground truth at 768 by 1536 pixels. Entries are constrained to no more than five million parameters and 100 GFLOPs for a full-resolution inference. Eight of 80 registered teams submitted valid final solutions. The report standardises PSNR and SSIM evaluation and profiles complexity and inference time on an NVIDIA A100. It then documents the architectural choices of the teams, including multi-scale alignment, compact feature extraction, burst fusion and reconstruction strategies. This format makes the paper a design-space map rather than a claim that one architecture has solved burst HDR universally.",
+      "results": "Tysl ranks first at 41.556 dB PSNR and 0.9746 SSIM using 2.32 million parameters and 99.997 GFLOPs, with 106.2 ms measured on an A100. DeepTrans is effectively tied at 41.554 dB and 0.9744 SSIM with 3.51 million parameters, 86.763 GFLOPs and 64.3 ms. MFP reaches 39.111 dB with 3.30 million parameters, 86.606 GFLOPs and 59.7 ms. These results reveal a real Pareto trade-off: the top PSNR differs by only 0.002 dB, while latency differs substantially.",
+      "care": "The hidden test set has only 20 scenes, so rank differences as small as 0.002 dB should not be overinterpreted. A100 timing is not a proxy for phone NPU, DSP or GPU latency, memory traffic, thermal behaviour or energy. PSNR remains the primary ranking metric and can miss perceptual, temporal and colour artifacts. Challenge data may not span real camera stacks, difficult motion or all sensor distributions, and the report surveys multiple teams rather than validating one deployable product pipeline.",
+      "learn": [
+        "Read the leaderboard as a Pareto surface: DeepTrans gives almost identical PSNR to Tysl with markedly lower reported latency and compute.",
+        "Profile activation memory and operators on the target accelerator; FLOPs and parameter count do not reveal bandwidth, kernel support or scheduling cost.",
+        "When two systems differ by thousandths of a decibel, inspect visual artifacts and confidence intervals before declaring an architectural winner."
+      ],
+      "concepts": [
+        "Burst alignment and fusion",
+        "HDR reconstruction",
+        "Compute-constrained benchmarking",
+        "Accuracy-latency Pareto frontier",
+        "RAW-to-RGB restoration"
+      ]
+    },
+    "outside1": {
+      "title": "Ecosystem stability is shaped by resource–trait coordination under multiple interacting global change factors",
+      "authors": "Xiaxia Ding, Han Y. H. Chen, Forest Isbell, Peter B. Reich",
+      "year": "2026",
+      "venue": "Nature Ecology & Evolution",
+      "field": "Grassland ecology",
+      "link": "https://www.nature.com/articles/s41559-026-03190-3",
+      "scholar": "https://scholar.google.com/scholar?q=Ecosystem+stability+is+shaped+by+resource-trait+coordination+under+multiple+interacting+global+change+factors",
+      "summary": "A 13-year fully factorial grassland experiment tests how elevated carbon dioxide, nitrogen enrichment, warming and reduced rainfall alter the temporal stability of productivity. The study shows that stability depends on how resource changes reshape species traits and asynchronous responses, not on a simple average of isolated effects.",
+      "problem": "Climate and land-use changes rarely arrive one at a time, yet much ecological evidence estimates the effect of warming, carbon dioxide, nutrients or rainfall separately. Managers need to know whether plant productivity stays reliable from year to year under interacting pressures, and whether apparent gains in average productivity are accompanied by even larger fluctuations that reduce ecosystem stability.",
+      "difficulty": "Stability is a ratio involving both mean productivity and its temporal variation, so the same observed change can arise through different mechanisms. Multiple drivers can amplify, cancel or reverse one another, and those interactions can change over time. Species turnover, functional traits, soil moisture and asynchronous growth responses are correlated pathways, making causal interpretation difficult without a long, factorial experiment.",
+      "idea": "Connect resource supply to plant functional composition and then to community synchrony. Global-change factors alter which resource is limiting and favour different trait combinations; those shifts determine whether species rise and fall together or compensate for one another. Species asynchrony can therefore buffer community productivity even when individual populations are variable, but combinations of drivers may reorganise that buffer in non-additive ways.",
+      "method": "The researchers analyse a 13-year field experiment that fully crosses elevated atmospheric carbon dioxide, nitrogen enrichment, warming and reduced rainfall. The factorial design allows each driver and its combinations to be compared against common controls rather than inferred from separate sites. Annual community productivity is decomposed into its temporal mean and standard deviation to explain changes in stability. The study then relates those outcomes to species asynchrony, soil moisture and shifts in functional composition, using resource-acquisition traits to interpret why treatments alter the balance between average production and variability. Following combinations through time reveals whether early additive responses persist or evolve into interactions with different magnitude or direction.",
+      "results": "Elevated carbon dioxide, and to a lesser extent nitrogen addition, reduced stability because temporal variability increased more than mean productivity. Warming alone increased stability by raising mean productivity disproportionately, whereas reduced rainfall increased stability mainly by suppressing temporal variation. Combined treatments often departed from additive expectations, and some effects changed magnitude or direction over time. Species asynchrony was the primary stabilising mechanism, with soil moisture and functional composition providing secondary pathways.",
+      "care": "This is one long-running grassland experiment, not a universal coefficient for all biomes. Its species pool, soils, climate history and treatment levels shape the responses, and experimental rainfall reduction differs from every natural drought regime. Thirteen years is long for field ecology but still may not capture slow demographic change or rare extremes. The mechanistic model organises correlated ecological pathways; it does not imply that every observed trait-stability association will transfer unchanged to forests, farms or other regions.",
+      "learn": [
+        "Decompose stability into mean and temporal variability; the same stability increase can come from greater output or smaller fluctuations, with different implications.",
+        "Do not add single-factor effects mechanically: resource limitations and trait composition cause interactions that can strengthen, weaken or reverse over time.",
+        "Diversity matters through response diversity and species asynchrony, not merely through the number of species present."
+      ],
+      "concepts": [
+        "Temporal stability",
+        "Species asynchrony",
+        "Factorial field experiment",
+        "Functional traits",
+        "Non-additive global-change effects"
+      ]
+    },
+    "outside2": {
+      "title": "Banking records reveal characteristics of financial abuse",
+      "authors": "Anna Trendl, Nicola Sharp-Jeffs, Karen Perrier, Jane Rodrick, John Gathergood, David Leake",
+      "year": "2026",
+      "venue": "Nature",
+      "field": "Behavioral economics and victimology",
+      "link": "https://www.nature.com/articles/s41586-026-11049-7",
+      "scholar": "https://scholar.google.com/scholar?q=Banking+records+reveal+characteristics+of+financial+abuse",
+      "summary": "Using 162 million transactions from one large UK bank, the researchers compare 5,428 women who disclosed financial abuse with 15,602 matched controls. The work maps how economic control appears in administrative data before disclosure while carefully stopping short of claiming that transaction patterns prove abuse.",
+      "problem": "Financial abuse is common within intimate-partner and family abuse, but it is difficult to measure at scale because surveys are episodic, disclosure is incomplete and bank data record transactions rather than coercion. Banks and support services need evidence about the economic distress surrounding victim-survivors without converting ordinary financial hardship into an accusation or an automated diagnosis.",
+      "difficulty": "There is no clean ground-truth label: disclosure selects people who recognise the abuse, reach support and consent to it being recorded, while some controls may be undisclosed victims. Poverty, disability, relationship breakdown and unemployment can produce similar signals. The data are longitudinal and high-dimensional, and an observed pattern before disclosure can be a consequence, correlate or precursor rather than a cause.",
+      "idea": "Use disclosure as a carefully bounded case definition, match each case to observationally similar bank customers, and compare a broad set of longitudinal financial indicators. This design can identify population-level characteristics and service opportunities without asserting that a missed payment or low balance uniquely identifies abuse. The ethical distinction between risk evidence and individual classification is central to interpreting the study.",
+      "method": "The study uses records from one large UK bank for 5,428 female customers who self-disclosed financial abuse and 15,602 matched controls. The longitudinal window extends up to seven years and covers about 162 million transactions. Researchers construct 373 transactional and non-transactional indicators covering income, benefits, savings, credit, arrears, account access and spending behaviour. Matching reduces observable socioeconomic differences between cases and controls, and statistical comparisons examine when indicators diverge relative to disclosure. A broader comparison with the bank population provides descriptive scale, while the case-control analysis is the more disciplined estimate. The authors explicitly treat the patterns as characteristics of disclosed abuse, not a causal test or a ready-made surveillance model.",
+      "results": "In the year before disclosure, 161 of 373 indicators differ at P below 0.01 between cases and matched controls. Against the wider bank population, 63% of victim-survivors had at least one missed direct debit versus 17%, and 51% received Universal Credit versus 10%. Their average credit score was 767 versus 960, about 20% lower, and average savings were £3,088 versus £14,215, about 78% lower. These are large descriptive gaps, although matching and statistical significance do not establish causality.",
+      "care": "The sample contains women who disclosed abuse to one UK bank and may overrepresent severe, recognised or help-seeking cases; controls can include undisclosed victims. Results may not generalise to men, other countries, unbanked people or different institutions. Financial abuse overlaps other forms of domestic abuse, and the seven-year window cannot reveal every sequence. Some authors are bank employees, creating a relevant conflict to consider. Most importantly, deploying these correlations as opaque automated flags could invade privacy or expose victims to new risks.",
+      "learn": [
+        "Administrative data can reveal service needs at population scale, but correlation patterns are not individual proof and should not become unreviewed enforcement labels.",
+        "A matched control design improves comparison on measured characteristics while leaving residual confounding, selection into disclosure and label contamination unresolved.",
+        "Design interventions around consent, safety and access to specialist support; predictive performance alone is an inadequate objective in a coercive-control setting."
+      ],
+      "concepts": [
+        "Matched case-control study",
+        "Selection bias",
+        "Administrative transaction data",
+        "Financial abuse",
+        "Ethical risk classification"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$341.07",
+        "change": 1.53,
+        "reason": "Friday 25 September close, the latest completed session before this Saturday edition; Apple gained 1.53% in regular trading.",
+        "thesis": "Apple's installed base and control of silicon, operating systems and services support durable cash generation and device-level AI distribution.",
+        "risk": "Premium-device demand, regulation of platform economics and execution on useful AI experiences remain material uncertainties."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$225.07",
+        "change": 0.22,
+        "reason": "Friday 25 September close, the latest completed session before this Saturday edition; Nvidia added 0.22% in regular trading.",
+        "thesis": "Nvidia combines leading accelerators with networking and a mature software ecosystem, giving it strong leverage to continued AI-infrastructure spending.",
+        "risk": "Customer concentration, export controls, custom accelerators and a slowdown in hyperscale capital expenditure could compress growth expectations."
+      },
+      {
+        "symbol": "GOOGL",
+        "price": "$343.92",
+        "change": 0.46,
+        "reason": "Friday 25 September close, the latest completed session before this Saturday edition; Alphabet Class A rose 0.46%.",
+        "thesis": "Search cash flow, cloud scale and deep AI research give Alphabet several routes to monetise models across consumer and enterprise products.",
+        "risk": "AI-native discovery may alter search economics, while antitrust remedies and the cost of model and data-centre investment could pressure returns."
+      },
+      {
+        "symbol": "QCOM",
+        "price": "$201.97",
+        "change": 3.97,
+        "reason": "Friday 25 September close, the latest completed session before this Saturday edition; Qualcomm advanced 3.97%.",
+        "thesis": "Leadership in mobile connectivity and low-power edge compute gives Qualcomm opportunities in on-device AI, automotive and intelligent endpoints.",
+        "risk": "Smartphone exposure, major customers' internal silicon, licensing disputes and uneven diversification can make earnings and sentiment volatile."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,226.00",
+        "change": 0.56,
+        "reason": "Friday 25 September NSE close, the latest completed session before this Saturday edition; Reliance Industries rose 0.56%.",
+        "thesis": "Reliance combines energy cash flows with scaled telecom, retail and digital platforms, creating optionality across India's consumption and data growth.",
+        "risk": "Large capital commitments, refining and petrochemical cycles, regulation and execution across many businesses can dilute returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹731.65",
+        "change": 0.38,
+        "reason": "Friday 25 September NSE close, the latest completed session before this Saturday edition; HDFC Bank gained 0.38%.",
+        "thesis": "A broad deposit franchise, distribution reach and underwriting record position HDFC Bank to compound with formal credit penetration in India.",
+        "risk": "Deposit competition, margin pressure, asset-quality deterioration or slower integration benefits could weaken growth and profitability."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,066.30",
+        "change": -0.99,
+        "reason": "Friday 25 September NSE close, the latest completed session before this Saturday edition; Tata Consultancy Services fell 0.99%.",
+        "thesis": "TCS has deep enterprise relationships, global delivery scale and process discipline that can support cloud, data and AI transformation work.",
+        "risk": "Discretionary technology spending, pricing pressure, currency moves and AI-driven changes to labour-based delivery could constrain growth."
+      },
+      {
+        "symbol": "BEL",
+        "price": "₹392.70",
+        "change": 0.18,
+        "reason": "Friday 25 September NSE close, the latest completed session before this Saturday edition; Bharat Electronics added 0.18%.",
+        "thesis": "BEL is positioned for India's defence-electronics indigenisation through capabilities in radars, communications, electronic warfare and systems integration.",
+        "risk": "Government-order timing, procurement concentration, working-capital swings and valuation sensitivity can overshadow a strong order pipeline."
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "A scene-aware preference signal can improve both downstream vision accuracy and image-quality metrics, but synthetic RAW success still needs validation on real sensors and hardware.",
+      "Near-identical PSNR can hide a large deployment difference: the top two NTIRE burst entries differed by only 0.002 dB but by more than 40 ms on the reported A100 timing.",
+      "Ecosystem stability must be decomposed into mean output and temporal variability; different global-change drivers can improve the same ratio through opposite mechanisms.",
+      "Species asynchrony is a form of response diversity: independently varying components can stabilise an aggregate system when their failures do not line up.",
+      "Bank records show strong population-level correlates of disclosed financial abuse, but those correlates are neither causal proof nor an ethical licence for opaque surveillance.",
+      "Weekend market snapshots should preserve the latest completed-session timestamp; a Saturday page must not imply that Friday's settled closes are live prices.",
+      "The dilution refrigerator project highlights a recurring technology lesson: strategic capability often depends on enabling infrastructure below the headline layer."
+    ],
+    "explore": "Compare the papers through the common problem of context-dependent objectives. ISP preference learning changes its judgement with scene semantics; burst restoration exposes an accuracy-latency Pareto frontier; ecological stability separates mean performance from variance; and financial-abuse research limits what a predictive signal may ethically claim. A useful next investigation is to design one evaluation template for adaptive systems with four columns: desired outcome, context variables, resource or safety constraints, and evidence that would falsify deployment readiness. Apply it first to an ISP tuner on real RAW bursts, recording not just image quality and task accuracy but latency, energy, temporal consistency and failure clusters. Then ask how the same template must change when the cost is social harm rather than compute, where consent, false-positive pathways and human review become first-class constraints."
+  }
+}
