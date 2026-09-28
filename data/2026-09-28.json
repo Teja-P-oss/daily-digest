@@ -1,0 +1,279 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-09-28",
+    "note": "Current Monday edition; market prices use the latest completed session on Friday, 25 September 2026, before the new trading week opened."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Climate and disaster",
+        "headline": "Floods and landslides kill 56 across India after extreme rain",
+        "summary": "Heavy rain and storms triggered floods and landslides that killed 56 people in India, injured 46 and damaged more than 1,000 houses. Uttar Pradesh received 66.5 millimetres of rain from 25 September to the morning of 27 September, versus a normal 7.6 millimetres, while 30 river gauges across seven states showed a severe situation.",
+        "why": "The event combines human loss, crop and housing damage, and river risk across states, underscoring the need for better forecasting, resilient local infrastructure and faster compensation systems.",
+        "link": "https://www.marketscreener.com/news/floods-landslides-kill-15-in-india-four-in-nepal-as-rivers-rise-ce785adcd88aff20"
+      },
+      {
+        "category": "Banking and labour",
+        "headline": "Bank unions defer the planned three-day nationwide strike",
+        "summary": "The United Forum of Bank Unions deferred its strike scheduled for 28–30 September after late talks with the Indian Banks' Association. A joint high-level committee will discuss the demand to make every Saturday a bank holiday, along with the performance-linked incentive scheme and other pending issues.",
+        "why": "The decision removes an immediate risk to branch services and half-year-end banking operations, but leaves the structural five-day-week dispute to a new negotiating process whose follow-through matters.",
+        "link": "https://www.hindustantimes.com/india-news/3day-bank-strike-deferred-after-talks-between-bank-body-and-unions-101790531868301-amp.html"
+      },
+      {
+        "category": "Rail technology",
+        "headline": "India launches its first LNG-diesel dual-fuel passenger train",
+        "summary": "India's first LNG-powered train was flagged off from Sabarmati in Gujarat on 27 September. The diesel-LNG dual-fuel system is fitted to the train's driving power cars, introducing liquefied natural gas into Indian Railways' operating fleet while retaining diesel capability.",
+        "why": "The train is a useful real-world test of fuel cost, emissions, maintenance and safety trade-offs, although LNG remains a fossil fuel and should be assessed against electrification and full lifecycle methane leakage.",
+        "link": "https://newsonair.gov.in/union-minister-amit-shah-flags-off-countrys-first-lng-powered-train-from-sabarmati/"
+      },
+      {
+        "category": "Electoral governance",
+        "headline": "Election Commission announces nine process and technology changes",
+        "summary": "After a full Commission meeting, the Election Commission said agendas would be circulated before meetings, minutes issued afterwards, new IT modules reviewed before deployment, and ECINet audited by a committee that includes an independent IIT or IIIT expert. It also promised more system flexibility for field officers.",
+        "why": "Electoral-roll integrity depends not only on law but on software controls, auditability and documented institutional decisions; the measures address several process gaps while leaving disputes over Form 6 and West Bengal appeals unresolved.",
+        "link": "https://indianexpress.com/article/explained/election-commission-nine-new-decisions-what-changes-and-what-doesnt-10895475/"
+      },
+      {
+        "category": "Regional connectivity",
+        "headline": "Iran completes the 730-kilometre Chabahar–Zahedan rail link",
+        "summary": "Iran announced completion of the Chabahar–Zahedan railway, with final safety work under way and full operation expected in three to four months. The line has 33 stations, 39 tunnels and 201 bridges and connects the Indian Ocean port corridor toward Afghanistan and Central Asia.",
+        "why": "For India, the route could widen overland access to landlocked Central Asia without relying on Pakistan, but commercial value will still depend on port rights, sanctions exposure, security and reliable cross-border operations.",
+        "link": "https://economictimes.indiatimes.com/industry/transportation/railways/chabahar-zahedan-rail-link-completed-to-boost-indias-access-to-central-asia/articleshow/134525295.cms"
+      }
+    ],
+    "world": [
+      {
+        "category": "Middle East diplomacy",
+        "headline": "Iran insists on diplomacy after Trump rejects its Hormuz peace proposal",
+        "summary": "Iran said diplomacy remained the only solution to its conflict with the United States and Israel after President Donald Trump rejected Tehran's proposal to reopen the Strait of Hormuz and end the fighting. Iran said the proposal had been passed to Washington through Qatari mediators.",
+        "why": "The gap between public negotiating positions keeps military escalation and disruption to a globally important energy corridor live risks, with consequences for shipping, inflation and energy-importing economies.",
+        "link": "https://au.marketscreener.com/news/iran-insists-on-diplomatic-solution-after-trump-rejects-peace-plan-ce785adcd88bf22c"
+      },
+      {
+        "category": "Direct democracy",
+        "headline": "Swiss voters reject a tighter constitutional definition of neutrality",
+        "summary": "More than two-thirds of Swiss voters rejected a proposal that would have constitutionally required a stricter form of neutrality. The measure would have constrained Switzerland's ability to impose economic sanctions and cooperate with NATO outside wartime alliances.",
+        "why": "The referendum preserves government flexibility to align sanctions and security cooperation with European partners, showing how a durable national principle can be reinterpreted under a changed security environment.",
+        "link": "https://www.internazionale.it/ultime-notizie-reuters/2026/09/27/swiss-voters-set-to-reject-initiative-to-tighten-neutrality-rules"
+      },
+      {
+        "category": "War and infrastructure",
+        "headline": "Russian strikes hit Ukraine's largest mobile operator and data centres",
+        "summary": "A Russian strike hit the Kyiv headquarters of Kyivstar, Ukraine's largest mobile provider, while Russia's defence ministry said it also struck a Vodafone Ukraine data centre. The attacks continued pressure on communications and data infrastructure alongside the wider war.",
+        "why": "Telecom networks and data centres are core civilian resilience systems as well as wartime infrastructure; their loss can disrupt emergency information, payments, public services and military coordination simultaneously.",
+        "link": "https://www.internazionale.it/ultime-notizie-reuters/2026/09/27/russia-hits-ukraine-s-largest-mobile-provider-strikes-data-centres"
+      },
+      {
+        "category": "Public safety",
+        "headline": "Two mass shootings kill 27 people in South Africa",
+        "summary": "South African police launched searches for gunmen after two separate shootings near Johannesburg and Cape Town killed 27 people within hours. Ten people were killed and 11 injured at a food venue in Lwandle, while the motives for both attacks remained unknown.",
+        "why": "The attacks turn chronic gun violence and organised-crime capacity into an immediate national crisis and put pressure on intelligence, firearms control, local policing and victim support.",
+        "link": "https://www.investing.com/news/world-news/south-africa-police-hunt-suspects-after-27-killed-in-two-separate-shootings-4918899"
+      },
+      {
+        "category": "Balkan politics",
+        "headline": "Serbian President Aleksandar Vučić resigns ahead of early elections",
+        "summary": "Aleksandar Vučić formally resigned as Serbia's president on 27 September, ending his second and final five-year term and clearing the way for early presidential elections alongside an approaching parliamentary vote. His departure followed a prolonged period of youth-led anti-government protest.",
+        "why": "The resignation opens a consequential test of electoral competition, institutional independence and Serbia's balance among European Union ambitions and ties with Russia and China.",
+        "link": "https://www.internazionale.it/ultime-notizie-reuters/2026/09/27/serbia-s-president-vucic-resigns-paving-way-for-early-elections"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "title": "Removing Reflections from RAW Photos",
+      "authors": "Eric Kee, Adam Pikielny, Kevin Blackburn-Matzen, Marc Levoy",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "Computational photography",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/html/Kee_Removing_Reflections_from_RAW_Photos_CVPR_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Removing+Reflections+from+RAW+Photos",
+      "summary": "A practical reflection-removal pipeline works directly on linear RAW photos and can optionally use an outward-looking context image, such as the phone's selfie camera, to identify what belongs to the reflected scene. The central lesson is that physically correct RAW simulation matters more than swapping among familiar architectures.",
+      "problem": "Photographing through glass superimposes a transmitted scene and a reflected scene. A consumer system must separate them without a long capture sequence, precise camera motion or manual masks, while preserving high-resolution detail. RGB data have already passed through white balance, tone mapping and clipping, which destroy some of the linear mixing structure that would make separation physically interpretable.",
+      "difficulty": "The decomposition is severely ill-posed because countless pairs of layers can explain one observation. Reflections vary with exposure, focus, Fresnel angle, pose, glass geometry and illuminant colour; highlights may saturate and the two layers can share edges. Real aligned ground truth is difficult to capture at scale, yet training on naive blends of gamma-encoded images teaches the wrong photometry and transfers poorly to actual photographs.",
+      "idea": "Build the learning problem around scene-referred RAW formation. Synthetic pairs are made by mixing real linear RAW images before white balance with explicit models for exposure, pose, blur, Fresnel transmission and illuminant colour. A second camera view is not treated as a geometrically aligned reference; instead it supplies semantic evidence about the reflected environment, reducing layer ambiguity even when its crop and viewpoint differ.",
+      "method": "The authors construct more than one million synthetic mixtures from real RAW photographs using a photometrically and geometrically informed reflection simulator. A low-resolution base network receives the captured RAW image plus an optional context image and predicts transmitted and reflected layers at 256p. A separate learned upsampler restores full-resolution structure, allowing the expensive separation stage to remain small. Ablations retrain the same contextual model on 1.2 million examples while removing gamma-linear correctness or individual simulation factors, isolating the contribution of data formation from architecture. Evaluation covers synthetic ground truth and field-captured RAW photographs, including cameras absent from the training corpus, and compares against prior 8-bit reflection-removal systems retrained where possible.",
+      "results": "On the full-simulation test set, the contextual model reached 33.23 dB and 0.957 SSIM on transmission and 30.17 dB and 0.882 SSIM on reflection, versus 28.98 dB and 0.926 for DSRNet on transmission and 23.99 dB and 0.755 on reflection. Removing correct RAW-domain mixing cut the reported SSIM improvement by about 46 percentage points, whereas adding context contributed about four points. The system produced 1K previews in roughly 4.5–6.5 seconds on a MacBook or iPhone 14 Pro.",
+      "care": "Synthetic accuracy does not prove perfect separation on uncontrolled windows: multiple panes, dirt, polarization, motion, saturation and unseen sensor pipelines can violate the simulator. The runtime is useful for review rather than real-time viewfinder use, and the two-stage design may smooth fine text or texture. The context camera also raises calibration, field-of-view, privacy and product-integration questions. PSNR and SSIM on synthetic layers cannot fully score whether users prefer the edit or whether plausible content has been hallucinated.",
+      "learn": [
+        "When the observation is physically linear, simulate and train in that domain before white balance and tone mapping; architecture changes cannot compensate for systematically wrong image formation.",
+        "An auxiliary camera can be valuable without pixel alignment: use it to reduce semantic ambiguity rather than forcing brittle geometric correspondence.",
+        "Split a hard full-resolution problem into low-resolution inference and learned reconstruction only after testing whether the upsampler preserves small text, repeated texture and saturated edges."
+      ],
+      "concepts": [
+        "Layer separation",
+        "Scene-referred RAW photometry",
+        "Context-conditioned inference",
+        "Physically based data synthesis",
+        "Coarse-to-fine reconstruction"
+      ]
+    },
+    "domain2": {
+      "title": "Training Neural Networks on RAW and HDR Images for Restoration Tasks",
+      "authors": "Andrew Yanzhe Ke, Lei Luo, Xiaoyu Xiang, Yuchen Fan, Rakesh Ranjan, Alexandre Chapiro, Rafał K. Mantiuk",
+      "year": "2025",
+      "venue": "CVPR 2025 Workshops",
+      "field": "RAW and HDR image restoration",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/html/Ke_Training_Neural_Networks_on_RAW_and_HDR_Images_for_Restoration_CVPRW_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Training+Neural+Networks+on+RAW+and+HDR+Images+for+Restoration+Tasks",
+      "summary": "Across denoising, deblurring and super-resolution, this study finds that networks learn RAW and HDR restoration much better when inputs and targets are mapped to a perceptually more uniform display encoding. The result challenges the intuitive rule that a physically linear signal should always remain linear throughout network training.",
+      "problem": "RAW and HDR values are often linear in light, which is the correct domain for simulating shot noise, blur and resampling. Yet their enormous and highly skewed luminance range makes a uniform pixel loss devote disproportionate capacity to bright values while providing weak gradients for dark detail. Practitioners lack a controlled answer on whether to encode the data, reshape the loss or rely on the network to learn this conditioning by itself.",
+      "difficulty": "Representation, degradation and evaluation domains are entangled. A nonlinear transfer function changes noise statistics and the numerical meaning of an error, while an inverse transform can amplify mistakes near black or at high luminance. Results can also depend on network capacity, normalization, loss, exposure distribution and the metric's own perceptual weighting, so one task or one architecture cannot establish a general training rule.",
+      "idea": "Keep the physical corruption process in linear light, then remap both degraded inputs and clean targets with a monotonic perceptual transfer function before optimization. PQ, PU21 and mu-law compress the dynamic range so a unit of model error is allocated more evenly across visible luminance levels. This improves numerical conditioning and effectively supplies an intensity-aware gradient schedule without building a specialized RAW architecture.",
+      "method": "The authors collect RAW and HDR datasets and run controlled experiments on three inverse problems: denoising, deblurring and single-image super-resolution. Corruptions are synthesized in the physically appropriate linear domain. Six restoration networks are then trained under alternative representations, including unencoded linear values and display-like encodings based on PQ, PU21 and mu-law. They also compare standard losses in the encoded domain with losses applied to linear predictions after perceptual compensation, allowing representation effects to be separated from a simple loss reweighting explanation. Outputs are transformed consistently for evaluation with distortion and perceptual metrics, and the cross-task, cross-network matrix tests whether the conclusion survives architectural and application changes.",
+      "results": "Display-encoded training improved restoration performance by roughly 2–9 dB across the tested RAW and HDR denoising, deblurring and super-resolution settings. PQ and PU21 were consistently strong because they spread learning capacity more uniformly over perceptual brightness, whereas naive linear-domain optimization was poorly conditioned. The gain appeared across six networks, making it too large and systematic to dismiss as one architecture's quirk.",
+      "care": "A transfer function is not universally optimal: PQ is tied to absolute luminance assumptions, RAW lacks a display-referred calibration and negative or clipped values need explicit handling. Synthetic degradations may not reproduce sensor row noise, quantization, demosaicing interactions or lens effects. A PSNR increase after encoding also depends on where the metric is computed. Deployment still requires inverse transforms, range management and tests for colour, temporal stability and low-code-value banding on real camera data.",
+      "learn": [
+        "Generate noise and blur in linear light, but do not assume the optimizer must see an uncompressed linear distribution.",
+        "Treat the transfer function as numerical preconditioning: inspect gradient allocation by luminance, not only final average PSNR.",
+        "Before redesigning a restoration network, benchmark a perceptually uniform input-target encoding and document every forward and inverse transform."
+      ],
+      "concepts": [
+        "Perceptual uniformity",
+        "PQ and PU21 transfer functions",
+        "Dynamic-range conditioning",
+        "Linear-light degradation",
+        "Loss reweighting"
+      ]
+    },
+    "outside1": {
+      "title": "Dual-scale chemical ordering for cryogenic properties in CoNiV-based alloys",
+      "authors": "Tiwen Lu, Binhan Sun, Yue Li, Sheng Dai, Ning Yao, et al.",
+      "year": "2025",
+      "venue": "Nature",
+      "field": "Cryogenic materials science",
+      "link": "https://www.nature.com/articles/s41586-025-09458-1",
+      "scholar": "https://scholar.google.com/scholar?q=Dual-scale+chemical+ordering+for+cryogenic+properties+in+CoNiV-based+alloys",
+      "summary": "A CoNiV-based medium-entropy alloy combines subnanometre short-range order with 1.6-nanometre long-range-ordered domains to escape the usual cryogenic strength–ductility trade-off. The hierarchy blocks dislocations strongly but also creates fresh dislocations and relieves damaging stress concentrations.",
+      "problem": "Cryogenic tanks, energy systems and space hardware need metals that remain both strong and damage tolerant near liquid-nitrogen temperatures. Conventional precipitation hardening raises strength by obstructing dislocations, but the same obstacles create pile-ups and interface stress concentrations that initiate cracks. Short-range order can strengthen a solid solution more gently, yet by itself may not sustain enough work hardening for large uniform elongation.",
+      "difficulty": "The decisive structures are only a few atomic spacings across, making their chemistry, number density and deformation role hard to resolve. Strength and ductility arise from evolving dislocation populations rather than a static micrograph, and grain size, solid-solution chemistry, precipitate size and ordering state can confound comparison. A useful design must keep long-range order nanoscale instead of allowing brittle intermetallic particles to coarsen during ageing.",
+      "idea": "Create two complementary obstacle scales inside a massive face-centred-cubic solid solution. Extremely dense short-range-ordered clusters raise the stress needed for glide without sharp interfaces. Sparse but still nanoscale L1₂ long-range-ordered domains block moving dislocations, stimulate new dislocation generation and spread plasticity. Together they supply strength, multiplication and strain hardening while preventing the large pile-ups found around coarser precipitates.",
+      "method": "The team designed Co32Ni32V32Al2Ti2, solution-treated it and used thermodynamically guided ageing to retain a homogeneous face-centred-cubic matrix while forming both ordering populations. Atom-probe tomography, transmission electron microscopy and neutron diffraction quantified chemistry and order: short-range domains reached about 2.4 × 10^26 per cubic metre, while 1.6 ± 0.7 nanometre L1₂ long-range domains reached about 4.5 × 10^25 per cubic metre. Tensile and fracture tests at 87 kelvin compared the dual-ordered alloy with ordering-free solid solutions, an alloy containing short-range order alone and a longer-aged alloy containing roughly 25-nanometre precipitates. Interrupted deformation microscopy and diffraction tracked dislocation multiplication, shear stress and strain hardening to connect structure to mechanism.",
+      "results": "At 87 kelvin the dual-ordered alloy delivered about 1.2 GPa yield strength and a tensile-strength–elongation product of 76 GPa%, together with fracture toughness of 338.4 MPa square-root metre. Aluminium and titanium in solid solution alone added only 27 MPa of cryogenic yield strength. The dual hierarchy outperformed comparison states containing no order, short-range order alone or coarse coherent precipitates, consistent with faster dislocation multiplication and reduced obstacle stress concentration.",
+      "care": "The composition uses cobalt and nickel and requires tightly controlled heat treatment, so cost, supply, joining, corrosion and manufacturability remain open engineering questions. Performance is demonstrated mainly near 87 kelvin; thermal cycling, irradiation, hydrogen exposure, fatigue and large-section processing could change the ordering state or failure mode. Number-density and mechanism estimates combine several characterization models, and laboratory specimens do not establish component-scale reliability.",
+      "learn": [
+        "Obstacle strength is only half of alloy design; the way obstacles generate, distribute and release dislocations controls damage tolerance.",
+        "Two weakly separated nanoscale mechanisms can outperform one coarser strengthening phase when their effects on multiplication and stress concentration complement each other.",
+        "Compare microstructures at matched grain size and chemistry before assigning a mechanical gain to atomic ordering."
+      ],
+      "concepts": [
+        "Short-range chemical order",
+        "L1₂ long-range order",
+        "Dislocation multiplication",
+        "Strength–ductility synergy",
+        "Cryogenic fracture toughness"
+      ]
+    },
+    "outside2": {
+      "title": "Sleep selectively and durably enhances memory for the sequence of real-world experiences",
+      "authors": "N. B. Diamond, S. Simpson, D. Baena, B. Murray, S. Fogel, et al.",
+      "year": "2025",
+      "venue": "Nature Human Behaviour",
+      "field": "Sleep and memory neuroscience",
+      "link": "https://www.nature.com/articles/s41562-025-02117-5",
+      "scholar": "https://scholar.google.com/scholar?q=Sleep+selectively+and+durably+enhances+memory+for+the+sequence+of+real-world+experiences",
+      "summary": "After a one-time art tour, sleep did not preserve every aspect of experience equally. It selectively improved memory for the order of events relative to perceptual detail, and that bias toward sequence grew across delays extending to one year, linking consolidation to the construction of an organized narrative rather than simple storage.",
+      "problem": "Most sleep-memory experiments use word pairs or isolated pictures, leaving open whether sleep changes rich episodic memories that contain objects, details, locations and temporal structure. The key question is not only whether sleep slows forgetting, but whether it reorganizes a real experience by preferentially preserving relationships that help reconstruct what happened in what order.",
+      "difficulty": "Sleep cannot be randomly removed for long periods, and morning-evening comparisons are confounded by circadian time, interference and initial learning. Real-world experiences are multidimensional, so one score can hide opposite changes in temporal order and visual detail. Long follow-up invites attrition and repeated-testing effects, while polysomnographic correlations cannot by themselves show that a particular oscillation caused consolidation.",
+      "idea": "Decompose an episode into sequence associations and featural associations, then compare how each component changes across matched sleep and wake intervals. If consolidation builds a structured event model, sleep should strengthen order more than surface detail. Overnight physiology provides a mechanistic bridge: slow-wave sleep and the coupling of spindles to slow waves are candidate signatures of replay that could bind successive items.",
+      "method": "Participants took a controlled one-time tour of artworks and were later tested separately on the sequence of tour items and their perceptual features. Sleep and wake groups were scheduled across matched retention intervals so that above-baseline change could be distinguished from ordinary forgetting. Memory was sampled immediately and again over progressively longer delays, including a follow-up as far as one year, allowing the researchers to ask whether sleep's effect persisted or changed form. A separate overnight condition used polysomnography to measure slow-wave sleep and spindle–slow-wave coupling, then related those physiological markers to each person's selective overnight change in sequence versus featural memory. The design therefore triangulated behavioural dissociation, a wake comparison, long-term retention and sleep physiology.",
+      "results": "Sequence accuracy rose above the post-tour baseline after sleep, whereas a matched wake interval did not show that boost. Sleep preferentially preserved sequence over featural information, and this relative advantage increased rather than vanished over delays reaching one year. Greater selective sequence enhancement was associated with more slow-wave sleep and with spindle–slow-wave coupling, physiological features previously linked to sequential replay. The evidence supports active transformation rather than uniform protection from forgetting.",
+      "care": "The findings concern one structured art-tour paradigm and may not generalize to emotional events, skills or daily autobiographical memory. Sleep and wake schedules retain circadian and interference differences despite matching, and long-delay survivors may be selective. Associations with slow waves and spindle timing are mechanistically suggestive but not causal without closed-loop manipulation. Better sequence memory can also coexist with loss or distortion of details, so consolidation should not be equated with a more literal record.",
+      "learn": [
+        "Measure memory components separately: an unchanged total score can conceal stronger relational structure and weaker perceptual detail.",
+        "Sleep appears to compress experience into an ordered model, which may improve reconstruction while sacrificing exact surface information.",
+        "A physiological correlate becomes more convincing when paired with a specific behavioural dissociation and a matched wake control, but it still does not prove causality."
+      ],
+      "concepts": [
+        "Episodic memory consolidation",
+        "Sequential associations",
+        "Featural memory",
+        "Slow-wave sleep",
+        "Spindle–slow-wave coupling"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$341.07",
+        "change": 1.53,
+        "reason": "Friday 25 September close, the latest completed US session before this Monday morning edition; Apple gained 1.53% in regular trading.",
+        "thesis": "Apple's installed base and control of silicon, operating systems and services support durable cash generation and broad distribution for on-device AI.",
+        "risk": "Premium-device demand, platform regulation and the pace at which AI features become genuinely useful remain material uncertainties."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$225.07",
+        "change": 0.22,
+        "reason": "Friday 25 September close, the latest completed US session before this Monday morning edition; Nvidia rose 0.22%.",
+        "thesis": "Nvidia couples leading accelerators with networking and a mature software ecosystem, giving it strong leverage to continued AI-infrastructure investment.",
+        "risk": "Export controls, customer concentration, competing custom silicon and a slowdown in hyperscale capital spending could compress expectations."
+      },
+      {
+        "symbol": "GOOGL",
+        "price": "$343.92",
+        "change": 0.46,
+        "reason": "Friday 25 September close, the latest completed US session before this Monday morning edition; Alphabet Class A added 0.46%.",
+        "thesis": "Search cash flow, cloud scale and deep AI research give Alphabet several ways to distribute and monetize models across consumer and enterprise products.",
+        "risk": "AI-native discovery may change search economics, while antitrust remedies and heavy data-centre investment could reduce returns."
+      },
+      {
+        "symbol": "QCOM",
+        "price": "$201.97",
+        "change": 3.97,
+        "reason": "Friday 25 September close, the latest completed US session before this Monday morning edition; Qualcomm advanced 3.97%.",
+        "thesis": "Leadership in mobile connectivity and low-power edge compute gives Qualcomm opportunities in on-device AI, automotive and intelligent endpoints.",
+        "risk": "Smartphone exposure, major customers' internal silicon, licensing disputes and uneven diversification can make earnings volatile."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,226.00",
+        "change": 0.56,
+        "reason": "Friday 25 September NSE close, the latest completed Indian session before this Monday morning edition; Reliance Industries gained 0.56%.",
+        "thesis": "Reliance combines energy cash flows with scaled telecom, retail and digital platforms, creating optionality across India's consumption and data growth.",
+        "risk": "Large capital commitments, refining and petrochemical cycles, regulation and execution across many businesses can dilute returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹735.60",
+        "change": 0.92,
+        "reason": "Friday 25 September NSE close, the latest completed Indian session before this Monday morning edition; HDFC Bank rose 0.92%.",
+        "thesis": "A broad deposit franchise, distribution reach and underwriting record position HDFC Bank to compound with formal credit penetration in India.",
+        "risk": "Deposit competition, margin pressure, asset-quality deterioration or slower integration benefits could weaken profitability."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,080.50",
+        "change": -0.31,
+        "reason": "Friday 25 September NSE close, the latest completed Indian session before this Monday morning edition; Tata Consultancy Services fell 0.31%.",
+        "thesis": "TCS has deep enterprise relationships, global delivery scale and process discipline that can support cloud, data and AI transformation work.",
+        "risk": "Discretionary technology spending, pricing pressure, currency moves and AI-driven changes to labour-based delivery could constrain growth."
+      },
+      {
+        "symbol": "BEL",
+        "price": "₹392.70",
+        "change": 0.18,
+        "reason": "Friday 25 September NSE close, the latest completed Indian session before this Monday morning edition; Bharat Electronics added 0.18%.",
+        "thesis": "BEL is positioned for India's defence-electronics indigenisation through capabilities in radars, communications, electronic warfare and integration.",
+        "risk": "Government-order timing, procurement concentration, working-capital swings and valuation sensitivity can overshadow a strong pipeline."
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "For reflection removal, physically correct RAW-domain synthesis produced a much larger gain than adding context or changing among familiar architectures.",
+      "A physically linear degradation model and a perceptually uniform training representation can coexist; the 2–9 dB gain shows that formation physics and optimizer conditioning are separate design choices.",
+      "The CoNiV alloy's dual ordering works because obstacles both resist and replenish dislocations, demonstrating that controlled adaptation can beat a single maximally strong barrier.",
+      "Sleep preserved the order of a real experience more strongly than its surface details, suggesting that consolidation builds a useful event model rather than a lossless recording.",
+      "Telecom headquarters and data centres are dual-use resilience nodes: damage can simultaneously degrade civilian services, emergency response and wartime coordination.",
+      "The Election Commission's promised ECINet review makes independent software audit and documented change control part of electoral governance, not merely IT hygiene.",
+      "Monday morning market snapshots must name Friday as the source session; values from a closed weekend are verified history, not live Monday prices."
+    ],
+    "explore": "Connect the imaging and alloy papers through a shared systems principle: the best internal representation is not necessarily the most literal one. Perceptual encoding reshapes RAW values so the optimizer allocates effort usefully, while dual-scale atomic order reshapes dislocation flow so strength does not collapse into brittleness. Sleep may perform an analogous transformation by retaining sequence structure while allowing detail to fade. A useful next investigation is to formalize this as constrained information allocation. For an ISP experiment, compare linear, PQ and learned monotonic encodings while logging gradient energy by signal level, temporal artifacts and target-device cost. Then ask which details each representation suppresses, preserves or amplifies—and whether those trade-offs remain acceptable when the objective shifts from visual quality to detection accuracy or human memory."
+  }
+}
