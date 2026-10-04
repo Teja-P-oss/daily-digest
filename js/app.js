@@ -1,5 +1,8 @@
 const state = {
     availableDates: [],
+    archiveDates: [],
+    calendarMonth: null,
+    calendarOpen: false,
     currentDate: null,
     dataCache: new Map(),
     searchIndex: null,
@@ -28,6 +31,7 @@ const paperConfig = {
 document.addEventListener('DOMContentLoaded', initApp);
 
 async function initApp() {
+    setupLiquidGlass();
     bindInterface();
     setupMotion();
     setReadingMode(readReadingMode(), { announce: false });
@@ -42,7 +46,7 @@ async function initApp() {
 
         if (!state.availableDates.length) throw new Error('No published digests were found.');
 
-        configureDatePicker();
+        configureArchiveCalendar();
         const requestedDate = new URL(window.location.href).searchParams.get('date');
         const initialDate = state.availableDates.includes(requestedDate)
             ? requestedDate
@@ -66,15 +70,15 @@ function bindInterface() {
         if (currentIssue) loadDate(currentIssue);
     });
 
-    byId('date-picker').addEventListener('change', (event) => {
-        const selected = event.target.value;
-        if (state.availableDates.includes(selected)) {
-            loadDate(selected);
-            return;
+    byId('calendar-previous').addEventListener('click', () => shiftCalendarMonth(-1));
+    byId('calendar-next').addEventListener('click', () => shiftCalendarMonth(1));
+    byId('calendar-toggle').addEventListener('click', () => setCalendarOpen(!state.calendarOpen, { focus: true }));
+    byId('calendar-grid').addEventListener('click', (event) => {
+        const day = event.target.closest('[data-calendar-date]');
+        if (day) {
+            setCalendarOpen(false);
+            loadDate(day.dataset.calendarDate);
         }
-
-        event.target.value = state.currentDate || getCurrentIssueDate() || '';
-        showToast(`There is no published digest for ${formatDate(selected, 'medium')}. Try another date.`);
     });
 
     byId('search-trigger').addEventListener('click', openSearch);
@@ -105,6 +109,7 @@ function bindInterface() {
         }
 
         if (event.key === 'Escape' && state.searchOpen) closeSearch();
+        else if (event.key === 'Escape' && state.calendarOpen) setCalendarOpen(false, { returnFocus: true });
     });
 
     window.addEventListener('popstate', () => {
@@ -118,12 +123,67 @@ function bindInterface() {
     document.addEventListener('pointerout', handlePointerOut, { passive: true });
 }
 
-function configureDatePicker() {
-    const picker = byId('date-picker');
-    const chronological = [...state.availableDates].sort();
-    picker.min = chronological[0];
-    picker.max = chronological[chronological.length - 1];
-    byId('issue-count').textContent = `${state.availableDates.length} ${state.availableDates.length === 1 ? 'issue' : 'issues'}`;
+function configureArchiveCalendar() {
+    state.archiveDates = state.availableDates.filter((date) => date <= todayInIST());
+    const anchor = getCurrentIssueDate() || state.archiveDates[0];
+    state.calendarMonth = anchor ? startOfMonth(parseDate(anchor)) : startOfMonth(new Date());
+    byId('issue-count').textContent = `${state.archiveDates.length} ${state.archiveDates.length === 1 ? 'issue' : 'issues'}`;
+    renderArchiveCalendar();
+}
+
+function renderArchiveCalendar() {
+    const grid = byId('calendar-grid');
+    const month = state.calendarMonth;
+    if (!month) {
+        grid.innerHTML = '';
+        return;
+    }
+
+    const year = month.getFullYear();
+    const monthIndex = month.getMonth();
+    const leadingDays = (new Date(year, monthIndex, 1, 12).getDay() + 6) % 7;
+    const daysInMonth = new Date(year, monthIndex + 1, 0, 12).getDate();
+    const cellCount = Math.ceil((leadingDays + daysInMonth) / 7) * 7;
+    const published = new Set(state.archiveDates);
+    const today = todayInIST();
+    const cells = [];
+
+    for (let index = 0; index < cellCount; index += 1) {
+        const dayNumber = index - leadingDays + 1;
+        if (dayNumber < 1 || dayNumber > daysInMonth) {
+            cells.push('<span class="archive-day is-empty" role="presentation"></span>');
+            continue;
+        }
+
+        const dateString = localDateString(year, monthIndex, dayNumber);
+        const hasDigest = published.has(dateString);
+        const selected = dateString === state.currentDate;
+        const isToday = dateString === today;
+        if (hasDigest) {
+            cells.push(`<button class="archive-day has-digest${selected ? ' is-selected' : ''}${isToday ? ' is-today' : ''}" type="button" role="gridcell" data-calendar-date="${dateString}" aria-label="Open digest for ${escapeAttribute(formatDate(dateString, 'long'))}"${selected ? ' aria-current="date"' : ''}><span>${dayNumber}</span><i aria-hidden="true"></i></button>`);
+        } else {
+            cells.push(`<span class="archive-day is-unavailable" role="gridcell" aria-disabled="true"><span>${dayNumber}</span></span>`);
+        }
+    }
+
+    byId('calendar-month-label').textContent = month.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    grid.innerHTML = cells.join('');
+
+    const oldest = state.archiveDates[state.archiveDates.length - 1];
+    const newest = state.archiveDates[0];
+    byId('calendar-previous').disabled = !oldest || monthNumber(month) <= monthNumber(startOfMonth(parseDate(oldest)));
+    byId('calendar-next').disabled = !newest || monthNumber(month) >= monthNumber(startOfMonth(parseDate(newest)));
+}
+
+function shiftCalendarMonth(offset) {
+    if (!state.calendarMonth) return;
+    state.calendarMonth = new Date(
+        state.calendarMonth.getFullYear(),
+        state.calendarMonth.getMonth() + offset,
+        1,
+        12
+    );
+    renderArchiveCalendar();
 }
 
 function todayInIST() {
@@ -181,7 +241,7 @@ async function fetchDigest(dateString) {
 
 function updateDateInterface(dateString) {
     const date = parseDate(dateString);
-    const index = state.availableDates.indexOf(dateString);
+    const index = state.archiveDates.indexOf(dateString);
     const currentIssue = getCurrentIssueDate();
     const isCurrent = dateString === currentIssue;
     const isFuture = dateString > todayInIST();
@@ -192,15 +252,18 @@ function updateDateInterface(dateString) {
     byId('display-day').textContent = String(date.getDate()).padStart(2, '0');
     byId('display-month').textContent = date.toLocaleDateString('en-US', { month: 'long' });
     byId('display-year').textContent = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric' });
-    byId('date-picker').value = dateString;
     byId('daily-greeting').textContent = dailyGreeting(isCurrent, isFuture);
+    if (state.archiveDates.includes(dateString)) {
+        state.calendarMonth = startOfMonth(date);
+    }
+    renderArchiveCalendar();
     animateDateCard();
 
     const olderButton = byId('older-button');
     const newerButton = byId('newer-button');
     const latestButton = byId('latest-button');
-    const olderDate = state.availableDates[index + 1];
-    const newerDate = state.availableDates[index - 1];
+    const olderDate = index === -1 ? state.archiveDates[0] : state.archiveDates[index + 1];
+    const newerDate = index > 0 ? state.archiveDates[index - 1] : null;
 
     olderButton.disabled = !olderDate;
     newerButton.disabled = !newerDate;
@@ -211,8 +274,9 @@ function updateDateInterface(dateString) {
 }
 
 function navigateRelative(offset) {
-    const currentIndex = state.availableDates.indexOf(state.currentDate);
-    const targetDate = state.availableDates[currentIndex + offset];
+    const currentIndex = state.archiveDates.indexOf(state.currentDate);
+    const targetIndex = currentIndex === -1 && offset > 0 ? 0 : currentIndex + offset;
+    const targetDate = state.archiveDates[targetIndex];
     if (targetDate) loadDate(targetDate);
 }
 
@@ -539,14 +603,37 @@ function savePaperSelections() {
 
 function focusDateSearch() {
     const card = document.querySelector('.date-card');
-    const picker = byId('date-picker');
-    picker.focus();
-    try {
-        if (typeof picker.showPicker === 'function') picker.showPicker();
-    } catch {
-        // Focused native date input remains usable when programmatic picker opening is restricted.
-    }
+    const anchor = state.archiveDates.includes(state.currentDate) ? state.currentDate : state.archiveDates[0];
+    if (anchor) state.calendarMonth = startOfMonth(parseDate(anchor));
+    renderArchiveCalendar();
+    setCalendarOpen(true);
     card?.scrollIntoView({ behavior: state.motionPaused ? 'auto' : 'smooth', block: 'center' });
+    window.setTimeout(() => {
+        const selected = card?.querySelector('[data-calendar-date].is-selected') || card?.querySelector('[data-calendar-date]');
+        selected?.focus({ preventScroll: true });
+    }, state.motionPaused ? 0 : 420);
+}
+
+function setCalendarOpen(open, { focus = false, returnFocus = false } = {}) {
+    state.calendarOpen = open;
+    const calendar = byId('archive-calendar');
+    const toggle = byId('calendar-toggle');
+    calendar.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    byId('date-search-trigger').setAttribute('aria-expanded', String(open));
+    document.querySelector('.date-card')?.classList.toggle('is-calendar-open', open);
+
+    if (open) {
+        renderArchiveCalendar();
+        if (focus) {
+            requestAnimationFrame(() => {
+                const selected = calendar.querySelector('[data-calendar-date].is-selected') || calendar.querySelector('[data-calendar-date]');
+                selected?.focus();
+            });
+        }
+    } else if (returnFocus) {
+        toggle.focus({ preventScroll: true });
+    }
 }
 
 function showLoadingState() {
@@ -743,6 +830,15 @@ function searchResultTemplate(entry, index = 0) {
             <span class="search-result__body"><strong>${escapeHTML(entry.title)}</strong><span>${escapeHTML(truncate(plainText(entry.summary), 105))}</span></span>
             <span class="search-result__arrow" aria-hidden="true">↗</span>
         </button>`;
+}
+
+function setupLiquidGlass() {
+    const supportsGlass = Boolean(window.CSS) && (
+        CSS.supports('backdrop-filter', 'blur(1px)')
+        || CSS.supports('-webkit-backdrop-filter', 'blur(1px)')
+    );
+    document.documentElement.classList.toggle('liquid-glass', supportsGlass);
+    document.documentElement.classList.toggle('liquid-glass-fallback', !supportsGlass);
 }
 
 async function handleSearchSelection(event) {
@@ -961,7 +1057,6 @@ function showLoadError(error, dateString) {
     const banner = byId('error-banner');
     banner.hidden = false;
     byId('error-message').textContent = error.message || `Please try loading ${formatDate(dateString, 'medium')} again.`;
-    if (state.currentDate) byId('date-picker').value = state.currentDate;
 }
 
 function showFatalError(error) {
@@ -1100,6 +1195,18 @@ function formatDate(dateString, style) {
 
 function parseDate(dateString) {
     return new Date(`${dateString}T12:00:00`);
+}
+
+function startOfMonth(date) {
+    return new Date(date.getFullYear(), date.getMonth(), 1, 12);
+}
+
+function monthNumber(date) {
+    return date.getFullYear() * 12 + date.getMonth();
+}
+
+function localDateString(year, monthIndex, day) {
+    return `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
 function isDateString(value) {
