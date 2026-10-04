@@ -302,14 +302,10 @@ function updateUrl(dateString, historyMode) {
 function renderDigest(data, dateString) {
     renderEditionMode(data?.edition);
     renderPapers(data?.papers, dateString);
-    renderDailyMix(data?.papers);
     renderNews(data?.news);
     renderStocks(data?.stocks);
     renderEarnings(data?.earnings, dateString);
     renderTakeaways(data?.takeaways);
-    animateCounter(byId('research-count'), Object.values(data?.papers || {}).filter(Boolean).length);
-    animateCounter(byId('news-count'), ['india', 'world'].filter((region) => data?.news?.[region]).length);
-    animateCounter(byId('market-count'), (data?.stocks?.us?.length || 0) + (data?.stocks?.india?.length || 0));
     byId('main-content').classList.remove('is-refreshing');
     setReadingMode(state.readingMode, { announce: false });
     observeAnimatedElements();
@@ -494,14 +490,7 @@ function renderEarnings(earnings = {}, editionDate = state.currentDate) {
     }).join('');
 }
 
-function renderDailyMix(papers = {}) {
-    const items = normalizePapers(papers);
-    const chips = items.map(({ paper, config }) => {
-        const label = config.group === 'inside' ? 'Near you' : 'Explore';
-        return `<span><small>${label}</small>${escapeHTML(paper.field || paper.title || 'New idea')}</span>`;
-    });
-    byId('daily-mix').innerHTML = chips.length ? chips.join('') : '<span>Four thoughtful learning picks</span>';
-}
+
 
 function renderStockList(containerId, stocks = []) {
     const container = byId(containerId);
