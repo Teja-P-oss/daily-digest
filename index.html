@@ -3,24 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#080b16">
+    <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
     <meta name="description" content="A focused daily digest of research, news, and market ideas for curious engineers.">
     <title>Teja's daily digest</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=7">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css?v=8">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to the digest</a>
-
-    <div class="page-art" aria-hidden="true">
-        <span class="page-art__orb page-art__orb--lime"></span>
-        <span class="page-art__orb page-art__orb--blue"></span>
-        <span class="page-art__orb page-art__orb--coral"></span>
-        <span class="page-art__grid"></span>
-        <span class="page-art__cursor" id="cursor-glow"></span>
-    </div>
 
     <header class="site-header">
         <div class="shell topbar">
@@ -35,17 +29,17 @@
             </a>
 
             <div class="topbar__actions">
-                <button class="motion-toggle" id="motion-toggle" type="button" aria-label="Pause motion effects" aria-pressed="false" title="Pause motion effects">
+                <button class="icon-button motion-toggle" id="motion-toggle" type="button" aria-label="Pause motion effects" aria-pressed="false" title="Pause motion effects">
                     <svg class="motion-toggle__pause" aria-hidden="true" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg>
                     <svg class="motion-toggle__play" aria-hidden="true" viewBox="0 0 24 24"><path d="m9 6 9 6-9 6Z"/></svg>
                 </button>
-                <button class="date-search-trigger" id="date-search-trigger" type="button" aria-label="Find an issue by date" aria-controls="archive-calendar" aria-expanded="false">
+                <button class="ghost-button date-search-trigger" id="date-search-trigger" type="button" aria-label="Find an issue by date" aria-controls="archive-calendar" aria-expanded="false">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
                     <span>Find date</span>
                 </button>
                 <button class="search-trigger" id="search-trigger" type="button" aria-label="Search digest content" aria-expanded="false" aria-controls="search-drawer">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-                    <span>Search content</span>
+                    <span>Search</span>
                     <kbd>/</kbd>
                 </button>
                 <button class="latest-button" id="latest-button" type="button">Jump to latest</button>
@@ -58,7 +52,7 @@
                     <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
                     <label class="sr-only" for="global-search">Search content across every digest</label>
                     <input id="global-search" type="search" autocomplete="off" placeholder="Search a paper, topic, headline, or ticker…">
-                    <button class="search-close" id="search-close" type="button" aria-label="Close search">Close</button>
+                    <button class="search-close" id="search-close" type="button" aria-label="Close search">Esc</button>
                 </form>
                 <p class="search-hint" id="search-hint">Search the content of every published issue. Use Find date for the archive calendar.</p>
                 <div class="search-results" id="search-results" aria-live="polite"></div>
@@ -67,22 +61,21 @@
     </header>
 
     <div class="shell">
-        <section class="hero hero--compact" aria-labelledby="page-title">
+        <section class="hero" aria-labelledby="page-title">
             <div class="hero__copy">
-                <span class="section-kicker">Teja's daily digest</span>
+                <div class="issue-meta">
+                    <span class="issue-meta__pulse" aria-hidden="true"></span>
+                    <small id="issue-label">Current issue</small>
+                    <strong class="sr-only" id="date-subtitle" aria-live="polite">Loading the latest digest…</strong>
+                </div>
                 <p class="hero__greeting" id="daily-greeting">A fresh mix for today</p>
                 <h1 id="page-title"><span class="hero-line" id="date-heading">Loading today’s issue…</span></h1>
 
-                <div class="issue-meta">
-                    <span class="issue-meta__pulse" aria-hidden="true"></span>
-                    <div>
-                        <small id="issue-label">Current issue</small>
-                        <strong id="date-subtitle" aria-live="polite">Loading the latest digest…</strong>
+                <div class="daily-mix-wrap">
+                    <span class="daily-mix-wrap__label">Today’s mix</span>
+                    <div class="daily-mix" id="daily-mix" aria-label="Today’s learning mix">
+                        <span>Building today’s mix…</span>
                     </div>
-                </div>
-
-                <div class="daily-mix" id="daily-mix" aria-label="Today’s learning mix">
-                    <span>Building today’s mix…</span>
                 </div>
 
                 <div class="hero-actions">
@@ -91,20 +84,39 @@
                 </div>
             </div>
 
-            <aside class="date-card interactive-surface" data-tilt aria-label="Digest date navigation">
+            <aside class="date-card" aria-label="Digest date navigation">
                 <div class="date-card__top">
                     <span class="date-card__label">Find an issue by date</span>
                     <span class="issue-count" id="issue-count">— issues</span>
                 </div>
+
                 <div class="date-display" aria-hidden="true">
-                    <span class="date-display__day" id="display-day">—</span>
-                    <span class="date-display__rest"><strong id="display-month">Loading</strong><small id="display-year">—</small></span>
+                    <span class="date-display__page">
+                        <strong id="display-month">Loading</strong>
+                        <span class="date-display__day" id="display-day">—</span>
+                    </span>
+                    <span class="date-display__rest">
+                        <small id="display-year">—</small>
+                        <span class="date-display__hint">Use the arrows or open the calendar to travel through past issues.</span>
+                    </span>
                 </div>
+
+                <div class="date-nav">
+                    <button id="older-button" type="button">
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+                        <span><small>Go back</small>Older issue</span>
+                    </button>
+                    <button id="newer-button" type="button">
+                        <span><small>Go forward</small>Newer issue</span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                </div>
+
                 <button class="calendar-toggle" id="calendar-toggle" type="button" aria-expanded="false" aria-controls="archive-calendar">
                     <span class="calendar-toggle__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
                     </span>
-                    <span><strong>Browse published dates</strong><small>Only days with a digest will glow</small></span>
+                    <span><strong>Browse published dates</strong><small>Highlighted days have an issue</small></span>
                     <svg class="calendar-toggle__chevron" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="archive-calendar" id="archive-calendar" hidden>
@@ -123,39 +135,31 @@
                     <div class="archive-calendar__grid" id="calendar-grid" role="grid" aria-labelledby="calendar-month-label"></div>
                     <div class="archive-calendar__legend" id="date-help">
                         <span><i aria-hidden="true"></i> Published issue</span>
-                        <small>Only glowing dates open a digest.</small>
+                        <small>Only highlighted dates open a digest.</small>
                     </div>
-                </div>
-                <div class="date-nav">
-                    <button id="older-button" type="button">
-                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
-                        <span><small>Go back</small>Older issue</span>
-                    </button>
-                    <button id="newer-button" type="button">
-                        <span><small>Go forward</small>Newer issue</span>
-                        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
-                    </button>
                 </div>
             </aside>
         </section>
 
-        <div class="reading-strip" aria-label="Digest overview">
-            <div><strong id="research-count">4</strong><span>learning picks</span></div>
-            <div><strong id="news-count">2</strong><span id="news-count-label">news regions</span></div>
-            <div><strong id="market-count">10</strong><span id="market-count-label">market ideas</span></div>
-            <div class="reading-strip__time reading-plan" id="reading-plan">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
-                <span><strong id="selection-count">0 of 2 chosen</strong> your reading plan</span>
+        <div class="issue-bar">
+            <div class="reading-strip" aria-label="Digest overview">
+                <div><strong id="research-count">4</strong><span>learning picks</span></div>
+                <div><strong id="news-count">2</strong><span id="news-count-label">news regions</span></div>
+                <div><strong id="market-count">10</strong><span id="market-count-label">market ideas</span></div>
+                <div class="reading-strip__time reading-plan" id="reading-plan">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
+                    <span><strong id="selection-count">0 of 2 chosen</strong> your reading plan</span>
+                </div>
             </div>
-        </div>
 
-        <div class="pace-bar" aria-label="Reading pace">
-            <div><span aria-hidden="true">☕</span><p><strong>Make it fit your day</strong><small>Change the amount shown without losing any content.</small></p></div>
-            <div class="pace-options" role="group" aria-label="Choose a reading pace">
-                <span class="pace-options__slider" aria-hidden="true"></span>
-                <button type="button" data-reading-mode="quick">Quick <small>10 min</small></button>
-                <button type="button" data-reading-mode="balanced" aria-pressed="true">Balanced <small>30 min</small></button>
-                <button type="button" data-reading-mode="deep">Deep <small>60 min</small></button>
+            <div class="pace-bar" aria-label="Reading pace">
+                <div class="pace-bar__copy"><span aria-hidden="true">☕</span><p><strong>Make it fit your day</strong><small>Change how much is shown. Nothing is removed.</small></p></div>
+                <div class="pace-options" role="group" aria-label="Choose a reading pace">
+                    <span class="pace-options__slider" aria-hidden="true"></span>
+                    <button type="button" data-reading-mode="quick">Quick <small>10 min</small></button>
+                    <button type="button" data-reading-mode="balanced" aria-pressed="true">Balanced <small>30 min</small></button>
+                    <button type="button" data-reading-mode="deep">Deep <small>60 min</small></button>
+                </div>
             </div>
         </div>
     </div>
@@ -167,19 +171,19 @@
             <a href="#brief" data-section="brief" id="brief-nav-link">News brief</a>
             <a href="#markets" data-section="markets" id="markets-nav-link">Markets</a>
             <a href="#takeaways" data-section="takeaways" id="takeaways-nav-link">Takeaways</a>
-            <span class="section-nav__progress"><i id="reading-progress"></i></span>
         </div>
+        <span class="section-nav__progress" aria-hidden="true"><i id="reading-progress"></i></span>
     </nav>
 
     <main class="shell main-content" id="main-content">
         <div class="error-banner" id="error-banner" role="alert" hidden>
-            <strong>That issue couldn't be loaded.</strong>
-            <span id="error-message">Please try another date.</span>
+            <span class="error-banner__icon" aria-hidden="true">!</span>
+            <p><strong>That issue couldn't be loaded.</strong> <span id="error-message">Please try another date.</span></p>
             <button id="error-retry" type="button">Try again</button>
         </div>
 
         <div class="advance-notice" id="advance-notice" role="note" hidden>
-            <span aria-hidden="true">✦</span>
+            <span aria-hidden="true">✈</span>
             <div><strong>Prepared ahead for your time away</strong><p id="advance-note"></p></div>
         </div>
 
@@ -192,10 +196,12 @@
                 <p>Choose one technical paper near your interests and one approachable discovery outside them. The notes stand alone if you skip the source.</p>
             </div>
             <div class="papers-collection" id="papers-container" aria-live="polite">
-                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
-                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
-                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
-                <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                <div class="papers-grid">
+                    <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                    <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                    <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                    <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
+                </div>
             </div>
         </section>
 
@@ -208,11 +214,11 @@
                 <p id="brief-description">General news across policy, society, science, technology, climate, geopolitics, and the economy—not another markets recap.</p>
             </div>
             <div class="news-grid">
-                <article class="news-card news-card--india interactive-surface" data-tilt>
+                <article class="news-card news-card--india">
                     <header><span class="flag" aria-hidden="true">🇮🇳</span><div><small>India</small><h3>Closer to home</h3></div></header>
                     <div class="news-copy" id="india-news-content"><span class="skeleton"></span><span class="skeleton skeleton--short"></span></div>
                 </article>
-                <article class="news-card news-card--world interactive-surface" data-tilt>
+                <article class="news-card news-card--world">
                     <header><span class="flag" aria-hidden="true">🌍</span><div><small>World</small><h3>The global picture</h3></div></header>
                     <div class="news-copy" id="world-news-content"><span class="skeleton"></span><span class="skeleton skeleton--short"></span></div>
                 </article>
@@ -260,7 +266,7 @@
                 <aside class="explore-card">
                     <small>One thing to explore further</small>
                     <p id="takeaways-explore"><span class="skeleton"></span></p>
-                    <a href="#research">Revisit the research <span aria-hidden="true">↗</span></a>
+                    <a href="#research">Revisit the research <span aria-hidden="true">↑</span></a>
                 </aside>
             </div>
         </section>
