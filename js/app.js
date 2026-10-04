@@ -65,6 +65,7 @@ async function initApp() {
 }
 
 function bindInterface() {
+    setupWebsitesMenu();
     byId('older-button').addEventListener('click', () => navigateRelative(1));
     byId('newer-button').addEventListener('click', () => navigateRelative(-1));
     byId('latest-button').addEventListener('click', () => {
@@ -128,6 +129,32 @@ function bindInterface() {
     window.addEventListener('scroll', scheduleScrollUpdate, { passive: true });
     document.addEventListener('pointermove', handlePointerMove, { passive: true });
     document.addEventListener('pointerout', handlePointerOut, { passive: true });
+}
+
+function setupWebsitesMenu() {
+    const toggle = byId('websites-toggle');
+    const dropdown = byId('other-websites');
+    const container = toggle.closest('.websites-menu');
+    const close = () => {
+        dropdown.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', () => {
+        dropdown.hidden = !dropdown.hidden;
+        toggle.setAttribute('aria-expanded', String(!dropdown.hidden));
+    });
+    document.addEventListener('pointerdown', (event) => {
+        if (!container.contains(event.target)) close();
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !dropdown.hidden) {
+            close();
+            toggle.focus();
+        }
+    });
+    container.addEventListener('focusout', (event) => {
+        if (!container.contains(event.relatedTarget)) close();
+    });
 }
 
 function configureArchiveCalendar() {

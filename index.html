@@ -12,22 +12,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=8">
+    <link rel="stylesheet" href="./css/style.css?v=9">
 </head>
 <body data-reading-mode="balanced">
     <a class="skip-link" href="#main-content">Skip to the digest</a>
 
     <header class="site-header">
         <div class="shell topbar">
-            <a class="brand" href="./" aria-label="Teja's daily digest home">
-                <span class="brand__mark" aria-hidden="true">
-                    <span></span><span></span><span></span>
-                </span>
-                <span class="brand__copy">
-                    <strong>Teja's daily digest</strong>
-                    <small>Teja's learning feed</small>
-                </span>
-            </a>
+            <div class="header-identity">
+                <div class="websites-menu">
+                    <button class="brand__mark websites-toggle" id="websites-toggle" type="button" aria-label="Other Websites" aria-expanded="false" aria-controls="other-websites" title="Other Websites">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <nav class="websites-dropdown" id="other-websites" aria-label="Other Websites" hidden>
+                        <strong>Other Websites</strong>
+                        <a href="https://teja-system-design.vercel.app/" target="_blank" rel="noopener noreferrer">Teja System Design Lab <span aria-hidden="true">↗</span></a>
+                    </nav>
+                </div>
+                <a class="brand" href="./" aria-label="Teja's daily digest home">
+                    <span class="brand__copy">
+                        <strong>Teja's daily digest</strong>
+                        <small>Teja's learning feed</small>
+                    </span>
+                </a>
+            </div>
 
             <div class="topbar__actions">
                 <button class="icon-button motion-toggle" id="motion-toggle" type="button" aria-label="Pause motion effects" aria-pressed="false" title="Pause motion effects">
@@ -268,6 +276,6 @@
         <span aria-hidden="true">↑</span>
     </button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./js/app.js?v=7"></script>
+    <script src="./js/app.js?v=8"></script>
 </body>
 </html>
