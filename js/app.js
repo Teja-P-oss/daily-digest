@@ -20,7 +20,7 @@ const state = {
     readingMode: 'balanced',
     paceDrag: null,
     paceIgnoreClickUntil: 0,
-    selectedPapers: { inside: null, outside: null }
+    paceIgnoreClickUntil: 0
 };
 
 const paperConfig = {
@@ -88,13 +88,11 @@ function bindInterface() {
     byId('search-form').addEventListener('submit', (event) => event.preventDefault());
     byId('global-search').addEventListener('input', debounce(runSearch, 90));
     byId('search-results').addEventListener('click', handleSearchSelection);
-    byId('papers-container').addEventListener('click', handlePaperChoice);
     byId('date-search-trigger').addEventListener('click', focusDateSearch);
     byId('error-retry').addEventListener('click', () => {
         loadDate(state.loadingDate || state.currentDate || getCurrentIssueDate(), { historyMode: 'replace' });
     });
     byId('motion-toggle').addEventListener('click', toggleMotion);
-    byId('surprise-button').addEventListener('click', surpriseMe);
     const paceOptions = document.querySelector('.pace-options');
     paceOptions.addEventListener('click', (event) => {
         if (performance.now() < state.paceIgnoreClickUntil) return;
@@ -366,7 +364,6 @@ function renderPapers(papers = {}, dateString = state.currentDate) {
     container.innerHTML = markup
         ? markup
         : '<div class="search-empty"><strong>No research papers in this issue.</strong><span>Try another date in the archive.</span></div>';
-    updatePaperSelectionUI();
 }
 
 function normalizePapers(papers) {
@@ -410,7 +407,6 @@ function paperTemplate(kind, paper, index, config) {
             <p class="paper-card__summary">${escapeHTML(lead)}</p>
             ${detailMarkup}
             <footer class="paper-card__footer">
-                <button class="paper-choice" type="button" data-choose-paper="${kind}" aria-pressed="false"><span aria-hidden="true">○</span> Choose this one</button>
                 ${links}
             </footer>
         </article>`;
@@ -558,56 +554,6 @@ function renderTakeaways(takeaways) {
         ? items.map((item) => `<li>${escapeHTML(item)}</li>`).join('')
         : '<li>No summary points were included in this issue.</li>';
     byId('takeaways-explore').textContent = takeaways?.explore || 'Return to the research section and choose one idea to explore more deeply.';
-}
-
-function handlePaperChoice(event) {
-    const button = event.target.closest('[data-choose-paper]');
-    if (!button) return;
-    choosePaper(button.dataset.choosePaper);
-}
-
-function choosePaper(paperId) {
-    const card = document.querySelector(`[data-paper-id="${CSS.escape(paperId)}"]`);
-    if (!card) return;
-    const group = card.dataset.paperGroup;
-    state.selectedPapers[group] = state.selectedPapers[group] === paperId ? null : paperId;
-    savePaperSelections();
-    updatePaperSelectionUI();
-}
-
-function updatePaperSelectionUI() {
-    document.querySelectorAll('[data-paper-id]').forEach((card) => {
-        const selected = state.selectedPapers[card.dataset.paperGroup] === card.dataset.paperId;
-        card.classList.toggle('is-selected', selected);
-        const button = card.querySelector('[data-choose-paper]');
-        if (!button) return;
-        button.setAttribute('aria-pressed', String(selected));
-        button.innerHTML = selected
-            ? '<span aria-hidden="true">✓</span> Chosen for this issue'
-            : '<span aria-hidden="true">○</span> Choose this one';
-    });
-
-    const chosenCount = ['inside', 'outside'].filter((group) => state.selectedPapers[group]).length;
-    byId('selection-count').textContent = `${chosenCount} of 2 chosen`;
-    byId('reading-plan').classList.toggle('is-complete', chosenCount === 2);
-}
-
-function readPaperSelections(dateString) {
-    try {
-        const saved = JSON.parse(localStorage.getItem(`daily-digest-picks:${dateString}`));
-        return { inside: saved?.inside || null, outside: saved?.outside || null };
-    } catch {
-        return { inside: null, outside: null };
-    }
-}
-
-function savePaperSelections() {
-    if (!state.currentDate) return;
-    try {
-        localStorage.setItem(`daily-digest-picks:${state.currentDate}`, JSON.stringify(state.selectedPapers));
-    } catch {
-        // The reading plan still works for this session when storage is unavailable.
-    }
 }
 
 function focusDateSearch() {
@@ -964,40 +910,6 @@ function resetInteractiveSurface(surface) {
     surface.classList.remove('is-interacting');
     if (state.activeSurface === surface) state.activeSurface = null;
 }
-
-function surpriseMe() {
-    const insideCards = [...document.querySelectorAll('[data-paper-group="inside"] .paper-card')];
-    const outsideCards = [...document.querySelectorAll('[data-paper-group="outside"] .paper-card')];
-    if (!insideCards.length || !outsideCards.length) {
-        showToast('The research cards are still loading.');
-        return;
-    }
-
-    const picks = [
-        insideCards[Math.floor(Math.random() * insideCards.length)],
-        outsideCards[Math.floor(Math.random() * outsideCards.length)]
-    ];
-    const button = byId('surprise-button');
-    document.querySelectorAll('.paper-card').forEach((item) => item.classList.remove('is-spotlighted'));
-    picks.forEach((card) => {
-        state.selectedPapers[card.dataset.paperGroup] = card.dataset.paperId;
-        card.querySelector('details')?.setAttribute('open', '');
-    });
-    savePaperSelections();
-    updatePaperSelectionUI();
-    button.classList.add('is-finding');
-    button.innerHTML = '<span aria-hidden="true">✦</span> Two picked!';
-    picks[0].scrollIntoView({ behavior: state.motionPaused ? 'auto' : 'smooth', block: 'center' });
-    window.setTimeout(() => {
-        picks.forEach((card) => card.classList.add('is-spotlighted'));
-    }, state.motionPaused ? 0 : 450);
-    window.setTimeout(() => picks.forEach((card) => card.classList.remove('is-spotlighted')), 1800);
-    window.setTimeout(() => {
-        button.classList.remove('is-finding');
-        button.innerHTML = '<span aria-hidden="true">✦</span> Pick my two';
-    }, 1350);
-}
-
 function animateCounter(element, target) {
     const finalValue = Number(target) || 0;
     const token = String(Date.now() + Math.random());
