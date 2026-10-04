@@ -18,6 +18,8 @@ const state = {
     lastSurpriseIndex: -1,
     isAdvance: false,
     readingMode: 'balanced',
+    paceDrag: null,
+    paceIgnoreClickUntil: 0,
     selectedPapers: { inside: null, outside: null }
 };
 
@@ -93,10 +95,17 @@ function bindInterface() {
     });
     byId('motion-toggle').addEventListener('click', toggleMotion);
     byId('surprise-button').addEventListener('click', surpriseMe);
-    document.querySelector('.pace-options').addEventListener('click', (event) => {
+    const paceOptions = document.querySelector('.pace-options');
+    paceOptions.addEventListener('click', (event) => {
+        if (performance.now() < state.paceIgnoreClickUntil) return;
         const button = event.target.closest('[data-reading-mode]');
         if (button) setReadingMode(button.dataset.readingMode);
     });
+    paceOptions.addEventListener('keydown', handlePaceKeydown);
+    paceOptions.addEventListener('pointerdown', beginPaceDrag);
+    paceOptions.addEventListener('pointermove', updatePaceDrag);
+    paceOptions.addEventListener('pointerup', finishPaceDrag);
+    paceOptions.addEventListener('pointercancel', cancelPaceDrag);
     byId('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: state.motionPaused ? 'auto' : 'smooth' }));
 
     document.addEventListener('keydown', (event) => {
@@ -1085,6 +1094,65 @@ function readReadingMode() {
     } catch {
         return 'balanced';
     }
+}
+
+function readingModeFromPointer(clientX) {
+    const options = document.querySelector('.pace-options');
+    const bounds = options.getBoundingClientRect();
+    const position = Math.max(0, Math.min(bounds.width - 1, clientX - bounds.left));
+    return ['quick', 'balanced', 'deep'][Math.floor((position / bounds.width) * 3)];
+}
+
+function beginPaceDrag(event) {
+    if (event.button !== 0) return;
+    state.paceDrag = { pointerId: event.pointerId, startX: event.clientX, moved: false };
+}
+
+function updatePaceDrag(event) {
+    if (!state.paceDrag || state.paceDrag.pointerId !== event.pointerId) return;
+    if (!state.paceDrag.moved && Math.abs(event.clientX - state.paceDrag.startX) > 4) {
+        state.paceDrag.moved = true;
+        event.currentTarget.classList.add('is-dragging');
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+    }
+    if (state.paceDrag.moved) setReadingMode(readingModeFromPointer(event.clientX), { announce: false });
+}
+
+function finishPaceDrag(event) {
+    if (!state.paceDrag || state.paceDrag.pointerId !== event.pointerId) return;
+    const options = event.currentTarget;
+    const wasDragged = state.paceDrag.moved;
+    const selectedMode = readingModeFromPointer(event.clientX);
+    options.classList.remove('is-dragging');
+    if (options.hasPointerCapture?.(event.pointerId)) options.releasePointerCapture(event.pointerId);
+    state.paceDrag = null;
+
+    if (wasDragged) {
+        state.paceIgnoreClickUntil = performance.now() + 350;
+        setReadingMode(selectedMode);
+    }
+}
+
+function cancelPaceDrag(event) {
+    if (!state.paceDrag || state.paceDrag.pointerId !== event.pointerId) return;
+    event.currentTarget.classList.remove('is-dragging');
+    state.paceDrag = null;
+}
+
+function handlePaceKeydown(event) {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    const buttons = [...event.currentTarget.querySelectorAll('[data-reading-mode]')];
+    const currentIndex = buttons.indexOf(event.target.closest('[data-reading-mode]'));
+    if (currentIndex < 0) return;
+
+    event.preventDefault();
+    let nextIndex = currentIndex;
+    if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = buttons.length - 1;
+    else nextIndex = (currentIndex + (event.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+
+    buttons[nextIndex].focus();
+    setReadingMode(buttons[nextIndex].dataset.readingMode);
 }
 
 function setReadingMode(mode, { announce = true } = {}) {
