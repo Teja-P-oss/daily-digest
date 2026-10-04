@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css?v=4">
+    <link rel="stylesheet" href="./css/style.css?v=5">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to the digest</a>
@@ -69,6 +69,7 @@
         <section class="hero hero--compact" aria-labelledby="page-title">
             <div class="hero__copy">
                 <span class="section-kicker">Teja's daily digest</span>
+                <p class="hero__greeting" id="daily-greeting">A fresh mix for today</p>
                 <h1 id="page-title"><span class="hero-line" id="date-heading">Loading today’s issue…</span></h1>
 
                 <div class="issue-meta">
@@ -77,6 +78,10 @@
                         <small id="issue-label">Current issue</small>
                         <strong id="date-subtitle" aria-live="polite">Loading the latest digest…</strong>
                     </div>
+                </div>
+
+                <div class="daily-mix" id="daily-mix" aria-label="Today’s learning mix">
+                    <span>Building today’s mix…</span>
                 </div>
 
                 <div class="hero-actions">
@@ -114,12 +119,21 @@
         </section>
 
         <div class="reading-strip" aria-label="Digest overview">
-            <div><strong id="research-count">4</strong><span>research papers</span></div>
+            <div><strong id="research-count">4</strong><span>learning picks</span></div>
             <div><strong id="news-count">2</strong><span id="news-count-label">news regions</span></div>
             <div><strong id="market-count">10</strong><span id="market-count-label">market ideas</span></div>
             <div class="reading-strip__time reading-plan" id="reading-plan">
                 <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
                 <span><strong id="selection-count">0 of 2 chosen</strong> your reading plan</span>
+            </div>
+        </div>
+
+        <div class="pace-bar" aria-label="Reading pace">
+            <div><span aria-hidden="true">☕</span><p><strong>Make it fit your day</strong><small>Change the amount shown without losing any content.</small></p></div>
+            <div class="pace-options" role="group" aria-label="Choose a reading pace">
+                <button type="button" data-reading-mode="quick">Quick <small>10 min</small></button>
+                <button type="button" data-reading-mode="balanced" aria-pressed="true">Balanced <small>30 min</small></button>
+                <button type="button" data-reading-mode="deep">Deep <small>60 min</small></button>
             </div>
         </div>
     </div>
@@ -151,9 +165,9 @@
             <div class="section-heading">
                 <div>
                     <span class="section-kicker">Deep dive</span>
-                    <h2 id="research-title">Pick this issue’s two papers</h2>
+                    <h2 id="research-title">Pick today’s two learning paths</h2>
                 </div>
-                <p>Choose one paper inside your domain and one outside it. The expanded notes are designed to stand alone if you skip the full paper.</p>
+                <p>Choose one technical paper near your interests and one approachable discovery outside them. The notes stand alone if you skip the source.</p>
             </div>
             <div class="papers-collection" id="papers-container" aria-live="polite">
                 <article class="paper-card loading-card"><span class="skeleton skeleton--pill"></span><span class="skeleton skeleton--title"></span><span class="skeleton"></span><span class="skeleton skeleton--short"></span></article>
@@ -202,6 +216,13 @@
                     <ul class="stock-list" id="in-stocks-list"><li class="stock-skeleton"><span class="skeleton"></span></li></ul>
                 </section>
             </div>
+            <section class="earnings-card" id="earnings-card" aria-labelledby="earnings-title" hidden>
+                <header>
+                    <div><span class="section-kicker">Plan ahead</span><h3 id="earnings-title">Upcoming US earnings</h3></div>
+                    <p>Confirmed quarterly reports from widely followed companies. Dates can change—use the source before acting.</p>
+                </header>
+                <div class="earnings-list" id="earnings-list"></div>
+            </section>
         </section>
 
         <section class="content-section takeaways-section" id="takeaways" aria-labelledby="takeaways-title">
@@ -237,6 +258,6 @@
         <span aria-hidden="true">↑</span>
     </button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="./js/app.js?v=4"></script>
+    <script src="./js/app.js?v=5"></script>
 </body>
 </html>

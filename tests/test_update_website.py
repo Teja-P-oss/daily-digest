@@ -149,6 +149,51 @@ class PublishTests(unittest.TestCase):
         with self.assertRaises(digest_app.DigestError):
             digest_app.validate_digest(digest)
 
+    def test_legacy_digest_without_new_optional_fields_stays_valid(self) -> None:
+        digest = sample_digest()
+        self.assertIsNone(digest.earnings)
+        self.assertEqual(digest.papers.domain1.content_type, "research paper")
+        self.assertEqual(digest.papers.outside1.level, "intermediate")
+        digest_app.validate_digest(digest, date(2026, 9, 5))
+
+    def test_upcoming_us_earnings_are_validated_without_affecting_stocks(self) -> None:
+        edition = date(2026, 9, 5)
+        digest = sample_digest()
+        digest.earnings = digest_app.Earnings(
+            us=[
+                digest_app.Earning(
+                    symbol="ACME",
+                    company="Acme Corporation",
+                    report_date=edition + timedelta(days=7),
+                    timing="After market close",
+                    fiscal_period="Fiscal Q3 2026",
+                    why_watch="Revenue growth and margin guidance provide a useful sector signal.",
+                    link="https://example.com/investors/acme",
+                )
+            ]
+        )
+        digest_app.validate_digest(digest, edition)
+        self.assertEqual(len(digest.stocks.us), 3)
+
+    def test_earnings_calendar_rejects_dates_too_far_from_issue(self) -> None:
+        edition = date(2026, 9, 5)
+        digest = sample_digest()
+        digest.earnings = digest_app.Earnings(
+            us=[
+                digest_app.Earning(
+                    symbol="ACME",
+                    company="Acme Corporation",
+                    report_date=edition + timedelta(days=40),
+                    timing="Time not confirmed",
+                    fiscal_period="Fiscal Q3 2026",
+                    why_watch="Revenue growth and margin guidance provide a useful sector signal.",
+                    link="https://example.com/investors/acme",
+                )
+            ]
+        )
+        with self.assertRaisesRegex(digest_app.DigestError, "within 21 days"):
+            digest_app.validate_digest(digest, edition)
+
     def test_prepared_json_is_validated_and_published(self) -> None:
         edition = date(2026, 9, 5)
         prepared = Path(self.temporary.name) / "prepared.json"
@@ -271,7 +316,7 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertEqual(request.call_args_list[0].args[1], today + timedelta(days=1))
         self.assertTrue(request.call_args_list[0].kwargs["advance"])
 
-    def test_verbosity_is_nested_inside_text_config(self) -> None:
+    def test_optimized_response_settings_keep_structured_output(self) -> None:
         captured: dict = {}
         output = sample_digest().model_dump_json()
 
@@ -331,8 +376,18 @@ class OpenAIRequestTests(unittest.TestCase):
 
         self.assertIsInstance(result, digest_app.Digest)
         self.assertNotIn("verbosity", captured)
-        self.assertEqual(captured["text"]["verbosity"], "high")
+        self.assertEqual(captured["text"]["verbosity"], "medium")
         self.assertEqual(captured["text"]["format"]["type"], "json_schema")
+        self.assertEqual(captured["max_output_tokens"], 22000)
+        self.assertEqual(captured["tools"][0]["search_context_size"], "medium")
+
+    def test_stable_brief_precedes_dynamic_context_for_prompt_caching(self) -> None:
+        prompt = api_generator.build_prompt(date(2026, 9, 6))
+        self.assertLess(prompt.index("# Teja's Daily Digest generation brief"), prompt.index("Edition-specific context:"))
+        self.assertIn("one anchor + one adjacent", prompt)
+
+    def test_default_web_search_budget_is_reduced(self) -> None:
+        self.assertEqual(api_generator.build_parser().parse_args([]).max_tool_calls, 18)
 
 
 if __name__ == "__main__":

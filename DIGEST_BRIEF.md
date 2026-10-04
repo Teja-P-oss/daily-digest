@@ -23,22 +23,45 @@ diffusion, super-resolution, computer vision, mobile SoCs, semiconductors, embed
 Python, edge AI, hardware acceleration, memory optimization, and power optimization.
 
 Research and learning are more important than news. The complete issue should support roughly one
-hour of useful reading. Paper explanations must teach the key ideas well enough that Teja learns the
-core contribution even when he skips the original paper.
+hour of useful reading, but it must also be easy to skim in 10–15 minutes. Explanations must teach the
+key ideas well enough that Teja learns the core contribution even when he skips the source.
 
 ## Required content
 
-### Research papers
+### Daily learning mix
 
-- Include exactly two distinct inside-domain papers in `domain1` and `domain2`. Prefer important work
-  from the last two years; use an older paper only when it remains unusually valuable.
-- Include exactly two genuinely outside-domain papers in `outside1` and `outside2`. They must be from
-  different fields from each other.
-- Teja will choose one paper from each group, so make all four options independently worthwhile.
-- For every paper, explain the problem, difficulty, core idea, method, quantitative results or other
-  evidence, limitations, significance, practical lessons, and concepts worth remembering.
-- Use the official publisher, DOI, conference, or arXiv page for `link`. Create a valid Google Scholar
-  search URL for `scholar`.
+The inside-domain pair must feel related to Teja's interests without collapsing into an ISP feed.
+Use a deliberate **one anchor + one adjacent** mix:
+
+- `domain1` is one strong research paper from the camera/imaging/vision side of Teja's interests:
+  computational photography, image or video processing, HDR, denoising, super-resolution, computer
+  vision, camera systems, or ISP architecture. RAW/ISP is allowed, but it is only one part of this
+  track—not the automatic topic every day.
+- `domain2` is one research paper from a different interest track: mobile SoCs, semiconductor or DPU
+  architecture, hardware acceleration, edge AI, embedded systems, memory/bandwidth optimization,
+  power optimization, C/C++ systems, video codecs, or efficient ML deployment. Do not select a
+  second camera pipeline, RAW processing, or ISP paper for this slot.
+- Rotate subtopics using the recent-archive context supplied in the generation prompt. Avoid a
+  subtopic used repeatedly in recent issues even when the exact title is new. Never use two papers
+  whose main contribution is RAW processing or ISP design in the same issue.
+- Prefer important work from the last two years; use an older paper only when unusually valuable.
+
+The outside-domain pair is for approachable curiosity, not specialist study:
+
+- `outside1` and `outside2` must come from different fields and require no domain background.
+- Prefer authoritative explainers, review articles, journal features, lectures, presentations, or
+  high-quality news features. Use a research paper only when its question and result are genuinely
+  easy for a newcomer to understand.
+- Set `content_type` accurately. Set `level` to `introductory` or `accessible`; never `advanced`.
+  Aim for a source that can be understood in 10–20 minutes and record that in `reading_time`.
+- Explain unfamiliar terms in plain language, focus on one memorable idea, and avoid dense methods or
+  jargon. `method` means “how we know” for an article or presentation. `results` means its evidence or
+  principal lesson. Do not turn the notes into a graduate-level literature review.
+
+Teja will choose one item from each group, so make all four options independently worthwhile. For
+inside papers use an official publisher, DOI, conference, or arXiv page for `link` and add a valid
+Google Scholar URL in `scholar`. For outside resources use the best direct source and set `scholar` to
+JSON `null` when it is not a research paper.
 
 ### India and world news
 
@@ -67,6 +90,20 @@ For an `advance` edition, turn this into a company-learning watchlist. Choose du
 understanding, explain the business model or strategic question in `reason`, and retain a concise thesis
 and risk. Because future prices and returns are unknowable, set every `price` to
 `Not available — advance edition` and every `change` to JSON `null`. Never estimate them.
+
+### Upcoming US earnings
+
+- Add `earnings.us` with 3–5 large, widely followed US-listed companies whose quarterly results are
+  scheduled in the next 21 days. Prefer the nearest confirmed dates and companies with useful
+  read-through for their sector. This is a planning calendar, not a recommendation.
+- Verify every date against the company's investor-relations announcement or a reputable exchange
+  calendar. Link directly to that source. Never infer an unannounced date. If fewer than three major
+  companies have confirmed dates, include only the confirmed ones; an empty array is better than a
+  fabricated entry.
+- State whether the release is before market open, after market close, or not yet confirmed, name the
+  fiscal period, and explain one concrete metric or business question worth watching.
+- For advance editions, include only schedules already announced by `generated_on`. Do not imply the
+  result itself is known.
 
 ### Takeaways
 
@@ -100,6 +137,9 @@ Indian prices and US dollar formatting for US prices. The object must have exact
   },
   "papers": {
     "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
       "title": "...",
       "authors": "...",
       "year": "...",
@@ -134,6 +174,19 @@ Indian prices and US dollar formatting for US prices. The object must have exact
     ],
     "india": []
   },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "...",
+        "company": "...",
+        "report_date": "YYYY-MM-DD",
+        "timing": "Before market open, After market close, or Time not confirmed",
+        "fiscal_period": "...",
+        "why_watch": "...",
+        "link": "https://..."
+      }
+    ]
+  },
   "takeaways": {
     "remember": ["...", "...", "...", "...", "..."],
     "explore": "..."
@@ -142,10 +195,15 @@ Indian prices and US dollar formatting for US prices. The object must have exact
 ```
 
 The empty arrays and objects above are shorthand for repeated entries: populate `world` with complete
-news objects, all four paper keys with the complete paper object, and both stock lists with complete
+news objects, all four learning-item keys with the complete object, and both stock lists with complete
 stock objects. Populate every placeholder and do not add extra keys. Before publishing, verify that
-the four paper titles and canonical links are unique, the two outside fields differ, each news region
-uses at least three categories, and stock symbols are unique within their market.
+the four learning titles and canonical links are unique, the two outside fields differ, each news
+region uses at least three categories, stock symbols are unique within their market, and US earnings
+symbols are unique.
+
+Keep prose compact. Do not repeat the same background across `summary`, `problem`, and `difficulty`.
+Use specific evidence once, then use the remaining fields for interpretation and practical lessons.
+This preserves editorial quality while avoiding unnecessary output tokens.
 
 For an advance issue, change `edition.kind` to `advance`, set `generated_on` to the real generation
 date, make `note` explicitly say that live news and market prices were unavailable when prepared, and

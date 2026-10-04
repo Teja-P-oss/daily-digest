@@ -14,6 +14,7 @@ const state = {
     scrollFrame: null,
     lastSurpriseIndex: -1,
     isAdvance: false,
+    readingMode: 'balanced',
     selectedPapers: { inside: null, outside: null }
 };
 
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', initApp);
 async function initApp() {
     bindInterface();
     setupMotion();
+    setReadingMode(readReadingMode(), { announce: false });
 
     try {
         const response = await fetch('./data/index.json', { cache: 'no-cache' });
@@ -87,6 +89,10 @@ function bindInterface() {
     });
     byId('motion-toggle').addEventListener('click', toggleMotion);
     byId('surprise-button').addEventListener('click', surpriseMe);
+    document.querySelector('.pace-options').addEventListener('click', (event) => {
+        const button = event.target.closest('[data-reading-mode]');
+        if (button) setReadingMode(button.dataset.readingMode);
+    });
     byId('back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: state.motionPaused ? 'auto' : 'smooth' }));
 
     document.addEventListener('keydown', (event) => {
@@ -187,6 +193,7 @@ function updateDateInterface(dateString) {
     byId('display-month').textContent = date.toLocaleDateString('en-US', { month: 'long' });
     byId('display-year').textContent = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric' });
     byId('date-picker').value = dateString;
+    byId('daily-greeting').textContent = dailyGreeting(isCurrent, isFuture);
     animateDateCard();
 
     const olderButton = byId('older-button');
@@ -224,13 +231,16 @@ function updateUrl(dateString, historyMode) {
 function renderDigest(data, dateString) {
     renderEditionMode(data?.edition);
     renderPapers(data?.papers, dateString);
+    renderDailyMix(data?.papers);
     renderNews(data?.news);
     renderStocks(data?.stocks);
+    renderEarnings(data?.earnings, dateString);
     renderTakeaways(data?.takeaways);
     animateCounter(byId('research-count'), Object.values(data?.papers || {}).filter(Boolean).length);
     animateCounter(byId('news-count'), ['india', 'world'].filter((region) => data?.news?.[region]).length);
     animateCounter(byId('market-count'), (data?.stocks?.us?.length || 0) + (data?.stocks?.india?.length || 0));
     byId('main-content').classList.remove('is-refreshing');
+    setReadingMode(state.readingMode, { announce: false });
     observeAnimatedElements();
     scheduleScrollUpdate();
 }
@@ -264,8 +274,8 @@ function renderPapers(papers = {}, dateString = state.currentDate) {
     const normalized = normalizePapers(papers);
     state.selectedPapers = readPaperSelections(dateString);
     const groups = [
-        { id: 'inside', kicker: 'Familiar territory', title: 'Inside your domain', note: 'Choose 1 of 2' },
-        { id: 'outside', kicker: 'Broaden the map', title: 'Outside your domain', note: 'Choose 1 of 2' }
+        { id: 'inside', kicker: 'One anchor + one adjacent', title: 'Inside your interests', note: 'Choose 1 of 2' },
+        { id: 'outside', kicker: 'Easy to enter', title: 'Approachable discoveries', note: 'Choose 1 of 2' }
     ];
     const markup = groups.map((group) => {
         const papersInGroup = normalized.filter((entry) => entry.config.group === group.id);
@@ -303,12 +313,15 @@ function paperTemplate(kind, paper, index, config) {
     const title = paper.title || 'Untitled paper';
     const lead = paper.summary || paper.problem || paper.question || paper.idea || paper.discovery || 'Open the paper to learn more.';
     const metadata = [paper.venue, paper.year || paper.date, paper.field].filter(Boolean).join(' · ');
+    const contentType = paper.content_type || 'research paper';
+    const contentLabel = toTitleCase(contentType);
+    const resourceMeta = [contentLabel, paper.level ? toTitleCase(paper.level) : '', paper.reading_time || ''].filter(Boolean);
     const detailFields = getPaperDetails(kind, paper);
     const detailMarkup = detailFields.length
-        ? `<details class="paper-details"><summary>Explore the key ideas <span>~5 min</span></summary><div class="paper-details__content">${detailFields.map(detailTemplate).join('')}</div></details>`
+        ? `<details class="paper-details"><summary>${config.group === 'outside' ? 'Get the idea' : 'Explore the key ideas'} <span>~5 min notes</span></summary><div class="paper-details__content">${detailFields.map(detailTemplate).join('')}</div></details>`
         : '';
     const links = [
-        validUrl(paper.link) ? `<a class="paper-link" href="${escapeAttribute(paper.link)}" target="_blank" rel="noopener noreferrer">Read paper <span aria-hidden="true">↗</span></a>` : '',
+        validUrl(paper.link) ? `<a class="paper-link" href="${escapeAttribute(paper.link)}" target="_blank" rel="noopener noreferrer">Read ${escapeHTML(contentType === 'research paper' ? 'paper' : contentType)} <span aria-hidden="true">↗</span></a>` : '',
         validUrl(paper.scholar) ? `<a class="paper-link" href="${escapeAttribute(paper.scholar)}" target="_blank" rel="noopener noreferrer">Scholar <span aria-hidden="true">↗</span></a>` : ''
     ].filter(Boolean).join('');
 
@@ -318,6 +331,7 @@ function paperTemplate(kind, paper, index, config) {
                 <span class="paper-badge paper-badge--${config.badgeClass}">${config.badge}</span>
                 ${metadata ? `<span class="paper-card__meta">${escapeHTML(metadata)}</span>` : ''}
             </div>
+            <div class="resource-meta">${resourceMeta.map((item) => `<span>${escapeHTML(item)}</span>`).join('')}</div>
             <h4>${escapeHTML(title)}</h4>
             ${paper.authors ? `<p class="paper-card__byline">By ${escapeHTML(paper.authors)}</p>` : ''}
             <p class="paper-card__summary">${escapeHTML(lead)}</p>
@@ -379,6 +393,45 @@ function newsItemTemplate(item) {
 function renderStocks(stocks = {}) {
     renderStockList('us-stocks-list', stocks?.us);
     renderStockList('in-stocks-list', stocks?.india);
+}
+
+function renderEarnings(earnings = {}, editionDate = state.currentDate) {
+    const section = byId('earnings-card');
+    const container = byId('earnings-list');
+    const items = Array.isArray(earnings?.us) ? earnings.us.filter(Boolean) : [];
+
+    if (!items.length) {
+        section.hidden = true;
+        container.innerHTML = '';
+        return;
+    }
+
+    section.hidden = false;
+    container.innerHTML = items.map((item) => {
+        const daysAway = daysBetween(editionDate, item.report_date);
+        const countdown = daysAway === 0 ? 'Today' : daysAway === 1 ? 'Tomorrow' : (daysAway === null ? 'Coming soon' : `${daysAway} days`);
+        const link = validUrl(item.link)
+            ? `<a href="${escapeAttribute(item.link)}" target="_blank" rel="noopener noreferrer">Verify date ↗</a>`
+            : '';
+        return `<article class="earning-item">
+            <time datetime="${escapeAttribute(item.report_date || '')}"><strong>${escapeHTML(formatDate(item.report_date, 'compact'))}</strong><span>${escapeHTML(countdown)}</span></time>
+            <div class="earning-item__body">
+                <div><span class="stock-ticker">${escapeHTML(item.symbol || '—')}</span><strong>${escapeHTML(item.company || 'Company')}</strong></div>
+                <p>${escapeHTML(item.why_watch || '')}</p>
+                <small>${escapeHTML(item.fiscal_period || '')} · ${escapeHTML(item.timing || 'Time not confirmed')}</small>
+            </div>
+            ${link}
+        </article>`;
+    }).join('');
+}
+
+function renderDailyMix(papers = {}) {
+    const items = normalizePapers(papers);
+    const chips = items.map(({ paper, config }) => {
+        const label = config.group === 'inside' ? 'Near you' : 'Explore';
+        return `<span><small>${label}</small>${escapeHTML(paper.field || paper.title || 'New idea')}</span>`;
+    });
+    byId('daily-mix').innerHTML = chips.length ? chips.join('') : '<span>Four thoughtful learning picks</span>';
 }
 
 function renderStockList(containerId, stocks = []) {
@@ -503,6 +556,7 @@ function showLoadingState() {
     byId('world-news-content').innerHTML = '<span class="skeleton"></span><span class="skeleton skeleton--short"></span>';
     byId('us-stocks-list').innerHTML = '<li class="stock-skeleton"><span class="skeleton"></span></li>';
     byId('in-stocks-list').innerHTML = '<li class="stock-skeleton"><span class="skeleton"></span></li>';
+    byId('earnings-card').hidden = true;
 }
 
 function openSearch() {
@@ -645,6 +699,15 @@ function createIssueSearchEntries(date, data) {
             score: 6
         }));
     });
+
+    (data.earnings?.us || []).forEach((earning) => entries.push({
+        date,
+        section: 'markets',
+        title: `${earning.symbol || earning.company || 'Company'} · Upcoming earnings`,
+        summary: earning.why_watch || earning.fiscal_period || 'Upcoming US quarterly results',
+        content: flattenValues(earning),
+        score: 7
+    }));
 
     if (data.takeaways) entries.push({
         date,
@@ -918,6 +981,58 @@ function showToast(message) {
     toast.textContent = message;
     toast.classList.add('is-visible');
     state.toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 3500);
+}
+
+function readReadingMode() {
+    try {
+        const saved = localStorage.getItem('daily-digest:reading-mode');
+        return ['quick', 'balanced', 'deep'].includes(saved) ? saved : 'balanced';
+    } catch {
+        return 'balanced';
+    }
+}
+
+function setReadingMode(mode, { announce = true } = {}) {
+    if (!['quick', 'balanced', 'deep'].includes(mode)) return;
+    state.readingMode = mode;
+    document.body.dataset.readingMode = mode;
+    document.querySelectorAll('button[data-reading-mode]').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.readingMode === mode));
+    });
+    document.querySelectorAll('.paper-details').forEach((details) => {
+        details.open = mode === 'deep';
+    });
+    try {
+        localStorage.setItem('daily-digest:reading-mode', mode);
+    } catch {
+        // The selected pace still applies for this session.
+    }
+    if (announce) {
+        const labels = { quick: 'Quick scan ready.', balanced: 'Balanced reading mode ready.', deep: 'Deep reading mode opened all learning notes.' };
+        showToast(labels[mode]);
+    }
+}
+
+function dailyGreeting(isCurrent, isFuture) {
+    if (isFuture || state.isAdvance) return 'A thoughtful issue, ready ahead of time';
+    if (!isCurrent) return 'A useful idea is always worth revisiting';
+    const hour = Number(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        hourCycle: 'h23'
+    }).format(new Date()));
+    if (hour < 12) return 'Good morning — here’s a fresh mix';
+    if (hour < 17) return 'Good afternoon — take a curious break';
+    return 'Good evening — wind down with one good idea';
+}
+
+function daysBetween(fromDate, toDate) {
+    if (!isDateString(fromDate) || !isDateString(toDate)) return null;
+    return Math.round((parseDate(toDate) - parseDate(fromDate)) / 86400000);
+}
+
+function toTitleCase(value) {
+    return String(value || '').replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function sanitizeRichText(value) {

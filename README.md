@@ -38,7 +38,8 @@ The Mac must remain awake while this option runs.
 
 Vacation mode accepts 1–7 days and generates each future calendar date separately. Advance editions
 never pretend to know future headlines or prices: they contain sourced evergreen India/world learning,
-a company-study watchlist with unavailable price fields, and the normal four research papers. The
+a company-study watchlist with unavailable price fields, the four learning picks, and only US earnings
+dates that were already confirmed when the edition was prepared. The
 website labels these issues **Prepared ahead** and keeps the homepage on the current issue rather than
 jumping to the furthest future date.
 

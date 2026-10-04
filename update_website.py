@@ -37,6 +37,10 @@ def validate_http_url(value: str) -> str:
     return value
 
 
+def validate_optional_http_url(value: str | None) -> str | None:
+    return validate_http_url(value) if value else None
+
+
 class NewsItem(StrictModel):
     category: str = Field(min_length=2, max_length=50)
     headline: str = Field(min_length=12, max_length=180)
@@ -53,13 +57,24 @@ class News(StrictModel):
 
 
 class Paper(StrictModel):
+    content_type: Literal[
+        "research paper",
+        "review article",
+        "explainer",
+        "journal article",
+        "news feature",
+        "presentation",
+        "lecture",
+    ] = "research paper"
+    level: Literal["introductory", "accessible", "intermediate", "advanced"] = "intermediate"
+    reading_time: str = Field(default="15–25 min", min_length=3, max_length=30)
     title: str = Field(min_length=8, max_length=300)
     authors: str = Field(min_length=2, max_length=500)
     year: str = Field(min_length=4, max_length=20)
     venue: str = Field(min_length=2, max_length=120)
     field: str = Field(min_length=2, max_length=100)
     link: str
-    scholar: str
+    scholar: str | None = None
     summary: str = Field(min_length=80, max_length=900)
     problem: str = Field(min_length=120, max_length=1600)
     difficulty: str = Field(min_length=120, max_length=1600)
@@ -70,7 +85,8 @@ class Paper(StrictModel):
     learn: list[str] = Field(min_length=3, max_length=6)
     concepts: list[str] = Field(min_length=4, max_length=8)
 
-    _validate_urls = field_validator("link", "scholar")(validate_http_url)
+    _validate_link = field_validator("link")(validate_http_url)
+    _validate_scholar = field_validator("scholar")(validate_optional_http_url)
 
 
 class Papers(StrictModel):
@@ -94,6 +110,22 @@ class Stocks(StrictModel):
     india: list[Stock] = Field(min_length=3, max_length=4)
 
 
+class Earning(StrictModel):
+    symbol: str = Field(min_length=1, max_length=30)
+    company: str = Field(min_length=2, max_length=120)
+    report_date: date
+    timing: Literal["Before market open", "After market close", "Time not confirmed"]
+    fiscal_period: str = Field(min_length=2, max_length=80)
+    why_watch: str = Field(min_length=30, max_length=350)
+    link: str
+
+    _validate_link = field_validator("link")(validate_http_url)
+
+
+class Earnings(StrictModel):
+    us: list[Earning] = Field(default_factory=list, max_length=5)
+
+
 class Takeaways(StrictModel):
     remember: list[str] = Field(min_length=5, max_length=8)
     explore: str = Field(min_length=120, max_length=1200)
@@ -110,6 +142,7 @@ class Digest(StrictModel):
     news: News
     papers: Papers
     stocks: Stocks
+    earnings: Earnings | None = None
     takeaways: Takeaways
 
 
@@ -160,6 +193,18 @@ def validate_digest(digest: Digest, report_date: date | None = None) -> None:
     for label, items in (("US", digest.stocks.us), ("India", digest.stocks.india)):
         if len({item.symbol.casefold() for item in items}) != len(items):
             raise DigestError(f"{label} market list contains duplicate symbols.")
+
+    if digest.earnings:
+        symbols = {item.symbol.casefold() for item in digest.earnings.us}
+        if len(symbols) != len(digest.earnings.us):
+            raise DigestError("The US earnings calendar contains duplicate symbols.")
+        if report_date:
+            for item in digest.earnings.us:
+                days_away = (item.report_date - report_date).days
+                if days_away < 0 or days_away > 21:
+                    raise DigestError(
+                        "US earnings dates must fall within 21 days after the edition date."
+                    )
 
     if digest.edition and digest.edition.generated_on > today_in_ist():
         raise DigestError("Edition metadata cannot claim a future generation date.")
@@ -334,7 +379,7 @@ def main(argv: list[str] | None = None) -> int:
     digest = load_digest(source_path)
     published = publish_digest(digest, args.date)
     content_label = "advance learning briefs" if digest.edition and digest.edition.kind == "advance" else "general news"
-    print(f"Validated and published {published} with four papers and {content_label}.")
+    print(f"Validated and published {published} with four learning picks and {content_label}.")
     return 0
 
 

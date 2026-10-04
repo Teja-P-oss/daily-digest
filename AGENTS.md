@@ -21,4 +21,6 @@ desktop-script Codex sessions use the user's ChatGPT sign-in. The separate `gene
 path is reserved for the on-demand GitHub Action and uses `OPENAI_API_KEY`. Do not edit
 `data/index.json` or `data/search-index.json` manually; the publisher rebuilds them and rolls back
 partial updates on failure. When generating several advance editions, check the existing archive so
-papers, knowledge briefs, and company lessons do not repeat across adjacent days.
+learning picks, knowledge briefs, company lessons, and earnings-calendar entries do not repeat across
+adjacent days. Follow the brief's one-anchor-plus-one-adjacent topic rotation instead of defaulting
+both inside slots to RAW/ISP.

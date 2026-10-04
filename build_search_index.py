@@ -107,6 +107,18 @@ def issue_entries(date: str, data: dict[str, Any]) -> list[dict[str, Any]]:
                 "score": 6,
             })
 
+    for earning in (data.get("earnings") or {}).get("us") or []:
+        if not isinstance(earning, dict):
+            continue
+        entries.append({
+            "date": date,
+            "section": "markets",
+            "title": f"{earning.get('symbol') or earning.get('company') or 'Company'} · Upcoming earnings",
+            "summary": earning.get("why_watch") or earning.get("fiscal_period") or "Upcoming US quarterly results",
+            "content": compact_terms(earning, 80),
+            "score": 7,
+        })
+
     if data.get("takeaways"):
         entries.append({
             "date": date,

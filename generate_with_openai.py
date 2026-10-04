@@ -44,9 +44,32 @@ def used_paper_titles(exclude_date: date) -> list[str]:
         for paper in papers.values():
             if isinstance(paper, dict) and paper.get("title"):
                 titles.append(str(paper["title"]))
-        if len(titles) >= 60:
+        if len(titles) >= 40:
             break
-    return titles[:60]
+    return titles[:40]
+
+
+def recent_inside_tracks(exclude_date: date, issue_limit: int = 8) -> list[str]:
+    tracks: list[str] = []
+    issues_read = 0
+    for path in sorted(DATA_DIR.glob("????-??-??.json"), reverse=True):
+        if path.stem == exclude_date.isoformat():
+            continue
+        try:
+            papers = json.loads(path.read_text(encoding="utf-8")).get("papers", {})
+        except (OSError, json.JSONDecodeError, AttributeError):
+            continue
+        fields = [
+            str((papers.get(key) or {}).get("field", "")).strip()
+            for key in ("domain1", "domain2")
+            if isinstance(papers.get(key), dict)
+        ]
+        if fields:
+            tracks.append(f"{path.stem}: {'; '.join(field for field in fields if field)}")
+            issues_read += 1
+        if issues_read >= issue_limit:
+            break
+    return tracks
 
 
 def build_prompt(report_date: date, advance: bool = False) -> str:
@@ -65,16 +88,25 @@ def build_prompt(report_date: date, advance: bool = False) -> str:
             "and do not use later outcomes as if they were already known."
         )
 
-    used_titles = used_paper_titles(report_date)
-    repetition_context = (
-        "\nDo not select any of these papers already used in the archive:\n- " + "\n- ".join(used_titles)
-        if used_titles
-        else ""
-    )
     brief = BRIEF_PATH.read_text(encoding="utf-8")
+    used_titles = used_paper_titles(report_date)
+    recent_tracks = recent_inside_tracks(report_date)
+    archive_context = ""
+    if recent_tracks:
+        archive_context += (
+            "\nRecent inside-domain fields (use these to rotate away from repetition):\n- "
+            + "\n- ".join(recent_tracks)
+        )
+    if used_titles:
+        archive_context += (
+            "\nExact learning items already used (do not repeat them):\n- "
+            + "\n- ".join(used_titles)
+        )
     return (
+        "Follow this editorial and output contract exactly. Return only the structured digest.\n\n"
+        f"{brief}\n\nEdition-specific context:\n"
         f"Create Teja's Daily Digest for {report_date.isoformat()} in India Standard Time.\n"
-        f"{date_context}{repetition_context}\n\nFollow this editorial and output contract exactly:\n\n{brief}"
+        f"{date_context}{archive_context}"
     )
 
 
@@ -98,7 +130,7 @@ def request_digest(
             {
                 "type": "web_search",
                 "external_web_access": True,
-                "search_context_size": "high",
+                "search_context_size": "medium",
                 "user_location": {
                     "type": "approximate",
                     "country": "IN",
@@ -109,10 +141,10 @@ def request_digest(
         tool_choice="auto",
         parallel_tool_calls=True,
         max_tool_calls=max_tool_calls,
-        max_output_tokens=30000,
+        max_output_tokens=22000,
         reasoning={"effort": "medium"},
         text_format=Digest,
-        text={"verbosity": "high"},
+        text={"verbosity": "medium"},
         background=True,
         store=True,
         metadata={
@@ -120,7 +152,7 @@ def request_digest(
             "edition_kind": "advance" if advance else "current",
             "application": "tejas-daily-digest",
         },
-        prompt_cache_key="tejas-daily-digest-v3",
+        prompt_cache_key="tejas-daily-digest-v4",
     )
 
     deadline = time.monotonic() + 25 * 60
@@ -173,7 +205,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--max-tool-calls",
         type=int,
-        default=24,
+        default=18,
         choices=range(8, 41),
         metavar="8-40",
         help="maximum web searches allowed for one edition",
