@@ -339,10 +339,9 @@ function renderEditionMode(edition) {
 function renderPapers(papers = {}, dateString = state.currentDate) {
     const container = byId('papers-container');
     const normalized = normalizePapers(papers);
-    state.selectedPapers = readPaperSelections(dateString);
     const groups = [
-        { id: 'inside', kicker: 'One anchor + one adjacent', title: 'Inside your interests', note: 'Choose 1 of 2' },
-        { id: 'outside', kicker: 'Easy to enter', title: 'Approachable discoveries', note: 'Choose 1 of 2' }
+        { id: 'inside', kicker: 'One anchor + one adjacent', title: 'Inside your interests' },
+        { id: 'outside', kicker: 'Easy to enter', title: 'Approachable discoveries' }
     ];
     const markup = groups.map((group) => {
         const papersInGroup = normalized.filter((entry) => entry.config.group === group.id);
@@ -351,7 +350,6 @@ function renderPapers(papers = {}, dateString = state.currentDate) {
             <section class="paper-group" data-paper-group="${group.id}" aria-labelledby="${group.id}-papers-title">
                 <header class="paper-group__heading">
                     <div><span>${group.kicker}</span><h3 id="${group.id}-papers-title">${group.title}</h3></div>
-                    <small>${group.note}</small>
                 </header>
                 <div class="papers-grid">${papersInGroup.map((entry, index) => paperTemplate(entry.kind, entry.paper, index, entry.config)).join('')}</div>
             </section>`;
