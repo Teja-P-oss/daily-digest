@@ -1,0 +1,331 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-04",
+    "note": "Current Sunday edition; market prices use the latest completed sessions, 2 October in the United States and 1 October in India."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Technology and wildlife",
+        "headline": "Northeast Frontier Railway says layered alerts helped avert 255 elephant collisions",
+        "summary": "Northeast Frontier Railway said AI-assisted acoustic detection, speed restrictions, patrols and the honeybee-sound-based Plan Bee system enabled timely interventions for 255 elephants between January and September 2026 across four divisions.",
+        "why": "The programme is a practical example of sensing technology working only when paired with operating rules, trained staff and coordination with forest officials.",
+        "link": "https://indianexpress.com/article/india/ai-alerts-plan-bee-railways-saved-255-elephants-northeast-10906293/"
+      },
+      {
+        "category": "Conservation",
+        "headline": "Two captive-bred great Indian bustards released into Desert National Park",
+        "summary": "Scientists released two male great Indian bustards in Rajasthan, the first rewilding step for birds raised under Project GIB. About 150 remain in the wild, while 98 captive-bred birds are held at conservation centres.",
+        "why": "Reintroduction tests whether captive breeding can become a viable recovery tool for one of India's most endangered birds, alongside habitat protection and power-line risk reduction.",
+        "link": "https://indianexpress.com/article/india/great-indian-bustard-rewilding-rajasthan-release-10906033/"
+      },
+      {
+        "category": "Democracy",
+        "headline": "Protests demanding India's election chief resign spread in Delhi and Mumbai",
+        "summary": "Thousands of young demonstrators and opposition supporters protested over electoral-roll revisions and demanded Election Commission chief Gyanesh Kumar's resignation, while police detained demonstrators in Delhi for a third day.",
+        "why": "Trust in voter rolls and the perceived independence of election administration are foundational to the legitimacy of future contests.",
+        "link": "https://sa.marketscreener.com/news/protests-demanding-indian-election-chief-resigns-escalate-ce785ddbdc8cf022"
+      },
+      {
+        "category": "Forests",
+        "headline": "Madhya Pradesh orders large-scale felling to contain sal heartwood borer outbreak",
+        "summary": "Authorities and local communities are removing about 1.4 lakh infested sal trees in Dindori after a major heartwood-borer outbreak, using sanitation felling to limit the beetle's spread into healthy forest.",
+        "why": "The response exposes the difficult conservation trade-off between removing mature trees now and risking a wider, harder-to-control forest epidemic later.",
+        "link": "https://indianexpress.com/article/india/sal-beetle-madhya-pradesh-cutting-trees-save-forest-10905624/"
+      },
+      {
+        "category": "Water governance",
+        "headline": "Odisha and Chhattisgarh signal movement toward a negotiated Mahanadi settlement",
+        "summary": "After a meeting chaired by the Union home minister, Odisha's chief minister said a resolution framework would be released soon. The interstate dispute, also before a tribunal, concerns dry-season flows, barrages, irrigation and flood management.",
+        "why": "A durable settlement would affect drinking water, farming, hydropower and ecosystem flows while offering a possible model for resolving other interstate river disputes.",
+        "link": "https://indianexpress.com/article/india/why-odisha-vs-chhattisgarh-over-mahanadi-row-is-back-in-spotlight-10906106/"
+      }
+    ],
+    "world": [
+      {
+        "category": "Elections",
+        "headline": "Brazil votes in a presidential contest led by Lula and Flávio Bolsonaro",
+        "summary": "Nearly 159 million Brazilians were eligible to vote as incumbent Luiz Inácio Lula da Silva faced Senator Flávio Bolsonaro and ten other candidates. A runoff on 25 October is required if nobody clears 50 percent.",
+        "why": "The result will shape policy in Latin America's largest economy and its relationships with the United States, China and regional neighbours.",
+        "link": "https://apnews.com/article/57a4175077593f2f3517d80c3146b6bc"
+      },
+      {
+        "category": "European politics",
+        "headline": "Bosnia holds general election under persistent ethnic and institutional strains",
+        "summary": "About 3.4 million voters were choosing a three-member presidency, national lawmakers and institutions for Bosnia's two entities. Some polling places opened late after problems with newly introduced digital voting technology.",
+        "why": "The ballot tests whether Bosnia's complex postwar institutions can deliver accountable government and make progress toward European Union membership.",
+        "link": "https://apnews.com/article/bosnia-election-dodik-tensions-technology-8d8ce8f6a3c676ef8ba3422f68ea9d11"
+      },
+      {
+        "category": "War and diplomacy",
+        "headline": "German Chancellor Merz visits Kyiv as Russian aerial attacks intensify",
+        "summary": "Friedrich Merz arrived in Kyiv to meet President Volodymyr Zelenskyy and signal continued German support while Russia increased missile and jet-powered drone attacks on Ukrainian cities and infrastructure.",
+        "why": "Germany's backing is central to Ukraine's defence and energy resilience as the conflict places greater demands on European military capacity.",
+        "link": "https://apnews.com/article/89bb8d2a97cc09d01a316723d08d2fb3"
+      },
+      {
+        "category": "Security",
+        "headline": "North Korea says it tested a maneuverable intermediate-range missile",
+        "summary": "North Korean state media said a missile launched from the country's east flew about 1,000 kilometres to a sea target in a drill for a hypersonic strategic weapon system, amid renewed tensions over mine blasts in the demilitarized zone.",
+        "why": "A maneuverable intermediate-range system could complicate regional missile defence and adds pressure on security coordination among South Korea, Japan and the United States.",
+        "link": "https://apnews.com/article/0b5b69e919f9c9a2358f3cd3346649e7"
+      },
+      {
+        "category": "Public health",
+        "headline": "Congo Ebola response suffers setback after treatment centre is burned",
+        "summary": "An Ebola treatment centre in eastern Congo was burned as official figures passed 8,300 recorded cases and 4,018 deaths in the outbreak declared in May, further straining an already severe emergency response.",
+        "why": "Damage to care facilities increases infection risk, interrupts isolation and treatment, and shows how insecurity can turn a health emergency into a wider humanitarian crisis.",
+        "link": "https://apnews.com/article/4c79b59ec81a08675d2506c9e176d125"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "Neural Gaffer: Relighting Any Object via Diffusion",
+      "authors": "Haian Jin, Yuan Li, Fujun Luan, Yuanbo Xiangli, Sai Bi, Kai Zhang, Zexiang Xu, Jin Sun, and Noah Snavely",
+      "year": "2024",
+      "venue": "NeurIPS 2024",
+      "field": "Computational photography and image relighting",
+      "link": "https://arxiv.org/abs/2406.07520",
+      "scholar": "https://scholar.google.com/scholar?q=Neural+Gaffer+Relighting+Any+Object+via+Diffusion",
+      "summary": "Neural Gaffer learns to relight a single object photograph under a new environment map without explicitly estimating geometry, material maps or a bidirectional reflectance model. It uses a pretrained diffusion model as a learned prior for plausible light-material interactions.",
+      "problem": "Single-image relighting is underconstrained: the observed pixels mix illumination, surface shape, reflectance and visibility. Classical inverse-rendering pipelines try to separate those factors, but errors in normals or materials propagate into implausible highlights and shadows, while category-specific neural systems often do not generalize beyond portraits or controlled captures.",
+      "difficulty": "The paper assumes familiarity with latent diffusion, environment maps, CLIP conditioning and neural radiance fields. The key conceptual leap is that the model does not recover a physically explicit scene; it learns enough visual physics from synthetic examples to map an input appearance and target illumination directly to a relit image.",
+      "idea": "Condition a pretrained latent diffusion U-Net on both the source image and two encodings of target lighting: a rotated low-dynamic-range environment map for direction and a normalized high-dynamic-range map for intensity structure. This retains the broad object prior of diffusion while teaching controllable illumination changes.",
+      "method": "The authors render a large RelitObjaverse training set from diverse 3D objects, physically based materials and HDR environment maps. They fine-tune a latent diffusion model using source-image latents, lighting-map latents and a CLIP embedding of the input. For 3D use, multiple views of an existing NeRF are first relit in 2D; its appearance field is fitted to those predictions and then refined with diffusion guidance, avoiding a full inverse-rendering reconstruction.",
+      "results": "Across unseen synthetic objects and in-the-wild images, the method produced lighting direction, reflections and fine details more consistently than the compared relighting systems. In 3D comparisons it reduced baked-in highlights and artifacts seen in inverse-rendering baselines, and its two-stage refinement outperformed direct score-distillation variants qualitatively and in the reported quantitative tables.",
+      "care": "For camera and imaging work, this is a useful example of replacing a brittle sequence of explicit estimators with a learned conditional prior. It also clarifies the trade-off: strong perceptual realism and broad generalization come without guaranteed physical decomposition, which matters when photometric accuracy is more important than editing quality.",
+      "learn": [
+        "Why one observed RGB image cannot uniquely determine shape, material and illumination",
+        "How environment maps can provide directional and high-dynamic-range lighting control",
+        "How a 2D diffusion prior can guide a multi-view neural representation"
+      ],
+      "concepts": [
+        "single-image relighting",
+        "latent diffusion",
+        "environment map",
+        "inverse rendering",
+        "neural radiance field"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "MobileLLM: Optimizing Sub-billion Parameter Language Models for On-Device Use Cases",
+      "authors": "Zechun Liu, Changsheng Zhao, Forrest Iandola, Chen Lai, Yuandong Tian, Igor Fedorov, Yunyang Xiong, Ernie Chang, Yangyang Shi, Raghuraman Krishnamoorthi, Liangzhen Lai, and Vikas Chandra",
+      "year": "2024",
+      "venue": "ICML 2024",
+      "field": "Efficient on-device machine learning",
+      "link": "https://arxiv.org/abs/2402.14905",
+      "scholar": "https://scholar.google.com/scholar?q=MobileLLM+Optimizing+Sub-billion+Parameter+Language+Models+for+On-Device+Use+Cases",
+      "summary": "MobileLLM asks how to spend a strict sub-billion-parameter budget effectively for mobile inference. Its central finding is that deeper, thinner transformers plus embedding sharing, grouped-query attention and carefully chosen layer sharing outperform conventional small-model designs at the same scale.",
+      "problem": "Phones have ample flash but far less high-speed DRAM and cache available to one application. Autoregressive generation repeatedly moves model weights through that hierarchy, so merely shrinking a cloud-oriented architecture can waste both parameters and memory bandwidth while delivering weak task accuracy.",
+      "difficulty": "Readers should know the basic transformer data path, attention heads, key-value caches and the distinction between compute cost and data-movement cost. The experiments compare many architecture variants, so it helps to track which gains come from capacity allocation and which come from reusing weights.",
+      "idea": "At small scale, allocate parameters to more transformer blocks rather than wider hidden states, share input and output embeddings, and use grouped-query attention. Then immediately repeat selected blocks so their weights can remain near compute, adding effective depth without adding stored parameters and with only modest latency overhead.",
+      "method": "The authors train 125M- and 350M-parameter variants from scratch, systematically varying depth, width, feed-forward design, embedding sharing, attention-head configuration and three layer-sharing patterns. They evaluate zero-shot common-sense tasks and downstream chat and API-calling tasks. Their hardware argument maps immediate block repetition to a mobile hierarchy in which a roughly block-sized weight set can reside in limited SRAM while repeated execution avoids another DRAM transfer.",
+      "results": "The base MobileLLM designs improved average accuracy by 2.7 and 4.3 percentage points over prior state-of-the-art 125M and 350M models on the reported zero-shot suite. Immediate block-wise sharing added a further 0.7 and 0.8 points, and the 350M model reached an API-calling exact-match result comparable to the much larger LLaMA-v2 7B in the paper's setup.",
+      "care": "The work connects model architecture directly to the memory hierarchy, a familiar constraint in camera and SoC pipelines. It is a reminder that edge efficiency is not just quantization: layer shape, weight reuse and the ordering of operations can turn the same parameter budget into a better accuracy-latency design point.",
+      "learn": [
+        "Why depth can beat width for very small transformer models",
+        "How grouped-query attention reduces key-value storage and movement",
+        "Why immediate layer reuse can be better aligned with SRAM and DRAM constraints"
+      ],
+      "concepts": [
+        "deep-and-thin transformers",
+        "grouped-query attention",
+        "embedding sharing",
+        "block-wise weight sharing",
+        "memory bandwidth"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What is an exoplanet?",
+      "authors": "NASA Exoplanet Exploration Program",
+      "year": "Updated continuously",
+      "venue": "NASA Science",
+      "field": "Astronomy",
+      "link": "https://science.nasa.gov/exoplanets/what-is-an-exoplanet/",
+      "scholar": null,
+      "summary": "This visual introduction surveys planets beyond our solar system, from hot gas giants to small rocky worlds and free-floating rogues. It shows why planetary systems are far more varied than the familiar arrangement around our Sun.",
+      "problem": "Exoplanets are too faint and distant to photograph directly in most cases, so newcomers need a clear mental model for how astronomers can claim a planet exists and what sparse observations can reveal about its size, orbit and atmosphere.",
+      "difficulty": "No astronomy background is required. The only unfamiliar idea is that detection is usually indirect: observers infer an unseen planet from repeated changes in the light or motion of its host star rather than seeing a resolved disk.",
+      "idea": "A planet leaves measurable fingerprints on its star. It may periodically block a tiny fraction of starlight, tug the star back and forth, or alter a gravitational-lensing event; repeated signals let astronomers separate a likely planet from noise and stellar variability.",
+      "method": "NASA builds the explanation around concrete classes of worlds and the main observation strategies. Transit measurements watch for periodic dips in stellar brightness, radial-velocity measurements track small Doppler shifts in the star, direct imaging suppresses overwhelming starlight, and microlensing uses gravity's effect on background light. Together these methods reveal different slices of the planet population and carry different selection biases.",
+      "results": "The evidence shows that planets are common and astonishingly diverse: some are larger than Jupiter, some are rocky and Earth-sized, some orbit two stars, and some complete a year in only days. The memorable lesson is not that another Earth has already been found, but that our solar system is only one of many possible architectures.",
+      "care": "This is a friendly route into measurement under extreme signal-to-noise constraints. It also offers a useful analogy for engineering: when the object itself is inaccessible, a carefully modelled perturbation in a measurable signal can still support a strong inference.",
+      "learn": [
+        "What makes a planet an exoplanet",
+        "How transits and stellar wobble reveal unseen worlds",
+        "Why each detection method favours certain planet types"
+      ],
+      "concepts": [
+        "exoplanet",
+        "transit method",
+        "radial velocity",
+        "direct imaging",
+        "selection bias"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "The Rosetta Stone: everything you need to know",
+      "authors": "The British Museum",
+      "year": "2017",
+      "venue": "British Museum Blog",
+      "field": "Ancient history and writing systems",
+      "link": "https://www.britishmuseum.org/blog/everything-you-ever-wanted-know-about-rosetta-stone",
+      "scholar": null,
+      "summary": "The Rosetta Stone carries one decree in hieroglyphic, Demotic and Greek scripts. Because scholars could read Greek, the repeated message became a bridge for recovering how ancient Egyptian writing encoded both sounds and meanings.",
+      "problem": "Knowledge of hieroglyphs disappeared after antiquity. A script can look pictorial yet still encode language in several ways, so matching symbols to concepts alone could not reliably recover pronunciation, grammar or the meaning of thousands of inscriptions.",
+      "difficulty": "The article is approachable without prior history or linguistics. Remember only that a script is not the same as a language: the stone repeats an Egyptian decree through two Egyptian scripts and Ancient Greek, giving scholars multiple representations to compare.",
+      "idea": "Use known names as anchors. Thomas Young showed that signs in a royal cartouche could spell Ptolemy, and Jean-François Champollion combined such comparisons with knowledge of Coptic to recognise that hieroglyphs could represent sounds as well as ideas.",
+      "method": "The explainer follows the object's discovery and the comparative reasoning behind decipherment. Scholars copied and circulated the inscription, aligned passages across its three scripts, identified royal names whose sounds were already known, and tested proposed sound values against other names and older Egyptian texts. Coptic, descended from ancient Egyptian, supplied a living linguistic bridge that helped Champollion move beyond a small alphabet for foreign names.",
+      "results": "The breakthrough established hieroglyphic writing as a mixed system with phonetic and semantic signs, opening thousands of Egyptian texts to sustained reading. The stone itself is a priestly decree of 196 BCE honouring the young Ptolemy V, not a dictionary; its value came from redundancy and context.",
+      "care": "The story is a compact lesson in reverse engineering. Progress came from aligned observations, known reference strings, competing hypotheses and tests on fresh material—the same pattern used when inferring an undocumented format, protocol or encoding from examples.",
+      "learn": [
+        "Why three scripts made the stone unusually informative",
+        "How known royal names acted as decoding anchors",
+        "Why hieroglyphs combine sound signs with meaning cues"
+      ],
+      "concepts": [
+        "hieroglyphs",
+        "Demotic script",
+        "phonetic sign",
+        "cartouche",
+        "comparative decipherment"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "MSFT",
+        "price": "$517.53",
+        "change": 0.92,
+        "reason": "Latest completed session, Friday 2 October; watch Azure and AI infrastructure demand after a 0.92% daily rise.",
+        "thesis": "Microsoft couples enterprise distribution with a broad cloud and developer platform, giving it several ways to monetize AI workloads.",
+        "risk": "Heavy data-centre spending may pressure returns if AI revenue grows more slowly than capacity."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$251.52",
+        "change": 1.33,
+        "reason": "Latest completed session, Friday 2 October; the 1.33% gain keeps attention on AWS growth and retail margin durability.",
+        "thesis": "Scale across cloud, logistics, advertising and marketplace services creates multiple reinvestment engines and operating leverage.",
+        "risk": "Capital intensity, regulation and price competition in cloud or retail can compress margins."
+      },
+      {
+        "symbol": "JPM",
+        "price": "$332.38",
+        "change": -0.24,
+        "reason": "Latest completed session, Friday 2 October; the bank slipped 0.24% ahead of its confirmed 13 October results.",
+        "thesis": "Its diversified consumer, commercial, markets and asset-management franchises provide scale and resilience across rate cycles.",
+        "risk": "Credit losses, weaker deal activity or an adverse yield curve could reduce earnings momentum."
+      },
+      {
+        "symbol": "UNH",
+        "price": "$371.90",
+        "change": 1.84,
+        "reason": "Latest completed session, Friday 2 October; the 1.84% rise makes medical-cost trends and operational recovery worth tracking.",
+        "thesis": "UnitedHealth combines insurance scale with care delivery, pharmacy and analytics assets that can coordinate costs and services.",
+        "risk": "Medical-cost inflation, reimbursement changes and regulatory scrutiny can materially weaken margins."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "INFY",
+        "price": "₹1,035.00",
+        "change": 4.11,
+        "reason": "Latest completed Indian session, Thursday 1 October; markets were closed on 2 October, and Infosys rose 4.11%.",
+        "thesis": "A broad global delivery base and deep enterprise relationships position Infosys to capture cloud, automation and AI-modernisation spending.",
+        "risk": "Discretionary technology budgets, pricing pressure and currency movements can slow revenue and margins."
+      },
+      {
+        "symbol": "ICICIBANK",
+        "price": "₹1,310.60",
+        "change": -0.84,
+        "reason": "Latest completed Indian session, Thursday 1 October; markets were closed on 2 October, and the shares fell 0.84%.",
+        "thesis": "A strong retail franchise, digital distribution and disciplined underwriting support profitable balance-sheet growth.",
+        "risk": "A credit-cycle turn, deposit competition or net-interest-margin compression could weaken returns."
+      },
+      {
+        "symbol": "ITC",
+        "price": "₹255.90",
+        "change": -2.61,
+        "reason": "Latest completed Indian session, Thursday 1 October; markets were closed on 2 October, and ITC declined 2.61%.",
+        "thesis": "Cash generation from the core business can fund consumer brands, packaging and agriculture while supporting dividends.",
+        "risk": "Tobacco taxation, regulation and uneven profitability in newer consumer categories remain material constraints."
+      },
+      {
+        "symbol": "SBIN",
+        "price": "₹954.10",
+        "change": -0.56,
+        "reason": "Latest completed Indian session, Thursday 1 October; markets were closed on 2 October, and SBI slipped 0.56%.",
+        "thesis": "India's largest bank combines unmatched deposit reach with improving digital service and exposure to formal credit growth.",
+        "risk": "State-linked policy demands, credit costs and margin pressure can offset the advantages of scale."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "JPM",
+        "company": "JPMorgan Chase & Co.",
+        "report_date": "2026-10-13",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Track net interest income, consumer credit normalization and investment-banking fees for a read on households, rates and capital markets.",
+        "link": "https://www.jpmorganchase.com/ir/events"
+      },
+      {
+        "symbol": "JNJ",
+        "company": "Johnson & Johnson",
+        "report_date": "2026-10-13",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch Innovative Medicine growth, MedTech procedure demand and management's pipeline outlook across two large healthcare businesses.",
+        "link": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-to-Host-Investor-Conference-Call-on-Third-Quarter-Results/default.aspx"
+      },
+      {
+        "symbol": "BAC",
+        "company": "Bank of America Corporation",
+        "report_date": "2026-10-14",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Focus on net interest income, deposit pricing, card delinquencies and trading revenue for evidence on rate sensitivity and consumer health.",
+        "link": "https://investor.bankofamerica.com/"
+      },
+      {
+        "symbol": "NFLX",
+        "company": "Netflix, Inc.",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch revenue growth, operating margin and engagement commentary to judge advertising scale and the returns from content spending.",
+        "link": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-Third-Quarter-2026-Financial-Results/default.aspx"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "AI sensing prevented wildlife collisions only because alerts were tied to speed rules, patrols and human coordination.",
+      "Rewilding the great Indian bustard is an experiment in both captive breeding and habitat management, not a release-only solution.",
+      "Neural Gaffer trades explicit material and geometry recovery for a learned diffusion prior that generalizes across object categories.",
+      "MobileLLM shows that architecture and data movement can matter as much as raw parameter count at the edge.",
+      "Exoplanet science extracts credible objects from tiny, repeated perturbations in stellar light or motion.",
+      "The Rosetta Stone was powerful because the same message appeared in multiple scripts, providing anchors for testable decoding hypotheses.",
+      "The upcoming bank earnings cluster offers a near-term cross-check on rates, deposits, credit quality and capital-market activity."
+    ],
+    "explore": "Compare Neural Gaffer's learned visual prior with exoplanet detection and Rosetta Stone decipherment: all three infer hidden structure from incomplete observations, but they demand different kinds of validation. A useful next investigation is to map which camera-pipeline tasks can tolerate a perceptually plausible answer and which require identifiable, physically calibrated parameters. Then connect that boundary to MobileLLM's hardware-aware design question: if a model must remain auditable or physically faithful, what architecture and memory budget should be reserved for explicit intermediate representations rather than a single end-to-end output?"
+  }
+}
