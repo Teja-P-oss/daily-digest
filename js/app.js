@@ -330,8 +330,6 @@ function renderEditionMode(edition) {
         : 'A compact watchlist. Open a row only when you want the thesis and risk.';
     byId('brief-nav-link').textContent = state.isAdvance ? 'Knowledge brief' : 'News brief';
     byId('markets-nav-link').textContent = state.isAdvance ? 'Company study' : 'Markets';
-    byId('news-count-label').textContent = state.isAdvance ? 'knowledge regions' : 'news regions';
-    byId('market-count-label').textContent = state.isAdvance ? 'company studies' : 'market ideas';
     byId('us-market-subtitle').textContent = state.isAdvance ? 'Learn the business' : 'Companies to research';
     byId('india-market-subtitle').textContent = state.isAdvance ? 'Learn the business' : 'Companies to research';
 }
