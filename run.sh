@@ -9,6 +9,8 @@ DAYS=""
 REPLACE=false
 CHECK_ONLY=false
 MAX_ADVANCE_DAYS=7
+CODEX_MODEL="gpt-5.6-terra"
+CODEX_REASONING_EFFORT="medium"
 
 usage() {
     echo "Usage: bash run.sh [NUMBER_OF_DAYS] [--date YYYY-MM-DD] [--force] [--check]"
@@ -168,6 +170,7 @@ if ! "$CODEX_BIN" login status; then
     echo "Codex is not signed in. Run '$CODEX_BIN login' and choose ChatGPT." >&2
     exit 1
 fi
+echo "Generation model: $CODEX_MODEL ($CODEX_REASONING_EFFORT reasoning)"
 
 if [[ "$CHECK_ONLY" == "true" ]]; then
     echo "Codex desktop generation is ready."
@@ -198,7 +201,12 @@ for index in "${!TARGET_DATES[@]}"; do
     prompt="You are running the Teja's Daily Digest desktop publishing task. Read AGENTS.md and DIGEST_BRIEF.md before acting. Generate the edition for $date_value. $mode_instruction Use live web search and verify every factual claim and source URL. Inspect recent archive titles and fields: avoid exact repeats, rotate overused subtopics, use the required one-anchor-plus-one-adjacent inside mix, and keep outside learning picks beginner-friendly. Include the verified upcoming US earnings calendar. Prepare the complete digest JSON in a temporary file outside data/. Do not change application code. Do not call run.sh recursively. Publish only through bash publish.sh with the correct --date and --input arguments. $replace_instruction Complete the task only after validation, commit, and push succeed; otherwise preserve the existing archive and explain the failure."
 
     echo "Launching Codex for $date_value through your ChatGPT subscription..."
-    "$CODEX_BIN" --search exec --approve-for-me -C "$SCRIPT_DIR" "$prompt"
+    "$CODEX_BIN" --search exec \
+        --model "$CODEX_MODEL" \
+        --config "model_reasoning_effort=\"$CODEX_REASONING_EFFORT\"" \
+        --approve-for-me \
+        -C "$SCRIPT_DIR" \
+        "$prompt"
     generated_count=$((generated_count + 1))
 done
 

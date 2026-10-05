@@ -375,6 +375,8 @@ class OpenAIRequestTests(unittest.TestCase):
         )
 
         self.assertIsInstance(result, digest_app.Digest)
+        self.assertEqual(captured["model"], "gpt-5.6-terra")
+        self.assertEqual(captured["reasoning"]["effort"], "medium")
         self.assertNotIn("verbosity", captured)
         self.assertEqual(captured["text"]["verbosity"], "medium")
         self.assertEqual(captured["text"]["format"]["type"], "json_schema")

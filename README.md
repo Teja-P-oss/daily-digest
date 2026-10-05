@@ -12,9 +12,10 @@ The one-command path is:
 bash run.sh
 ```
 
-`run.sh` launches Codex CLI with live web search and reuses the Mac's saved ChatGPT login. It asks
-Codex to research the edition, prepare valid JSON, run the safe publisher, commit the result, and push
-it to GitHub. This path uses the ChatGPT subscription rather than `OPENAI_API_KEY` billing.
+`run.sh` launches Codex CLI with live web search and reuses the Mac's saved ChatGPT login. It pins
+generation to `gpt-5.6-terra` with medium reasoning, then asks Codex to research the edition, prepare
+valid JSON, run the safe publisher, commit the result, and push it to GitHub. This path uses the
+ChatGPT subscription rather than `OPENAI_API_KEY` billing.
 
 Useful commands:
 
@@ -70,12 +71,12 @@ uses separately billed OpenAI API credit.
 2. Create a repository secret named `OPENAI_API_KEY`.
 3. Open **Actions → Generate Daily Digest (API) → Run workflow**.
 4. Leave the date blank for today's India-time edition, or enter a historical date.
-5. For vacation mode, leave the date blank and enter the number of future days in **days**.
+5. For vacation mode, leave the date blank and enter the number of future days in **number_of_days**.
 6. Enable **Replace the edition** only when intentionally refreshing existing dates.
 
-The Action is intentionally on-demand and is not scheduled, preventing unexpected API spending.
-Concurrent runs are serialized. A repeated run for an existing date exits before calling the API
-unless replacement is explicitly enabled.
+The Action is intentionally on-demand and is not scheduled, preventing unexpected API spending. It
+uses `gpt-5.6-terra` with medium reasoning. Concurrent runs are serialized. A repeated run for an
+existing date exits before calling the API unless replacement is explicitly enabled.
 
 ## Publish a prepared JSON file directly
 
