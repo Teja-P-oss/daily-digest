@@ -1,0 +1,316 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-06",
+    "note": "Current edition prepared for 6 October 2026; market figures use the latest completed 5 October sessions where the target-day session was not yet complete."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Democracy",
+        "headline": "Opposition protests press India’s election chief over voter-roll changes",
+        "summary": "Thousands of youth protesters and opposition supporters rallied in Delhi and Mumbai, calling for Chief Election Commissioner Gyanesh Kumar to resign over changes to voter rolls. The Election Commission and government deny wrongdoing.",
+        "why": "The dispute puts electoral administration, software governance and public trust at the centre of a national political confrontation.",
+        "link": "https://theprint.in/world/protests-intensify-in-india-over-demands-for-election-chief-to-quit/3061713/"
+      },
+      {
+        "category": "Public administration",
+        "headline": "Special Campaign 6 begins across central government offices",
+        "summary": "The government’s October campaign focuses on cleanliness, reducing pending cases, better records management and scientific disposal of e-waste. Departments are reporting targets and progress through a common digital platform.",
+        "why": "It is a practical test of whether administrative modernization can turn routine back-office work into measurable service improvements.",
+        "link": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2316474&lang=2&reg=48"
+      },
+      {
+        "category": "Economy",
+        "headline": "Government flags climate, geopolitical and monetary risks to India’s outlook",
+        "summary": "India’s monthly economic report warned that compounding climate, geopolitical and monetary pressures could create upside inflation risks, even as the broader economy continues to be watched for resilience.",
+        "why": "Inflation shocks affect household purchasing power and the policy room available for investment and growth.",
+        "link": "https://finance.yahoo.com/economy/articles/india-flags-risks-economic-outlook-050033331.html"
+      },
+      {
+        "category": "Energy",
+        "headline": "Rapid solar build-out exposes India’s grid-integration challenge",
+        "summary": "An AP analysis reported that India curtailed nearly 11 terawatt-hours of solar generation over 15 months, illustrating how transmission, storage and market design can lag generation additions.",
+        "why": "Avoided curtailment is as important as new capacity when clean power must reliably serve fast-growing demand.",
+        "link": "https://apnews.com/article/354a7dfbe725c5dc874aea4f03de53d1"
+      }
+    ],
+    "world": [
+      {
+        "category": "Science",
+        "headline": "Nobel medicine prize recognizes research that made optogenetics possible",
+        "summary": "The Nobel medicine prize went to scientists whose work on light-gated ion channels enabled optogenetics, a technique that uses light to control selected cells and study brain circuits.",
+        "why": "It is a striking example of basic biology becoming a precision measurement and intervention tool for neuroscience.",
+        "link": "https://www.washingtonpost.com/world/wires//"
+      },
+      {
+        "category": "Diplomacy",
+        "headline": "Russia hosts regional consultations with a Taliban delegation on Afghanistan",
+        "summary": "Representatives from Afghanistan’s Taliban government joined officials from China, India, Iran, Pakistan and other countries in Moscow for consultations while the Taliban remains internationally isolated.",
+        "why": "The meeting shows regional powers pursuing practical coordination even as recognition and women’s-rights questions remain unresolved.",
+        "link": "https://apnews.com/article/9e8457e61919802d50a5d2571e8afa76"
+      },
+      {
+        "category": "Conflict",
+        "headline": "Saudi-backed Yemeni forces report gains around Bab el-Mandeb",
+        "summary": "Yemeni officials said Saudi-led coalition forces recaptured areas around the strategic Bab el-Mandeb Strait from Houthi forces amid a renewed phase of fighting.",
+        "why": "Control near the Red Sea chokepoint has consequences for shipping, regional security and an already severe humanitarian crisis.",
+        "link": "https://apnews.com/article/e87beb84a0d146e4f0546b50508f7e32"
+      },
+      {
+        "category": "Elections",
+        "headline": "Brazil heads to a presidential runoff after no first-round majority",
+        "summary": "Brazil’s electoral court said President Luiz Inácio Lula da Silva and Senator Flávio Bolsonaro would proceed to an October 25 runoff after neither secured a majority in the first round.",
+        "why": "The result sets up a consequential contest in Latin America’s largest economy and a major global commodities producer.",
+        "link": "https://www.wvnews.com/newsfeed/us/ap-news-summary-at-2-03-a-m-edt/article_926d1b9e-80ba-528f-9107-9b9046010af9.html"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering",
+      "authors": "Bernhard Kerbl, Georgios Kopanas, Thomas Leimkühler, and George Drettakis",
+      "year": "2023",
+      "venue": "ACM Transactions on Graphics (SIGGRAPH)",
+      "field": "Computer vision and novel-view synthesis",
+      "link": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+      "scholar": "https://scholar.google.com/scholar?q=3D+Gaussian+Splatting+for+Real-Time+Radiance+Field+Rendering",
+      "summary": "This work represents a scene as many anisotropic 3D Gaussians and renders them by differentiable splatting. It made high-quality novel-view synthesis practical at real-time frame rates, rather than treating neural rendering as an offline-only exercise.",
+      "problem": "Neural radiance fields can reconstruct convincing views, but their neural evaluation and volume rendering were too slow for interactive use. A useful alternative needs to preserve fine geometry, view-dependent appearance and differentiability without paying for dense sampling along every camera ray.",
+      "difficulty": "The prerequisites are camera geometry, alpha compositing and optimization. The central idea is approachable: replace a continuous network queried many times per ray with explicit, movable ellipsoids whose projected footprints can be sorted and blended quickly.",
+      "idea": "Optimize a cloud of oriented, colored and partially transparent Gaussians directly from calibrated photographs. Each Gaussian carries position, covariance, opacity and view-dependent color; projecting and alpha-compositing the cloud turns novel-view rendering into a GPU-friendly rasterization problem.",
+      "method": "The authors initialize points from structure-from-motion, then jointly optimize Gaussian attributes against the training images. They use a visibility-aware, tile-based differentiable rasterizer and adaptive density control: split Gaussians where image-space gradients indicate insufficient detail, and prune negligible ones. Spherical-harmonic coefficients capture view-dependent color while covariance matrices define each projected ellipse.",
+      "results": "The paper reports state-of-the-art visual quality and substantially faster training and rendering than the NeRF baselines tested, including real-time rendering at 1080p for its scenes. Its more lasting result is architectural: explicit primitives plus fast rasterization can carry much of the expressive burden previously assigned to a per-ray neural field.",
+      "care": "For imaging engineers, this is a useful bridge between calibrated multi-view capture and conventional graphics hardware. It is not a physically complete scene model: weak coverage, reflections, moving objects and poorly calibrated images can become floaters or incorrect opacity, so production capture discipline still matters.",
+      "learn": [
+        "Why anisotropic Gaussians are a compact scene primitive",
+        "How differentiable rasterization differs from volume rendering",
+        "How adaptive splitting and pruning allocate representation capacity"
+      ],
+      "concepts": [
+        "radiance field",
+        "Gaussian splatting",
+        "camera calibration",
+        "alpha compositing",
+        "spherical harmonics"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+      "authors": "Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, and Christopher Ré",
+      "year": "2024",
+      "venue": "arXiv",
+      "field": "GPU architecture and efficient machine learning",
+      "link": "https://arxiv.org/abs/2407.08608",
+      "scholar": "https://scholar.google.com/scholar?q=FlashAttention-3+Fast+and+Accurate+Attention+with+Asynchrony+and+Low-precision",
+      "summary": "FlashAttention-3 redesigns attention for Hopper-generation GPUs by overlapping data movement and computation, exploiting tensor cores and using numerically careful low-precision arithmetic. It is a compact case study in mapping an algorithm to actual hardware bottlenecks.",
+      "problem": "Attention has a deceptively simple formula but can be limited by memory traffic, synchronization and underused tensor-core hardware. Naively reducing precision may improve throughput while quietly damaging the softmax calculation that makes attention stable.",
+      "difficulty": "Readers should know matrix multiplication and the broad transformer attention pattern. The harder part is performance reasoning: the fastest kernel is not the one with the fewest arithmetic operations, but the one that keeps data moving and specialized compute units busy together.",
+      "idea": "Treat the attention kernel as a pipeline. Overlap asynchronous tensor-memory transfers with matrix multiplications, overlap softmax work with later multiplications, and compensate for low-precision error in the most sensitive parts of the computation.",
+      "method": "The paper uses warp specialization so different warps coordinate producer and consumer tasks, Tensor Memory Accelerator transfers, and WGMMA instructions on Hopper GPUs. It reorganizes work to reduce synchronization, overlaps softmax with matrix multiplication, and applies incoherent processing plus higher-precision accumulation where FP8 error would otherwise be harmful. The comparison isolates the impact of each change.",
+      "results": "On H100 hardware, the authors report attention throughput up to 1.5–2.0 times FlashAttention-2 while maintaining numerical accuracy close to the higher-precision reference. The exact gain depends on sequence length and head dimension, but the key evidence is that asynchronous scheduling and numerical design must be considered together.",
+      "care": "The implementation is deliberately architecture-specific, so it is not a universal recipe for every GPU or edge accelerator. Still, the reasoning transfers well: profile bandwidth, synchronization and precision sensitivity separately before declaring an ML kernel compute-bound.",
+      "learn": [
+        "Why attention performance is often constrained by data movement",
+        "How producer-consumer overlap hides latency",
+        "Why low precision needs an error budget rather than blind casting"
+      ],
+      "concepts": [
+        "transformer attention",
+        "GPU kernel",
+        "asynchrony",
+        "tensor core",
+        "FP8 arithmetic"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What Is Climate Change?",
+      "authors": "NASA Science Editorial Team",
+      "year": "Updated continuously",
+      "venue": "NASA Science",
+      "field": "Climate science",
+      "link": "https://science.nasa.gov/climate-change/what-is-climate-change/",
+      "scholar": null,
+      "summary": "NASA’s introduction separates weather from climate and explains why a long-term warming trend can coexist with cold days. It grounds the subject in measurements of temperature, ice, sea level and atmospheric greenhouse gases.",
+      "problem": "Climate coverage often mixes a daily experience of weather with a planetary trend measured over decades, making it hard for a newcomer to judge what is evidence and what is a single event.",
+      "difficulty": "No science background is required. The only key distinction is timescale: weather is what happens locally now; climate describes patterns and averages accumulated over a long period.",
+      "idea": "Earth’s energy balance changes when greenhouse gases retain more outgoing heat. The practical question is not whether every day is warmer, but whether many independent measurements show a persistent shift in the underlying system.",
+      "method": "NASA explains the topic through direct observations and long records: thermometers and satellites track temperature, instruments measure atmospheric carbon dioxide, and repeated observations record ice loss and sea-level change. Agreement among independent indicators is the useful evidence lesson.",
+      "results": "The explainer’s main lesson is that warming is a system-level pattern supported by multiple observations, not a claim resting on one hot season. It also makes clear why effects can vary by region even when the global trend is unambiguous.",
+      "care": "This is a strong first read because it teaches how to think about a complex public question: check the measurement, the time window and whether different lines of evidence agree. It is more useful than memorizing a single headline statistic.",
+      "learn": [
+        "The difference between weather and climate",
+        "How greenhouse gases alter Earth’s energy balance",
+        "Why independent indicators strengthen a conclusion"
+      ],
+      "concepts": [
+        "greenhouse effect",
+        "climate trend",
+        "carbon dioxide",
+        "sea level",
+        "evidence"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–20 min",
+      "title": "Introduction to Human Evolution",
+      "authors": "Smithsonian National Museum of Natural History",
+      "year": "Updated continuously",
+      "venue": "Smithsonian Human Origins Program",
+      "field": "Human evolution and anthropology",
+      "link": "https://humanorigins.si.edu/education/introduction-human-evolution",
+      "scholar": null,
+      "summary": "This visual Smithsonian introduction explains human evolution as a branching family history rather than a ladder leading inevitably to modern people. Fossils, artifacts and genetic evidence reveal several hominin species living at different times.",
+      "problem": "Popular illustrations often imply that evolution is a straight march from ape to human, obscuring coexistence, extinction and the fact that humans share ancestors with other living apes rather than descending from them.",
+      "difficulty": "It needs no biology coursework. Think of evolution as a family tree: branches can split, persist together or end; a living cousin is not an ancestor simply because it resembles an earlier form.",
+      "idea": "Modern humans are one surviving branch of a much larger hominin family. Bodies, tools, environments and DNA each preserve different clues, and the most reliable story is the one that reconciles those incomplete records.",
+      "method": "The Smithsonian presents dated fossils and archaeological sites alongside comparative anatomy and genetic evidence. Researchers compare physical traits, establish ages from geological context and use DNA where preservation allows it; each kind of evidence has gaps, so conclusions are revised as new finds appear.",
+      "results": "The memorable result is a richer picture of human history: multiple hominin species overlapped, migration and adaptation mattered, and evolution had no predetermined destination. That framing makes new fossil discoveries easier to interpret without treating every find as a replacement for the whole story.",
+      "care": "This is beginner-friendly but intellectually honest about uncertainty. Its broader lesson is that good historical inference combines partial records instead of forcing a simple linear narrative, a habit useful far beyond anthropology.",
+      "learn": [
+        "Why evolution is branching rather than linear",
+        "How fossils and DNA answer different questions",
+        "Why coexistence changes the story of human origins"
+      ],
+      "concepts": [
+        "hominin",
+        "common ancestor",
+        "fossil record",
+        "natural selection",
+        "genetics"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$333.59",
+        "change": -0.03,
+        "reason": "Latest observed October 5 US session; watch the services mix and the pace of device upgrades.",
+        "thesis": "Apple’s installed base and services ecosystem make monetization and margins as important as unit volumes.",
+        "risk": "Premium-device demand, China exposure and regulatory pressure can weaken growth or margins."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$238.76",
+        "change": 2.06,
+        "reason": "Latest observed October 5 US session; watch data-centre demand and supply execution.",
+        "thesis": "NVIDIA remains a useful proxy for accelerator demand and the software ecosystem around CUDA.",
+        "risk": "Customer concentration, competition and capex digestion can produce sharp expectation resets."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$526.60",
+        "change": 1.75,
+        "reason": "October 5 completed session; watch Azure growth against AI infrastructure spending.",
+        "thesis": "Enterprise distribution and cloud scale can turn AI services into recurring revenue if adoption persists.",
+        "risk": "Large capex commitments may outpace near-term monetization and cloud competition remains intense."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$224.50",
+        "change": 0.85,
+        "reason": "Latest observed October 5 session; watch AWS operating leverage and retail fulfillment costs.",
+        "thesis": "AWS profitability and advertising provide earnings diversification beyond low-margin retail.",
+        "risk": "Cloud price competition, capital spending and consumer demand volatility remain material."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,186.40",
+        "change": 1.6,
+        "reason": "October 5 NSE close; watch Jio monetization, retail execution and energy margins.",
+        "thesis": "Its telecom, retail and energy mix offers several routes to cash-flow growth.",
+        "risk": "Commodity cycles, large capital needs and execution across businesses can pressure returns."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,104.90",
+        "change": 1.44,
+        "reason": "October 5 NSE close; watch client discretionary spending and deal conversion.",
+        "thesis": "Scale, client relationships and delivery discipline remain central to its IT-services resilience.",
+        "risk": "A slow global technology budget, pricing pressure or automation-led headcount changes can hurt growth."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹704.80",
+        "change": -2.27,
+        "reason": "October 5 NSE close; watch deposit growth, funding costs and credit quality.",
+        "thesis": "A large deposit franchise can support durable lending economics when growth and funding stay balanced.",
+        "risk": "Margin compression, loan losses or integration and execution issues can impair returns."
+      },
+      {
+        "symbol": "INFY",
+        "price": "₹1,020.50",
+        "change": -2.99,
+        "reason": "October 5 NSE close; watch guidance, large deals and client technology budgets.",
+        "thesis": "Its global delivery model offers a clear window on enterprise software and outsourcing demand.",
+        "risk": "Currency moves, delayed discretionary projects and pricing competition can weigh on earnings."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "JPM",
+        "company": "JPMorgan Chase",
+        "report_date": "2026-10-13",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Track net interest income, investment-banking fees and credit costs for a read-through on US financial conditions.",
+        "link": "https://www.jpmorganchase.com/ir/events"
+      },
+      {
+        "symbol": "JNJ",
+        "company": "Johnson & Johnson",
+        "report_date": "2026-10-13",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch pharmaceutical growth, medtech procedure demand and any update on litigation-related cash needs.",
+        "link": "https://www.earningstoday.com/earnings-calendar/monthly/2026-10"
+      },
+      {
+        "symbol": "BAC",
+        "company": "Bank of America",
+        "report_date": "2026-10-14",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Focus on deposit pricing, net interest income and trading and advisory activity alongside credit trends.",
+        "link": "https://www.earningstoday.com/earnings-calendar/monthly/2026-10"
+      },
+      {
+        "symbol": "NFLX",
+        "company": "Netflix",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch advertising revenue, engagement and margin guidance as evidence for the evolving streaming model.",
+        "link": "https://www.earningstoday.com/earnings-calendar/monthly/2026-10"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Gaussian splatting shifts novel-view rendering toward an explicit, rasterizable scene representation.",
+      "Fast ML kernels require co-design of memory movement, synchronization and numerical precision.",
+      "Solar capacity only delivers its full value when grids and storage can absorb its output.",
+      "Climate conclusions are strongest when multiple independent measurements agree over long periods.",
+      "Human evolution is a branching history with coexistence, not a linear ladder.",
+      "Earnings calendars are planning aids, not forecasts or recommendations."
+    ],
+    "explore": "Gaussian splatting and FlashAttention-3 are both reminders that representation choice determines the hardware path. One replaces repeated neural ray queries with explicit splattable primitives; the other restructures a familiar matrix computation so transfers and tensor cores overlap. A productive next investigation would be to profile an image-processing or vision kernel you know well, separating bandwidth, synchronization and arithmetic costs, then ask whether a different representation could move work onto a more efficient fixed-function or vectorized path."
+  }
+}
