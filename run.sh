@@ -4,7 +4,6 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
-APP_CODEX="/Applications/ChatGPT.app/Contents/Resources/codex"
 TARGET_DATE=""
 DAYS=""
 REPLACE=false
@@ -138,11 +137,25 @@ PY
 fi
 
 CODEX_BIN=""
-if command -v codex &> /dev/null && codex --version &> /dev/null; then
-    CODEX_BIN="$(command -v codex)"
-elif [[ -x "$APP_CODEX" ]] && "$APP_CODEX" --version &> /dev/null; then
-    CODEX_BIN="$APP_CODEX"
+CODEX_CANDIDATES=(
+    "$HOME/.local/bin/codex"
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex"
+    "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    "$HOME/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex"
+    "$HOME/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    "/Applications/ChatGPT.app/Contents/Resources/codex"
+)
+
+if command -v codex &> /dev/null; then
+    CODEX_CANDIDATES=("$(command -v codex)" "${CODEX_CANDIDATES[@]}")
 fi
+
+for candidate in "${CODEX_CANDIDATES[@]}"; do
+    if [[ -x "$candidate" ]] && "$candidate" --version &> /dev/null; then
+        CODEX_BIN="$candidate"
+        break
+    fi
+done
 
 if [[ -z "$CODEX_BIN" ]]; then
     echo "Codex CLI is unavailable. Install it, then run 'codex login' with ChatGPT." >&2
