@@ -1,0 +1,315 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-07",
+    "note": "Current edition prepared for 7 October 2026; US prices use the completed 6 October New York session and Indian prices use the 7 October close."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Monetary policy",
+        "headline": "RBI raises the repo rate by 25 basis points to 5.5%",
+        "summary": "The Reserve Bank of India raised its benchmark repo rate by 25 basis points, its first increase in nearly four years, and changed its policy stance to calibrated tightening. Reuters reported that the decision followed mounting inflation pressure alongside strong growth.",
+        "why": "A higher policy rate can feed into borrowing costs, deposit competition and business investment, making the inflation-growth trade-off newly important for households and companies.",
+        "link": "https://www.investing.com/news/economy-news/india-raises-policy-rate-by-25-bps-in-first-hike-in-nearly-four-years-4935589"
+      },
+      {
+        "category": "Democracy",
+        "headline": "Opposition demonstrations focus on voter-roll revision",
+        "summary": "Opposition parties and civil-society groups protested in New Delhi over the Election Commission's voter-roll revision, alleging possible disenfranchisement and bias. The commission and government deny wrongdoing, according to AP.",
+        "why": "The dispute puts the mechanics of electoral administration, including how rolls are revised and audited, at the centre of a broad public-trust question.",
+        "link": "https://apnews.com/article/6d3dd66ebaa9bb1e2c6b688ffc576842"
+      },
+      {
+        "category": "Industry",
+        "headline": "Cabinet approves a ₹10,000-crore commitment for an SME Growth Fund",
+        "summary": "The Cabinet approved a ₹10,000-crore government commitment toward an SME Growth Fund structured as an alternative investment fund. The government says it is intended to fill a growth-equity gap for viable small and medium enterprises, particularly manufacturers.",
+        "why": "Patient equity, rather than only credit, can determine whether mid-sized firms invest in technology, capacity and export capability without becoming over-levered.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2319532"
+      },
+      {
+        "category": "Infrastructure",
+        "headline": "Cabinet clears an Integrated Transport and Logistics Authority",
+        "summary": "The Cabinet approved an Integrated Transport and Logistics Authority to coordinate planning, research, appraisal and monitoring across transport modes. The proposal includes a national transport data repository drawing on sources such as FASTag, GSTN e-way bills and vehicle data.",
+        "why": "Interoperable data and cross-modal planning are prerequisites for reducing logistics friction; the practical test will be whether the new institution improves project selection and execution.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2319529"
+      },
+      {
+        "category": "Aerospace",
+        "headline": "HAL Koraput delivers its 2,000th aero-engine",
+        "summary": "HAL's Koraput division delivered its 2,000th aero-engine, while the government announced investments to lift AL-31FP capacity and add a second Shakti-engine line. The release also described plans for indigenous high-thrust-engine capability and testing infrastructure.",
+        "why": "Aero-engine capability combines materials, thermal management, precision manufacturing and test capacity; scaling it is strategically harder than assembling an airframe.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2319668"
+      }
+    ],
+    "world": [
+      {
+        "category": "Conflict",
+        "headline": "Russian strikes kill civilians across Ukraine",
+        "summary": "Russian missiles and drones struck Kyiv and other Ukrainian regions overnight, killing at least 21 civilians and wounding around 60, according to Ukrainian officials cited by AP. The report described attacks across a dozen regions.",
+        "why": "The barrage underscores the continuing civilian and air-defence burden of a war whose front lines have changed far less than its long-range strike campaign.",
+        "link": "https://apnews.com/article/russia-ukraine-war-kyiv-strike-650e298d7bc3881351533683ff4040ed"
+      },
+      {
+        "category": "Global economy",
+        "headline": "IMF chief calls for debt action and AI guardrails",
+        "summary": "IMF Managing Director Kristalina Georgieva urged governments to address debt and inequality and to manage the risks accompanying rapid AI investment, ahead of the IMF-World Bank meetings. She linked policy choices to pressures from conflict, borrowing and energy costs.",
+        "why": "AI infrastructure may be a growth engine, but its capital and power demands make fiscal resilience and competition policy part of the same conversation.",
+        "link": "https://apnews.com/article/war-ai-georgieva-imf-oil-debt-2da9d879e2eb70e1e16d14fd1a307a99"
+      },
+      {
+        "category": "Middle East",
+        "headline": "Houthis claim attacks on Saudi sites as Yemen fighting escalates",
+        "summary": "Yemen's Houthi rebels said they used missiles and drones against Saudi military facilities and airports; Saudi coalition forces said they intercepted a ballistic missile north of Riyadh. AP reported flight disruption at Riyadh's airport and continuing fighting in Yemen.",
+        "why": "Escalation around Saudi infrastructure and Red Sea approaches can quickly become a shipping, energy and humanitarian issue beyond Yemen itself.",
+        "link": "https://apnews.com/article/israel-palestinians-saudi-yemen-iran-us-october-7-2026-4c2cf27f819b6e36940f88a7af49ea78"
+      },
+      {
+        "category": "Elections",
+        "headline": "Israel's October 7 legacy shapes an approaching election",
+        "summary": "AP reports that the October 27 Israeli election is being fought in the shadow of the 2023 Hamas attack and the subsequent wars. Both Prime Minister Benjamin Netanyahu and his opponents have made security failures and wartime leadership central campaign themes.",
+        "why": "The election illustrates how a national-security shock can reorder political coalitions and policy debate long after the initial event.",
+        "link": "https://apnews.com/article/israel-oct-7-election-netanyahu-hamas-gaza-55d94c750b399e7d89f550ebc8610436"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "Towards Backward-Compatible Continual Learning of Image Compression",
+      "authors": "Zhihao Duan, Ming Lu, Justin Yang, Jiangpeng He, Zhan Ma, and Fengqing Zhu",
+      "year": "2024",
+      "venue": "CVPR",
+      "field": "Learned image compression",
+      "link": "https://openaccess.thecvf.com/content/CVPR2024/html/Duan_Towards_Backward-Compatible_Continual_Learning_of_Image_Compression_CVPR_2024_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Towards+Backward-Compatible+Continual+Learning+of+Image+Compression",
+      "summary": "A neural image codec normally changes its bitstream semantics when it is fine-tuned. This paper treats that as a deployment problem: improve a compressor for new images or rates while preserving the ability of the old decoder to reconstruct streams made by the updated encoder.",
+      "problem": "Neural codecs can improve rapidly, but installed decoders do not update in lockstep. Fine-tuning an encoder and decoder together may improve rate-distortion performance while silently breaking older decoder clients. That makes continual learning much less useful in a real camera-to-cloud, app, or archival pipeline.",
+      "difficulty": "The paper assumes familiarity with latent-variable compression and rate-distortion curves. The key systems idea is simple: a codec format is an interface, so training must preserve an observable compatibility contract, not only minimize reconstruction loss.",
+      "idea": "Use knowledge replay to constrain an updated model against its predecessor, and design the learned codec so it can extend capability without invalidating earlier decoding behavior. Compatibility becomes an explicit objective rather than an accident of similar weights.",
+      "method": "The authors study data-incremental and rate-incremental settings. They show that ordinary end-to-end fine-tuning fails backward compatibility, then replay outputs or knowledge from the pretrained compressor while optimizing the new model. Their architecture separates components so new capacity can be learned while the path needed by the old decoder remains stable. Experiments compare compatible training with fine-tuning baselines on rate-distortion performance and decodability.",
+      "results": "The reported experiments show that the proposed approach can improve on new data distributions and target rates without sacrificing backward decodability, whereas standard fine-tuning does not preserve that property. The central result is less a single score than a useful engineering reframing: codec evolution needs regression tests at the bitstream interface.",
+      "care": "This is especially relevant to imaging systems with long-lived decoders or stored media. Backward compatibility can limit the freedom of a new model, and the exact contract must specify more than a successful decode: color handling, metadata, error resilience and latency remain product-level concerns.",
+      "learn": [
+        "Why learned-codec updates can break deployed decoders",
+        "How replay can preserve a model-interface contract",
+        "How data- and rate-incremental learning differ in a codec"
+      ],
+      "concepts": [
+        "rate-distortion trade-off",
+        "entropy model",
+        "backward compatibility",
+        "knowledge replay",
+        "bitstream interface"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "On-Device Training Under 256KB Memory",
+      "authors": "Ji Lin, Ligeng Zhu, Wei-Ming Chen, Wei-Chen Wang, Chuang Gan, and Song Han",
+      "year": "2022",
+      "venue": "NeurIPS",
+      "field": "TinyML systems and edge AI",
+      "link": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/90c56c77c6df45fc8e556a096b7a2b2e-Abstract-Conference.html",
+      "scholar": "https://scholar.google.com/scholar?q=On-Device+Training+Under+256KB+Memory",
+      "summary": "MCUNetV3 asks whether a microcontroller can do more than inference: can it adapt a vision model locally with only 256KB of SRAM and 1MB of flash? Its answer combines a restricted update strategy, quantization-aware gradient scaling and a compiler-like training runtime.",
+      "problem": "Training stores activations, gradients and optimizer state, so it usually needs orders of magnitude more memory than inference. Sending new sensor data to the cloud can add privacy, bandwidth and latency costs, yet conventional backpropagation does not fit the memory budget of tiny embedded hardware.",
+      "difficulty": "Readers need a basic picture of backpropagation and quantization. The practical insight is that not every parameter must be updated: choosing a small useful subset can remove much of the memory burden while still adapting the model.",
+      "idea": "Co-design the learning algorithm and runtime around a strict memory ceiling. Update only selected layers and sub-tensors, stabilize low-precision learning with gradient scaling, and generate a pruned backward graph ahead of time instead of carrying a general-purpose autograd engine.",
+      "method": "The work introduces Quantization-Aware Scaling for 8-bit training and Sparse Update to avoid gradients for less useful parts of the network. Its Tiny Training Engine prunes the backward computation graph and shifts runtime automatic-differentiation work to compile time. The evaluation fine-tunes visual-recognition models on microcontroller-class constraints and compares memory use and accuracy with larger training frameworks and constrained baselines.",
+      "results": "The authors report on-device transfer learning under 256KB SRAM and 1MB flash, using less than one-thousandth of the training memory of PyTorch and TensorFlow while matching accuracy on their visual-wake-words application. It is a concrete demonstration that adaptation, not just inference, can be an edge workload when the update is deliberately narrow.",
+      "care": "The contribution is not a claim that arbitrary models can train on any MCU. It relies on pretrained networks, a specific task and carefully limited updates. For an embedded product, energy, write endurance, update-time deadlines and data quality must be evaluated alongside SRAM.",
+      "learn": [
+        "Why training memory is dominated by more than model weights",
+        "How sparse updates turn adaptation into a budgeted systems problem",
+        "Why compile-time graph specialization is useful on a microcontroller"
+      ],
+      "concepts": [
+        "backpropagation",
+        "quantization-aware training",
+        "SRAM budget",
+        "transfer learning",
+        "TinyML"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "Antimicrobial resistance",
+      "authors": "World Health Organization",
+      "year": "2026",
+      "venue": "WHO fact sheet",
+      "field": "Public health",
+      "link": "https://www.who.int/news-room/fact-sheets/detail/antimicrobial-resistance?locale=en",
+      "scholar": null,
+      "summary": "WHO's short fact sheet explains antimicrobial resistance as a change in microbes that makes medicines less effective. It connects the issue to everyday systems: appropriate medicine use, clean water and sanitation, infection prevention, vaccines, diagnostics and surveillance.",
+      "problem": "It is easy to reduce antimicrobial resistance to a slogan about finishing antibiotics. That misses the wider ecology: resistant organisms can emerge and spread through health care, communities, animals, food systems and the environment.",
+      "difficulty": "No biology background is required. Think of antibiotics as a selection pressure: when microbes differ, treatment removes susceptible ones more effectively, leaving resistant survivors with more opportunity to spread.",
+      "idea": "Resistance is not a property of a person becoming used to a drug; it is an evolutionary and public-health problem in microbes. Prevention reduces the number of infections that need treatment, while surveillance reveals where treatments are losing effectiveness.",
+      "method": "WHO synthesizes surveillance and public-health evidence. The explainer distinguishes antimicrobials from antibiotics, identifies drivers such as inappropriate use and weak infection control, and relates laboratory-confirmed resistance data to practical measures including vaccination, diagnostics, water and sanitation.",
+      "results": "The memorable lesson is that treatment stewardship alone cannot solve AMR. The fact sheet reports that resistance rose in more than 40% of monitored pathogen-antibiotic combinations between 2018 and 2023, reinforcing why prevention and measurement must accompany new drug development.",
+      "care": "Use this as a foundation rather than personal medical advice. The most helpful mental model is systems-level: protecting effective medicines depends on how infections are prevented, identified and treated across many settings.",
+      "learn": [
+        "Why people do not become antibiotic-resistant but microbes can",
+        "How prevention reduces antibiotic demand",
+        "Why surveillance is essential for treatment choices"
+      ],
+      "concepts": [
+        "antimicrobial",
+        "antibiotic resistance",
+        "selection pressure",
+        "surveillance",
+        "infection prevention"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "What is ocean acidification?",
+      "authors": "NOAA Ocean Acidification Program",
+      "year": "Updated 2026",
+      "venue": "NOAA",
+      "field": "Ocean chemistry",
+      "link": "https://oceanacidification.noaa.gov/what-is-ocean-acidification/",
+      "scholar": null,
+      "summary": "NOAA explains how seawater absorbs atmospheric carbon dioxide, changing its chemistry and lowering pH. The clearest consequence is not that the ocean becomes acid like vinegar, but that fewer carbonate ions are available for shells and skeletons.",
+      "problem": "Ocean acidification is often blended into the broader idea of global warming, which hides a separate chemical pathway and makes terms such as pH and alkalinity feel more forbidding than they are.",
+      "difficulty": "Only one chain matters: carbon dioxide dissolves, forms carbonic acid, releases hydrogen ions and leaves less carbonate available. You can understand the ecological consequence without doing any chemistry calculation.",
+      "idea": "The ocean is a carbon sponge with a chemical cost. Extra dissolved carbon dioxide alters the balance between hydrogen, bicarbonate and carbonate ions; organisms that build calcium-carbonate shells have less of a key building material.",
+      "method": "NOAA describes measurements of atmospheric and ocean carbon dioxide, pH and total alkalinity. Measuring at least two ocean-chemistry parameters lets scientists infer the others and track trends across regions, while lab and field studies examine effects on organisms and ecosystems.",
+      "results": "NOAA reports that the global ocean has become about 26% more acidic on average over roughly 250 years. The practical result to remember is mechanistic: a change in dissolved-gas chemistry can propagate into shell formation, food webs and coastal livelihoods.",
+      "care": "Acidification, warming and local coastal pollution can interact but are not interchangeable. This explainer is valuable because it separates the mechanism, the measurements and the biological stakes before asking what policy should do.",
+      "learn": [
+        "Why absorbed carbon dioxide changes seawater chemistry",
+        "Why carbonate availability matters to shell-building organisms",
+        "How pH and alkalinity help monitor a changing ocean"
+      ],
+      "concepts": [
+        "pH",
+        "carbon dioxide",
+        "carbonic acid",
+        "carbonate ion",
+        "alkalinity"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$333.63",
+        "change": 0.22,
+        "reason": "6 October New York close; watch the product mix and services growth as the company heads toward its fiscal fourth-quarter report.",
+        "thesis": "The installed base and recurring services can make monetization and gross margin as important as handset unit growth.",
+        "risk": "Premium-device demand, China exposure and regulatory constraints on platform economics can pressure results."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$239.24",
+        "change": 0.14,
+        "reason": "6 October New York close; watch data-centre demand, supply execution and customers' ability to monetize AI capacity.",
+        "thesis": "NVIDIA remains a useful read-through on accelerated-compute demand and the software ecosystem around CUDA.",
+        "risk": "Customer concentration, competition, export constraints and a capex digestion cycle could reset expectations sharply."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$529.30",
+        "change": 0.78,
+        "reason": "6 October New York close; watch Azure growth against the cost and utilization of AI infrastructure.",
+        "thesis": "Enterprise distribution and cloud scale can convert AI services into recurring revenue if adoption holds.",
+        "risk": "Large capital commitments may outpace near-term monetization, while cloud competition remains intense."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$256.29",
+        "change": 1.95,
+        "reason": "6 October New York close; watch AWS growth, operating leverage and the capital intensity of fulfilment and data centres.",
+        "thesis": "AWS profitability and advertising diversify a retail business with structurally thinner margins.",
+        "risk": "Cloud price competition, consumer-demand volatility and high infrastructure spending can weigh on cash generation."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,208.70",
+        "change": -0.76,
+        "reason": "7 October NSE close; watch Jio monetization, retail execution and the sensitivity of energy earnings to commodity conditions.",
+        "thesis": "Telecom, retail and energy offer several distinct cash-flow engines within one group.",
+        "risk": "Commodity cycles, large capital needs and execution across complex businesses can depress returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹702.75",
+        "change": -1.22,
+        "reason": "7 October NSE close; watch deposit growth, funding costs, margins and credit quality after the RBI's rate decision.",
+        "thesis": "A large deposit franchise can support durable lending economics when growth and funding remain balanced.",
+        "risk": "Margin compression, loan losses or integration and execution issues can impair profitability."
+      },
+      {
+        "symbol": "INFY",
+        "price": "₹992.10",
+        "change": -2.06,
+        "reason": "7 October BSE close; watch guidance, large-deal conversion and client technology budgets ahead of earnings.",
+        "thesis": "Its global delivery model offers a clear window on enterprise technology spending and outsourcing demand.",
+        "risk": "A weak discretionary-spending cycle, pricing pressure or automation-led delivery changes can hurt growth."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "NFLX",
+        "company": "Netflix",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch revenue and operating-margin progression, along with the business outlook; the company will post results at about 1:01 p.m. Pacific Time and hold its management interview afterward.",
+        "link": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-Third-Quarter-2026-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "GM",
+        "company": "General Motors",
+        "report_date": "2026-10-20",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch vehicle pricing, North American margins, tariffs and the company’s full-year outlook; GM scheduled its release for about 6:30 a.m. Eastern Time.",
+        "link": "https://investor.gm.com/news-releases/news-release-details/gm-announces-third-quarter-2026-earnings-conference-call-details"
+      },
+      {
+        "symbol": "TSLA",
+        "company": "Tesla",
+        "report_date": "2026-10-21",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Deliveries and energy-storage deployments are already available; watch automotive pricing, gross margin, cash flow and the Q&A for the complete financial picture.",
+        "link": "https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments?trk=public_post_comment-text"
+      },
+      {
+        "symbol": "KO",
+        "company": "The Coca-Cola Company",
+        "report_date": "2026-10-27",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch volume versus price/mix, particularly whether brand investment and affordability can sustain demand across regions; the release is scheduled before the NYSE opens.",
+        "link": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1173/the-coca-cola-company-announces-timing-of-third-quarter-2026-earnings-release"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "A learned codec is a deployed interface: improving its rate-distortion curve is not enough if old decoders cannot read the new stream.",
+      "The memory cost of adaptation comes from activations and gradients as well as weights; limiting updates can make local training feasible.",
+      "The RBI's move to 5.5% and calibrated tightening makes funding costs and deposit competition more consequential across India’s economy.",
+      "Transport infrastructure benefits from common data and cross-modal planning, but institutional design must translate that data into better project choices.",
+      "Antimicrobial resistance is an ecosystem problem, so prevention, sanitation, diagnostics and surveillance matter alongside careful prescribing.",
+      "Ocean acidification follows a distinct chemical pathway from warming: absorbed CO2 reduces carbonate availability for many shell-building organisms."
+    ],
+    "explore": "The compression paper and MCUNetV3 make a useful pair: both treat an ML model as a constrained deployed system rather than an isolated benchmark. One preserves an external compatibility contract across model updates; the other preserves a strict SRAM contract while allowing local adaptation. A productive next investigation is to sketch a camera-edge pipeline with both constraints: identify what bitstream or API behavior must never change, then budget memory for the smallest safe personalization update. Add telemetry for rate-distortion regressions, decoder compatibility, update time and energy, because a gain in one metric can quietly violate the contract that matters to users."
+  }
+}
