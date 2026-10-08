@@ -1,0 +1,296 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-09",
+    "note": "Current edition prepared for 9 October 2026; prices use the completed 8 October sessions in the United States and India."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Public health",
+        "headline": "Health ministry launches JOSH youth teams for TB Mukt Bharat",
+        "summary": "The health ministry launched Joint Squad for Health teams at Bharat Mandapam to involve young people in TB prevention, early diagnosis, treatment adherence and stigma reduction. PIB said 67,933 panchayats across 697 districts were recognised as TB Mukt in 2026.",
+        "why": "The programme makes community participation, rather than clinical capacity alone, a visible part of India’s TB-elimination strategy.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2320653&lang=2&reg=48"
+      },
+      {
+        "category": "Defence technology",
+        "headline": "Indian Air Force marks its 94th anniversary at Hindan",
+        "summary": "The Indian Air Force held its 94th Air Force Day parade at Air Force Station Hindan on 8 October, with the event highlighting operational capability, technological advancement and indigenous capability development.",
+        "why": "The anniversary is a useful checkpoint for the service’s technology priorities and its continuing Make in India emphasis.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2320862&lang=1&reg=3"
+      },
+      {
+        "category": "Space education",
+        "headline": "ISRO and IIG hold space-science outreach in Port Blair",
+        "summary": "ISRO and the Indian Institute of Geomagnetism ran a two-day outreach programme in Port Blair on 6–7 October, attended by more than 200 people, including about 180 science, technology and engineering students.",
+        "why": "It extends space-science exposure beyond mainland hubs and links regional colleges to national research institutions.",
+        "link": "https://www.isro.gov.in/ISRO_IIG_Conducted_Space_Science_Outreach.html"
+      },
+      {
+        "category": "Climate infrastructure",
+        "headline": "ISRO details an advanced radar research facility for atmosphere studies",
+        "summary": "ISTRAC is establishing the Advanced Radar Research Facility as a multidisciplinary platform for ionospheric, atmospheric, weather and space-weather research. ISRO says the applications include flood warnings, thunderstorm nowcasting and aviation safety.",
+        "why": "Better observations can turn radar research into more timely, location-specific public warnings and agricultural decisions.",
+        "link": "https://www.isro.gov.in/ISTRAC_Advanced_Radar_Research_Facility.html"
+      }
+    ],
+    "world": [
+      {
+        "category": "Maternal health",
+        "headline": "WHO launches a global roadmap on hypertension in pregnancy",
+        "summary": "WHO announced a new global roadmap on 8 October to improve prevention, early detection and management of hypertensive disorders in pregnancy, including pre-eclampsia and eclampsia.",
+        "why": "A shared implementation roadmap can focus health systems on a major, preventable source of maternal and newborn harm.",
+        "link": "https://www.who.int/news-room/releases/1?v=2"
+      },
+      {
+        "category": "Child health policy",
+        "headline": "WHO issues its first global guidelines on child and adolescent obesity",
+        "summary": "WHO listed new global guidelines for child and adolescent obesity among its 7 October releases, putting prevention and clinical care for young people on the international health-policy agenda.",
+        "why": "Guidance aimed at childhood changes the focus from individual blame to environments, care pathways and long-term risk reduction.",
+        "link": "https://www.who.int/news-room/releases/1?v=2"
+      },
+      {
+        "category": "Infectious disease",
+        "headline": "WHO Africa stresses safe, dignified burials in the Ebola response",
+        "summary": "WHO’s Africa office said safe and dignified burials are a critical part of the Ebola response in Ituri Province, Democratic Republic of the Congo, because direct contact during burial can spread disease.",
+        "why": "The item illustrates how outbreak control depends on practical measures that also respect community and family needs.",
+        "link": "https://afro.who.int/about-us/programmes-clusters/news?page=0"
+      },
+      {
+        "category": "Energy geopolitics",
+        "headline": "United States backs the eastern Mediterranean undersea power-cable project",
+        "summary": "Reuters reported that the United States supports an EU-backed undersea cable intended to link the European mainland, Cyprus and later Israel, while maritime disputes have slowed progress.",
+        "why": "Electricity interconnectors are now both energy-security infrastructure and tests of regional diplomacy.",
+        "link": "https://www.devdiscourse.com/article/international/3989121-reuters-world-news-summary"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "SAM 2: Segment Anything in Images and Videos",
+      "authors": "Nikhila Ravi et al.",
+      "year": "2024",
+      "venue": "ICLR 2025",
+      "field": "Video segmentation",
+      "link": "https://arxiv.org/abs/2408.00714",
+      "scholar": "https://scholar.google.com/scholar?q=SAM+2+Segment+Anything+in+Images+and+Videos",
+      "summary": "SAM 2 makes promptable segmentation work across both still images and video by carrying a compact memory of earlier frames. It is a practical reference for turning a click, box or mask into temporally consistent object masks.",
+      "problem": "Image segmentation can start from a user prompt, but video adds occlusion, motion, appearance change and the cost of revisiting every frame. The aim is to propagate a user’s intent through a clip without a separate model or repeated manual corrections for each frame.",
+      "difficulty": "The central ideas are approachable, but the paper connects a transformer image encoder, a memory mechanism and a data-engine loop. Read the architecture and evaluation sections with one question in mind: what information is stored, and when is it retrieved?",
+      "idea": "Treat an image as a one-frame video and use one model for both cases. A streaming memory lets the model condition the current frame on selected earlier frames, so tracking and segmentation become one promptable task instead of a chain of fragile modules.",
+      "method": "The authors built a data engine in which model-assisted annotation and human correction produced the SA-V video dataset. The model encodes the current frame, reads prior memory, predicts masks, and stores useful mask and visual information for later frames. They evaluate interactive video object segmentation, image segmentation and speed against previous systems, including the original SAM.",
+      "results": "The paper reports stronger video segmentation with three times fewer user interactions than prior work. For image segmentation it reports higher accuracy and six-times faster processing than SAM, while the released SA-V dataset contains 35.5 million masks across 50.9 thousand videos.",
+      "care": "The benchmarks show capability, not a guarantee of reliable masks in every long, crowded or safety-critical video. Streaming memory can still be stressed by reappearance after long occlusion, domain shift and ambiguous prompts; deployment needs targeted failure tests and an interaction fallback.",
+      "learn": [
+        "Temporal memory can replace repeated frame-by-frame prompting.",
+        "Data-engine design can be as consequential as model architecture.",
+        "A unified image-and-video abstraction simplifies product pipelines."
+      ],
+      "concepts": [
+        "promptable segmentation",
+        "streaming memory",
+        "video object segmentation",
+        "data engine"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "advanced",
+      "reading_time": "25–35 min",
+      "title": "Mirage: A Multi-Level Superoptimizer for Tensor Programs",
+      "authors": "Mengdi Wu et al.",
+      "year": "2024",
+      "venue": "arXiv",
+      "field": "ML compiler optimization",
+      "link": "https://arxiv.org/abs/2405.05751",
+      "scholar": "https://scholar.google.com/scholar?q=Mirage+A+Multi-Level+Superoptimizer+for+Tensor+Programs",
+      "summary": "Mirage searches for faster tensor-program implementations across algorithm, kernel and thread-block choices together. Its key claim is that compiler optimization should not assume the programmer already chose the best mathematical decomposition.",
+      "problem": "Most DNN compilers tune the schedule of a fixed computation graph. Equivalent tensor algebra can yield a different graph and different custom kernels, so a schedule-only optimizer may miss a faster implementation before it even starts tuning tiles, layouts or threads.",
+      "difficulty": "This is a compiler paper: it assumes comfort with tensor graphs, GPU hierarchy and program equivalence. The useful reading path is the muGraph representation first, followed by the abstraction-based pruning argument and then the case studies.",
+      "idea": "Use muGraphs as one representation spanning kernel, thread-block and thread levels. Search transformations at all three levels, prune candidates through abstraction, then verify that a discovered program is equivalent to the requested computation.",
+      "method": "Mirage enumerates and composes algebraic transformations, scheduling transformations and new-kernel generation over muGraphs. An abstraction-based pruning rule reduces the combinatorial search while retaining an optimality guarantee under its abstraction. A probabilistic equivalence procedure checks candidate programs before performance measurement on representative DNN workloads.",
+      "results": "Across evaluated widely used DNNs, the authors report 1.1–2.9 times speedup over existing systems. The result is most interesting as evidence that combined algorithm-and-schedule search can uncover opportunities unavailable to a compiler that receives only a fixed operator graph.",
+      "care": "Superoptimization can spend substantial compile-time and its payoff depends on the hardware, workload shapes and quality of the cost model. Probabilistic equivalence checking also deserves scrutiny when moving from research kernels to a production compiler with strict correctness requirements.",
+      "learn": [
+        "The computation graph itself is an optimization choice.",
+        "A common IR can expose cross-level transformations.",
+        "Pruning is essential when search spans algebra and hardware schedules."
+      ],
+      "concepts": [
+        "tensor IR",
+        "superoptimization",
+        "GPU hierarchy",
+        "program equivalence"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "Black Holes",
+      "authors": "NASA Science",
+      "year": "2026",
+      "venue": "NASA Science",
+      "field": "Astronomy",
+      "link": "https://science.nasa.gov/universe/black-holes/",
+      "scholar": null,
+      "summary": "NASA’s primer explains black holes as regions where gravity is so strong that, inside the event horizon, even light cannot escape. It introduces how astronomers infer unseen objects from their effects on nearby matter and light.",
+      "problem": "Black holes cannot generally be photographed as ordinary objects, which makes the basic question deceptively simple: how can scientists know a dark region is there, estimate its mass and distinguish it from other compact objects?",
+      "difficulty": "No physics background is needed. The only new vocabulary worth pausing over is event horizon: it is the boundary beyond which information cannot travel outward to a distant observer.",
+      "idea": "Invisible things can be measured through their influence. Stars orbiting an unseen mass, hot gas glowing as it falls inward and bent light all provide independent clues to a black hole’s presence.",
+      "method": "The explainer synthesizes observations from telescopes across wavelengths and from measurements of motion, radiation and gravitational effects. Instead of one experiment, the evidence is a converging set of physical signatures predicted by general relativity and observed around compact objects.",
+      "results": "The durable lesson is that black holes are not cosmic vacuum cleaners; distance and angular momentum still govern orbits. The event horizon marks a one-way boundary, while the observable behaviour of surrounding gas and stars lets astronomers study systems that emit little or no light themselves.",
+      "care": "The page is an introduction, so it deliberately leaves out mathematical derivations and active debates about accretion physics and quantum gravity. Treat illustrations as conceptual aids, not literal scale drawings of a black hole or its environment.",
+      "learn": [
+        "Absence of direct light does not mean absence of evidence.",
+        "The event horizon is a boundary, not a solid surface.",
+        "Orbits reveal mass even when the central object is dark."
+      ],
+      "concepts": [
+        "event horizon",
+        "gravity",
+        "accretion disk",
+        "orbit"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "15–20 min",
+      "title": "Introduction to Human Evolution",
+      "authors": "Smithsonian National Museum of Natural History",
+      "year": "2026",
+      "venue": "Human Origins Program",
+      "field": "Human evolution",
+      "link": "https://humanorigins.si.edu/education/introduction-human-evolution",
+      "scholar": null,
+      "summary": "The Smithsonian introduction frames human evolution as a branching story, not a march toward a preordained endpoint. Fossils, archaeological objects and DNA together reveal how populations changed, moved and sometimes overlapped.",
+      "problem": "People often picture evolution as a ladder from ape to human. The real challenge is to reconstruct a changing family tree from incomplete remains while separating shared ancestry from superficial similarity.",
+      "difficulty": "The page is beginner-friendly. Think of a species name as a working label for a population in time, not as a fixed rung in a hierarchy or a claim that one living group is more evolved than another.",
+      "idea": "Evolution resembles a branching, pruned bush. Different hominin groups could coexist, adapt to different places and contribute unevenly to later populations, so new evidence can revise the arrangement without overturning the process.",
+      "method": "The resource explains how researchers combine fossils and their dates, stone tools and other archaeological context, comparative anatomy, and genetic evidence. Each evidence type constrains a different part of the story, and agreement across them increases confidence.",
+      "results": "The central conclusion is that modern humans are one surviving branch of a diverse hominin history. Bipedal walking, larger brains, tools and migration did not appear as one neat package, and traits evolved at different times in different populations.",
+      "care": "Fossil records are necessarily incomplete and classifications can change as new finds and genetic methods arrive. Avoid treating reconstructed faces or a single skull as a complete portrait of a species’ behaviour, culture or ancestry.",
+      "learn": [
+        "Evolution is branching rather than goal-directed.",
+        "Different evidence types answer different historical questions.",
+        "Traits can evolve on different timelines."
+      ],
+      "concepts": [
+        "hominin",
+        "fossil record",
+        "common ancestry",
+        "genetics"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "META",
+        "price": "$719.25",
+        "change": -0.29,
+        "reason": "8 October close; ad demand and AI infrastructure spending remain the central operating debate.",
+        "thesis": "Meta combines a very large advertising engine with distribution for AI features across its consumer products.",
+        "risk": "High capital spending, regulation and any weakening in ad pricing can compress returns."
+      },
+      {
+        "symbol": "AMD",
+        "price": "$620.88",
+        "change": -3.87,
+        "reason": "8 October close; the company is a direct read-through on data-centre accelerators and heterogeneous compute.",
+        "thesis": "Server CPUs, GPUs and embedded products give AMD several routes to AI and enterprise demand.",
+        "risk": "Execution, intense competition and volatile semiconductor demand can make expectations fragile."
+      },
+      {
+        "symbol": "TSM",
+        "price": "$455.42",
+        "change": -3.55,
+        "reason": "8 October ADR close; foundry utilisation and advanced-node demand are the key indicators.",
+        "thesis": "TSMC is a critical manufacturing partner for leading-edge logic and AI accelerators.",
+        "risk": "Cyclicality, customer concentration and geopolitical exposure are material risks."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,178.00",
+        "change": -2.46,
+        "reason": "8 October NSE close; the group spans energy, retail and digital services.",
+        "thesis": "Its scale makes it a useful lens on India’s consumer, connectivity and energy transitions.",
+        "risk": "Commodity cycles, large capital needs and execution across diverse businesses can weigh on results."
+      },
+      {
+        "symbol": "ICICIBANK",
+        "price": "₹1,357.10",
+        "change": -0.03,
+        "reason": "8 October NSE close; credit growth, deposit costs and asset quality are the key watchpoints.",
+        "thesis": "A large private-sector bank offers broad exposure to household and business credit activity.",
+        "risk": "Funding competition, credit losses and rate changes can pressure margins and profitability."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹692.25",
+        "change": -1.49,
+        "reason": "8 October NSE close; deposit mobilisation and post-merger balance-sheet execution remain important.",
+        "thesis": "Its deposit franchise and distribution make it a core indicator of private-bank operating leverage.",
+        "risk": "Deposit costs, integration demands and a slower credit cycle could restrain earnings."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "NFLX",
+        "company": "Netflix",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch revenue growth, advertising progress and the business outlook alongside engagement; management scheduled its results at 1:01 p.m. Pacific Time.",
+        "link": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-Third-Quarter-2026-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "GM",
+        "company": "General Motors",
+        "report_date": "2026-10-20",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch North American pricing, electric-vehicle economics and the outlook; GM lists a 8:30 a.m. EDT earnings call that day.",
+        "link": "https://investor.gm.com/events/event-details/general-motors-company-q2-2026-earnings-conference-call"
+      },
+      {
+        "symbol": "TSLA",
+        "company": "Tesla",
+        "report_date": "2026-10-21",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch vehicle gross margin, average selling prices, energy-storage economics and outlook; Tesla has already reported deliveries but not full financial results.",
+        "link": "https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments?trk=public_post_comment-text"
+      },
+      {
+        "symbol": "KO",
+        "company": "The Coca-Cola Company",
+        "report_date": "2026-10-27",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch unit-case volume, price/mix and foreign-exchange effects across the global beverage system.",
+        "link": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1173/the-coca-cola-company-announces-timing-of-third-quarter-2026-earnings-release"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "TB elimination needs early care and social participation, not treatment capacity alone.",
+      "A video model can gain temporal consistency by retrieving selected information from earlier frames.",
+      "Compiler search becomes more powerful when it can change both tensor algebra and the hardware schedule.",
+      "Observing effects on light and motion lets science study objects that are not directly visible.",
+      "Human evolution is a branching population history, not a ladder of progress.",
+      "Earnings dates are planning markers, not forecasts of the reported result."
+    ],
+    "explore": "SAM 2 and Mirage approach a common systems question from different directions: where should a system preserve flexibility? SAM 2 preserves selected past information so a later video frame can be interpreted in context; Mirage preserves alternative mathematical forms long enough for the compiler to search them. A useful next investigation is to profile a small video-segmentation pipeline end to end, then ask which work belongs in reusable temporal state, which in a fused tensor kernel, and how memory bandwidth changes the answer on an edge accelerator."
+  }
+}
