@@ -1,0 +1,305 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-12",
+    "note": "Current edition; US and Indian watchlist figures use the latest completed 9 October sessions."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Telecom policy",
+        "headline": "TRAI releases the April–June 2026 telecom-services performance report",
+        "summary": "The regulator released its quarterly indicators report covering telecom, cable television, DTH and radio for April through June 2026.",
+        "why": "A common, quarterly measurement base helps distinguish growth in connections from service-quality and industry-structure questions.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2322388&lang=1&reg=3"
+      },
+      {
+        "category": "Health research",
+        "headline": "ICMR high-altitude medicine centre foundation stone laid at Keylong",
+        "summary": "The health ministry said the new Keylong centre will focus on high-altitude and climate-sensitive public-health research, with collaboration involving the Armed Forces Medical Services.",
+        "why": "Evidence from Himalayan populations and deployments can improve prevention, clinical care and logistics for hard-to-reach regions.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2322248&lang=1&reg=3"
+      },
+      {
+        "category": "Climate science",
+        "headline": "APARC General Assembly opens at IITM Pune",
+        "summary": "The Atmospheric Processes and their Role in Climate General Assembly began at the Indian Institute of Tropical Meteorology in Pune.",
+        "why": "Atmospheric-process research underpins better monsoon, air-quality and extreme-weather understanding rather than treating forecasts as a black box.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2322372&lang=1&reg=3"
+      },
+      {
+        "category": "Maritime cooperation",
+        "headline": "INS Tarkash is scheduled to represent India at IBSAMAR IX",
+        "summary": "The defence ministry announced that INS Tarkash will take part in the India-Brazil-South Africa maritime exercise, with Brazil represented by BNS Barroso.",
+        "why": "Exercises build operational familiarity among navies in the Indian and South Atlantic ocean spaces.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2322377&lang=1&reg=3"
+      }
+    ],
+    "world": [
+      {
+        "category": "Disaster response",
+        "headline": "Nepal deploys rescue and relief operations after Budhi Gandaki flash flooding",
+        "summary": "Nepalese rescuers reached flood-hit villages, evacuated residents and tourists, and delivered supplies after a landslide blocked the river and the resulting flood damaged bridges and homes.",
+        "why": "The event shows how a landslide dam can turn a local slope failure into a rapid downstream infrastructure and access crisis.",
+        "link": "https://apnews.com/article/329acf335388c1e6dd108f45f24dae71"
+      },
+      {
+        "category": "Middle East",
+        "headline": "Riyadh airport disruption follows Houthi strikes",
+        "summary": "Reuters reported that Saudi authorities extended the suspension of operations at Riyadh's international airport after deadly weekend attacks.",
+        "why": "Civil aviation disruption is an immediate indicator of how regional conflict can affect people, logistics and insurance beyond the battlefield.",
+        "link": "https://www.thestar.com.my/news/world/"
+      },
+      {
+        "category": "Climate diplomacy",
+        "headline": "EU document outlines a push for a COP31 package to accelerate emissions cuts",
+        "summary": "Reuters reported that an internal EU document described a proposed COP31 package intended to accelerate greenhouse-gas reductions.",
+        "why": "The important question is not the announcement alone but whether a package aligns country commitments, finance and implementation mechanisms.",
+        "link": "https://www.thestar.com.my/news/world/"
+      },
+      {
+        "category": "Global economy",
+        "headline": "IMF–World Bank meetings open amid energy and debt concerns",
+        "summary": "Reuters' world-news summary described the Bangkok meetings as taking place against an energy shock, higher rates and concerns about already-slow global growth.",
+        "why": "Energy prices, debt servicing and financial conditions connect geopolitical shocks to household inflation and public budgets.",
+        "link": "https://www.devdiscourse.com/article/international/3990558-reuters-world-news-summary"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–30 min",
+      "title": "DiffIR: Efficient Diffusion Model for Image Restoration",
+      "authors": "Bin Xia, Yulun Zhang, Shiyin Wang, Yitong Wang, Xinglong Wu, Yapeng Tian, Wenming Yang, Luc Van Gool",
+      "year": "2023",
+      "venue": "IEEE/CVF International Conference on Computer Vision (ICCV)",
+      "field": "Image restoration and efficient diffusion",
+      "link": "https://openaccess.thecvf.com/content/ICCV2023/html/Xia_DiffIR_Efficient_Diffusion_Model_for_Image_Restoration_ICCV_2023_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=DiffIR+Efficient+Diffusion+Model+for+Image+Restoration",
+      "summary": "DiffIR makes diffusion restoration cheaper by predicting a compact restoration prior instead of iteratively denoising an entire image or feature map.",
+      "problem": "Image restoration needs fidelity to the observed image, yet conventional diffusion sampling spends many iterations modelling a full output and can invent inconsistent detail.",
+      "difficulty": "You need working knowledge of diffusion sampling, image-restoration metrics and transformer feature processing; the useful idea is separating a small prior from the main reconstruction path.",
+      "idea": "Learn a compact image-restoration prior from high-quality targets, then infer that prior from the degraded input in only a few diffusion steps and use it to condition a dynamic transformer.",
+      "method": "Training first teaches a compact-prior extractor from ground-truth images. A second stage trains a diffusion model to estimate the same prior from low-quality inputs while jointly optimizing the prior extractor, dynamic IR transformer and denoiser. The paper evaluates this recipe across several restoration tasks, comparing both reconstruction quality and computational cost with restoration and diffusion baselines. The staged design makes the target of the diffusion process explicit: it estimates guidance, then the reconstruction network applies that guidance to observed content.",
+      "results": "The ICCV paper reports state-of-the-art results on several restoration tasks while using fewer diffusion iterations than image-space diffusion baselines. The core evidence is a better quality-versus-compute trade-off, not a claim that hallucination has disappeared.",
+      "care": "The prior is learned from the training distribution, so a mobile-camera deployment still needs checks for sensor noise, colour pipelines, repeated texture, temporal consistency and compute on the intended accelerator.",
+      "learn": [
+        "Why a compact latent prior can be a better diffusion target than pixels",
+        "How staged supervision prevents a conditional diffusion model from having to rediscover all image content",
+        "Which camera validation cases expose plausible-looking but unsupported restoration"
+      ],
+      "concepts": [
+        "diffusion model",
+        "image restoration",
+        "conditional prior",
+        "transformer"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–25 min",
+      "title": "MCUNet: Tiny Deep Learning on IoT Devices",
+      "authors": "Ji Lin, Wei-Ming Chen, Yujun Lin, John Cohn, Chuang Gan, Song Han",
+      "year": "2020",
+      "venue": "Advances in Neural Information Processing Systems (NeurIPS 2020)",
+      "field": "TinyML systems and memory-aware deployment",
+      "link": "https://papers.neurips.cc/paper_files/paper/2020/hash/86c51678350f656dcc7f490a43946ee5-Abstract.html",
+      "scholar": "https://scholar.google.com/scholar?q=MCUNet+Tiny+Deep+Learning+on+IoT+Devices",
+      "summary": "MCUNet co-designs a neural architecture search with a topology-aware inference engine so ImageNet-scale vision can fit an ordinary microcontroller.",
+      "problem": "Microcontrollers have orders of magnitude less memory than phones, so choosing a compact network without accounting for activation lifetimes and runtime scheduling leaves useful accuracy on the table.",
+      "difficulty": "The paper combines NAS, operator scheduling and embedded memory accounting. Read it as a systems co-design argument, not merely as a new small CNN.",
+      "idea": "Optimize the feasible model space for a specific device first, then specialize within it; pair that model with an engine that plans memory across the whole graph rather than layer by layer.",
+      "method": "TinyNAS searches under device, latency, energy and memory constraints in two stages: it first narrows the search space to architectures that can fit the target, then searches that feasible space. TinyEngine uses topology-aware scheduling and memory reuse, including in-place depth-wise convolution, to reduce peak SRAM. The evaluation runs ImageNet-scale models and visual and audio wake-word tasks on commercial microcontrollers, comparing accuracy, speed, flash and peak-memory use with embedded inference baselines.",
+      "results": "The authors report more than 70% ImageNet top-1 accuracy on a commercial microcontroller, plus lower SRAM and flash use than quantized MobileNetV2 and ResNet-18. TinyEngine is reported to reduce memory and accelerate inference relative to TF-Lite Micro and CMSIS-NN baselines.",
+      "care": "Results depend on the target MCU, kernels, compiler and workload. A production camera peripheral must profile real tensors, DMA, sensor cadence, thermal behaviour and model-update requirements rather than transfer a headline ratio.",
+      "learn": [
+        "Why peak activation memory is a graph-level property",
+        "How hardware constraints should reshape the NAS search space",
+        "How runtime kernels and model architecture jointly determine deployability"
+      ],
+      "concepts": [
+        "TinyML",
+        "neural architecture search",
+        "SRAM",
+        "memory scheduling"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "15–20 min",
+      "title": "The Discovery of Galaxies",
+      "authors": "OpenStax",
+      "year": "2016",
+      "venue": "Astronomy 2e",
+      "field": "Astronomy",
+      "link": "https://openstax.org/books/astronomy/pages/26-1-the-discovery-of-galaxies",
+      "scholar": null,
+      "summary": "An accessible account of how distance measurements settled the question of whether the Milky Way was the whole universe.",
+      "problem": "Faint patches of light could be nearby gas clouds, star clusters or remote systems, so appearance alone could not establish their scale.",
+      "difficulty": "No specialist background is needed; the only new idea is a standard candle, an object whose known brightness lets distance be inferred from how dim it appears.",
+      "idea": "Cepheid variable stars supplied a distance ladder: their pulsation period indicates intrinsic brightness, allowing astronomers to show that Andromeda lies far beyond the Milky Way.",
+      "method": "The chapter explains the observational reasoning and historical evidence, including Hubble's 1924 Cepheid measurements, rather than asking the reader to work through the mathematics. It starts with the observational ambiguity of faint nebulae, introduces variable stars whose brightness can be calibrated from their period, and follows the inference from observed brightness to distance. It then places that measurement in the larger historical shift from a single-galaxy picture to extragalactic astronomy.",
+      "results": "The key lesson is methodological: a disputed classification changed once measurements connected an observable pattern to physical distance. The reader comes away with a concrete example of calibration turning a visual impression into a claim about the scale of the universe.",
+      "care": "The historical account is a primer, not a current cosmology review; modern distance-ladder uncertainties, calibration choices and galaxy-evolution evidence require later chapters. It is best used to learn the reasoning pattern, not as a complete account of present-day cosmological parameters.",
+      "learn": [
+        "What a standard candle is",
+        "Why distance can resolve an argument that images cannot",
+        "How a simple calibration can enlarge a scientific map"
+      ],
+      "concepts": [
+        "galaxy",
+        "Cepheid variable",
+        "distance ladder",
+        "spectrum"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "How do flash floods form?",
+      "authors": "National Weather Service",
+      "year": "2026",
+      "venue": "National Weather Service Safety",
+      "field": "Flood safety and hydrology",
+      "link": "https://www.weather.gov/safety/flood-flash",
+      "scholar": null,
+      "summary": "A practical explainer on why rapidly rising water is dangerous and why forecasts, warnings and route choices matter.",
+      "problem": "Flash floods leave little time to reason from first principles, yet people routinely underestimate water depth, current and how quickly routes can fail.",
+      "difficulty": "No technical knowledge is assumed; terms such as flash flood and warning are defined in everyday language. The only shift in perspective is to treat water depth, speed, terrain and route access as a coupled safety problem rather than trying to judge a single puddle or crossing by sight.",
+      "idea": "Risk is driven by speed and place as much as rainfall total: water concentrates in channels and low crossings, and a safe plan prioritizes early movement over judging a crossing at the last moment.",
+      "method": "The agency combines hydrology knowledge with operational safety guidance and warning terminology. The explainer distinguishes the conditions that produce rapid flooding from the actions people should take once water threatens a route. It translates physical mechanisms such as concentrated runoff and fast currents into decisions a non-specialist can make: follow official warnings, avoid flooded roads and do not assume a familiar crossing retains its usual depth or strength after heavy rain.",
+      "results": "The enduring lesson is behavioural: do not drive or walk through floodwater, and treat official alerts and changing local conditions as actionable information. It also makes clear why a short, intense event can be dangerous even where a river or roadside channel normally looks harmless.",
+      "care": "This is public-safety guidance, not a local forecast. Local emergency authorities and weather services should govern any real travel or evacuation decision, and people in a threatened area should use the latest official instructions rather than extrapolating from a general educational page or from conditions observed earlier in the day.",
+      "learn": [
+        "Why fast water changes the risk model",
+        "What a flash-flood warning communicates",
+        "Why route decisions should be made before a crossing is threatened"
+      ],
+      "concepts": [
+        "flash flood",
+        "watershed",
+        "warning",
+        "runoff"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "MSFT",
+        "price": "$535.07",
+        "change": 2.38,
+        "reason": "9 October New York close; Azure growth and the cost of AI infrastructure remain the operating questions.",
+        "thesis": "Enterprise distribution and cloud scale can convert AI services into recurring revenue.",
+        "risk": "Capital commitments can outpace near-term AI monetisation and cloud competition remains intense."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$229.28",
+        "change": -0.52,
+        "reason": "9 October New York close; data-centre demand, supply execution and customer return on AI capacity are central.",
+        "thesis": "NVIDIA remains a read-through on accelerated-compute demand and its software ecosystem.",
+        "risk": "Customer concentration, export constraints, competition and a capex digestion cycle can reset expectations."
+      },
+      {
+        "symbol": "GOOG",
+        "price": "$347.86",
+        "change": 0.87,
+        "reason": "9 October New York close; advertising resilience, cloud growth and AI investment efficiency are key.",
+        "thesis": "Search, advertising, cloud and distribution give Alphabet multiple AI monetisation paths.",
+        "risk": "Antitrust remedies, AI search substitution and high infrastructure spending could pressure economics."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,170.00",
+        "change": -0.68,
+        "reason": "9 October NSE close; this is the latest completed session, with Jio, retail and energy all relevant.",
+        "thesis": "Telecom, retail and energy provide several distinct cash-flow engines.",
+        "risk": "Commodity cycles, capital needs and execution across complex businesses can weigh on results."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,156.00",
+        "change": 0.74,
+        "reason": "9 October NSE close; watch client technology budgets, large-deal conversion and margins.",
+        "thesis": "The global delivery model is a useful lens on enterprise technology spending and outsourcing demand.",
+        "risk": "Weak discretionary spending, pricing pressure and automation-led delivery shifts can hurt growth."
+      },
+      {
+        "symbol": "INFY",
+        "price": "₹1,023.00",
+        "change": -0.1,
+        "reason": "9 October NSE close; guidance and large-deal conversion remain key ahead of results.",
+        "thesis": "Infosys provides a direct view of global enterprise IT spending and services demand.",
+        "risk": "Client budget caution, pricing pressure and currency movements can constrain growth and margins."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "JPM",
+        "company": "JPMorgan Chase",
+        "report_date": "2026-10-13",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Track net interest income, investment-banking fees and credit costs for a read-through on US financial conditions.",
+        "link": "https://www.jpmorganchase.com/ir/events"
+      },
+      {
+        "symbol": "JNJ",
+        "company": "Johnson & Johnson",
+        "report_date": "2026-10-13",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch Innovative Medicine growth, MedTech procedure demand and the cash implications of litigation matters.",
+        "link": "https://www.investor.jnj.com/investor-news/news-details/2026/Johnson--Johnson-to-Host-Investor-Conference-Call-on-Third-Quarter-Results/default.aspx"
+      },
+      {
+        "symbol": "BAC",
+        "company": "Bank of America",
+        "report_date": "2026-10-14",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Focus on deposit pricing, net interest income, trading and advisory activity, and credit trends.",
+        "link": "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2026/09/bank-of-america-to-report-third-quarter-2026-financial-results-a.html"
+      },
+      {
+        "symbol": "NFLX",
+        "company": "Netflix",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch advertising revenue, engagement, operating margin and the business outlook.",
+        "link": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-Third-Quarter-2026-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "TSLA",
+        "company": "Tesla",
+        "report_date": "2026-10-21",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch automotive pricing and gross margin, energy-storage economics, cash flow and management outlook.",
+        "link": "https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "A compact restoration prior can preserve diffusion's useful distributional knowledge without sampling every image detail for dozens of steps.",
+      "For constrained ML, peak activation memory and operator scheduling are as much part of the model as parameter count.",
+      "Distance-calibrated measurements turned fuzzy nebulae into a radically larger map of the universe.",
+      "Landslide dams can convert a local slope failure into a sudden downstream flood, so early warnings and access routes matter.",
+      "The latest completed 9 October sessions, not intraday movement on 12 October, are the defensible market reference for this issue.",
+      "Quarterly earnings are most useful when they answer a specific operating question rather than merely confirming a date."
+    ],
+    "explore": "DiffIR and MCUNet point to the same engineering discipline: move the expensive part of a computation into a representation that is small enough to control, then co-design the representation with its runtime. DiffIR compresses the generative guidance into a restoration prior; MCUNet compresses deployment feasibility into a hardware-aware search space and memory plan. A useful next investigation is to map a camera-restoration block onto an actual edge target: record the activation-lifetime graph, bandwidth and power for a conventional denoiser, then ask whether a compact conditional prior changes the peak-memory and latency Pareto frontier without harming texture truthfulness or temporal stability. Use the galaxy lesson as a guardrail: decide up front which calibrated measurements would demonstrate that the apparent improvement is real."
+  }
+}
