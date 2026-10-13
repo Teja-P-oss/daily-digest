@@ -1,0 +1,311 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-14",
+    "note": "Current edition; India and US watchlist figures use the latest completed 13 October sessions available when this issue was prepared in Asia/Kolkata."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Foreign affairs",
+        "headline": "India issues a fresh advisory for nationals in Saudi Arabia",
+        "summary": "India advised its nationals in Saudi Arabia to remain calm and vigilant as the security situation in the Gulf kingdom evolved.",
+        "why": "Consular advisories turn regional security developments into practical travel, communications and contingency planning for citizens abroad.",
+        "link": "https://indianexpress.com/section/india/"
+      },
+      {
+        "category": "Border policy",
+        "headline": "India rejects China’s objections to names assigned to Ladakh locations",
+        "summary": "The Ministry of External Affairs rejected China’s objections after India assigned standardised names to 28 locations and geographical features in Ladakh.",
+        "why": "Place names are part of how governments signal territorial claims; the exchange is a reminder that administrative acts can carry strategic meaning.",
+        "link": "https://indianexpress.com/section/india/"
+      },
+      {
+        "category": "Civic policy",
+        "headline": "Delhi Police removes Jantar Mantar Road from its designated protest-site list",
+        "summary": "Delhi Police issued a standing order denotifying Jantar Mantar Road as a designated protest site and identified Ramlila Ground, Burari Ground and CBD Ground as alternatives.",
+        "why": "Where public assembly is permitted shapes access to democratic expression, policing logistics and the visibility of civic campaigns.",
+        "link": "https://selectionpro.in/current-affairs/october/13-2026.html"
+      },
+      {
+        "category": "Digital infrastructure",
+        "headline": "MeitY highlights digital infrastructure and semiconductor initiatives at IMC 2026",
+        "summary": "The MeitY pavilion at India Mobile Congress presented work spanning digital public infrastructure, language AI, data protection, semiconductors, internet infrastructure and applied research.",
+        "why": "The useful test is whether these programmes translate infrastructure into reliable services, domestic capability and deployable products.",
+        "link": "https://www.eetindia.co.in/meity-pavilion-highlights-indias-digital-infrastructure-and-semiconductor-initiatives-at-imc-2026/"
+      },
+      {
+        "category": "Currency policy",
+        "headline": "RBI measures support a sharp recovery in the rupee",
+        "summary": "Reuters reported that the rupee strengthened after the Reserve Bank of India announced measures aimed at curbing dollar demand and traders cited direct intervention.",
+        "why": "Currency management affects import costs, inflation transmission and the hedging choices of Indian firms, not only financial-market sentiment.",
+        "link": "https://in.marketscreener.com/news/rupee-to-extend-recovery-rbi-takes-more-steps-to-ease-pressure-ce785dddda8af727"
+      }
+    ],
+    "world": [
+      {
+        "category": "Maritime security",
+        "headline": "Drone strikes hit two commercial ships off Bulgaria, sinking one",
+        "summary": "Bulgarian authorities said drones struck two ships in the Black Sea; one cargo vessel sank, rescuers evacuated the other ship’s crew and the search continued for missing sailors.",
+        "why": "Threats to commercial shipping can rapidly raise freight, insurance and safety risks well beyond the immediate conflict zone.",
+        "link": "https://apnews.com/article/7dfef251fb7d47a717f0d600873dbf5b"
+      },
+      {
+        "category": "Disaster response",
+        "headline": "A magnitude 6.1 earthquake hits southern Panama after destructive tremors",
+        "summary": "The USGS reported a preliminary magnitude 6.1 earthquake in southern Panama, following the damaging 7.7 and 6.6 earthquakes and a series of aftershocks days earlier.",
+        "why": "Repeated events make inspection, communications and continuity planning as important as the initial emergency response.",
+        "link": "https://apnews.com/article/23fddcab49c0487c71625a8250a5264c"
+      },
+      {
+        "category": "Horn of Africa",
+        "headline": "Ethiopia tells the UN it is acting in self-defence against Eritrea",
+        "summary": "Ethiopia told the UN Security Council it was taking self-defence measures and accused Eritrea of sending troops across the border and occupying parts of northern Ethiopia.",
+        "why": "Escalation risks deepen an already severe humanitarian crisis and can disrupt food, banking and medical access in Tigray.",
+        "link": "https://apnews.com/article/9386a16a06e537a29ffe2de273267c8b"
+      },
+      {
+        "category": "Humanitarian affairs",
+        "headline": "Panama declares a state of emergency after powerful quake aftershocks",
+        "summary": "Panama declared an emergency after the 7.7 and 6.6 earthquakes and continuing aftershocks; officials reported damage to homes, schools, healthcare facilities, roads and hotels.",
+        "why": "The declaration mobilizes recovery resources while demonstrating how seismic risk becomes a cross-sector infrastructure problem.",
+        "link": "https://apnews.com/article/8217fbb2e56d75cb39b1f40fa036faa6"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–30 min",
+      "title": "Novel View Synthesis with View-Dependent Effects from a Single Image",
+      "authors": "Juan Luis Gonzalez Bello and Munchurl Kim",
+      "year": "2024",
+      "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "field": "Computational photography and novel-view synthesis",
+      "link": "https://openaccess.thecvf.com/content/CVPR2024/html/Bello_Novel_View_Synthesis_with_View-Dependent_Effects_from_a_Single_Image_CVPR_2024_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Novel+View+Synthesis+with+View-Dependent+Effects+from+a+Single+Image",
+      "summary": "This paper tackles the awkward reflections and highlights that make a scene look wrong when a single input photograph is re-rendered from a new viewpoint.",
+      "problem": "A single RGB image entangles geometry, illumination and view-dependent appearance. Conventional single-view synthesis often treats a bright reflection as fixed texture, so it fails when the virtual camera moves and the reflection should slide or disappear.",
+      "difficulty": "Comfort with epipolar geometry and neural rendering helps. The central mental model is simpler: ordinary depth projects content along positive disparity, while a specular effect can be represented along an opposite, negative-disparity trajectory.",
+      "idea": "Model view-dependent effects separately from stable scene structure by aggregating colours in a negative-depth region of epipolar lines, then use a relaxed volumetric renderer that needs only one density evaluation pass.",
+      "method": "The authors learn from image sequences without depth or camera-pose labels. They use camera-motion priors to build a representation for view-dependent effects, collecting candidate colours along the negative-depth part of epipolar lines while ordinary geometry follows the usual depth relationship. A relaxed volumetric-rendering approximation then predicts density in one pass rather than repeatedly querying a full radiance field. Evaluation on RealEstate10k and MannequinChallenge compares the rendered novel views with other single-view methods, especially on scenes where glossy or reflective appearance shifts with viewpoint.",
+      "results": "The CVPR paper reports better single-view novel-view-synthesis results than its compared baselines on RealEstate10k and MannequinChallenge while avoiding explicit depth and pose supervision. Its useful contribution is not a universal material model, but a compact way to stop view-dependent effects from being mistaken for stationary texture.",
+      "care": "Sequence training data and camera-motion assumptions matter. Before considering this for a camera feature, test rolling shutter, sensor noise, saturated highlights, transparent objects and temporal stability; a pleasing single frame can still flicker or move incorrectly across video.",
+      "learn": [
+        "Why specular appearance should not be treated as fixed texture",
+        "How epipolar geometry can provide self-supervision",
+        "When a cheaper rendering approximation is enough for image synthesis"
+      ],
+      "concepts": [
+        "novel-view synthesis",
+        "epipolar geometry",
+        "view-dependent effect",
+        "volumetric rendering"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–25 min",
+      "title": "Towards Practical Real-Time Neural Video Compression",
+      "authors": "Zhaoyang Jia, Bin Li, Jiahao Li, Wenxuan Xie, Linfeng Qi, Houqiang Li and Yan Lu",
+      "year": "2025",
+      "venue": "arXiv preprint",
+      "field": "Video codecs and efficient ML systems",
+      "link": "https://arxiv.org/abs/2502.20762",
+      "scholar": "https://scholar.google.com/scholar?q=Towards+Practical+Real-Time+Neural+Video+Compression",
+      "summary": "DCVC-RT argues that neural-codec latency is often dominated not by multiply-accumulates but by memory traffic and framework overhead, then redesigns around that observation.",
+      "problem": "Many learned video codecs improve rate-distortion performance but remain impractical because explicit motion modules, progressive feature pyramids, memory I/O and many small function calls add latency beyond the nominal neural-network FLOP count.",
+      "difficulty": "The paper assumes familiarity with rate-distortion trade-offs and video prediction. Read its systems claim carefully: the bottleneck is the execution graph and data movement, so operator count and tensor movement need the same attention as model accuracy.",
+      "idea": "Use implicit temporal modelling and a single low-resolution latent instead of a complex explicit motion path and progressive downsampling, then make quantisation and rate control practical across devices.",
+      "method": "DCVC-RT removes complex explicit motion modules in favour of implicit temporal modelling, uses one low-resolution latent representation and minimizes non-compute operations. It adds model integerization for consistent cross-device coding and a module-bank rate-control scheme for operational flexibility. The authors benchmark encoding and decoding at 1080p and compare bitrate and speed with H.266/VTM. This makes the paper a valuable case study in co-design: architecture choices simplify both the mathematical representation and the execution path that moves tensors through real hardware.",
+      "results": "The authors report average 1080p encoding and decoding speeds of 125.2 and 112.8 fps, respectively, alongside an average 21% bitrate saving versus H.266/VTM in their evaluation. Those figures are compelling because they pair a coding comparison with an operational one rather than reporting quality alone.",
+      "care": "The comparison is implementation- and hardware-dependent, and research-code throughput is not a mobile-product guarantee. Evaluate memory bandwidth, accelerator kernels, latency tails, power and bitstream interoperability before treating a learned codec as a deployable replacement.",
+      "learn": [
+        "Why memory I/O can dominate neural-codec latency",
+        "How implicit temporal modelling can simplify a pipeline",
+        "Why bitstream consistency and rate control belong in systems research"
+      ],
+      "concepts": [
+        "neural video codec",
+        "rate-distortion",
+        "memory I/O",
+        "integerization"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What Is the Immune System?",
+      "authors": "Kimberly Smith",
+      "year": "2023",
+      "venue": "National Institute of General Medical Sciences",
+      "field": "Human biology",
+      "link": "https://nigms.nih.gov/biobeat/2023/12/what-is-the-immune-system",
+      "scholar": null,
+      "summary": "A clear introduction to the body’s layered defences, separating the fast general response from the targeted response that can remember a specific invader.",
+      "problem": "People often hear about antibodies or vaccines in isolation, but need a simple map of which parts of the body act immediately and which parts learn from an encounter.",
+      "difficulty": "No biology background is needed. The only vocabulary worth keeping is innate immunity, the ready-to-act general defence, and adaptive immunity, the slower targeted defence that creates memory.",
+      "idea": "The immune system is not one switch: barriers, rapid responders and specialized B and T cells cooperate, trading immediate broad protection for precise, remembered protection.",
+      "method": "This NIH explainer builds the picture from familiar physical barriers such as skin and mucus, then introduces immune cells and proteins that respond rapidly to common signs of microbes. It contrasts that innate response with adaptive B and T cells, which recognize specific targets and create immunological memory. Vaccination supplies the practical example: it presents a safe cue that helps the adaptive system prepare without requiring the risks of the disease itself. The article is an educational synthesis rather than a new experiment.",
+      "results": "The memorable result is conceptual: a fast nonspecific layer and a slower specific layer are complementary rather than competing. Memory explains why a later encounter can trigger a faster, more effective response and why vaccination is a preventive tool rather than a treatment for an ongoing infection.",
+      "care": "It is a general educational resource, not personal medical advice. Immune conditions, vaccination decisions and symptoms require context from qualified clinicians and current public-health guidance; do not infer individual protection or treatment from this overview.",
+      "learn": [
+        "The difference between innate and adaptive immunity",
+        "How B cells, T cells and antibodies fit together",
+        "Why vaccines build memory without the disease’s full risk"
+      ],
+      "concepts": [
+        "innate immunity",
+        "adaptive immunity",
+        "antibody",
+        "immunological memory"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "Why Do Interest Rates Matter?",
+      "authors": "Federal Reserve Board",
+      "year": "2024",
+      "venue": "Federal Reserve FAQ",
+      "field": "Economics and monetary policy",
+      "link": "https://www.federalreserve.gov/faqs/why-do-interest-rates-matter.htm",
+      "scholar": null,
+      "summary": "This short primer connects interest rates to everyday borrowing, business investment, spending and the Federal Reserve’s goals of stable prices and sustainable employment.",
+      "problem": "A policy-rate change is commonly reported as a number, yet its relevance is unclear unless one can trace how it changes incentives for households, lenders and firms.",
+      "difficulty": "No economics background is required. Think of an interest rate as the price of using money across time: a higher price discourages some borrowing and spending, while a lower price makes it easier.",
+      "idea": "Rates are a broad lever, not a precise remote control. They affect the cost of credit and financial conditions, which in turn influence choices about homes, cars, inventories, equipment and hiring.",
+      "method": "The Federal Reserve explains its statutory goals and gives everyday examples of the transmission mechanism. It starts from borrowing costs for a mortgage, vehicle or business expansion, then links those decisions to aggregate spending, employment and inflation. The page is an official institutional explainer, so its method is a concise account of the policy logic rather than an empirical paper estimating a single causal effect. That distinction is useful when reading headlines about rate moves.",
+      "results": "The main lesson is that lower rates often encourage borrowing and investment, while higher rates can restrain them and reduce the risk of excess demand. Effects arrive through many decisions over time, so the same rate move will not have identical consequences for every borrower or sector.",
+      "care": "This is a US-policy explanation, not investing or borrowing advice. Actual loan rates depend on credit risk, maturity, competition and local rules, and policy changes interact with inflation expectations, fiscal policy and global financial conditions.",
+      "learn": [
+        "How policy rates reach household and business choices",
+        "Why financial conditions matter beyond one benchmark rate",
+        "Why monetary policy works with lags and uncertainty"
+      ],
+      "concepts": [
+        "interest rate",
+        "borrowing cost",
+        "inflation",
+        "monetary policy"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$226.01",
+        "change": -0.14,
+        "reason": "13 October New York close; the next read-through is AI-infrastructure demand and customers’ return on accelerator spending.",
+        "thesis": "NVIDIA remains a useful indicator of accelerated-computing demand and of how much value its software ecosystem captures.",
+        "risk": "Export restrictions, customer concentration, competition and a capex digestion cycle could reset growth expectations."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$546.12",
+        "change": 0.92,
+        "reason": "13 October New York close; Azure growth and the cost of scaling AI capacity remain the central operating questions.",
+        "thesis": "Enterprise distribution and cloud scale give Microsoft several paths to turn AI services into recurring revenue.",
+        "risk": "Capital spending can outrun near-term AI monetisation, while cloud and model competition remains intense."
+      },
+      {
+        "symbol": "ASML",
+        "price": "$1,717.17",
+        "change": -1.89,
+        "reason": "13 October New York close; its confirmed Q3 release on 14 October makes bookings and outlook especially relevant.",
+        "thesis": "ASML is a concentrated but important lens on leading-edge lithography demand and semiconductor capital intensity.",
+        "risk": "Customer timing, export controls and highly cyclical tool demand can cause sharp order and valuation swings."
+      },
+      {
+        "symbol": "TSM",
+        "price": "$444.41",
+        "change": 0.01,
+        "reason": "13 October New York close; TSMC reports Q3 on 15 October, with demand and node mix in focus.",
+        "thesis": "TSMC’s manufacturing position makes it a broad read-through on advanced logic, packaging and AI silicon volumes.",
+        "risk": "Geopolitical concentration, customer cyclicality and capital-intensity requirements remain material risks."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,166.70",
+        "change": 0.67,
+        "reason": "13 October NSE close; Jio, retail and energy each remain important drivers of the group’s cash generation.",
+        "thesis": "Telecom, retail and energy provide several distinct operating engines inside one company.",
+        "risk": "Commodity cycles, capital needs and execution across complex businesses can weigh on results."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹714.00",
+        "change": 1.29,
+        "reason": "13 October NSE close; deposit growth, funding costs and credit quality are the key banking variables.",
+        "thesis": "Its scale makes HDFC Bank a useful lens on Indian credit growth and deposit competition.",
+        "risk": "Margin pressure, slower deposit gathering or credit losses could weaken earnings momentum."
+      },
+      {
+        "symbol": "BHARTIARTL",
+        "price": "₹1,806.50",
+        "change": 0.08,
+        "reason": "13 October NSE close; monitor subscriber quality, ARPU progression and network investment.",
+        "thesis": "Airtel is a direct read-through on mobile-data demand and telecom pricing discipline.",
+        "risk": "Heavy spectrum and network spending, regulation and competitive pricing can pressure returns."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "ASML",
+        "company": "ASML Holding N.V.",
+        "report_date": "2026-10-14",
+        "timing": "Before market open",
+        "fiscal_period": "Q3 2026",
+        "why_watch": "Watch bookings, EUV and DUV demand, and the outlook for leading-edge foundry and memory capital spending.",
+        "link": "https://www.investor.asml.com/quarterly-results"
+      },
+      {
+        "symbol": "TSM",
+        "company": "Taiwan Semiconductor Manufacturing Co.",
+        "report_date": "2026-10-15",
+        "timing": "Before market open",
+        "fiscal_period": "Q3 2026",
+        "why_watch": "Guidance for revenue, gross margin, advanced-node utilisation and packaging capacity will inform the AI-silicon supply-chain picture.",
+        "link": "https://investor.tsmc.com/english/quarterly-results/2026/q3"
+      },
+      {
+        "symbol": "NFLX",
+        "company": "Netflix, Inc.",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Q3 2026",
+        "why_watch": "Watch revenue, advertising progress, engagement and the outlook for content spending and margins.",
+        "link": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-Third-Quarter-2026-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "MSFT",
+        "company": "Microsoft Corporation",
+        "report_date": "2026-10-28",
+        "timing": "After market close",
+        "fiscal_period": "FY2027 Q1",
+        "why_watch": "Azure growth, AI-service monetisation and capital-expenditure commentary are the clearest measures of cloud-AI economics.",
+        "link": "https://www.microsoft.com/en-us/investor/faq"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Treat the October 13 US and India closes as completed-session observations, not recommendations.",
+      "View-dependent highlights are a geometry-and-appearance problem, not merely texture noise.",
+      "For neural video codecs, memory traffic and execution overhead can matter as much as FLOPs.",
+      "Innate immunity acts broadly and quickly; adaptive immunity adds specificity and memory.",
+      "Interest-rate changes work through many borrowing and spending decisions, usually with lags.",
+      "ASML and TSMC earnings are near-term checkpoints for leading-edge semiconductor capital demand."
+    ],
+    "explore": "The two inside papers make a useful systems pair: the novel-view work separates a hard visual phenomenon into a representation that geometry can supervise, while DCVC-RT separates theoretical compute from the operational costs that determine real latency. Apply that pattern to a mobile imaging experiment: choose one visual failure such as highlight shimmer or motion-compensation residue, measure both image quality and the full data-movement path, then ask whether a compact, explicitly targeted representation can remove work instead of adding a larger network. The earnings calendar adds a real-world counterpart: ASML and TSMC commentary can help frame which parts of the imaging and AI supply chain are constrained by demand, manufacturing capacity or packaging rather than by model design alone."
+  }
+}
