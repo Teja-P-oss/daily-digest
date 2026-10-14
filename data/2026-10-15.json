@@ -1,0 +1,304 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-15",
+    "note": "Current edition. News was checked on 15 October 2026; market figures use the latest completed 14 October sessions."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Infrastructure",
+        "headline": "Centre scheduled five Ladakh projects worth about ₹3,350 crore for inauguration and dedication",
+        "summary": "The Prime Minister's Office said projects spanning roads, power and other development works in Ladakh were scheduled for 15 October.",
+        "why": "In a strategically important, high-altitude region, year-round connectivity and reliable public infrastructure are central to civilian access, logistics and resilience.",
+        "link": "https://www.pib.gov.in/Allrel.aspx?lang=1&reg=3"
+      },
+      {
+        "category": "Agriculture",
+        "headline": "Government constituted a committee to examine sugarcane-farmer and sugar-sector issues",
+        "summary": "The Consumer Affairs Ministry announced a committee on 14 October to examine issues affecting sugarcane growers and the sugar sector.",
+        "why": "Sugar policy connects farm incomes, mill finances, ethanol supply and food-price management, so its institutional design has effects well beyond one crop.",
+        "link": "https://www.pib.gov.in/AllRelease.aspx?lang=1&reg=20"
+      },
+      {
+        "category": "Technology policy",
+        "headline": "Telecommunication Engineering Centre marked World Standards Day with emphasis on India's standards role",
+        "summary": "The Department of Telecommunications said TEC's 14 October event highlighted India's participation in global telecom standardization.",
+        "why": "Technical standards decide interoperability and security at scale; sustained participation lets domestic engineering priorities reach the protocols and test rules products must meet.",
+        "link": "https://www.pib.gov.in/AllRelease.aspx?lang=1&reg=1"
+      },
+      {
+        "category": "Public health",
+        "headline": "IIT Jodhpur highlighted AI, robotics and simulation work for healthcare systems",
+        "summary": "A 14 October government release described the institute's medical-AI work, including robotic heart scans and AI-assisted fracture detection.",
+        "why": "Clinical AI is most useful when it fits a care workflow with validation, human review and accountable deployment rather than functioning as a stand-alone model demo.",
+        "link": "https://www.pib.gov.in/AllRelease.aspx?lang=1&reg=39"
+      }
+    ],
+    "world": [
+      {
+        "category": "Climate",
+        "headline": "WMO said a strengthening El Niño could reshape October–December weather patterns",
+        "summary": "The World Meteorological Organization's seasonal update said central and eastern tropical Pacific sea-surface temperatures were forecast to rise to record levels during October–December, with risks of shifted rainfall and heat.",
+        "why": "Seasonal climate signals are not local forecasts, but they give governments and infrastructure operators time to prepare for heightened drought, flood and heat risks.",
+        "link": "https://wmo.int/news/media-centre/sea-surface-temperatures-reflect-strengthening-el-nino"
+      },
+      {
+        "category": "Technology and law",
+        "headline": "US Supreme Court heard a dispute over how video-privacy law applies to digital commerce",
+        "summary": "The court considered the scope of the 1988 Video Privacy Protection Act and whether modern companies must protect customers' video-viewing information in the way the statute contemplates.",
+        "why": "The case illustrates a recurring policy problem: data rules written for a physical-media era can still govern recommendation systems, streaming and cross-service profiling.",
+        "link": "https://apnews.com/article/6875e87e249bc5b1155e52128996e0a1"
+      },
+      {
+        "category": "Health and society",
+        "headline": "South American Catholics followed Pope Leo XIV's recovery after surgery",
+        "summary": "The Vatican said the Pope was recuperating after surgery while people across countries on his planned South America itinerary expressed concern about whether travel plans would change.",
+        "why": "The story shows how the health of a global religious leader can quickly become a public and diplomatic issue across the communities he is due to visit.",
+        "link": "https://apnews.com/article/abd461cd7de8c6381018b86055b19a07"
+      },
+      {
+        "category": "Development",
+        "headline": "UN prepared to release its 2026 World Social Report on social inclusion",
+        "summary": "The UN announced that its 2026 World Social Report, focused on new economics of social inclusion, would be released on 15 October.",
+        "why": "How countries measure inclusion affects choices on work, social protection, public services and the distribution of gains from digital and energy transitions.",
+        "link": "https://www.un.org/sustainabledevelopment/news/press-releases/"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–30 min",
+      "title": "Retinexformer: One-stage Retinex-based Transformer for Low-light Image Enhancement",
+      "authors": "Yuanhao Cai, Hao Bian, Jing Lin, Haoqian Wang, Radu Timofte and Yulun Zhang",
+      "year": "2023",
+      "venue": "IEEE/CVF International Conference on Computer Vision",
+      "field": "Low-light image enhancement",
+      "link": "https://openaccess.thecvf.com/content/ICCV2023/html/Cai_Retinexformer_One-stage_Retinex-based_Transformer_for_Low-light_Image_Enhancement_ICCV_2023_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=Retinexformer+One-stage+Retinex-based+Transformer+for+Low-light+Image+Enhancement",
+      "summary": "Retinexformer treats low-light enhancement as illumination estimation plus restoration of noise and artifacts exposed by brightening, using illumination-guided attention to coordinate distant regions.",
+      "problem": "Simply lifting shadows also lifts shot noise, color errors and hidden corruption. Standard Retinex decompositions and local convolutional processing do not explicitly model that coupled failure.",
+      "difficulty": "Comfort with image-restoration evaluation helps. Retinex here is the useful idea that observed intensity mixes illumination with scene reflectance; the paper asks the network to estimate lighting while repairing the image.",
+      "idea": "Estimate an illumination representation first, then use it to guide non-local restoration. This makes the brightening signal a control input rather than an incidental intermediate feature.",
+      "method": "The one-stage Retinex-based framework separates illumination estimation from corruption restoration within one trainable network. Its Illumination-Guided Transformer uses illumination features to steer attention across regions under different lighting. The authors evaluate on 13 benchmarks and also test low-light object detection, so the work checks both visual restoration and a downstream use case.",
+      "results": "The ICCV paper reports state-of-the-art quantitative and qualitative results across its benchmark suite and finds benefits in a low-light detection application. The important engineering result is the explicit pairing of exposure recovery with corruption repair.",
+      "care": "Benchmark gains do not guarantee natural color, temporal stability or sensor-specific robustness in a camera product. Test with motion, mixed illuminants, clipping and a real ISP handoff before drawing system conclusions.",
+      "learn": [
+        "Why brightening and denoising should be designed together",
+        "How illumination can guide attention rather than only scale pixels",
+        "How to evaluate a restoration model with a downstream task"
+      ],
+      "concepts": [
+        "Retinex theory",
+        "illumination estimation",
+        "transformer attention",
+        "low-light enhancement"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–25 min",
+      "title": "LLM in a Flash: Efficient Large Language Model Inference with Limited Memory",
+      "authors": "Keivan Alizadeh, Iman Mirzadeh, Dmitry Belenko, Karen Khatamifard, Minsik Cho, Carlo C. Del Mundo, Mohammad Rastegari and Mehrdad Farajtabar",
+      "year": "2024",
+      "venue": "ACL 2024",
+      "field": "Memory-aware edge inference",
+      "link": "https://aclanthology.org/2024.acl-long.678/",
+      "scholar": "https://scholar.google.com/scholar?q=LLM+in+a+Flash+Efficient+Large+Language+Model+Inference+with+Limited+Memory",
+      "summary": "This systems paper makes an oversized language model feasible on constrained hardware by keeping weights in flash and fetching only the rows likely to be active, in access patterns flash handles well.",
+      "problem": "A model that does not fit in DRAM can become unusably slow if every token forces many small, random flash reads. Capacity alone is not enough; transfer pattern determines latency.",
+      "difficulty": "The key prerequisite is an inference-memory hierarchy: DRAM is fast and limited, while flash is much larger but dislikes fragmented reads. Sparse activations make selective loading possible.",
+      "idea": "Co-design the predictor and I/O schedule: reuse recently active neurons to avoid reads, and bundle rows and columns so the remaining reads are larger and more contiguous.",
+      "method": "The authors build a cost model around flash behavior, then introduce windowing to reuse activated neurons across tokens and row-column bundling to turn scattered accesses into sequential chunks. They store parameters in flash and stage selected pieces in DRAM, measuring the design against naive loading on CPU and GPU setups.",
+      "results": "The paper reports models up to twice available DRAM capacity and 4–5× CPU and 20–25× GPU speedups over naive loading in its experiments. The broader result is that memory-layout decisions can be first-class model-serving optimizations.",
+      "care": "The gains depend on model sparsity, flash device behavior, cache size and workload locality. Mobile thermal limits, tail latency, flash endurance and model-quality effects from sparsity prediction still need product-specific measurement.",
+      "learn": [
+        "Why storage access granularity can dominate inference",
+        "How activation locality can reduce parameter traffic",
+        "How hardware-aware scheduling changes the feasible model size"
+      ],
+      "concepts": [
+        "memory hierarchy",
+        "flash storage",
+        "sparse activation",
+        "I/O locality"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What Is a Solar Eclipse?",
+      "authors": "NASA Space Place",
+      "year": "2023",
+      "venue": "NASA Space Place",
+      "field": "Astronomy",
+      "link": "https://spaceplace.nasa.gov/eclipse-snap/en/",
+      "scholar": null,
+      "summary": "A short visual primer on the alignment that lets the Moon block some or all of the Sun from a small part of Earth.",
+      "problem": "Eclipses can seem mysterious because diagrams flatten a three-dimensional geometry and news coverage emphasizes spectacle over the narrow path involved.",
+      "difficulty": "No background is required. Umbra means the small central shadow where the Sun is fully blocked; penumbra is the broader region where it is only partly covered.",
+      "idea": "An eclipse is precise celestial geometry: the Moon's shadow sweeps across Earth because all three bodies are moving, and the different shadow zones explain why observers see different events.",
+      "method": "NASA explains the event with simple drawings of the Sun, Moon and Earth, distinguishes total and partial eclipses, and connects the diagram to safe observation. It walks from the alignment to the shape and movement of the shadow, making clear why an observer's location changes the view. It is an educational synthesis rather than a new study or a forecast of a particular eclipse.",
+      "results": "The central lesson is that totality is not visible everywhere on Earth at once: it occurs only inside the Moon's umbra, while nearby observers can see a partial eclipse from the penumbra.",
+      "care": "Never look at the Sun directly during an eclipse without proper solar-viewing protection. Ordinary sunglasses, cameras and improvised filters are not safe eye protection.",
+      "learn": [
+        "Why eclipses have narrow paths",
+        "The difference between umbra and penumbra",
+        "Why solar viewing needs dedicated filters"
+      ],
+      "concepts": [
+        "solar eclipse",
+        "umbra",
+        "penumbra",
+        "orbital alignment"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "Climate Change and Health",
+      "authors": "World Health Organization",
+      "year": "2023",
+      "venue": "World Health Organization fact sheet",
+      "field": "Public health",
+      "link": "https://www.who.int/en/news-room/fact-sheets/detail/climate-change-and-health",
+      "scholar": null,
+      "summary": "WHO maps how heat, storms, food disruption, infectious disease and damaged health services turn a changing climate into a health problem.",
+      "problem": "Climate change is often discussed as an environmental abstraction, which hides the everyday routes through which weather, food, housing and care systems affect health.",
+      "difficulty": "No medical training is needed. Think of a risk pathway as the chain from a physical hazard, such as heat or flooding, through exposure and vulnerability to illness or disruption.",
+      "idea": "Climate risk is a threat multiplier: it can directly injure people and also weaken the systems that provide water, food, livelihoods and healthcare.",
+      "method": "The fact sheet synthesizes public-health evidence and describes direct hazards, indirect effects through food and infectious disease, and the role of vulnerability and health-system capacity. It frames outcomes as interactions among hazard, exposure, social conditions and the ability of services to respond. It is a policy-oriented evidence overview, not one experiment or a substitute for local public-health advice.",
+      "results": "WHO's lesson is that health burdens are uneven: communities with weaker infrastructure and fewer resources face greater exposure and less capacity to prepare and recover, while emissions reductions can also improve health through cleaner air.",
+      "care": "The page gives population-level context, not a personal diagnosis or local forecast. Use local public-health and weather authorities for immediate heat, air-quality or disaster guidance.",
+      "learn": [
+        "How climate hazards become health hazards",
+        "Why vulnerability changes outcomes",
+        "Why cleaner energy can have immediate health co-benefits"
+      ],
+      "concepts": [
+        "risk pathway",
+        "heat stress",
+        "health equity",
+        "health-system resilience"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$222.32",
+        "change": -2.71,
+        "reason": "14 Oct close; the latest completed US session before this India-time edition. AI-infrastructure demand remains the operating lens.",
+        "thesis": "NVIDIA's platform position benefits when accelerator demand converts into deployed systems and software ecosystems.",
+        "risk": "High expectations, supply shifts and hyperscaler capex changes can produce sharp repricing."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$538.65",
+        "change": -0.88,
+        "reason": "14 Oct close; fiscal Q1 results are scheduled for 28 Oct.",
+        "thesis": "Azure, enterprise software and AI monetization make capacity deployment and cloud growth the core read-through.",
+        "risk": "Large AI capex may outpace near-term revenue or margins."
+      },
+      {
+        "symbol": "AMD",
+        "price": "$576.75",
+        "change": -4.75,
+        "reason": "14 Oct close; the next reported quarter is a useful check on data-center execution.",
+        "thesis": "Data-center CPUs and accelerators offer leverage to heterogeneous-compute demand.",
+        "risk": "Competition, product ramps and a volatile semiconductor cycle can pressure results."
+      },
+      {
+        "symbol": "TSM",
+        "price": "$432.09",
+        "change": -2.93,
+        "reason": "14 Oct close; its results on 15 Oct are a near-term semiconductor demand signal.",
+        "thesis": "Leading-edge foundry capacity is a critical chokepoint for advanced compute.",
+        "risk": "Customer concentration, cyclicality and geopolitical exposure remain material."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,174.60",
+        "change": 0.68,
+        "reason": "14 Oct NSE close; watch the mix of digital, retail and energy execution.",
+        "thesis": "A diversified platform can compound if consumer businesses and energy cash generation reinforce each other.",
+        "risk": "Capital intensity, commodity swings and execution across several large businesses can dilute returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹710.70",
+        "change": -0.46,
+        "reason": "14 Oct NSE close; results and funding/loan-growth trends are the next key read-through.",
+        "thesis": "A large deposit franchise can support durable lending economics when growth and funding costs stay balanced.",
+        "risk": "Deposit competition, credit costs and integration-related execution can pressure profitability."
+      },
+      {
+        "symbol": "BHARTIARTL",
+        "price": "₹1,794.60",
+        "change": -0.66,
+        "reason": "14 Oct NSE close; tariff, subscriber quality and network investment remain the operating variables.",
+        "thesis": "Scale and improving monetization can support returns on a nationwide network.",
+        "risk": "Competitive pricing, spectrum costs and heavy capex can constrain free cash flow."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "NFLX",
+        "company": "Netflix",
+        "report_date": "2026-10-20",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch revenue and business outlook alongside engagement and advertising progress.",
+        "link": "https://ir.netflix.net/investor-news-and-events/financial-releases/press-release-details/2026/Netflix-to-Announce-Third-Quarter-2026-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "TSLA",
+        "company": "Tesla",
+        "report_date": "2026-10-21",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Vehicle deliveries are known; focus on automotive margin, cash flow and energy-storage economics.",
+        "link": "https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments"
+      },
+      {
+        "symbol": "KO",
+        "company": "The Coca-Cola Company",
+        "report_date": "2026-10-27",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch volume, pricing and currency effects across the global beverage portfolio.",
+        "link": "https://investors.coca-colacompany.com/news-events/press-releases/detail/1173/the-coca-cola-company-announces-timing-of-third-quarter-2026-earnings-release"
+      },
+      {
+        "symbol": "MSFT",
+        "company": "Microsoft",
+        "report_date": "2026-10-28",
+        "timing": "After market close",
+        "fiscal_period": "Fiscal 2027 first quarter",
+        "why_watch": "Watch Azure growth, AI capacity spending and whether commercial demand supports the investment pace.",
+        "link": "https://www.microsoft.com/en-us/investor/FAQ"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Low-light enhancement is a coupled exposure-and-restoration problem, not merely a brightness adjustment.",
+      "Making illumination an attention guide is a useful way to inject physical structure into an image model.",
+      "For memory-constrained inference, data movement and access shape can matter more than arithmetic count.",
+      "A seasonal climate signal is valuable because it turns some weather risk into a preparation problem.",
+      "The latest completed 14 October closes are more defensible than intraday figures for a 15 October India-time digest.",
+      "Earnings calendars are planning tools: the useful question is the operating metric that could change a sector narrative."
+    ],
+    "explore": "Retinexformer and LLM in a Flash share a practical design instinct: expose the bottleneck explicitly, then make it a control signal. In the camera paper, estimated illumination directs restoration; in the systems paper, predicted activation and flash behavior direct data movement. A worthwhile next investigation is to profile a mobile low-light pipeline by energy and bandwidth, not just latency: identify which tensors or stages are most often moved, then ask whether a learned illumination or scene classifier could select a cheaper restoration path without creating visible temporal artifacts. That turns the two readings into one co-design question about conditional computation under real memory and power budgets."
+  }
+}
