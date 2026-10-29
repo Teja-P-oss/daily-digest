@@ -1,0 +1,308 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-10-30",
+    "note": "Current edition. News was checked on 30 October 2026; prices use the latest completed 29 October US and NSE sessions."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Agriculture and infrastructure",
+        "headline": "Government scheduled the 24th PM-KISAN instalment and Gujarat projects for 30–31 October",
+        "summary": "The Prime Minister's Office said the Gujarat visit would include release of the 24th PM-KISAN instalment, about ₹19,000 crore, and project announcements including Ahmedabad Metro extensions and a bovine breeding and research centre.",
+        "why": "Cash-transfer delivery and urban transport build-out are separate policy levers, but both affect how quickly public spending reaches households and productive infrastructure.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2329999&lang=1&reg=1"
+      },
+      {
+        "category": "Climate adaptation",
+        "headline": "Environment ministry opened a national workshop on adaptive coastal resilience",
+        "summary": "The two-day New Delhi workshop is part of the Green Climate Fund-backed coastal-resilience project and focuses on restoring mangroves, watersheds, seagrass, salt marshes and corals while supporting coastal livelihoods.",
+        "why": "Coastal protection is a systems problem: ecological buffers, local income and infrastructure resilience must work together rather than be treated as separate projects.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2330131&lang=2&reg=48"
+      },
+      {
+        "category": "Industry and trade",
+        "headline": "Commerce minister called for quality, scale and global-market access in industrial transformation",
+        "summary": "At the fourth National Conference on India's Industrial Transformation, Piyush Goyal highlighted manufacturing quality, scale, collaboration and global market access, with startups, semiconductors and space identified as prospective growth drivers.",
+        "why": "The useful test is whether policy and industry can turn capability in design, components and skills into competitive manufacturing execution.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2330034&lang=1&reg=3"
+      },
+      {
+        "category": "Civic participation",
+        "headline": "MY Bharat reported 50 youth electoral-awareness sessions across 19 states and union territories",
+        "summary": "The youth programme said its Know Your Vote campaign had reached 11,787 participants through 50 Yuva Samvads by 29 October, as part of a wider campaign planned across 500 educational institutions.",
+        "why": "Practical civic literacy matters most when it explains procedures and rights clearly enough for first-time voters to use them.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2330240&lang=2&reg=48"
+      }
+    ],
+    "world": [
+      {
+        "category": "Environment",
+        "headline": "UNEP reported restoration activity across 252 million hectares in 149 countries",
+        "summary": "UNEP's Restoration Progress Report says documented restoration now covers 252 million hectares across 149 countries and is associated with more than one million green jobs, while warning that the pace must increase to meet global targets.",
+        "why": "Restoration becomes more credible when it is measured as land, ecosystems and livelihoods rather than announced only as a pledge.",
+        "link": "https://www.unep.org/en/news-and-stories/press-release/nature-making-comeback-world-must-move-faster-meet-restoration-targets-un-report"
+      },
+      {
+        "category": "Geopolitics",
+        "headline": "UN political mission in Somalia is ending without an agreed successor for election mediation",
+        "summary": "The UN Transitional Assistance Mission in Somalia is due to end after more than three decades of successive UN missions, while Somali leaders have not agreed on a replacement mechanism to help manage election disputes.",
+        "why": "Institutional handoffs matter in fragile political systems: a mission's closure can change the capacity available for mediation at precisely the moment disputes intensify.",
+        "link": "https://apnews.com/article/2233dfcc55bac4c8c3a374712bc5706e"
+      },
+      {
+        "category": "International relations",
+        "headline": "Russia used a Moscow summit to promote deeper ties with African leaders",
+        "summary": "At a Russia-Africa summit, President Vladimir Putin promoted a multipolar order while African leaders pressed for international institutions, including the UN Security Council, to better reflect contemporary representation.",
+        "why": "The summit illustrates how representation, trade and security are increasingly negotiated together in competition for influence across Africa.",
+        "link": "https://apnews.com/article/7fa56468d33f98dade1996202fb1f469"
+      },
+      {
+        "category": "Public health",
+        "headline": "US FDA proposed updated nutrient limits and labelling rules for infant formula",
+        "summary": "The FDA proposed nutrient limits and labelling changes for infant formula as part of its continuing nutrient review under Operation Stork Speed, opening a policy process that could affect product formulation and consumer information.",
+        "why": "Infant formula regulation is a reminder that food standards combine clinical evidence, manufacturing constraints and communication to caregivers.",
+        "link": "https://www.fda.gov/news-events/press-announcements/fda-proposes-updates-nutrient-requirements-infant-formula"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "VGGT: Visual Geometry Grounded Transformer",
+      "authors": "Jianyuan Wang, Minghao Chen, Nikita Karaev, Andrea Vedaldi, Christian Rupprecht, David Novotny",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "3D computer vision and camera geometry",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/html/Wang_VGGT_Visual_Geometry_Grounded_Transformer_CVPR_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=VGGT+Visual+Geometry+Grounded+Transformer",
+      "summary": "VGGT uses one feed-forward transformer to infer camera parameters, depth, point maps and tracks from one to many images. It treats several normally separate geometry tasks as coordinated predictions and reports fast, strong multi-task reconstruction without a separate optimization stage.",
+      "problem": "Camera systems need consistent geometry for tasks such as depth, tracking and view synthesis, yet conventional pipelines often estimate each component separately and then refine it through iterative geometry optimization. That division can create latency, brittle handoffs and inconsistent outputs when data are sparse or the scene is difficult.",
+      "difficulty": "The paper assumes comfort with camera pose, depth, point clouds, multi-view correspondence and transformer feature representations. The valuable reading question is not every loss term; it is how a shared representation can make different geometric outputs agree and where that agreement may still fail.",
+      "idea": "Predict the scene's geometric description jointly. Instead of first matching features, then solving pose, then optimizing structure, VGGT lets a transformer exchange information across views and emits the camera and 3D quantities directly in one forward pass.",
+      "method": "The model accepts one or more images and uses alternating attention across image and token dimensions to form a shared visual representation. Dedicated heads decode camera parameters, depth maps, point maps and point tracks. Training combines datasets and task supervision so that the same backbone learns the relationships among pose, depth and correspondence. The evaluation compares each decoded output with specialist methods on camera estimation, multi-view depth, dense reconstruction and tracking, and also tests the pretrained features in downstream tasks.",
+      "results": "The CVPR paper reports state-of-the-art results across its evaluated geometry tasks while reconstructing in under a second, and shows that its pretrained features improve non-rigid tracking and feed-forward novel-view synthesis. The interesting result is breadth: a single representation can be competitive across outputs that are normally produced by different pipelines.",
+      "care": "A feed-forward geometry estimate is not a replacement for calibration, uncertainty modelling or all bundle-adjustment use cases. Benchmark success can hide failures on moving objects, reflections, unusual optics and domain shifts. For camera work, inspect whether predicted geometry is stable enough across frames and exposures before using it as a control signal.",
+      "learn": [
+        "Joint geometry prediction can reduce pipeline handoffs.",
+        "Camera pose, depth and tracks are mutually constraining outputs.",
+        "Fast feed-forward inference changes where iterative optimization is worth spending compute."
+      ],
+      "concepts": [
+        "camera pose",
+        "point map",
+        "multi-view depth",
+        "visual correspondence",
+        "transformer attention"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads",
+      "authors": "Guangxuan Xiao, Jiaming Tang, Jingwei Zuo, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han",
+      "year": "2025",
+      "venue": "ICLR 2025",
+      "field": "Efficient machine-learning systems",
+      "link": "https://arxiv.org/abs/2410.10819",
+      "scholar": "https://scholar.google.com/scholar?q=DuoAttention+Efficient+Long-Context+LLM+Inference",
+      "summary": "DuoAttention observes that only some attention heads need unrestricted access to old tokens. It retains a full key-value cache for retrieval heads while giving streaming heads a bounded cache, reducing long-context memory and latency with little reported quality loss.",
+      "problem": "Autoregressive language models retain key-value states from previous tokens so later tokens can attend to them. At long context lengths this cache becomes a memory-bandwidth problem, particularly for edge or capacity-constrained deployments. Uniformly pruning every head can erase the few heads that retrieve distant information.",
+      "difficulty": "You should know the transformer attention block and the purpose of its key-value cache. The systems insight is more important than the implementation detail: a model component can have a different memory policy when its observed role differs, rather than receiving a one-size-fits-all cache budget.",
+      "idea": "Split heads by behavior. Retrieval heads get a full cache because they need distant tokens; streaming heads keep only a constant-length window plus attention sinks. That preserves a route to old information while shrinking storage and movement for the much larger remainder.",
+      "method": "The authors identify retrieval heads with a lightweight optimization procedure on synthetic long-context data, then apply two cache policies at inference. They evaluate memory, prefilling, decoding and long-context capability on multi-head attention and grouped-query attention models. They also combine the approach with quantization to test the practical context length achievable under a fixed GPU memory budget.",
+      "results": "The paper reports up to 2.55× lower long-context inference memory for MHA and 1.67× for GQA, with decoding speedups up to 2.18× and 1.50× respectively, while retaining long-context performance close to full attention. With quantization, it demonstrates Llama-3-8B decoding at 3.3 million tokens on one A100.",
+      "care": "Head roles may vary by model, task and fine-tuning, so classification should be verified rather than assumed transferable. The reported gains depend on serving kernels, sequence mix and hardware. A production evaluation should measure retrieval quality, tail latency and memory fragmentation alongside average throughput.",
+      "learn": [
+        "KV-cache policy is a memory-system design decision.",
+        "Different attention heads can justify different retention policies.",
+        "Compression works best when it protects the small component that carries the critical signal."
+      ],
+      "concepts": [
+        "KV cache",
+        "retrieval head",
+        "streaming head",
+        "grouped-query attention",
+        "quantization"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What is genome editing?",
+      "authors": "National Human Genome Research Institute",
+      "year": "2026",
+      "venue": "NHGRI explainer",
+      "field": "Genetics",
+      "link": "https://www.genome.gov/about-genomics/policy-issues/what-is-Genome-Editing",
+      "scholar": null,
+      "summary": "This NHGRI primer explains genome editing as changing DNA at a chosen location and uses CRISPR to show why the technique became easier to use. It also distinguishes possible medical applications from inherited, germline changes that raise harder safety and ethics questions.",
+      "problem": "News about DNA editing can sound like a promise to repair any disease, even though changing a cell's instructions safely, reaching the right cells and avoiding unintended edits are distinct challenges. The primer provides the vocabulary needed to separate the basic mechanism from those clinical and social questions.",
+      "difficulty": "No biology background is required. Read DNA as a long instruction set, a gene as one useful segment, and genome editing as finding and changing a selected stretch. The unfamiliar term germline simply refers to edits that could be inherited by future generations.",
+      "idea": "CRISPR originated from a bacterial defence system and gives researchers a comparatively simple way to target DNA. Easier targeting does not settle whether a particular edit is safe, effective or appropriate; those are separate evidence and governance problems.",
+      "method": "This is an institutional explainer rather than a new experiment. It synthesizes established genetics knowledge, defines genome-editing approaches and describes the ethical distinction between editing non-reproductive cells and edits that could pass to descendants. Its evidence is the accumulated molecular-biology research and policy discussion, presented without requiring the reader to interpret a laboratory dataset.",
+      "results": "The main lesson is conceptual: CRISPR lowered the practical barrier to targeted DNA changes, but medical use still requires proof about delivery, accuracy, benefit and harms. The explainer notes broad caution about germline editing because changes could be inherited.",
+      "care": "A clean metaphor of cut-and-paste DNA can understate biology. Genes act in networks, delivery can be difficult and an edit may have unintended effects. Treat early clinical stories as specific cases, not evidence that a platform is universally ready.",
+      "learn": [
+        "Genome editing means targeted DNA modification.",
+        "CRISPR was adapted from a bacterial system.",
+        "Technical possibility and clinical acceptability are different tests."
+      ],
+      "concepts": [
+        "DNA",
+        "gene",
+        "CRISPR",
+        "genome editing",
+        "germline"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What is an earthquake and what causes them to happen?",
+      "authors": "U.S. Geological Survey",
+      "year": "2026",
+      "venue": "USGS FAQ",
+      "field": "Earth science",
+      "link": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen",
+      "scholar": null,
+      "summary": "USGS explains earthquakes as the release of stored stress when friction along a fault is overcome. The release sends energy waves through Earth's crust, producing the shaking people experience at the surface.",
+      "problem": "Earthquakes are often described as sudden and unpredictable, which can obscure the slower physical process. The useful beginner question is what has been accumulating before the event and why a fault can remain stuck for a long time before it slips.",
+      "difficulty": "No geology background is needed. Imagine two rough blocks pressed together: motion may be resisted by friction while stress builds, then released quickly when the resisting grip gives way. A fault is the fracture surface along which that movement occurs.",
+      "idea": "The shaking is the traveling signal, not the original cause. Tectonic forces load a fault over time; a slip converts some stored elastic energy into seismic waves. This explains why large events depend on both how much fault area moves and how far it moves.",
+      "method": "The FAQ translates established seismology into a physical model based on fault motion, friction and wave propagation. Scientists test and refine this model with seismometers that record waves, field mapping of faults and measurements of crustal deformation. It is an educational synthesis, not a report of a single new study.",
+      "results": "The core evidence-backed lesson is that earthquakes occur when stress exceeds frictional resistance on a fault and energy is released as waves. In places where creep is absent, strain can accumulate over very long periods before a large rupture.",
+      "care": "Knowing the mechanism does not mean scientists can specify the exact time of a future large earthquake. Hazard maps describe long-run likelihood and expected shaking; preparedness and resilient construction remain more actionable than deterministic prediction claims.",
+      "learn": [
+        "Faults can store stress before they slip.",
+        "Seismic waves carry the released energy.",
+        "Hazard assessment is different from exact earthquake prediction."
+      ],
+      "concepts": [
+        "fault",
+        "friction",
+        "tectonic stress",
+        "seismic wave",
+        "hazard"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$212.76",
+        "change": -1.22,
+        "reason": "29 Oct close; the next confirmed result is 17 Nov.",
+        "thesis": "Accelerated-computing demand makes data-center revenue and supply execution the central operating signals.",
+        "risk": "High expectations, customer capex changes and export constraints can reprice the shares sharply."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$524.06",
+        "change": -1.31,
+        "reason": "29 Oct close; investors are digesting the latest results and cloud-capacity spending.",
+        "thesis": "Azure, enterprise software and AI services offer several routes to monetize installed customer relationships.",
+        "risk": "Heavy infrastructure spending may pressure margins if revenue conversion lags."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$245.17",
+        "change": -3.7,
+        "reason": "29 Oct close; AWS demand and retail operating leverage remain the key checks.",
+        "thesis": "AWS and the marketplace combine recurring cloud demand with a scaled commerce network.",
+        "risk": "Cloud competition, consumer softness and capital intensity can reduce earnings leverage."
+      },
+      {
+        "symbol": "TSM",
+        "price": "$432.20",
+        "change": -1.66,
+        "reason": "29 Oct close; leading-edge capacity remains a broad semiconductor demand indicator.",
+        "thesis": "Advanced-node manufacturing is a crucial bottleneck for mobile and AI compute ecosystems.",
+        "risk": "Cyclicality, customer concentration and geopolitical exposure remain material."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,167.40",
+        "change": 0.81,
+        "reason": "29 Oct NSE close; assess consumer, digital and energy execution together.",
+        "thesis": "A diversified platform can reinvest energy cash flows into consumer and digital distribution.",
+        "risk": "Commodity swings, capital intensity and multi-business execution may dilute returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹683.30",
+        "change": -0.29,
+        "reason": "29 Oct NSE close; deposit growth, funding cost and loan quality are the practical reads.",
+        "thesis": "A deep deposit franchise can support durable lending economics when growth and funding remain balanced.",
+        "risk": "Deposit competition, credit costs and leadership transition uncertainty can pressure profitability."
+      },
+      {
+        "symbol": "BHARTIARTL",
+        "price": "₹1,972.10",
+        "change": 1.23,
+        "reason": "29 Oct NSE close; tariff, subscriber quality and network investment remain pivotal.",
+        "thesis": "Scale and improving monetisation can support returns on nationwide connectivity infrastructure.",
+        "risk": "Competitive pricing, spectrum costs and continued capex can constrain free cash flow."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "PLTR",
+        "company": "Palantir Technologies",
+        "report_date": "2026-11-02",
+        "timing": "After market close",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch commercial revenue growth, customer count and whether deployment growth converts into durable margins.",
+        "link": "https://investors.palantir.com/news-details/2026/Palantir-Announces-Date-of-Third-Quarter-2026-Earnings-Release-and-Webcast/"
+      },
+      {
+        "symbol": "NVDA",
+        "company": "NVIDIA",
+        "report_date": "2026-11-17",
+        "timing": "After market close",
+        "fiscal_period": "Fiscal 2027 third quarter",
+        "why_watch": "Watch data-center revenue, supply commentary and the relationship between demand visibility and capacity investment.",
+        "link": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "DIS",
+        "company": "The Walt Disney Company",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Fiscal 2026 fourth quarter and full year",
+        "why_watch": "Watch streaming profitability, parks performance and the company’s cash-flow outlook after content and sports spending.",
+        "link": "https://investor.thewaltdisneycompany.com/events-and-presentations/event-details/2026/Disneys-Q4-FY26-Earnings-Results-Webcast-2026-r7J4pl6coY/default.aspx"
+      },
+      {
+        "symbol": "HD",
+        "company": "The Home Depot",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Third quarter 2026",
+        "why_watch": "Watch comparable sales, professional-customer demand and the read-through from housing and repair activity.",
+        "link": "https://ir.homedepot.com/events-and-presentations"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Jointly predicting camera pose, depth and tracks can remove costly pipeline handoffs.",
+      "Not every transformer head needs the same memory budget; preserve the heads that retrieve distant context.",
+      "Coastal resilience links ecosystem restoration with livelihoods and public infrastructure.",
+      "Genome-editing capability does not by itself establish safety or ethical acceptability.",
+      "Earthquake hazard science supports preparation, not exact time-and-place prediction.",
+      "Earnings dates are planning markers, not investment recommendations."
+    ],
+    "explore": "VGGT and DuoAttention make a useful pair because both seek structure before spending compute: VGGT shares representation across geometric tasks, while DuoAttention allocates memory according to head behaviour. A practical next investigation is to map a mobile perception workload into shared and specialised state: which camera features should be reused across depth, tracking and exposure decisions, and which buffers truly need long retention? Prototype the answer with a bandwidth budget and measure whether the saved transfers matter more than the added control logic."
+  }
+}
