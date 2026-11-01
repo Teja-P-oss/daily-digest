@@ -1,0 +1,324 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-02",
+    "note": "Current edition for 2 November 2026; market figures use the latest completed session, Friday 30 October."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Disaster response",
+        "headline": "Andhra Pradesh continues relief work after Cyclone Arnab",
+        "summary": "A central assessment team reached Andhra Pradesh after Cyclone Arnab damaged homes, crops and electricity infrastructure; state authorities continued restoration and relief work.",
+        "why": "The event is a reminder that power, communications and logistics resilience are climate-adaptation problems, not only emergency-response problems.",
+        "link": "https://newsonair.gov.in/cyclone-arnab-central-team-assesses-damage-in-andhra-pradesh-rescue-operations-continue-in-odisha/"
+      },
+      {
+        "category": "Weather",
+        "headline": "Cyclonic Storm Murasu is forecast near the Andhra Pradesh coast",
+        "summary": "Andhra Pradesh's disaster-management system reported Murasu as a cyclonic storm, with a projected coastal crossing between Nellore and Narsapur overnight on 2–3 November.",
+        "why": "Back-to-back Bay of Bengal hazards make official warning systems and local evacuation capacity immediately consequential.",
+        "link": "https://apsdmagis.ap.gov.in/weather-watch/cyclone"
+      },
+      {
+        "category": "Space and navigation",
+        "headline": "India launches NVS-03 to strengthen NavIC services",
+        "summary": "ISRO's GSLV-F18 placed NVS-03 on its mission trajectory, adding to India's regional navigation system intended to provide positioning, navigation and timing services in India and nearby regions.",
+        "why": "Resilient domestic PNT is strategic infrastructure for transport, timing networks, emergency response and location-aware devices.",
+        "link": "https://indianexpress.com/article/india/india-breaking-news-live-updates-31-october-2026-delhi-mumbai-weather-today-fire-rahul-gandhi-modi-gyanesh-kumar-10944278/lite/"
+      },
+      {
+        "category": "Digital policy",
+        "headline": "MeitY publishes a DEPA handbook for AI-training data collaboration",
+        "summary": "MeitY launched a handbook describing a techno-legal approach to purpose-bound AI data collaboration while retaining institutional control and data rights.",
+        "why": "Useful AI needs data access, but credible consent, auditability and sovereignty determine whether data sharing can scale.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2330756&lang=1&reg=20"
+      },
+      {
+        "category": "Mobility",
+        "headline": "ARAI opens advanced battery and EV-powertrain test facilities",
+        "summary": "The Automotive Research Association of India inaugurated an advanced battery laboratory and twin-dyno EV powertrain test facility in Pune.",
+        "why": "Independent testing capability is a practical bottleneck for safer, faster iteration in domestic electric-mobility hardware.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2330746&lang=2&reg=48"
+      }
+    ],
+    "world": [
+      {
+        "category": "Geopolitics",
+        "headline": "Israel faces coalition talks after no bloc wins a Knesset majority",
+        "summary": "Final results left Netanyahu's bloc on 53 seats, the main opposition bloc on 48 and Arab-led parties on 19, making coalition negotiations decisive.",
+        "why": "The composition of any coalition will shape Israel's domestic agenda and regional policy at a sensitive moment.",
+        "link": "https://apnews.com/article/3a793c0d07fdfe515390524b849d8674"
+      },
+      {
+        "category": "International relations",
+        "headline": "Canada and the EU launch a broader cooperation agenda",
+        "summary": "Canada and EU leaders advanced an Alliance for the Future covering digital trade, critical minerals, research and security, while discussing a closer future association.",
+        "why": "It is a live experiment in diversifying supply chains, technology cooperation and strategic partnerships among middle powers.",
+        "link": "https://apnews.com/article/d8543b3d496dd2b98d68b4ca13e7f2f8"
+      },
+      {
+        "category": "Conflict",
+        "headline": "Kyiv remains exposed to long-range missile and drone attacks",
+        "summary": "Recent Russian strikes on Kyiv included ballistic missiles, while both Russia and Ukraine reported large-scale drone activity in the wider conflict.",
+        "why": "The war continues to demonstrate how air defence, inexpensive uncrewed systems and industrial replenishment interact in modern conflict.",
+        "link": "https://apnews.com/article/5eef1c7dc4cc401dd8de85f718574877"
+      },
+      {
+        "category": "Health",
+        "headline": "Personalised cancer vaccines show promise in a major trial",
+        "summary": "A BBC World Service programme highlighted a major trial of a personalised cancer-vaccine approach, illustrating how tumour-specific information can guide treatment research.",
+        "why": "The story offers a concrete bridge between genomics, manufacturing and clinical evidence, while underscoring that promising trials still need careful confirmation.",
+        "link": "https://wspartners.bbc.com/schedules/bbc_world_service_east_asia/week/2026-10-31"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "MambaIR: A Simple Baseline for Image Restoration with State-Space Model",
+      "authors": "Hang Guo, Jinmin Li, Tao Dai, Zhi Wang, Shu-Tao Xia",
+      "year": "2024",
+      "venue": "ECCV 2024",
+      "field": "Image restoration and efficient vision",
+      "link": "https://arxiv.org/abs/2402.15648",
+      "scholar": "https://scholar.google.com/scholar?q=MambaIR+A+Simple+Baseline+for+Image+Restoration+with+State-Space+Model",
+      "summary": "MambaIR adapts selective state-space models to image restoration, aiming to combine long-range context with more favourable scaling than full self-attention.",
+      "problem": "Denoising, deblurring and super-resolution benefit from distant image context, but transformer attention compares many pairs of image tokens and becomes expensive as resolution grows. The challenge is to preserve useful global reasoning without making a restoration model impractical at high resolution.",
+      "difficulty": "The central unfamiliar idea is a state-space scan: information is propagated through a learned recurrent state rather than by explicitly forming every token-to-token attention weight. For images, the scan must be made spatially meaningful and must not introduce directional artefacts.",
+      "idea": "Use a visual state-space backbone as the global-context engine, then add a local enhancement module and channel attention. The combination gives the model both broad image context and local detail recovery, which are complementary for restoration.",
+      "method": "The authors build a residual state-space block around a two-dimensional selective-scan mechanism, combine it with local convolutional processing and use channel attention to emphasise useful features. They train task-specific versions for super-resolution, denoising and JPEG-compression-artifact removal, then compare against CNN and transformer baselines on standard image-restoration benchmarks.",
+      "results": "The paper reports competitive or leading reconstruction quality across the evaluated restoration tasks while using a simple architecture. Its useful result is architectural rather than magical: a state-space operator can supply long-range context in image restoration without relying solely on quadratic attention.",
+      "care": "Benchmark gains depend on training recipes, image distributions and distortion models; perceptual quality is not fully captured by PSNR or SSIM. Selective scans also impose design choices about scan direction and spatial mixing, so results should be tested on real sensor noise and production resolution before treating the approach as an ISP substitute.",
+      "learn": [
+        "Long-range context is valuable even for low-level vision.",
+        "State-space scans trade explicit pairwise attention for recurrent propagation.",
+        "A hybrid local-plus-global block is often more useful than a single fashionable operator."
+      ],
+      "concepts": [
+        "state-space model",
+        "selective scan",
+        "image restoration",
+        "super-resolution",
+        "PSNR",
+        "local-global features"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU",
+      "authors": "Yuan Yao, Yuxiao Dong, Peiyu Liu, Zeyuan Hu, Zhengyan Zhang, Liyuan Liu, Maosong Sun, Jie Zhou",
+      "year": "2023",
+      "venue": "arXiv",
+      "field": "Efficient edge AI systems",
+      "link": "https://arxiv.org/abs/2312.12456",
+      "scholar": "https://scholar.google.com/scholar?q=PowerInfer+Fast+Large+Language+Model+Serving+with+a+Consumer-grade+GPU",
+      "summary": "PowerInfer exploits the observation that only a subset of neurons tend to be activated for a token, using prediction and CPU–GPU cooperation to reduce the work of local LLM inference.",
+      "problem": "A model may fit only awkwardly on a consumer GPU: keeping all weights in GPU memory is costly, while moving work to the CPU risks slow token generation. The systems question is which computations truly need accelerator bandwidth for each token.",
+      "difficulty": "Sparse activation is intuitive but dynamically finding active neurons can cost more than it saves. The paper therefore couples a learned predictor with a runtime scheduler and heterogeneous execution, rather than assuming static pruning is enough.",
+      "idea": "Predict the activated neurons from the current input, run the latency-sensitive dense work on the GPU, and place selected expert-like computation across CPU and GPU memory. This turns activation sparsity into a scheduling and data-movement opportunity.",
+      "method": "The authors profile activation sparsity, train a lightweight predictor for active neurons, and design a runtime that partitions work across CPU and GPU. They evaluate token-generation throughput on consumer hardware and compare against conventional GPU-only and offloading approaches.",
+      "results": "PowerInfer reports substantially higher generation throughput than prior local-serving baselines for the tested models and hardware. The enduring lesson is that inference performance can be bounded by memory placement and activation structure as much as nominal FLOPs.",
+      "care": "Results depend on the sparsity pattern, predictor accuracy, CPU/GPU balance and model architecture. A method tuned for one model family or interactive batch size may not transfer to long-context, multimodal or heavily batched serving without renewed measurement.",
+      "learn": [
+        "Activation sparsity can be a systems resource, not only a compression statistic.",
+        "Dynamic prediction must pay for itself in end-to-end latency.",
+        "Memory placement and scheduling are first-class model-serving design variables."
+      ],
+      "concepts": [
+        "sparse activation",
+        "heterogeneous computing",
+        "LLM inference",
+        "CPU-GPU scheduling",
+        "memory bandwidth",
+        "runtime systems"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "12–18 min",
+      "title": "What is a vaccine?",
+      "authors": "World Health Organization",
+      "year": "2024",
+      "venue": "WHO explainer",
+      "field": "Public health",
+      "link": "https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination",
+      "scholar": null,
+      "summary": "WHO explains vaccination as training the immune system to recognise a threat before an infection causes disease, without requiring a person to experience the disease itself.",
+      "problem": "It is easy to hear that vaccines ‘boost immunity’ without understanding what is being prepared, why doses may be repeated, or why protection is a population issue as well as an individual one.",
+      "difficulty": "The vocabulary can sound technical: an antigen is a feature the immune system can recognise; immune memory is the ability to respond faster after prior exposure. The explainer grounds both in everyday prevention.",
+      "idea": "Vaccination presents the immune system with safe information about a germ, allowing it to form memory. Later exposure can therefore trigger a quicker, more effective response.",
+      "method": "This is an evidence-based public-health explainer, drawing on established immunology, safety surveillance and the observed effects of vaccination programmes. It explains the causal chain: a controlled exposure presents a recognisable antigen, immune cells build memory, and later encounters can be answered more quickly. It also frames community coverage as evidence from disease transmission rather than as a slogan.",
+      "results": "Its main lesson is that vaccines prevent or reduce illness by preparing immune responses in advance, and high coverage can also reduce opportunities for a pathogen to spread.",
+      "care": "Protection differs by vaccine, person and pathogen, and no intervention has zero risk. The appropriate question is comparative evidence about benefits and harms, not whether protection is absolute.",
+      "learn": [
+        "Vaccines prepare immune memory before infection.",
+        "Antigens are recognisable features, not necessarily whole germs.",
+        "Population coverage can protect people who are more vulnerable."
+      ],
+      "concepts": [
+        "immune system",
+        "antigen",
+        "immune memory",
+        "vaccination",
+        "public health"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "What is ocean acidification?",
+      "authors": "National Oceanic and Atmospheric Administration",
+      "year": "2024",
+      "venue": "NOAA Ocean Service",
+      "field": "Earth and ocean science",
+      "link": "https://oceanservice.noaa.gov/facts/acidification.html",
+      "scholar": null,
+      "summary": "NOAA explains how seawater absorbs carbon dioxide, changing ocean chemistry and making it harder for some organisms to build shells and skeletons.",
+      "problem": "The ocean is often described as a carbon sink, which can obscure the trade-off: absorbing carbon dioxide moderates atmospheric warming but changes seawater chemistry.",
+      "difficulty": "Acidity is measured using pH, a logarithmic scale. The useful intuition is that dissolved carbon dioxide participates in reactions that increase hydrogen ions and reduce carbonate ions used by many shell-forming organisms.",
+      "idea": "The same carbon dioxide molecule links atmosphere and ocean: it can be taken up by seawater, form carbonic acid and alter the chemical ingredients available to marine life.",
+      "method": "The explainer synthesises long-running ocean measurements with basic carbonate chemistry and biological observations. It traces the process from atmospheric carbon dioxide dissolving in seawater to changes in hydrogen and carbonate ions, then connects that chemistry to laboratory, field and monitoring evidence about calcifying organisms. It also distinguishes this mechanism from ordinary pollution, even though the stresses can interact.",
+      "results": "The key evidence is the measured long-term change in ocean chemistry alongside laboratory and field evidence that lower carbonate availability can challenge corals, molluscs and other calcifying organisms.",
+      "care": "Effects vary by species, location, temperature and food supply, so acidification is not a single uniform outcome. It also interacts with warming, oxygen loss and pollution.",
+      "learn": [
+        "Ocean carbon uptake has a chemical cost.",
+        "pH is logarithmic, so small numerical changes matter.",
+        "Carbonate availability is important for many shell-building organisms."
+      ],
+      "concepts": [
+        "carbon dioxide",
+        "pH",
+        "carbonate ions",
+        "marine ecosystems",
+        "carbon cycle"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$344.63",
+        "change": -1.23,
+        "reason": "30 October close, ahead of Apple’s scheduled fiscal Q4 release on 2 November.",
+        "thesis": "Services, installed-base monetisation and product execution remain the core operating questions.",
+        "risk": "Premium valuation and hardware-cycle or supply-chain disappointment can amplify a weak result."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$204.64",
+        "change": -4.22,
+        "reason": "30 October close in a broad AI-infrastructure selloff.",
+        "thesis": "Accelerated-computing demand and the company’s platform ecosystem remain central to AI capex.",
+        "risk": "Customer concentration, export restrictions and a capex reset could compress expectations."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$521.91",
+        "change": -1.55,
+        "reason": "30 October close after a volatile large-cap technology session.",
+        "thesis": "Azure, enterprise software and AI product monetisation provide a diversified cloud-software lens.",
+        "risk": "AI infrastructure spending may outpace near-term revenue conversion and pressure margins."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$240.35",
+        "change": -1.41,
+        "reason": "30 October close after the company’s latest results focused attention on retail and cloud growth.",
+        "thesis": "AWS capacity, advertising and retail efficiency create several earnings levers.",
+        "risk": "Capital intensity, consumer demand and competitive cloud pricing remain material uncertainties."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,164.90",
+        "change": -0.21,
+        "reason": "NSE close on 30 October, the latest completed session.",
+        "thesis": "The mix of energy, consumer retail and digital businesses makes execution across several large markets relevant.",
+        "risk": "Capital allocation, commodity exposure and execution across retail and digital expansion can pressure returns."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,502.60",
+        "change": 0.99,
+        "reason": "NSE close on 30 October, the latest completed session.",
+        "thesis": "A global enterprise-IT cycle and AI-led service demand are the operating read-throughs.",
+        "risk": "Client discretionary-spend cuts, pricing pressure and attrition can restrain growth or margins."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹692.80",
+        "change": 1.39,
+        "reason": "NSE close on 30 October, the latest completed session.",
+        "thesis": "Deposit growth, credit quality and post-merger execution remain the clearest fundamentals to track.",
+        "risk": "Funding costs, loan losses or slower deposit mobilisation can weigh on profitability."
+      },
+      {
+        "symbol": "BHARTIARTL",
+        "price": "₹1,973.70",
+        "change": 0.08,
+        "reason": "NSE close on 30 October, the latest completed session.",
+        "thesis": "Mobile data demand and tariff discipline can support cash generation and network investment.",
+        "risk": "Competitive pricing, spectrum costs and African currency exposure remain meaningful risks."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "AMD",
+        "company": "Advanced Micro Devices",
+        "report_date": "2026-11-03",
+        "timing": "After market close",
+        "fiscal_period": "Fiscal Q3 2026",
+        "why_watch": "Watch data-center and AI-accelerator revenue, supply commentary and the mix between enterprise, client and gaming businesses.",
+        "link": "https://ir.amd.com/news-events/press-releases/detail/1300/amd-to-report-fiscal-third-quarter-2026-financial-results"
+      },
+      {
+        "symbol": "AMAT",
+        "company": "Applied Materials",
+        "report_date": "2026-11-12",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Fiscal Q4 2026",
+        "why_watch": "Equipment orders and management commentary offer a read-through on foundry, memory and advanced-packaging capital spending.",
+        "link": "https://investors.appliedmaterials.com/events"
+      },
+      {
+        "symbol": "NVDA",
+        "company": "NVIDIA",
+        "report_date": "2026-11-17",
+        "timing": "After market close",
+        "fiscal_period": "Fiscal Q3 2027",
+        "why_watch": "Watch data-center demand, supply and gross-margin commentary for evidence on the durability of AI-infrastructure spending.",
+        "link": "https://www.globenewswire.com/news-release/2026/10/28/3390809/0/en/nvidia-sets-conference-call-for-third-quarter-financial-results.html"
+      },
+      {
+        "symbol": "DIS",
+        "company": "The Walt Disney Company",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Fiscal Q4 and full year 2026",
+        "why_watch": "Streaming profitability, parks performance and content spending are the key cross-segment operating questions.",
+        "link": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Climate resilience depends on reliable warning, power and communications systems before a storm arrives.",
+      "NavIC is positioning and timing infrastructure, not merely a consumer-navigation feature.",
+      "State-space vision models are another route to long-range context when full attention is expensive.",
+      "Inference speed is often a memory-placement and scheduling problem as much as a compute problem.",
+      "Vaccination prepares immune memory; ocean carbon uptake changes chemistry as well as climate."
+    ],
+    "explore": "MambaIR and PowerInfer point to the same engineering instinct: identify the expensive all-to-all operation, then replace it with a structure that preserves the information you actually need. Compare a selective scan in an image-restoration block with activation prediction in an LLM runtime. In both cases, a system avoids treating every interaction as equally important. A useful next investigation is to profile a small imaging model on device and ask whether its bottleneck is arithmetic, memory traffic or activation storage; that diagnosis should determine whether architectural sparsity, quantisation or scheduling is the next lever."
+  }
+}
