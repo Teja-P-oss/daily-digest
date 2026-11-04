@@ -1,0 +1,311 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-05",
+    "note": "Current edition for 5 November 2026, prepared with reporting and completed market sessions available at publication time."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Climate and safety",
+        "headline": "IMD says the remnant of Cyclone Murasu has weakened over Telangana and coastal Andhra Pradesh",
+        "summary": "India Meteorological Department bulletins on 4 November described Murasu's remnant as a well-marked low-pressure area over east Telangana and adjoining coastal Andhra Pradesh after the cyclone's landfall and weakening.",
+        "why": "The event is a practical reminder that disruption does not end at landfall: inland rain, flooding, power restoration and transport recovery can become the dominant risks as a cyclone decays.",
+        "link": "https://mausam.imd.gov.in/responsive/cyclone_bulletin_archive.php"
+      },
+      {
+        "category": "Energy and infrastructure",
+        "headline": "Cabinet approves ₹14,500 crore viability-gap support for 92 GWh of grid-scale storage",
+        "summary": "The Power Ministry said the approved FY2026-27 to FY2030-31 scheme will support 30 GWh of battery storage, 60 GWh of pumped storage and 2 GWh of emerging storage technologies, with domestic-content requirements for battery systems.",
+        "why": "Storage is the bridge between variable renewable generation and dependable power. Its design affects grid stability, peak supply, domestic manufacturing and the economics of new data-center and industrial loads.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2332486&lang=1&reg=3"
+      },
+      {
+        "category": "Science and space",
+        "headline": "Aditya-L1 observations help reconstruct the asymmetric expansion of a solar eruption",
+        "summary": "Scientists combined Aditya-L1's VELC observations with NASA SDO data and three-dimensional modelling to study the geometry and dynamics of a coronal mass ejection, according to the Science Ministry.",
+        "why": "Better geometric understanding of eruptions is useful for space-weather work because solar disturbances can affect satellites, communications and other technology-dependent systems.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2331935&lang=1&reg=3"
+      },
+      {
+        "category": "Governance",
+        "headline": "Lok Sabha Speaker calls for a common digital audit-monitoring platform for state legislatures",
+        "summary": "At a conference of Public Accounts Committee chairpersons in Thiruvananthapuram, Om Birla called for stronger technology integration, shared practices and coordinated audit and evaluation across legislatures.",
+        "why": "Public spending is more useful when oversight can connect recommendations, implementation and outcomes. Shared digital systems could make that feedback loop more visible across jurisdictions.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2332521&lang=1&reg=3"
+      }
+    ],
+    "world": [
+      {
+        "category": "Politics",
+        "headline": "Democrats win control of both chambers of the US Congress in the midterm elections",
+        "summary": "Associated Press reported that Democrats secured the House as well as the Senate, changing the balance of power in Washington for the final two years of President Donald Trump's term.",
+        "why": "Control of Congress shapes legislation, appointments, investigations and the practical room for executive policy. That makes the outcome relevant well beyond domestic US politics.",
+        "link": "https://apnews.com/article/ef6199e25927a9ac9f4c18eae0e497cd"
+      },
+      {
+        "category": "Geopolitics",
+        "headline": "Iranian officials frame the US election result as a signal against the war while regional tensions persist",
+        "summary": "AP reported that Iranian officials reacted to the US midterm result while the region remained on edge over whether US military operations against Iran would resume; it also noted unverified Houthi claims of strikes in Saudi Arabia.",
+        "why": "The episode shows how domestic political shifts can immediately alter diplomatic expectations, even when they do not themselves settle the underlying security conflict.",
+        "link": "https://apnews.com/article/mideast-iran-war-yemen-houthis-lebanon-israel-ada824e7387edec2cd8d1f97045dff2b"
+      },
+      {
+        "category": "Climate and health",
+        "headline": "WHO estimates six scaled climate-health actions could prevent 1.6 million deaths a year",
+        "summary": "WHO's new assessment models the effects of scaling heat-warning systems, climate-resilient water and sanitation, cleaner household energy and efficient fossil-fuel pricing, among other measures.",
+        "why": "The report turns climate action into an implementation question: interventions can be judged not only by emissions avoided, but by health gains, costs and delivery feasibility.",
+        "link": "https://www.who.int/news/item/04-11-2026-six-climate-and-health-actions-could-save-1.6-million-lives-and-deliver-trillions-in-benefits-each-year"
+      },
+      {
+        "category": "Global health",
+        "headline": "WHO reports progress against neglected tropical diseases but warns that financing and data gaps threaten gains",
+        "summary": "WHO said 63 countries had eliminated at least one neglected tropical disease by June 2026, while its midterm assessment also identified uneven progress, concentrated donor support and programmes still off track.",
+        "why": "The story is a useful case study in the difference between a strong aggregate trend and durable delivery: surveillance, domestic financing and resilient primary care determine whether progress lasts.",
+        "link": "https://www.who.int/news/item/04-11-2026-progress-against-neglected-tropical-diseases-requires-sustained-action"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "EfficientViT-SAM: Accelerated Segment Anything Model Without Performance Loss",
+      "authors": "Zhuoyang Zhang, Han Cai, and Song Han",
+      "year": "2024",
+      "venue": "CVPR 2024 Workshop on Efficient Large Vision Models",
+      "field": "Efficient computer vision and image segmentation",
+      "link": "https://arxiv.org/abs/2402.05008",
+      "scholar": "https://scholar.google.com/scholar?q=EfficientViT-SAM+Accelerated+Segment+Anything+Model+Without+Performance+Loss",
+      "summary": "EfficientViT-SAM replaces the expensive image encoder in Segment Anything with an efficient vision transformer, aiming to keep promptable, zero-shot segmentation useful when latency and compute budgets matter.",
+      "problem": "Segment Anything is compelling for annotation, interactive editing and AR-style scene understanding, but its large image encoder makes repeatedly processing a camera frame expensive. A mobile or real-time pipeline needs the generality of a foundation model without treating every image as a data-center workload.",
+      "difficulty": "The key distinction is between an image encoder, which builds a feature map once per image, and the relatively light prompt and mask components. Knowledge distillation means training the smaller encoder to imitate useful representations from the large model; it is not simply shrinking every layer.",
+      "idea": "Spend the optimisation budget where the work is: retain SAM's prompt encoder and mask decoder, substitute an EfficientViT image encoder, first distil from the large SAM encoder, then tune the complete system on the original segmentation data.",
+      "method": "The authors identify SAM's image encoder as the inference bottleneck and replace it with EfficientViT. Training proceeds in two stages: the new encoder first learns from SAM-ViT-H features through distillation, then the assembled promptable model is trained end to end on SA-1B. They evaluate zero-shot point-prompted, box-prompted and in-the-wild segmentation, and compare throughput and accuracy with SAM and other lightweight variants. The engineering lesson is that model architecture, training target and deployment runtime must be considered together rather than assuming parameter count alone predicts latency.",
+      "results": "On the reported COCO zero-shot comparison, EfficientViT-SAM-L achieved 48.9 times measured TensorRT throughput on an A100 relative to SAM-ViT-H without an mAP drop. That is a strong demonstration that a foundation-model interface can be preserved while its dominant per-image cost is redesigned.",
+      "care": "The headline throughput is a specific TensorRT A100 measurement, not a promise for a phone NPU, ISP or arbitrary prompt workload. Measure preprocessing, memory traffic, resolution, prompt frequency and quality on the actual target before treating the result as an end-to-end product latency claim.",
+      "learn": [
+        "In promptable segmentation, the image encoder is often the recurring cost worth attacking first.",
+        "Distillation can preserve a useful interface while changing the heavy representation builder underneath it.",
+        "Throughput-quality curves are more informative for deployment than parameter counts alone."
+      ],
+      "concepts": [
+        "image segmentation",
+        "foundation models",
+        "vision transformer",
+        "knowledge distillation",
+        "TensorRT"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "advanced",
+      "reading_time": "25–35 min",
+      "title": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+      "authors": "Jay Shah, Ganesh Bikshandi, Ying Zhang, Vijay Thakkar, Pradeep Ramani, and Tri Dao",
+      "year": "2024",
+      "venue": "NeurIPS 2024",
+      "field": "GPU kernel optimization and efficient ML systems",
+      "link": "https://arxiv.org/abs/2407.08608",
+      "scholar": "https://scholar.google.com/scholar?q=FlashAttention-3+Fast+and+Accurate+Attention+with+Asynchrony+and+Low-precision",
+      "summary": "FlashAttention-3 redesigns exact attention for Hopper GPUs by overlapping data movement and computation, interleaving work more effectively and using numerically careful FP8 processing.",
+      "problem": "Attention repeatedly mixes matrix multiplication, softmax and memory movement. On modern accelerators, a mathematically efficient formulation can still leave expensive tensor hardware idle while data arrives or non-matrix operations wait, especially for long-context workloads.",
+      "difficulty": "GPU utilisation is not just a property of FLOP count. Hopper offers Tensor Memory Accelerator transfers and Tensor Cores that can operate asynchronously. Warp specialization assigns different groups of threads different jobs, while FP8 is a low-precision format whose numerical error needs active management.",
+      "idea": "Treat the attention kernel as a schedule for heterogeneous hardware: overlap transfers with compute, interleave matrix multiplication with softmax, and make low precision reliable enough to exploit the faster path without changing the attention result's intent.",
+      "method": "The paper builds a Hopper-specific kernel around three choices. It overlaps Tensor Core computation and TMA data movement using warp specialization; it interleaves block-wise matrix multiplication and softmax to reduce pipeline bubbles; and it uses block quantization plus incoherent processing for FP8. The authors benchmark against prior FlashAttention, Triton and cuDNN implementations, reporting both throughput and numerical error. This makes it a good read for separating algorithmic complexity from the practical schedule of memory, special-function and matrix units.",
+      "results": "The authors report 1.5–2.0 times speedup over FlashAttention-2 on H100, up to 740 TFLOP/s in FP16 at 75% utilisation, and close to 1.2 PFLOP/s in FP8. Their FP8 approach also reports 2.6 times lower numerical error than a baseline FP8 attention implementation.",
+      "care": "This is highly architecture-specific work: the cited gains rely on Hopper features and may not transfer to mobile GPUs, NPUs or older CUDA devices. Its value for embedded design is the reasoning pattern—measure the bottleneck, overlap independent stages and quantify accuracy loss—not a kernel to copy unchanged.",
+      "learn": [
+        "Modern kernel speed is often limited by scheduling and data movement, not arithmetic alone.",
+        "Asynchronous copies can turn memory latency into useful overlapping computation.",
+        "Low precision is a systems-and-numerics decision, not merely a smaller datatype."
+      ],
+      "concepts": [
+        "attention",
+        "GPU kernels",
+        "memory bandwidth",
+        "asynchrony",
+        "FP8",
+        "Hopper GPU"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "12–18 min",
+      "title": "Black Holes",
+      "authors": "NASA Science",
+      "year": "2024",
+      "venue": "NASA Science explainer",
+      "field": "Astronomy",
+      "link": "https://science.nasa.gov/universe/black-holes/",
+      "scholar": null,
+      "summary": "NASA's explainer replaces the image of a cosmic vacuum cleaner with a better one: a very compact concentration of mass whose boundary, the event horizon, is where escape becomes impossible.",
+      "problem": "Black holes are often treated as things we can photograph directly or as objects that indiscriminately pull in everything nearby. Both ideas hide the more interesting question: how can scientists test for an object that emits no light itself?",
+      "difficulty": "An event horizon is a boundary rather than a solid surface. Accretion disks are hot material orbiting a black hole, and gravitational lensing is the bending of background light by gravity. The terms are easier once each is tied to an observable effect.",
+      "idea": "Astronomy can establish an unseen object's existence by measuring its effects: the motion of nearby stars, light from heated gas, bent background light and gravitational waves from extreme motion.",
+      "method": "This explainer synthesizes several observational routes rather than presenting one experiment. It describes observing radiation from gas in accretion disks, tracking stellar orbits near the Milky Way's center, detecting gravitational waves, and using gravitational lensing. Each method works because gravity changes a measurable signal or trajectory even when the black hole itself does not shine. That is a gentle introduction to inference from indirect evidence.",
+      "results": "The main lesson is that invisibility is not the same as unknowability. Converging observations of matter, stars, light and space-time around compact objects provide strong evidence for black holes and let astronomers estimate their properties.",
+      "care": "A black hole's strong gravity matters dramatically close to it, but from far away its gravitational effect is like that of any object with the same mass. Popular images are visualizations of surrounding material and warped light, not snapshots of a hole with a surface.",
+      "learn": [
+        "The event horizon is a boundary, not a physical shell.",
+        "Scientists often learn about invisible things through their effects on visible systems.",
+        "A black hole is not a universal vacuum cleaner."
+      ],
+      "concepts": [
+        "black hole",
+        "event horizon",
+        "accretion disk",
+        "gravitational lensing",
+        "gravitational waves"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "Antibiotic Use and Antimicrobial Resistance Facts",
+      "authors": "Centers for Disease Control and Prevention",
+      "year": "2024",
+      "venue": "CDC public-health explainer",
+      "field": "Public health",
+      "link": "https://www.cdc.gov/antibiotic-use/data-research/facts-stats/index.html",
+      "scholar": null,
+      "summary": "CDC explains that antibiotics target certain bacterial infections, not viruses, and that unnecessary use can produce side effects while helping bacteria evolve resistance to the drugs.",
+      "problem": "The word 'infection' can make antibiotics sound like a general remedy. That misconception leads people to expect them for colds and flu, where antibiotics do not act on the virus and can create avoidable individual and population-level harm.",
+      "difficulty": "Bacteria and viruses are different kinds of germs. Antimicrobial resistance does not mean a person's body becomes resistant; it means microbes can survive drugs designed to kill or inhibit them. That distinction makes the public-health consequence intuitive.",
+      "idea": "Antibiotics are valuable, targeted tools. Using the right drug only when it is medically needed helps preserve their usefulness and avoids treating a virus with a medicine designed for bacteria.",
+      "method": "The CDC page is a public-health synthesis of microbiology, prescribing evidence and safety surveillance. It explains what antibiotics do, contrasts bacterial and viral illness, and connects individual decisions with selection pressure: exposure can favor bacteria able to survive the drug. The evidence is therefore both clinical, in whether treatment helps a patient, and population-based, in how resistant infections spread and constrain future treatment.",
+      "results": "The practical conclusion is simple: antibiotics can be life-saving for appropriate bacterial infections, but they do not treat viruses such as colds and flu. Avoiding unnecessary use reduces side-effect exposure and helps limit resistance pressure.",
+      "care": "Do not self-diagnose or stop a prescribed course based on an explainer. The right treatment depends on the illness, patient and clinician's assessment; stewardship means appropriate use, not avoiding antibiotics that are genuinely needed.",
+      "learn": [
+        "Antibiotics act on bacteria, not viruses.",
+        "Resistance is a property of microbes, not of the person taking a drug.",
+        "Good stewardship preserves an important shared medical resource."
+      ],
+      "concepts": [
+        "antibiotics",
+        "bacteria",
+        "viruses",
+        "antimicrobial resistance",
+        "stewardship"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AAPL",
+        "price": "$331.90",
+        "change": -1.9,
+        "reason": "3 November close, the latest completed US session used for this edition.",
+        "thesis": "The installed base, services mix and device-cycle execution make Apple a compact read on premium consumer hardware and ecosystem monetisation.",
+        "risk": "Demand cycles, supply-chain disruption, regulation and a high expectation base can pressure results."
+      },
+      {
+        "symbol": "NVDA",
+        "price": "$206.69",
+        "change": 2.29,
+        "reason": "3 November close, ahead of the confirmed 17 November fiscal-Q3 results release.",
+        "thesis": "Data-center accelerator demand, networking and the software ecosystem remain central signals for AI-infrastructure spending.",
+        "risk": "Customer concentration, export restrictions, supply transitions and a capex slowdown could reset expectations."
+      },
+      {
+        "symbol": "AMD",
+        "price": "$483.90",
+        "change": 3.65,
+        "reason": "3 November close, the latest completed US session used for this edition.",
+        "thesis": "Server CPUs and AI accelerators make AMD a useful lens on heterogeneous compute competition and enterprise adoption.",
+        "risk": "Product ramps, aggressive competition and cyclicality in client and gaming demand can create large swings."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,311.00",
+        "change": 0.24,
+        "reason": "NSE close on 4 November, the latest completed Indian session.",
+        "thesis": "Energy, Jio and retail make Reliance a diversified lens on Indian consumer, connectivity and industrial investment.",
+        "risk": "Commodity volatility, large capital commitments and execution across several businesses can weigh on returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹736.70",
+        "change": 1.54,
+        "reason": "NSE close on 4 November, the latest completed Indian session.",
+        "thesis": "Deposit mobilisation, loan growth and credit quality remain the clearest operating measures for the large private bank.",
+        "risk": "Funding costs, asset-quality deterioration or slower deposit growth can restrain margins and profitability."
+      },
+      {
+        "symbol": "BHARTIARTL",
+        "price": "₹2,067.60",
+        "change": 0.13,
+        "reason": "NSE close on 4 November, the latest completed Indian session.",
+        "thesis": "Mobile-data growth, tariff discipline and network investment are the core drivers to track across India and Africa.",
+        "risk": "Competitive pricing, spectrum costs and currency exposure in African operations remain material risks."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "company": "NVIDIA",
+        "report_date": "2026-11-17",
+        "timing": "After market close",
+        "fiscal_period": "Fiscal Q3 2027",
+        "why_watch": "Watch data-center revenue, supply and gross-margin commentary for evidence on the durability and economics of AI-infrastructure spending.",
+        "link": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "HD",
+        "company": "The Home Depot",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Fiscal Q3 2026",
+        "why_watch": "Comparable sales and management's view of repair, renovation and professional-customer demand offer a read-through on the US housing and consumer backdrop.",
+        "link": "https://ir.homedepot.com/news-releases/2026/11-03-2026-130236805"
+      },
+      {
+        "symbol": "DIS",
+        "company": "The Walt Disney Company",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Fiscal Q4 and full year 2026",
+        "why_watch": "Streaming profitability, parks performance and content spending are the important cross-segment questions as Disney reports its full-year result.",
+        "link": "https://investors.thewaltdisneycompany.com/news/news-details/2026/The-Walt-Disney-Company-Executives-to-Discuss-Fiscal-Full-Year-and-Fourth-Quarter-2026-Financial-Results-via-Webcast/default.aspx"
+      },
+      {
+        "symbol": "PANW",
+        "company": "Palo Alto Networks",
+        "report_date": "2026-11-18",
+        "timing": "After market close",
+        "fiscal_period": "Fiscal Q1 2027",
+        "why_watch": "Platform adoption, remaining performance obligations and billings commentary can indicate whether enterprise security budgets are consolidating around integrated tools.",
+        "link": "https://investors.paloaltonetworks.com/node/20971/pdf"
+      },
+      {
+        "symbol": "WMT",
+        "company": "Walmart",
+        "report_date": "2026-11-19",
+        "timing": "Before market open",
+        "fiscal_period": "Fiscal Q3 2027",
+        "why_watch": "US comparable sales, e-commerce, inventory and operating-margin commentary are useful signals on value-conscious consumer demand and retail execution.",
+        "link": "https://corporate.walmart.com/news/events"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Cyclone response is an infrastructure problem after landfall as much as a forecasting problem before it.",
+      "Grid-scale storage turns renewable capacity into a reliability and timing problem, not merely a generation problem.",
+      "EfficientViT-SAM shows that redesigning the dominant image-encoder cost can preserve a foundation-model workflow at far higher throughput.",
+      "FlashAttention-3 makes the hardware schedule—data movement, special functions and matrix units—part of the algorithm.",
+      "Indirect evidence, from stellar orbits to accretion disks, can establish facts about objects we cannot see directly.",
+      "Antibiotic stewardship protects both an individual patient and the shared effectiveness of bacterial infection treatments.",
+      "Confirmed earnings dates are planning markers, not predictions of the results or a reason to trade."
+    ],
+    "explore": "The two inside picks describe the same systems habit at different layers: first identify the recurring bottleneck, then move work or data so expensive units spend less time waiting. EfficientViT-SAM attacks repeated frame encoding in an interactive vision stack; FlashAttention-3 overlaps transfers and compute inside a GPU kernel. A useful next investigation is to profile a camera-adjacent model end to end—capture, resize, feature extraction, prompting and rendering—then ask which cost is compute, bandwidth or synchronization. Compare that profile with the model's nominal FLOPs; the difference is often where an embedded design gains its real latency and energy headroom."
+  }
+}
