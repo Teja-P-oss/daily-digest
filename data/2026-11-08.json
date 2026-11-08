@@ -1,0 +1,303 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-08",
+    "note": "Current edition for 8 November 2026. Markets were closed for the weekend, so prices and changes use the completed sessions of Friday, 6 November."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Culture",
+        "headline": "Diwali falls on 8 November, bringing a nationwide festival of lights",
+        "summary": "Diwali is being marked with lamps, prayers, family gatherings and sweets. The observance is shared in different forms by Hindu, Sikh, Jain and Buddhist communities, with regional origin stories but a common light-over-darkness theme.",
+        "why": "It is a useful reminder that a national festival can have multiple living traditions; travel, public services and local commerce also operate around it.",
+        "link": "https://apnews.com/article/12115fd0300a07d05037f333715230e7"
+      },
+      {
+        "category": "Environment",
+        "headline": "Diwali season coincides with hazardous winter air in north India",
+        "summary": "An AP report notes that the festival period overlaps with the return of hazardous winter air across South Asia, especially in Delhi, where particulate pollution is a recurring public-health concern.",
+        "why": "The overlap turns a cultural-season issue into an exposure-management problem: emissions, weather and individual precautions all matter.",
+        "link": "https://apnews.com/article/0e05558e5c306397850df463c6a025e7"
+      },
+      {
+        "category": "Governance",
+        "headline": "Opposition scrutiny of electoral-roll revision remains a live national issue",
+        "summary": "The INDIA opposition alliance held a Delhi protest on 1 November seeking the chief election commissioner’s resignation over voter-roll revisions it says could exclude eligible voters; the dispute remained part of the week’s political backdrop.",
+        "why": "Electoral-roll administration is unglamorous but foundational: trust depends on transparent correction processes as well as accurate lists.",
+        "link": "https://apnews.com/article/cb532b4811eea64c51f61cd4199fb64e"
+      },
+      {
+        "category": "Public safety",
+        "headline": "Delhi Police add festival security measures in crowded Old Delhi markets",
+        "summary": "Ahead of Diwali, Delhi Police described additional personnel, CCTV coverage and elevated observation points at major North Delhi markets including Chandni Chowk, Sadar Bazar and Khari Baoli to manage holiday crowds.",
+        "why": "The deployment illustrates the operational challenge of making dense, mixed-use heritage markets safe without shutting down their seasonal economic activity.",
+        "link": "https://economictimes.indiatimes.com/news/newsblogs/breaking-news-live-updates-november-7-choti-diwali-celebrations-greetings-wishes-delhi-aqi-pm-modi-trump-rahul-gandhi-developments-today-new-zealand-rubio-bank-nz-vs-ind-paraguay/liveblog/135624798.cms"
+      }
+    ],
+    "world": [
+      {
+        "category": "Climate",
+        "headline": "COP31 opens in Turkey with implementation and climate-finance questions in focus",
+        "summary": "The UN climate conference is due to begin on 9 November in Antalya. Reporting ahead of the meeting highlighted fossil-fuel transition plans, adaptation and loss-and-damage finance as central issues amid energy shocks and extreme weather.",
+        "why": "The practical test is no longer only target-setting; it is whether finance, grids and policy can turn pledges into durable emissions reductions.",
+        "link": "https://apnews.com/article/6ce625b0e3d4ed0ab093df4e5f9c86ad"
+      },
+      {
+        "category": "International politics",
+        "headline": "Foreign leaders assess the implications of the US midterm result",
+        "summary": "AP reported that leaders abroad reacted to the Republican defeat with relief tempered by caution, noting that a new Congress will not take office until January and that US foreign-policy tools remain concentrated in the presidency.",
+        "why": "Election results can change expectations quickly, but alliance, trade and conflict policy usually move through institutions on slower timetables.",
+        "link": "https://apnews.com/article/7b404b759381379067a52f42e5be578d"
+      },
+      {
+        "category": "Conflict",
+        "headline": "Ukraine says attacks continued despite a claimed energy ceasefire",
+        "summary": "After President Trump said Russia and Ukraine had agreed to an immediate energy ceasefire, Kyiv said Russian attacks on energy infrastructure continued and called for reciprocal restraint.",
+        "why": "Energy infrastructure is both civilian lifeline and strategic leverage, making verification more important than announcements in any ceasefire claim.",
+        "link": "https://apnews.com/article/f621fa788196f204448e7f75fcc78c68"
+      },
+      {
+        "category": "Technology",
+        "headline": "Data-centre expansion is becoming a local environmental and political issue",
+        "summary": "A coalition planned actions across 16 European countries against data-centre projects, including a Microsoft construction site in Amsterdam, putting water, power and siting impacts alongside demand for AI infrastructure.",
+        "why": "AI capacity is no longer just a chip-and-cloud story: permitting, electricity and community consent can become deployment constraints.",
+        "link": "https://www.tomshardware.com/tech-industry/data-centers/protesters-storm-microsoft-ai-data-center-construction-site-amsterdam-reportedly-first-of-85-targeted-actions-across-europe"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "Towards Practical Real-Time Neural Video Compression",
+      "authors": "Zhaoyang Jia, Bin Li, Jiahao Li, Wenxuan Xie, Linfeng Qi, Houqiang Li, and Yan Lu",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "Neural video compression",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/papers/Jia_Towards_Practical_Real-Time_Neural_Video_Compression_CVPR_2025_paper.pdf",
+      "scholar": "https://scholar.google.com/scholar?q=Towards+Practical+Real-Time+Neural+Video+Compression",
+      "summary": "DCVC-RT argues that deployable neural video coding is often limited less by arithmetic than by memory traffic and software overhead. It redesigns temporal modelling and latent representation around those costs while retaining practical rate control.",
+      "problem": "Learned codecs can win rate-distortion benchmarks yet miss real-time deployment because a graph with many small kernels, feature maps and motion modules pays heavily for memory I/O, launches and synchronization. The paper asks how to treat those operational costs as first-class design constraints rather than hoping a faster accelerator will hide them.",
+      "difficulty": "The central challenge is reading bitrate-quality claims together with system measurements. You need enough familiarity with inter-frame prediction, latents and BD-rate to see why fewer operations need not mean faster coding; the useful mental model is a pipeline constrained by both compute and data movement.",
+      "idea": "Use implicit temporal modelling rather than a complex explicit motion path, represent the frame with a single low-resolution latent rather than a progressive hierarchy, integrate the model for cross-device consistency, and use a module bank for rate control. The thesis is that simplifying dataflow can improve real throughput without surrendering compression quality.",
+      "method": "The authors build DCVC-RT and benchmark it against conventional and neural codecs at 1080p. Their design removes costly explicit motion components, reduces intermediate representation handling, and evaluates encoder and decoder frame rates alongside bitrate savings. They also test cross-device coding and rate-control behaviour, which matters when a paper result must survive outside one training and inference setup. Read the architecture as a case study in profiling-led model design: identify the expensive transfers and calls, then alter the representation so the runtime has less work that is invisible in FLOP counts.",
+      "results": "The paper reports average 1080p encoding and decoding speeds of 125.2 and 112.8 frames per second on an A100, while saving an average 21% bitrate against H.266/VTM in its reported comparison. The important result is not that every target will reproduce those numbers; it is that a neural codec can be made real-time when operational overhead is designed out early.",
+      "care": "Hardware, driver stack, resolution, rate point and implementation quality all affect codec comparisons, so do not translate the headline speed directly to a phone ISP or a different GPU. Also distinguish a research codec’s end-to-end latency, memory footprint and robustness from a frame-rate average. The transferable lesson is to profile bandwidth and launches before adding architectural complexity.",
+      "learn": [
+        "Operational overhead can dominate nominal neural-network compute.",
+        "A simpler latent/dataflow can improve both speed and deployability.",
+        "Rate control and cross-device consistency are product requirements, not optional extras."
+      ],
+      "concepts": [
+        "neural video codec",
+        "inter-frame prediction",
+        "latent representation",
+        "BD-rate",
+        "memory I/O",
+        "rate control"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "Scaling LLM Test-Time Compute with Mobile NPU on Smartphones",
+      "authors": "Yongfeng Huang and colleagues",
+      "year": "2025",
+      "venue": "arXiv",
+      "field": "Mobile NPU and edge AI systems",
+      "link": "https://arxiv.org/abs/2509.23324",
+      "scholar": "https://scholar.google.com/scholar?q=Scaling+LLM+Test-Time+Compute+with+Mobile+NPU+on+Smartphones",
+      "summary": "This work explores using underused smartphone NPU matrix engines for additional LLM test-time computation. Its practical contribution is hardware-aware quantization and lookup-table substitutions shaped around mobile memory-access behaviour.",
+      "problem": "Running more reasoning or sampling at inference can improve an LLM’s answer, but a phone has a strict latency, energy and memory budget. The paper focuses on a mismatch: common LLM operations and quantization layouts do not automatically map well onto an NPU, leaving useful matrix hardware underutilized or stalled by data movement.",
+      "difficulty": "The paper is easiest if you separate model quality from execution mapping. Terms such as group quantization, dequantization and softmax matter here because they can become the slow path even when matrix multiplication itself is fast. Treat the NPU as a constrained dataflow machine, not a generic GPU.",
+      "idea": "Align quantization tiles with the NPU’s memory access pattern, and replace selected complex operations such as softmax and dequantization with efficient lookup-table forms. This directs more of the test-time workload into the hardware’s productive matrix path while limiting expensive elementwise and memory-bound work.",
+      "method": "The authors characterize mobile-NPU utilization during LLM inference, then introduce a tile quantization arrangement intended to match hardware access granularity. They combine that with LUT-based approximations for operations that otherwise interrupt an accelerator-friendly flow. The evaluation frames the system question directly: how much extra test-time computation can fit on a smartphone when the implementation is co-designed with the NPU? For an imaging-systems reader, the close analogue is arranging tensors and approximations so that the accelerator sees regular local work rather than repeated format-conversion and bandwidth penalties.",
+      "results": "The paper reports that mobile NPUs have unused matrix-multiplication capacity under typical LLM inference and presents its hardware-aware techniques as a way to exploit it for additional test-time compute. Its most valuable result is architectural: performance headroom can arise from better scheduling and representation matching, not only from a larger model or a higher TOPS figure.",
+      "care": "This is an arXiv preprint, so treat benchmark claims as provisional until independent replication or peer review. NPU capabilities, compiler versions and supported operators vary sharply by phone generation. Approximation choices must also be assessed for end-task quality, thermal behaviour and energy per useful token, not throughput alone.",
+      "learn": [
+        "Quantization layout is a systems decision as well as a model-compression decision.",
+        "Elementwise operations can waste an otherwise capable NPU.",
+        "Extra inference compute is useful only if quality, latency and thermals remain balanced."
+      ],
+      "concepts": [
+        "mobile NPU",
+        "test-time compute",
+        "tile quantization",
+        "lookup table",
+        "memory access",
+        "edge inference"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "Learn About the Universe With the James Webb Space Telescope",
+      "authors": "NASA Jet Propulsion Laboratory Education",
+      "year": "2024",
+      "venue": "NASA JPL Teachable Moment",
+      "field": "Astronomy education",
+      "link": "https://www.jpl.nasa.gov/edu/resources/teachable-moment/learn-about-the-universe-with-the-james-webb-space-telescope/",
+      "scholar": null,
+      "summary": "A visual NASA explainer on why Webb observes infrared light, how cosmic expansion stretches light, and why looking farther into space also means looking farther back in time.",
+      "problem": "Very distant early galaxies are faint, and their light is shifted away from the visible wavelengths our eyes and many familiar telescopes use. The page asks how an observatory can collect that altered signal and turn it into evidence about the early universe without requiring prior astronomy coursework.",
+      "difficulty": "The only essential new idea is wavelength: infrared is light beyond visible red. The page uses a stretched-rubber-band analogy for cosmological redshift, so the conceptual load is light and expansion rather than mathematics or telescope engineering.",
+      "idea": "Webb is tuned to near- and mid-infrared light. As the universe expands, light from remote objects stretches to longer wavelengths; measuring that light lets astronomers observe objects as they were billions of years ago.",
+      "method": "NASA explains the instrument choice with a simple chain of evidence: light has wavelengths; expansion lengthens the wavelength during a very long journey; infrared-sensitive instruments can detect the shifted radiation. Diagrams and classroom-oriented activities make the otherwise abstract time-and-distance relationship concrete. The key observational method is not travelling to the past but collecting photons that have been in transit since an earlier cosmic era and analysing their brightness and spectra.",
+      "results": "The memorable result is a change of perspective: a telescope is also a time machine in the limited observational sense. Webb’s infrared capability makes it possible to study extremely distant galaxies whose emitted light has been stretched by cosmic expansion, connecting an image to a physical history rather than merely a pretty view.",
+      "care": "An image of a distant object is not a direct snapshot of its full history, and redshift inference depends on careful calibration and spectroscopy. Infrared does not automatically reveal everything; dust, sensitivity limits and interpretation still matter. Use this as a clear conceptual entry point, then explore a mission science result if you want the measurement details.",
+      "learn": [
+        "Looking farther away means receiving older light.",
+        "Cosmic expansion shifts distant visible and ultraviolet light toward infrared.",
+        "Instrument wavelength choice determines which physical questions are accessible."
+      ],
+      "concepts": [
+        "infrared",
+        "cosmological redshift",
+        "wavelength",
+        "light-year",
+        "spectroscopy",
+        "early universe"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "accessible",
+      "reading_time": "10–15 min",
+      "title": "What is a vaccine?",
+      "authors": "World Health Organization",
+      "year": "2025",
+      "venue": "WHO Health Topics",
+      "field": "Public health",
+      "link": "https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination",
+      "scholar": null,
+      "summary": "WHO’s plain-language guide explains vaccination as training the immune system to recognize a threat before an infection causes disease, and places individual protection within community-level disease control.",
+      "problem": "Infectious diseases exploit a delay: the immune system needs time to learn a new pathogen, while illness can progress quickly. The explainer addresses how a safe exposure-like signal can prepare immune recognition without asking readers to master immunology.",
+      "difficulty": "You only need three terms: immune system, antibodies and memory. The useful distinction is between preparing a response in advance and treating someone after they are already ill; the page stays at that accessible level.",
+      "idea": "Vaccines present the immune system with information that helps it recognize a disease-causing organism later. That preparation can reduce severe illness and, when uptake is high, make it harder for infections to spread through a community.",
+      "method": "The WHO explainer synthesizes established biomedical evidence and public-health practice rather than reporting one new experiment. It describes vaccination as an immune-training process and explains why programmes track safety, coverage and disease incidence. For a beginner, the evidence logic is straightforward: compare disease and severe-outcome patterns across vaccinated and unvaccinated populations while continuously monitoring adverse events and updating recommendations as pathogens and data change.",
+      "results": "The principal lesson is that prevention can be a systems intervention. A vaccine’s value is not only an individual immune response; it can change transmission opportunities across a population, protecting people who face greater risk or cannot be vaccinated. That makes trust, delivery logistics and clear communication as important as the biology.",
+      "care": "Different vaccines have different schedules, effectiveness profiles and contraindications, so general information is not a substitute for advice from a qualified clinician or local health authority. Claims about benefit should always be tied to the disease, population and outcome being measured. Keep the concepts, but use current official guidance for personal decisions.",
+      "learn": [
+        "Vaccination prepares immune recognition before exposure to disease.",
+        "Public-health benefit includes reduced transmission as well as personal protection.",
+        "Safety monitoring and updated guidance are ongoing parts of a vaccination programme."
+      ],
+      "concepts": [
+        "immune system",
+        "antibodies",
+        "immune memory",
+        "transmission",
+        "public health",
+        "safety monitoring"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$186.64",
+        "change": 2.78,
+        "reason": "Friday 6 November close; the next confirmed quarterly release is 17 November.",
+        "thesis": "AI-compute demand and the earnings read-through make NVIDIA a compact indicator for accelerator and data-centre spending.",
+        "risk": "Valuation and supply-chain expectations are sensitive to a weaker capex outlook or competitive custom silicon."
+      },
+      {
+        "symbol": "AVGO",
+        "price": "$293.69",
+        "change": 0.74,
+        "reason": "Friday 6 November close; shares rose with the technology rebound.",
+        "thesis": "Broadcom offers exposure to networking, custom silicon and infrastructure software rather than one end market.",
+        "risk": "Large customers and concentrated AI expectations can make growth and multiples volatile."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$259.30",
+        "change": -0.35,
+        "reason": "Friday 6 November close; the session was mixed for mega-cap technology.",
+        "thesis": "AWS capacity and retail operating leverage provide two distinct lenses on cloud and consumer demand.",
+        "risk": "Heavy infrastructure spending, regulation and margin pressure can offset revenue growth."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$530.61",
+        "change": -0.99,
+        "reason": "Friday 6 November close; shares fell while the Nasdaq advanced.",
+        "thesis": "Azure and enterprise software make Microsoft a useful measure of whether AI workloads convert into recurring customer spend.",
+        "risk": "Data-centre capex and competition could outpace near-term monetization."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,320.00",
+        "change": 0.5,
+        "reason": "Friday 6 November NSE close; markets were closed for the Diwali weekend.",
+        "thesis": "Reliance spans consumer telecom, retail and energy, so it is a broad lens on execution across several Indian growth engines.",
+        "risk": "Large capital programmes and energy-price exposure can weigh on returns and cash generation."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,498.50",
+        "change": 0.11,
+        "reason": "Friday 6 November NSE close; shares ended modestly higher.",
+        "thesis": "TCS is a bellwether for global enterprise technology budgets and Indian IT-services delivery.",
+        "risk": "Client cost cuts, currency moves and slower discretionary transformation work can pressure growth."
+      },
+      {
+        "symbol": "INFY",
+        "price": "₹1,181.40",
+        "change": 1.2,
+        "reason": "Friday 6 November NSE close; shares rose ₹14 from the prior close.",
+        "thesis": "Infosys offers a complementary view on digital-services demand, automation and large-client transformation programmes.",
+        "risk": "Pricing pressure, attrition and a weaker global IT-spending cycle can limit margin expansion."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "HD",
+        "company": "The Home Depot",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Q3 2026",
+        "why_watch": "Comparable sales, big-ticket demand and contractor activity can show whether housing-related repair and renovation spending is holding up.",
+        "link": "https://ir.homedepot.com/events-and-presentations"
+      },
+      {
+        "symbol": "NVDA",
+        "company": "NVIDIA",
+        "report_date": "2026-11-17",
+        "timing": "After market close",
+        "fiscal_period": "Q3 fiscal 2027",
+        "why_watch": "Watch data-centre revenue, supply commentary and forward demand signals for evidence on AI-infrastructure spending and margin durability.",
+        "link": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
+      },
+      {
+        "symbol": "PANW",
+        "company": "Palo Alto Networks",
+        "report_date": "2026-11-18",
+        "timing": "After market close",
+        "fiscal_period": "Q1 fiscal 2027",
+        "why_watch": "Billings, platform adoption and remaining performance obligations can indicate whether customers are consolidating cybersecurity tools.",
+        "link": "https://investors.paloaltonetworks.com/"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "For neural video codecs, data movement and runtime overhead can matter as much as FLOPs.",
+      "Mapping quantization to an NPU’s memory behaviour can unlock capacity that model-level metrics miss.",
+      "Webb sees early cosmic history because expansion shifts remote light into infrared wavelengths.",
+      "Diwali’s public-health context includes seasonal air-quality risk, especially in northern India.",
+      "Weekend watchlist figures should use the last completed market session, not an invented Sunday move.",
+      "An earnings date is useful only when it is issuer-confirmed or otherwise credibly sourced."
+    ],
+    "explore": "The two inside papers share a systems lesson: perceived algorithmic complexity is not the same as deployed cost. DCVC-RT removes expensive dataflow and software overhead in a video pipeline, while the mobile-NPU work reshapes quantization and operations around an accelerator’s access pattern. A worthwhile next investigation is to profile one familiar imaging workload end to end, separating arithmetic time from tensor movement, launches, conversions and synchronization. Then ask which representation change, rather than which larger model, would remove the largest non-compute bottleneck. Webb offers a useful parallel: instrument design determines which signal is observable at all."
+  }
+}
