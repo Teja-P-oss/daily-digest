@@ -1,0 +1,287 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-12",
+    "note": "Current edition for 12 November 2026. U.S. prices and changes use the completed 11 November session; Indian prices use the 12 November close."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Industry and circular economy",
+        "headline": "DGFT prohibits exports of lithium-ion battery black mass",
+        "summary": "India changed the export policy for lithium-ion battery black mass from free to prohibited with immediate effect, keeping a battery-recycling feedstock inside the country.",
+        "why": "The rule makes domestic recovery of lithium, nickel, cobalt and other battery materials a more consequential part of the EV and critical-minerals supply chain.",
+        "link": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2335019&lang=2&reg=48"
+      },
+      {
+        "category": "Trade and investment",
+        "headline": "CII Partnership Summit opens in Visakhapatnam",
+        "summary": "The 31st CII Partnership Summit is scheduled for 12–13 November in Visakhapatnam, with Andhra Pradesh as host state and DPIIT associated with the event.",
+        "why": "It is a current venue for discussions on investment, technology collaboration and industrial partnerships rather than a measure of deals already completed.",
+        "link": "https://apedb.beyondscale.co.in/summit"
+      },
+      {
+        "category": "Weather and disaster readiness",
+        "headline": "IMD warns of Himalayan precipitation and a developing Bay of Bengal system",
+        "summary": "IMD said a western disturbance could bring rain or snow over the Western Himalayan Region through 13 November, while a low-pressure area was likely over the southeast Bay of Bengal around 13 November.",
+        "why": "The bulletin is operationally useful for mountain travel, reservoirs and coastal preparedness; it is a forecast, not a report of a cyclone landfall.",
+        "link": "https://internal.imd.gov.in/press_release/20261112_pr_5483.pdf"
+      },
+      {
+        "category": "Aviation policy",
+        "headline": "New Bharatiya Vayuyan Niyam is set to replace the 1937 aircraft rules",
+        "summary": "The government has notified Bharatiya Vayuyan Niyam, 2026 under the 2024 aviation law; PIB says it will take effect on 1 January 2027 and replace the Aircraft Rules, 1937.",
+        "why": "The transition matters for a fast-growing aviation system because certification, operations and safety rules must accommodate newer aircraft and services.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2332687&lang=1&reg=3"
+      }
+    ],
+    "world": [
+      {
+        "category": "Climate diplomacy",
+        "headline": "COP31 host Turkey promotes a zero-waste initiative",
+        "summary": "At the UN climate talks in Antalya, Turkey urged countries to back a zero-waste initiative as delegates debated how to strengthen action on emissions.",
+        "why": "Waste policy connects climate commitments to material use, recycling infrastructure and methane emissions, but implementation commitments remain the key test.",
+        "link": "https://apnews.com/article/a72471f4211e539980bfe6f0a5dc6005"
+      },
+      {
+        "category": "Diplomacy",
+        "headline": "U.S. envoys meet Putin after Russia-Ukraine talks in Abu Dhabi",
+        "summary": "U.S. envoys went to the Kremlin after two days of U.S.-mediated Russian-Ukrainian talks, which produced agreement in principle on a large prisoner exchange but no visible settlement breakthrough.",
+        "why": "The contact is a diplomatic opening, yet territorial control and security guarantees still separate the sides and make a durable agreement difficult.",
+        "link": "https://apnews.com/article/683810203340077f33611fd1d1757b23"
+      },
+      {
+        "category": "European security",
+        "headline": "European leaders gather in Dublin amid debate over Ukraine’s security",
+        "summary": "Leaders from more than 40 European countries met in Dublin, with the war in Ukraine and the continent’s longer-term security architecture central to the agenda.",
+        "why": "Any negotiation over Ukraine’s future security arrangements has implications beyond the battlefield, including European defense coordination and NATO’s posture.",
+        "link": "https://apnews.com/article/6ffde020abe1b8031311f85f82b16c36"
+      },
+      {
+        "category": "Public safety",
+        "headline": "Rescue crews search after a Brooklyn building collapse",
+        "summary": "Firefighters searched the rubble after three stories of a building collapsed at the edge of a construction site in Brooklyn, according to Associated Press reporting.",
+        "why": "The incident keeps attention on construction-site risk controls, inspections and emergency response in dense urban areas.",
+        "link": "https://apnews.com/article/ea0ced9a7f06422b9f2976769e0794f6"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "The Power of Context: How Multimodality Improves Image Super-Resolution",
+      "authors": "Kangfu Mei, Hossein Talebi, Mojtaba Ardakani, Vishal M. Patel, Peyman Milanfar, Mauricio Delbracio",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "Computational photography and image super-resolution",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/html/Mei_The_Power_of_Context_How_Multimodality_Improves_Image_Super-Resolution_CVPR_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=The+Power+of+Context+How+Multimodality+Improves+Image+Super-Resolution",
+      "summary": "MMSR treats depth, segmentation, edges and a caption as complementary hints for diffusion-based super-resolution, rather than asking a low-resolution image to determine every detail alone.",
+      "problem": "A small image discards high-frequency detail, while generative super-resolution can invent plausible but incorrect texture or object structure.",
+      "difficulty": "The useful challenge is separating a perceptually attractive reconstruction from a faithful one when some conditioning signals are estimated and imperfect.",
+      "idea": "Use spatial cues to constrain where text-derived semantic information may act, so language can improve interpretation without freely hallucinating image content.",
+      "method": "The model fuses an arbitrary subset of depth, segmentation, edge and text conditions into a diffusion framework, with independently controllable condition strength. Its regional text conditioning uses spatial information from the other modalities to constrain where semantic guidance operates, rather than letting a caption affect every pixel equally.",
+      "results": "The authors report better visual quality and fidelity than prior generative SISR methods, with spatial conditioning specifically used to reduce text-driven hallucinations.",
+      "care": "Depth, masks and captions inferred from a degraded input can be wrong, and diffusion output can still look convincing when it is inaccurate. Benchmark quality is not evidence that a recovered detail is historically true, so forensic, medical and archival uses require provenance and task-specific validation.",
+      "learn": [
+        "Why spatial conditioning is a guardrail for generative restoration",
+        "How independent conditioning weights create an engineering control surface",
+        "Why perceptual quality and provenance must be evaluated separately"
+      ],
+      "concepts": [
+        "super-resolution",
+        "diffusion model",
+        "multimodal conditioning",
+        "hallucination control"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "25–35 min",
+      "title": "DecDEC: A Systems Approach to Advancing Low-Bit LLM Quantization",
+      "authors": "Yeonhong Park, Jake Hyun, Hojoon Kim, Jae W. Lee",
+      "year": "2025",
+      "venue": "OSDI 2025",
+      "field": "Efficient ML systems and memory-aware inference",
+      "link": "https://www.usenix.org/conference/osdi25/presentation/park-yeonhong",
+      "scholar": "https://scholar.google.com/scholar?q=DecDEC+A+Systems+Approach+to+Advancing+Low-Bit+LLM+Quantization",
+      "summary": "DecDEC retains a small, dynamically selected slice of full-precision residuals in CPU memory to correct the most consequential errors of aggressively quantized LLM weights.",
+      "problem": "Three- and four-bit weights fit tighter memory budgets but disproportionately damage a few activation-sensitive channels and therefore model quality.",
+      "difficulty": "The system must recover the important errors during decoding without turning CPU-to-GPU transfers into a latency bottleneck.",
+      "idea": "Correct only salient channels, identified from activation outliers at each decoding step, instead of carrying every full-precision residual everywhere.",
+      "method": "The quantized model stays on GPU while CPU memory stores the residual matrix. At each decoding step, runtime activation analysis identifies salient channels and fetches only their correction values. This makes the CPU-GPU path a small, adaptive quality-recovery channel rather than a wholesale offload of model weights.",
+      "results": "For 3-bit Llama-3-8B-Instruct, the paper reports perplexity improving from 10.15 to 9.12 with less than 0.0003% extra GPU memory and a 1.7% inference slowdown on an RTX 4050 Mobile.",
+      "care": "The result depends on the model, memory interconnect and request shape; profile transfer overlap, CPU contention and tail latency before assuming the same deployment benefit. A system with a slower link or a heavily loaded CPU may turn a compact correction path into the limiting stage.",
+      "learn": [
+        "Why activation outliers matter more than average quantization error",
+        "How CPU memory can be a selective quality cache",
+        "A practical way to trade bandwidth for accuracy at decode time"
+      ],
+      "concepts": [
+        "quantization",
+        "residual correction",
+        "activation outliers",
+        "CPU-GPU memory hierarchy"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "El Niño and La Niña",
+      "authors": "National Oceanic and Atmospheric Administration",
+      "year": "2026",
+      "venue": "NOAA Education",
+      "field": "Climate science",
+      "link": "https://www.noaa.gov/education/resource-collections/weather-atmosphere/el-nino",
+      "scholar": null,
+      "summary": "NOAA explains ENSO, the coupled ocean-atmosphere cycle in the equatorial Pacific whose warm and cool phases influence rainfall and temperature patterns around the world.",
+      "problem": "Weather maps can look local even when a large ocean pattern shifts the circulation that feeds regional rain, heat, fisheries and fire conditions.",
+      "difficulty": "The hard part is remembering that El Niño and La Niña are patterns of ocean and atmosphere together, not simply unusually warm or cool water.",
+      "idea": "A small sustained change in equatorial Pacific sea-surface temperature and trade winds can move convection, altering where the atmosphere delivers rain.",
+      "method": "The explainer links observations of sea-surface temperature, winds, air pressure, rainfall and ocean circulation to describe the cycle. It begins with normal equatorial-Pacific conditions, then contrasts the changes in water temperature and trade winds during El Niño and La Niña and relates those changes to wider atmospheric circulation.",
+      "results": "ENSO is presented as a major climate driver with effects on ecosystems and societies; El Niño is the warmer-than-average phase and La Niña the cooler counterpart.",
+      "care": "ENSO shifts odds rather than dictating a single local outcome, so seasonal forecasts must be read as probabilities. Other climate patterns, short-lived weather systems and local geography can dominate what happens in a particular city or week, even during a well-established ENSO phase.",
+      "learn": [
+        "What ENSO stands for",
+        "Why ocean temperature can affect distant rainfall",
+        "Why a climate driver is not a deterministic forecast"
+      ],
+      "concepts": [
+        "sea-surface temperature",
+        "trade winds",
+        "atmospheric circulation",
+        "seasonal outlook"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "What is genome editing?",
+      "authors": "National Human Genome Research Institute",
+      "year": "2026",
+      "venue": "Genome.gov",
+      "field": "Genetics and medicine",
+      "link": "https://www.genome.gov/about-genomics/policy-issues/what-is-Genome-Editing",
+      "scholar": null,
+      "summary": "This primer introduces genome editing as a way to alter DNA and explains why CRISPR made targeted editing simpler, faster and cheaper than earlier techniques.",
+      "problem": "DNA influences traits and disease risk, but changing it responsibly requires both a precise biological intervention and careful consideration of consequences.",
+      "difficulty": "A metaphor such as molecular scissors is helpful, but it can conceal the distinct tasks of choosing a target, making a change and checking unintended effects.",
+      "idea": "Genome-editing tools direct a cut to a selected DNA location; cells’ own repair processes can then remove, add or replace sequence there.",
+      "method": "The institute explains the technologies and their basic laboratory mechanism in plain language. It traces how a targeted editing tool is directed to a DNA location, how a cut can be made there, and how the cell’s repair process can produce a removal, insertion or replacement, while placing CRISPR among earlier editing methods.",
+      "results": "CRISPR has broadened access to genome editing by making targeted editing simpler, faster, cheaper and more accurate than older methods, according to the institute. That practical shift has accelerated laboratory work, but it does not remove the safety, delivery, ethical and governance questions surrounding applications in people and the environment.",
+      "care": "Ease of editing does not establish clinical safety or social acceptability; delivery, unintended changes elsewhere in the genome and governance matter. Results from cells or model organisms may not transfer to people, and choices about heritable editing raise questions that cannot be settled by laboratory performance alone.",
+      "learn": [
+        "The difference between DNA editing and ordinary drug treatment",
+        "Why repair after a targeted cut is central",
+        "Why technical capability creates ethical choices"
+      ],
+      "concepts": [
+        "DNA",
+        "CRISPR",
+        "targeted cut",
+        "cellular repair"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$173.73",
+        "change": 2.87,
+        "reason": "11 November close; the next earnings report is scheduled for 17 November, keeping data-centre demand and supply commentary in focus.",
+        "thesis": "NVIDIA remains a key read-through on AI-infrastructure spending and accelerated-computing demand.",
+        "risk": "Valuation, competition, supply concentration and abrupt shifts in large-customer capital expenditure can cause high volatility."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$521.13",
+        "change": -2.25,
+        "reason": "11 November close; cloud growth, AI-service adoption and the cost of datacentre build-out remain the central operating questions.",
+        "thesis": "Microsoft combines enterprise software cash flows with an unusually large distribution channel for cloud AI services.",
+        "risk": "Heavy capex, competition in cloud and AI, and slower enterprise IT budgets could pressure returns."
+      },
+      {
+        "symbol": "AMZN",
+        "price": "$266.17",
+        "change": -1.74,
+        "reason": "11 November close; AWS growth and retail-margin discipline are the two main levers to watch.",
+        "thesis": "Amazon pairs a global logistics network with AWS, whose higher-margin services can reshape consolidated profitability.",
+        "risk": "Consumer demand, fulfilment and AI-infrastructure spending, competition, and regulatory scrutiny can all affect results."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE",
+        "price": "₹1,341.20",
+        "change": 1.27,
+        "reason": "12 November NSE close; watch the balance among digital services, retail execution and the cyclical energy-and-chemicals base.",
+        "thesis": "Reliance’s scale across consumer, telecom and energy platforms creates several routes for earnings growth.",
+        "risk": "Commodity cycles, large capital requirements and execution across very different businesses can weaken returns."
+      },
+      {
+        "symbol": "HDFCBANK",
+        "price": "₹814.15",
+        "change": 2.0,
+        "reason": "12 November NSE close; deposit growth, funding cost and post-merger balance-sheet efficiency remain useful indicators.",
+        "thesis": "A large franchise and broad deposit base can support durable credit growth when margins and asset quality hold.",
+        "risk": "Deposit competition, margin compression and a deterioration in credit quality would challenge the case."
+      },
+      {
+        "symbol": "TCS",
+        "price": "₹2,470.30",
+        "change": -0.21,
+        "reason": "12 November NSE close; track client discretionary spending, deal conversion and whether AI work becomes material revenue rather than experimentation.",
+        "thesis": "TCS has deep enterprise relationships and delivery scale in global IT services.",
+        "risk": "A slower global technology-spending cycle, pricing pressure and currency movements can constrain growth."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "CSCO",
+        "company": "Cisco Systems",
+        "report_date": "2026-11-12",
+        "timing": "After market close",
+        "fiscal_period": "Q1 fiscal 2027",
+        "why_watch": "Watch networking-product demand, AI-infrastructure orders and the pace at which security and observability software contributes to recurring revenue.",
+        "link": "https://investor.cisco.com/default.aspx?LanguageId=1&SectionId=817fbab8-2828-44a2-91a0-f10cb8ac2b03"
+      },
+      {
+        "symbol": "HD",
+        "company": "The Home Depot",
+        "report_date": "2026-11-17",
+        "timing": "Before market open",
+        "fiscal_period": "Q3 2026",
+        "why_watch": "Comparable sales, big-ticket demand and contractor activity can indicate whether repair and renovation spending is holding up.",
+        "link": "https://ir.homedepot.com/news-releases/2026/11-03-2026-130236805"
+      },
+      {
+        "symbol": "PANW",
+        "company": "Palo Alto Networks",
+        "report_date": "2026-11-18",
+        "timing": "After market close",
+        "fiscal_period": "Q1 fiscal 2027",
+        "why_watch": "Billings, platform adoption and remaining performance obligations can show whether customers are consolidating cybersecurity tools.",
+        "link": "https://investors.paloaltonetworks.com/node/20971/pdf"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "Keeping battery black mass in-country changes the economics of domestic critical-mineral recovery.",
+      "A forecast low-pressure area is a preparedness signal, not a completed weather event.",
+      "Spatial image cues can limit the freedom of text-conditioned super-resolution to hallucinate detail.",
+      "Selective high-precision residuals can repair low-bit inference without restoring an entire model to high precision.",
+      "ENSO changes the probability of weather patterns through coupled ocean-atmosphere feedback, not through a single local cause.",
+      "Earnings calendars are planning aids: the useful question is which operating metric tests the company’s business model."
+    ],
+    "explore": "MMSR and DecDEC make a similar engineering move: preserve scarce high-value information while avoiding the cost of carrying everything at full fidelity. In image restoration, the scarce resource is trustworthy spatial context; in low-bit inference, it is the small set of channels whose quantization error matters most. A useful next investigation is to profile a camera or edge-AI pipeline by information sensitivity rather than by average compute cost: identify which pixels, features or channels most change the final decision, then ask whether a selective higher-precision or richer-context path improves quality per millijoule."
+  }
+}
