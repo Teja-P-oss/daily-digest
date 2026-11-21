@@ -9,11 +9,11 @@ DAYS=""
 REPLACE=false
 CHECK_ONLY=false
 MAX_ADVANCE_DAYS=7
-CODEX_MODEL="${CODEX_MODEL:-gpt-5.6-terra}"
+CODEX_MODEL="${CODEX_MODEL:-gpt-6-luna}"
 # Keep the desktop default on the known-good model; set CODEX_ADVANCE_MODEL to a cheaper
 # compatible Codex model when that model is available in the signed-in ChatGPT account.
 CODEX_ADVANCE_MODEL="${CODEX_ADVANCE_MODEL:-$CODEX_MODEL}"
-CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-medium}"
+CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-xhigh}"
 CODEX_ADVANCE_REASONING_EFFORT="${CODEX_ADVANCE_REASONING_EFFORT:-$CODEX_REASONING_EFFORT}"
 
 usage() {

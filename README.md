@@ -13,7 +13,7 @@ bash run.sh
 ```
 
 `run.sh` launches Codex CLI with live web search and reuses the Mac's saved ChatGPT login. It pins
-generation to `gpt-5.6-terra` with medium reasoning, then asks Codex to research the edition, prepare
+generation to `gpt-6-luna` with xhigh reasoning, then asks Codex to research the edition, prepare
 valid JSON, run the safe publisher, commit the result, and push it to GitHub. This path uses the
 ChatGPT subscription rather than `OPENAI_API_KEY` billing.
 
