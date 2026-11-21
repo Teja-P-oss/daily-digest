@@ -2,67 +2,74 @@
   "edition": {
     "kind": "current",
     "generated_on": "2026-11-21",
-    "note": "Current edition for 21 November 2026; market watch uses the latest completed Friday session."
+    "note": "Current edition for 21 November 2026. Weekend market figures use the completed Friday, 20 November US and NSE sessions."
   },
   "news": {
     "india": [
       {
-        "category": "Animal health and agriculture",
-        "headline": "India dedicates its first indigenous H5N1 vaccine for chickens",
-        "summary": "The agriculture minister dedicated an indigenous inactivated H5N1 vaccine for chickens in Bhopal; the government says it is priced at ₹1–2 per dose and announced a ₹300-crore animal-disease laboratory.",
-        "why": "Poultry biosecurity protects farm livelihoods, food supply and public-health preparedness; domestic vaccine capacity can shorten response times during outbreaks.",
-        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2339191&lang=1&reg=20"
+        "category": "Immunization and public health",
+        "headline": "India passes 1 crore HPV vaccine doses in less than nine months",
+        "summary": "The Health Ministry reported more than 1 crore doses under the national campaign since its February launch, covering nearly 87% of the annual target cohort of about 1.2 crore 14-year-old girls. The dose is free and voluntary at government facilities, with parental consent.",
+        "why": "The milestone shows the scale of preventive care delivery; the next measure is whether the remaining eligible girls can access vaccination consistently across states and districts.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2339423&lang=2&reg=48"
       },
       {
-        "category": "Foreign affairs and defence",
-        "headline": "India and Japan deepen strategic cooperation at fourth 2+2 meeting",
-        "summary": "Foreign and defence ministers met in Tokyo on 19 November and reaffirmed cooperation on maritime security, defence technology, exercises, economic security and a free, open Indo-Pacific.",
-        "why": "The partnership links regional deterrence with technology and industrial collaboration as both countries respond to a more contested Indo-Pacific.",
-        "link": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2338564&lang=2&reg=48"
+        "category": "Transport infrastructure",
+        "headline": "Six-lane Nitish Setu opens across the Ganga in Bihar",
+        "summary": "The Dargah–Bidupur cable bridge was dedicated in Vaishali on 21 November as Nitish Setu. The Prime Minister's Office says the six-lane crossing is intended to ease congestion and strengthen connectivity between north and south Bihar.",
+        "why": "A new high-capacity river crossing can change regional travel patterns, while its wider payoff will depend on connecting roads, reliability and the time it saves for everyday trips.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2339564&lang=2&reg=48"
       },
       {
-        "category": "Digital infrastructure",
-        "headline": "Karnataka power network gets an operational-technology cyber shield",
-        "summary": "KPTCL launched an integrated OT cybersecurity programme covering 1,474 substations and six Area Load Despatch Centres, with firewalls, segmentation, zero-trust access and removable-media scanning.",
-        "why": "Power-grid security is a control-system and continuity problem, not only an office-IT problem; the design shows how cyber resilience is becoming part of infrastructure engineering.",
-        "link": "https://www.newindianexpress.com/states/karnataka/2026/Nov/21/karnatakas-power-network-gets-cyber-protection"
+        "category": "Defence technology",
+        "headline": "Bengaluru startup tests a net launcher to capture hostile drones",
+        "summary": "Saubha Aerial Systems has developed parachutes to recover drones and is testing a net launcher that entangles hostile drones. The Indian Express reports that six units have tried the prototype and the team is extending its range.",
+        "why": "Bringing a drone down intact could preserve hardware for analysis and offer an alternative to missiles, but the reported system remains a prototype undergoing trials.",
+        "link": "https://indianexpress.com/article/india/bengaluru-startup-saubha-aerial-systems-taking-down-enemy-drones-10972010/"
       },
       {
-        "category": "Official statistics and governance",
-        "headline": "MoSPI schedules conference on India’s revised GDP, CPI and IIP series",
-        "summary": "MoSPI will hold a 23 November conference in Mumbai to explain the methods, data sources and improvements behind the new series of GDP, CPI and industrial production indicators.",
-        "why": "Base-year and methodology changes affect how growth, inflation and industrial cycles are compared; understanding the revisions prevents false trend breaks.",
-        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2339208&lang=1&reg=1"
+        "category": "Regenerative medicine",
+        "headline": "Study identifies two factors that promote spinal-axon growth in adult mice",
+        "summary": "A study from Hyderabad's CCMB in The EMBO Journal identifies transcription factors NR2F1 and NR2F6 as promoters of corticospinal axon growth in adult mice. In spinal-cord injury models, treated animals also showed measurable motor recovery.",
+        "why": "The results point to growth programs that may be worth studying for nerve repair, but they are preclinical and do not establish safety or benefit in people.",
+        "link": "https://link.springer.com/article/10.1038/s44318-026-00957-z"
       }
     ],
     "world": [
       {
-        "category": "Climate diplomacy",
-        "headline": "COP31 negotiations go into overtime over the climate deal",
-        "summary": "Negotiators continued talks in Antalya on 21 November after a draft agreement drew criticism for omitting explicit fossil-fuel language and for leaving finance and implementation disputes unresolved.",
-        "why": "The final wording will show whether climate diplomacy is moving from broad targets toward measurable cuts, adaptation finance and delivery.",
-        "link": "https://apnews.com/article/b54eebcade92e5ee4c513b9a5b2192a7"
+        "category": "Arms control and AI",
+        "headline": "UN talks extend autonomous-weapons discussions to 2028 without binding rules",
+        "summary": "After a week of UN-backed talks in Geneva, states agreed to work toward a possible accord by 2028. The agreement extended discussions but did not commit countries to binding limits on lethal autonomous weapons.",
+        "why": "The timetable creates a diplomatic route, while the absence of binding rules leaves the central questions of human control and accountability unresolved.",
+        "link": "https://apnews.com/article/ebe057d2a47cde53100970c8f648e7fa"
       },
       {
-        "category": "Food security and humanitarian affairs",
-        "headline": "WFP plans to assist 91 million people in 2027 as food-crisis risk grows",
-        "summary": "The World Food Programme’s 2027 outlook seeks just over US$12 billion to help 91 million people, while warning that acute hunger affected as many as 266 million people in 2025.",
-        "why": "The plan highlights the shift from repeated emergency relief toward anticipatory finance, local partnerships and resilience before climate shocks become hunger emergencies.",
-        "link": "https://www.wfp.org/news/world-food-programme-sets-out-2027-plan-assist-91-million-people-need-food-crisis-looms"
+        "category": "International justice",
+        "headline": "World Court finds Myanmar committed genocide against the Rohingya",
+        "summary": "On 19 November, the International Court of Justice ruled 9–6 that Myanmar committed genocide against the Rohingya in northern Rakhine State, violating the Genocide Convention.",
+        "why": "The judgment is a major international finding, but its practical effect depends on compliance and follow-up through the UN Security Council; the court has no independent enforcement arm.",
+        "link": "https://apnews.com/article/30df77b12bf3f911f1100e77ebe3973a"
       },
       {
-        "category": "Geopolitics and nuclear security",
-        "headline": "US, China and Russia signal nuclear-risk dialogue amid new tensions",
-        "summary": "After a trilateral meeting, the three governments said nuclear war cannot be won or fought and agreed to dialogue on proliferation and risk reduction; US officials also warned about China’s expanding arsenal.",
-        "why": "Dialogue among the three largest nuclear powers matters, but the gap between a political statement and verifiable arms control remains the central question.",
-        "link": "https://apnews.com/article/286391edaacc7e8544dc0dc023e253fb"
+        "category": "Energy infrastructure",
+        "headline": "Fire at Iraq's Hartha power station kills four and injures 35",
+        "summary": "Reuters reported that a fire at the Hartha power station north of Basra killed at least four people and injured 35. Civil-defence teams brought it under control; the fire spread to nearby homes and stopped station operations.",
+        "why": "The incident raises questions about fire protection and continuity at critical infrastructure, as well as the safety of people living or working nearby.",
+        "link": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/21/iraq-fire-at-basra-power-station-kills-at-least-four-injures-30"
       },
       {
-        "category": "Quantum technology and cybersecurity",
-        "headline": "NIST researchers demonstrate quantum position verification",
-        "summary": "NIST and collaborators used entangled photons and a loophole-free Bell test to verify that a party was physically at a claimed location in an experiment in Boulder, Colorado.",
-        "why": "Location-bound authentication could eventually protect critical infrastructure and financial commands, though NIST says practical deployment is still more than a decade away.",
-        "link": "https://www.nist.gov/news-events/news/2026/11/quantum-physics-can-verify-persons-location-nist-researchers-show"
+        "category": "Maritime security",
+        "headline": "UK maritime agency reports tanker strikes near Oman's Khasab",
+        "summary": "UKMTO reported a tanker struck by an unidentified projectile while sailing outbound through the Strait of Hormuz, then reported another tanker hit near Khasab. It had not established whether the reports involved the same vessel.",
+        "why": "Uncertainty around incidents near a major shipping route can affect crew safety and routing decisions. The projectile's source and any wider attribution remain unconfirmed.",
+        "link": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/21/tanker-hit-by-unknown-projectile-near-oman-s-khasab-ukmto-says"
+      },
+      {
+        "category": "Governance and land rights",
+        "headline": "Vietnam passes land-taking law for certain priority projects",
+        "summary": "Vietnam's parliament approved a law to accelerate land expropriation for some special projects. Reuters reported that the change could speed infrastructure development while reducing farmers' leverage to challenge seizures.",
+        "why": "Implementation will show how the government balances project-delivery speed with notice, compensation and safeguards for affected landholders.",
+        "link": "https://uk.marketscreener.com/news/vietnam-passes-law-to-speed-up-land-expropriation-for-priority-projects-ce785ed3df8af325"
       }
     ]
   },
@@ -71,120 +78,124 @@
       "content_type": "research paper",
       "level": "intermediate",
       "reading_time": "20–30 min",
-      "title": "AdaptiveAE: An Adaptive Exposure Strategy for HDR Capturing in Dynamic Scenes",
-      "authors": "Tianyi Xu, Fan Zhang, Boxin Shi, Tianfan Xue, Yujin Wang",
+      "title": "ETAP: Event-based Tracking of Any Point",
+      "authors": "Friedhelm Hamann, Daniel Gehrig, Filbert Febryanto, Kostas Daniilidis, Guillermo Gallego",
       "year": "2025",
-      "venue": "ICCV 2025",
-      "field": "Computational photography and HDR capture",
-      "link": "https://arxiv.org/abs/2508.13503",
-      "scholar": "https://scholar.google.com/scholar?q=AdaptiveAE+An+Adaptive+Exposure+Strategy+for+HDR+Capturing+in+Dynamic+Scenes",
-      "summary": "AdaptiveAE treats multi-exposure HDR capture as a sequential control problem: choose shutter speed and ISO to balance noise, saturation and motion blur before fusion.",
-      "problem": "Fixed exposure brackets work poorly when a handheld scene contains both dark regions and moving objects, because longer exposures reduce noise but increase blur and ghosting.",
-      "difficulty": "The paper combines camera exposure physics, reinforcement learning and HDR reconstruction; the useful mental model is a policy that spends a limited exposure-time budget on the most informative next frame.",
-      "idea": "Use the previous frame’s semantic and illumination cues to adapt the next shutter-speed/ISO choice, so motion risk is handled during acquisition rather than repaired only after capture.",
-      "method": "A reinforcement-learning policy consumes prior LDR images, semantic information and exposure histograms. A blur-aware synthesis pipeline injects motion blur and sensor noise during training, and the policy sequentially refines the bracket under a user-defined time budget.",
-      "results": "The authors report state-of-the-art results across HDRV and DeepHDR Video benchmarks, with improved noise and motion control in dynamic scenes; a Sony Alpha 7C II test shows the policy adapting exposure as scene motion changes.",
-      "care": "The approach depends on realistic blur/noise simulation, a learned policy and assumptions such as fixed aperture and focus. Dataset shift, sensor-specific behavior and downstream fusion can change the practical gain.",
+      "venue": "CVPR 2025",
+      "field": "Event-based vision and point tracking",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/html/Hamann_ETAP_Event-based_Tracking_of_Any_Point_CVPR_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=ETAP+Event-based+Tracking+of+Any+Point",
+      "summary": "ETAP adapts tracking-any-point to event cameras: it estimates arbitrary point trajectories from asynchronous event streams, using high temporal resolution for difficult, fast motion.",
+      "problem": "Point trackers built for regular image frames rely on appearance at discrete moments. Fast motion and challenging illumination can erase or distort that appearance, while event data is sparse, asynchronous, and changes with camera motion—so matching a point over time is a representation problem as well as a motion problem.",
+      "difficulty": "The paper joins two ideas with different strengths: tracking-any-point uses global scene context to follow arbitrary locations, while event cameras encode local brightness changes rather than full frames. Understanding the experiments means keeping that sensor representation in view, especially when motion changes what the tracker sees.",
+      "idea": "Make the representation more stable to motion while retaining the global context of a modern point tracker. ETAP's feature-alignment objective encourages useful corresponding features even when the event patterns change with motion direction.",
+      "method": "The model processes event stacks at selected tracking times and updates multiple points in parallel with spatial and temporal attention. The authors create synthetic training data by combining Kubric rendering with Vid2E event simulation, then use an alignment loss that pairs appearance-preserving samples with reversed time and random rotations to encourage motion-robust features. They test point tracking and feature tracking on synthetic and real datasets.",
+      "results": "Across six event-camera datasets, the paper reports 136% better average Jaccard performance than its baselines for point tracking. On an established feature-tracking benchmark, it improves 20% over the prior best event-only method and 4.1% over the best event-and-frame method. These are benchmark results, not production performance.",
+      "care": "The reported gains are relative to selected baselines and depend on synthetic training realism, evaluation data, camera resolution and metric. The work tests point tracking and feature tracking; it does not establish end-to-end robustness for an arbitrary phone camera pipeline or every motion condition.",
       "learn": [
-        "Why shutter speed and ISO form a coupled noise–blur trade-off",
-        "How exposure bracketing becomes a sequential decision problem",
-        "Why capture-time control can be better than post-capture deghosting"
+        "How asynchronous event streams differ from frame-based image input",
+        "Why motion can change event features even when the scene is unchanged",
+        "How global context and motion-robust features help track arbitrary points"
       ],
       "concepts": [
-        "HDR exposure bracketing",
-        "motion blur",
-        "reinforcement learning",
-        "sensor noise"
+        "event camera",
+        "tracking any point",
+        "spatiotemporal attention",
+        "feature alignment",
+        "synthetic event data"
       ]
     },
     "domain2": {
       "content_type": "research paper",
       "level": "intermediate",
       "reading_time": "20–30 min",
-      "title": "Early Silicon of Raptor: The First 3D-DRAM Accelerator for Generative Inference",
-      "authors": "Prashant J. Nair, Ramyad Hadidi, Subramani Ganesh, Sangamesh Kodge, Shubhankit Rathore, Neil Thanawala, Nikitha Reddy, Gyanesh Saharia, Vinayak Patankar, Arun Tiruvur, Nithesh Kurella, Sudeep Bhoja",
-      "year": "2026",
-      "venue": "ISCA 2026",
-      "field": "Accelerator architecture and memory systems",
-      "link": "https://ieeexplore.ieee.org/document/11617716",
-      "scholar": "https://scholar.google.com/scholar?q=Early+Silicon+of+Raptor+The+First+3D-DRAM+Accelerator+for+Generative+Inference",
-      "summary": "Raptor argues that generative inference is mainly a memory problem and uses a logic-on-3D-DRAM design to combine high bandwidth, useful capacity and lower data-movement cost.",
-      "problem": "SRAM-based accelerators offer bandwidth but little capacity, while HBM offers capacity but is constrained by bandwidth and I/O power as autoregressive decoding repeatedly reads the KV cache.",
-      "difficulty": "The paper crosses package integration, memory mapping, thermal management and reliability; read it as a system co-design case study rather than as a claim that one memory technology wins every workload.",
-      "idea": "Map KV-cache streams onto configurable 3D-DRAM channels and make the stack production-ready with pinless data-bus inversion, thermal-aware refresh, topology-preserving redundancy and interleaved ECC.",
-      "method": "The authors characterize early silicon and compare it with HBM- and SRAM-based baselines across Llama-3.1 70B, DeepSeek-V3, Kimi K2, GPT-OSS, Whisper and Canary. They measure bandwidth, latency sensitivity, energy and reliability mechanisms, then connect those measurements to KV-cache placement, refresh behavior and the practical limits of the package-level design.",
-      "results": "The paper reports up to 100 TB/s per card and higher throughput than HBM and SRAM baselines across the evaluated models, with reduced sensitivity to network latency and bandwidth.",
-      "care": "This is early-silicon work from an accelerator vendor, so comparisons depend on system configuration, model mapping and workload phase. Thermal limits, yield, software support and total cost still determine deployment value.",
+      "title": "DX100: A Programmable Data Access Accelerator for Indirection",
+      "authors": "Alireza Khadem, Kamalavasan Kamalakkannan, Zhenyan Zhu, Akash Poptani, Yufeng Gu, Jered Benjamin Dominguez-Trujillo, Nishil Talati, Daichi Fujiki, Scott Mahlke, Galen Shipman, Reetuparna Das",
+      "year": "2025",
+      "venue": "ISCA 2025",
+      "field": "Memory systems and data-access acceleration",
+      "link": "https://arxiv.org/abs/2505.23073",
+      "scholar": "https://scholar.google.com/scholar?q=DX100+A+Programmable+Data+Access+Accelerator+for+Indirection",
+      "summary": "DX100 adds a shared programmable accelerator for indirect memory accesses—where one load determines the next address—so it can see many requests, reorder them for better DRAM use and offload address work from CPU cores.",
+      "problem": "Pointer-heavy workloads such as graph traversal or sparse simulation often access data in an irregular order. Because each address can depend on an earlier load, CPU cores expose few requests at once, leaving DRAM controllers with too little visibility to schedule transfers efficiently.",
+      "difficulty": "The paper moves the optimization target from arithmetic to the order in which data reaches computation. It combines a near-memory accelerator, a flexible instruction set and compiler transformations, so the useful reading path is to follow how visibility over a bulk of addresses improves utilization and what software support makes that practical.",
+      "idea": "Expose a bulk of dependent addresses to a shared accelerator near the memory controllers. DX100 reorders requests to improve row-buffer hits, coalesces redundant work and interleaves traffic across channels, while compiler support translates suitable legacy code into accelerator operations.",
+      "method": "The authors define a programmable ISA and four functional units for streaming and indirect access, range fusion and address calculation. MLIR compiler passes detect and transform indirect accesses in existing code. They evaluate the design with execution-based and event-driven simulators on 12 benchmarks spanning scientific computing, databases and graph applications, comparing a multicore baseline and an indirect prefetcher.",
+      "results": "In the evaluated benchmark suite, DX100 achieves a reported 2.6× performance improvement over a multicore baseline and 2.0× over the prior indirect-prefetcher design. The paper attributes the gains to higher DRAM row-buffer hit rates and memory-bandwidth utilization rather than faster arithmetic units.",
+      "care": "These are simulator-based results on workloads selected for indirect access patterns, not measurements from a shipping accelerator. Integration cost, compiler coverage, traffic patterns and the fraction of runtime spent on address-dependent memory work will determine how much a real system benefits.",
       "learn": [
-        "Why decode-phase inference is often memory-bandwidth-bound",
-        "How 3D stacking changes the capacity–bandwidth trade-off",
-        "Why ECC, refresh and thermal design are performance features in a real accelerator"
+        "Why dependent pointer loads limit memory-level parallelism",
+        "How request reordering can improve DRAM row-buffer utilization",
+        "Why compiler support matters when adding a specialized data-access unit"
       ],
       "concepts": [
-        "KV cache",
-        "3D-stacked DRAM",
-        "memory bandwidth",
-        "error-correcting code"
+        "indirect memory access",
+        "row-buffer hit",
+        "memory-level parallelism",
+        "MLIR compiler",
+        "data-access accelerator"
       ]
     },
     "outside1": {
       "content_type": "explainer",
       "level": "introductory",
       "reading_time": "10–15 min",
-      "title": "About Volcanoes",
-      "authors": "U.S. Geological Survey Volcano Hazards Program",
-      "year": "n.d.",
-      "venue": "U.S. Geological Survey",
-      "field": "Earth science",
-      "link": "https://www.usgs.gov/programs/VHP/about-volcanoes",
+      "title": "What is a current?",
+      "authors": "NOAA National Ocean Service",
+      "year": "2026",
+      "venue": "NOAA Ocean Service explainer",
+      "field": "Oceanography",
+      "link": "https://oceanservice.noaa.gov/facts/current.html",
       "scholar": null,
-      "summary": "The USGS explains volcanoes as vents and landforms built from erupted material, with magma rising because it is buoyant and pressurized by dissolved gas.",
-      "problem": "Why do some eruptions quietly pour lava while others explode into ash, rocks and hot gas? The beginner challenge is to connect what happens underground—magma composition, dissolved gas and pressure—to the different hazards observed at the surface.",
-      "difficulty": "The key distinction is intuitive but worth tracing carefully: thin magma lets gas escape, while thick magma traps gas and allows pressure to build. The page adds the vocabulary needed to separate lava flows, tephra, ashfall and lahars without requiring prior geology.",
-      "idea": "Magma composition controls viscosity and gas escape, so the same basic rise-to-the-surface process can produce very different hazards.",
-      "method": "USGS combines geological observations, eruption records, rock and gas analysis, and hazard mapping to connect magma properties with eruption style and landform shape. The explainer moves from the vent and rising magma to viscosity, gas release, erupted fragments and water-driven flows, giving each process a concrete hazard connection.",
-      "results": "Runny magma tends to produce lava flows; sticky, gas-rich magma can fragment into tephra and ash, and water mixed with hot volcanic material can create destructive lahars.",
-      "care": "This is a general primer, not a forecast for a particular volcano or community. Local plumbing, water, topography, wind, monitoring coverage and eruption history determine the actual hazard, so the broad relationships here should not be treated as a site-specific warning.",
+      "summary": "NOAA explains ocean currents as moving streams driven mainly by tides, wind and water-density differences caused by temperature and salinity. Its memorable idea is that currents redistribute heat and influence regional climate.",
+      "problem": "Why does ocean water travel in large moving streams instead of only rising and falling with tides? A useful beginner's model is that several forces move water at once, so surface flows and slower deep circulation can have different causes and speeds.",
+      "difficulty": "The unfamiliar word thermohaline simply combines temperature and salt, two things that change water density. Once that is clear, the article's distinction is easy to follow: winds mainly move surface water, tides drive regular coastal flows, and density differences help move deeper water.",
+      "idea": "Ocean currents are not one giant conveyor with a single motor. They are overlapping flows driven by wind, tides and density, and together they move heat as well as water around the planet.",
+      "method": "NOAA presents a short explainer grounded in physical oceanography, sorting currents by their main driver: tides, wind, or density changes from heat and salt. It connects wind to surface flow, density to slower deep circulation, and uses the Gulf Stream as a familiar example of how circulation can carry heat into regional weather.",
+      "results": "The principal lesson is that currents affect more than navigation: surface and deep flows transport water and heat, helping shape climate. The page gives a simple framework for recognizing whether a current is mainly tidal, wind-driven or linked to water-density differences.",
+      "care": "This is a primer, not a forecast for a particular coast or a full account of ocean circulation. Local currents depend on geography and changing weather, while the page intentionally leaves out many basin-scale interactions and seasonal details.",
       "learn": [
-        "The difference between magma and lava",
-        "Why viscosity controls eruption explosivity",
-        "How ash, tephra and lahars create hazards far from a vent"
+        "How wind creates surface currents",
+        "Why temperature and salinity change water density",
+        "How moving ocean water redistributes heat"
       ],
       "concepts": [
-        "magma",
-        "viscosity",
-        "tephra",
-        "lahar"
+        "surface current",
+        "tidal current",
+        "thermohaline circulation",
+        "water density",
+        "Gulf Stream"
       ]
     },
     "outside2": {
       "content_type": "explainer",
       "level": "introductory",
       "reading_time": "10–15 min",
-      "title": "The Rosetta Stone",
-      "authors": "The British Museum",
-      "year": "n.d.",
-      "venue": "British Museum collection guide",
-      "field": "Ancient history and writing",
-      "link": "https://www.britishmuseum.org/collection/object/Y_EA24",
+      "title": "How do musical instruments produce sound?",
+      "authors": "Alexander Kolassa, The Open University",
+      "year": "2025",
+      "venue": "OpenLearn, The Open University",
+      "field": "Music and acoustics",
+      "link": "https://www.open.edu/openlearn/history-the-arts/music/how-do-musical-instruments-produce-sound",
       "scholar": null,
-      "summary": "The Rosetta Stone carries the same priestly decree in hieroglyphic, Demotic and Greek, giving scholars a bridge from a readable language to ancient Egyptian scripts.",
-      "problem": "How can a civilization’s writing become readable again after the people who used it are gone? The Rosetta Stone makes the question concrete: one decree survives in three scripts, but only one of those scripts was already understood by scholars.",
-      "difficulty": "The memorable trick is not a mysterious code-breaker but parallel text: one message survives in multiple scripts with one known language as the anchor.",
-      "idea": "Comparing repeated names and phrases across Greek, Demotic and hieroglyphic text turned a single artifact into a key for reconstructing a whole writing system.",
-      "method": "The museum guide combines object description, the historical setting of the 196 BC decree and the long comparative work that matched the Greek text with Egyptian scripts. It highlights repeated names and phrases, the relationship between hieroglyphic and Demotic forms, and why comparison across versions provided evidence rather than a guess based on visual resemblance alone.",
-      "results": "The trilingual inscription helped scholars decipher hieroglyphs and opened access to records of ancient Egyptian religion, administration and daily life. Its importance is methodological as well as historical: parallel wording supplied a testable bridge between a known language and scripts whose meanings had been lost.",
-      "care": "The stone was an unusually powerful bridge; most undeciphered scripts lack such a parallel text, so decipherment usually requires many fragments, language comparisons and cautious inference.",
+      "summary": "This Open University explainer starts with a simple idea: sound comes from vibrations. It shows how strings, membranes, the instrument body or a column of air produce different musical tones.",
+      "problem": "A guitar, drum and flute sound different, but all send vibrations through the air. The article asks what vibrates in each instrument and how that physical motion becomes the pitch and tone a listener hears.",
+      "difficulty": "The explanation needs no music theory. A string can vibrate, a drum skin can move, or air can vibrate inside a flute; frequency is just how quickly the motion repeats, which we hear as higher or lower pitch.",
+      "idea": "Classify an instrument by what vibrates and how it is set moving. The same question works for a struck drum, plucked string, blown flute or electronic instrument, even when their shapes and sounds are very different.",
+      "method": "The Open University article explains sound through familiar instruments and organizes them using the Hornbostel–Sachs classification system. It compares what vibrates in percussion, string and wind instruments, then connects vibration frequency to pitch and explains how an instrument's body can amplify or shape the sound.",
+      "results": "The article's central lesson is that instruments make sound through physical vibration, but their vibrating parts and resonating bodies create different pitches and timbres. The classification gives a beginner a memorable way to compare a drum, guitar, flute and synthesizer without learning music notation.",
+      "care": "The article uses a simplified four-family classification and notes that real instruments can combine categories; its treatment of electronic instruments is also more contested. It is a clear first explanation of sound production, not a complete acoustics text or history of every musical tradition.",
       "learn": [
-        "Why parallel text is powerful evidence in decipherment",
-        "The roles of hieroglyphic and Demotic scripts",
-        "How one artifact can unlock a much larger historical record"
+        "How vibration becomes sound in the air",
+        "Why faster vibration is heard as higher pitch",
+        "How instrument bodies affect timbre and loudness"
       ],
       "concepts": [
-        "hieroglyphs",
-        "Demotic",
-        "trilingual inscription",
-        "decipherment"
+        "vibration",
+        "frequency",
+        "pitch",
+        "timbre",
+        "resonance"
       ]
     }
   },
@@ -194,25 +205,25 @@
         "symbol": "NVDA",
         "price": "$125.53",
         "change": -14.01,
-        "reason": "Latest completed U.S. session, Friday 20 November; the AI-linked sell-off made Nvidia the clearest stress signal in the semiconductor complex.",
-        "thesis": "Accelerated-computing demand, a broad software ecosystem and data-centre scale remain the core long-term advantages.",
-        "risk": "The stock is highly exposed to AI-capex durability, valuation compression, export controls and intense accelerator competition."
+        "reason": "Friday, 20 November close; Nvidia fell 14.01% in the sharp AI-linked sell-off.",
+        "thesis": "Accelerator demand, networking and the CUDA software ecosystem keep Nvidia central to the data-centre compute stack.",
+        "risk": "AI capital-spending expectations, valuation, export limits and intense competition can magnify earnings and share-price swings."
       },
       {
         "symbol": "AAPL",
         "price": "$342.56",
         "change": -1.9,
-        "reason": "Friday close; Apple fell with the broad megacap technology risk-off move.",
-        "thesis": "A large installed base, services revenue and hardware-software integration provide a diversified cash-generation engine.",
-        "risk": "Premium valuation, product-cycle execution, regulation and supply-chain or demand weakness can narrow the margin for error."
+        "reason": "Friday, 20 November close; Apple shares declined 1.90% in the completed US session.",
+        "thesis": "A large installed base, integrated hardware and software, and services revenue support a diversified consumer-technology business.",
+        "risk": "Product-cycle execution, regulation, supply-chain concentration and premium expectations can pressure growth and margins."
       },
       {
         "symbol": "MSFT",
         "price": "$484.52",
         "change": -2.76,
-        "reason": "Friday close; Microsoft weakened alongside software and AI names as investors questioned the pace and payoff of infrastructure spending.",
-        "thesis": "Recurring enterprise software, cloud distribution and deep developer relationships support durable platform economics.",
-        "risk": "AI capital intensity, cloud competition, regulation and slower enterprise spending could challenge returns on the build-out."
+        "reason": "Friday, 20 November close; Microsoft shares declined 2.76% in the completed US session.",
+        "thesis": "Recurring enterprise software, cloud distribution and developer tools give Microsoft several durable platform businesses.",
+        "risk": "Cloud competition, AI infrastructure costs, regulation and slower enterprise spending could weaken returns on investment."
       }
     ],
     "india": [
@@ -220,25 +231,25 @@
         "symbol": "RELIANCE.NS",
         "price": "₹1,377.50",
         "change": 0.14,
-        "reason": "Latest completed NSE session, Friday 20 November; Reliance edged higher while Indian benchmarks rallied.",
-        "thesis": "Energy, telecom and retail give the group several cash-flow engines and optionality in consumer and digital businesses.",
-        "risk": "Commodity cycles, large capital requirements, regulatory decisions and execution across unrelated businesses complicate valuation."
+        "reason": "Friday, 20 November NSE close; Reliance gained 0.14% in the completed session.",
+        "thesis": "Energy, telecom and retail provide several cash-flow engines and exposure to India's consumer and digital growth.",
+        "risk": "Commodity cycles, large capital requirements and execution across varied businesses complicate valuation."
       },
       {
         "symbol": "HDFCBANK.NS",
         "price": "₹846.00",
         "change": 2.94,
-        "reason": "Friday close; HDFC Bank rose as banking shares led the domestic rebound.",
-        "thesis": "Scale, deposit gathering and a broad retail-and-corporate franchise can compound if credit costs remain controlled.",
-        "risk": "Asset quality, deposit competition, interest-rate changes and integration or technology execution can affect returns."
+        "reason": "Friday, 20 November NSE close; HDFC Bank gained 2.94% in the completed session.",
+        "thesis": "Scale, a broad retail and corporate franchise, and deposit gathering support long-term lending capacity.",
+        "risk": "Asset quality, deposit competition, funding costs and technology execution can affect margins and returns."
       },
       {
         "symbol": "TCS.NS",
         "price": "₹2,376.20",
         "change": 1.43,
-        "reason": "Friday close; TCS participated in a stronger NSE session after recent weakness in Indian IT shares.",
-        "thesis": "Long customer relationships, global delivery and recurring technology work create a resilient export-services base.",
-        "risk": "Discretionary IT spending, currency moves, wage inflation and automation can pressure growth and margins."
+        "reason": "Friday, 20 November NSE close; TCS gained 1.43% in the completed session.",
+        "thesis": "Long customer relationships and global delivery make TCS a useful lens on exported technology services.",
+        "risk": "Discretionary IT spending, currency moves, wage inflation and automation may weigh on growth or margins."
       }
     ]
   },
@@ -250,7 +261,7 @@
         "report_date": "2026-11-24",
         "timing": "Before market open",
         "fiscal_period": "Q4 fiscal 2026",
-        "why_watch": "Watch industrial and automotive demand, gross margin and commentary on edge, data-centre and signal-chain orders.",
+        "why_watch": "Watch industrial and automotive orders, gross margin and demand across its signal-chain, edge and data-centre markets.",
         "link": "https://investor.analog.com/news-releases/news-release-details/analog-devices-report-fourth-quarter-fiscal-year-2026-financial/"
       },
       {
@@ -259,39 +270,30 @@
         "report_date": "2026-11-24",
         "timing": "After market close",
         "fiscal_period": "Q3 fiscal 2027",
-        "why_watch": "Watch AI-server demand, backlog conversion, margins and working capital as infrastructure spending faces a stressed market tape.",
+        "why_watch": "Track AI-server demand and backlog conversion alongside segment margins and cash flow as a read-through on infrastructure spending.",
         "link": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
       },
       {
         "symbol": "ADSK",
         "company": "Autodesk",
         "report_date": "2026-11-24",
-        "timing": "Time not confirmed",
+        "timing": "After market close",
         "fiscal_period": "Q3 fiscal 2027",
-        "why_watch": "Watch annualized recurring revenue, billings and adoption of AI features across design, construction and manufacturing workflows.",
-        "link": "https://investors.autodesk.com/index.php/news-releases/news-release-details/autodesk-extends-invitation-join-financial-results-conference-53"
-      },
-      {
-        "symbol": "MDT",
-        "company": "Medtronic",
-        "report_date": "2026-11-24",
-        "timing": "Before market open",
-        "fiscal_period": "Q2 fiscal 2027",
-        "why_watch": "Watch organic growth across cardiac, surgical, diabetes and neuromodulation portfolios, plus guidance after recent portfolio changes.",
-        "link": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
+        "why_watch": "Watch billings, remaining performance obligations and free cash flow for signs that design-software subscriptions remain resilient.",
+        "link": "https://adsknews.autodesk.com/en/pressrelease/autodesk-extends-invitation-to-join-financial-results-conference-call-26/"
       }
     ]
   },
   "takeaways": {
     "remember": [
-      "HDR exposure scheduling can be treated as a control loop that spends a limited capture-time budget on the next most useful frame.",
-      "3D-stacked DRAM makes packaging and data movement part of accelerator architecture, not an afterthought to compute design.",
-      "Operational-technology security protects physical processes, so grid segmentation, identity and removable-media controls belong in reliability planning.",
-      "Revised GDP, CPI and IIP bases can change measured trends; compare series only after understanding the methodology and back-series treatment.",
-      "Climate diplomacy is judged by implementation details such as fossil-fuel language, finance and measurable delivery, not only by summit attendance.",
-      "Quantum position verification combines timing, entanglement and Bell-test evidence to bind a digital action to a physical place, but deployment remains distant.",
-      "A volcano’s eruption style is largely a gas-and-viscosity problem, while the Rosetta Stone shows why parallel observations are powerful in science and history."
+      "ETAP treats event-camera tracking as both a motion-estimation problem and a problem of stabilizing features across motion-dependent sensor signals.",
+      "DX100 improves data movement by exposing batches of indirect addresses so a memory system can reorder requests, rather than adding arithmetic throughput.",
+      "Both papers show why a system benefits when its representation exposes structure before expensive computation or data transfer.",
+      "India's HPV campaign passed 1 crore doses, while the ministry put coverage at nearly 87% of its annual target cohort.",
+      "The Nitish Setu opening adds a six-lane Ganga crossing; travel-time and network effects will show its practical value.",
+      "The UN's autonomous-weapons talks set a 2028 target for a possible accord but did not create binding limits.",
+      "NR2F1 and NR2F6 support axon growth in mouse injury models; translating that result to human treatment remains an open research challenge."
     ],
-    "explore": "A common systems idea runs from AdaptiveAE and Raptor to KPTCL: performance and safety improve when sensing, memory, control and failure handling are co-designed instead of patched after the fact. An HDR camera balances exposure, noise and motion at capture; a 3D-DRAM accelerator moves the memory bottleneck into the package; and a power-grid security programme treats cyber controls as part of physical continuity. A useful next investigation is a low-power camera-SoC budget that maps sensor-to-ISP bandwidth, buffer residency, energy per accepted frame and security policy together, then tests the design under motion, thermal stress and fault injection."
+    "explore": "ETAP and DX100 expose a shared systems lesson: performance improves when the representation reveals useful structure early. ETAP trains motion-robust features over asynchronous sensor events; DX100 batches and reorders indirect loads so memory can serve them efficiently. A useful next investigation is to prototype event-camera point tracking on an edge SoC, compare event-only with frame-plus-event input, and measure track quality, bandwidth, data movement and latency under fast motion and flicker. That tests whether algorithmic gains survive the sensor-to-SRAM-to-accelerator path."
   }
 }
