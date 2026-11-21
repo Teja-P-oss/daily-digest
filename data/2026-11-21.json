@@ -1,0 +1,297 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-21",
+    "note": "Current edition for 21 November 2026; market watch uses the latest completed Friday session."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Animal health and agriculture",
+        "headline": "India dedicates its first indigenous H5N1 vaccine for chickens",
+        "summary": "The agriculture minister dedicated an indigenous inactivated H5N1 vaccine for chickens in Bhopal; the government says it is priced at ₹1–2 per dose and announced a ₹300-crore animal-disease laboratory.",
+        "why": "Poultry biosecurity protects farm livelihoods, food supply and public-health preparedness; domestic vaccine capacity can shorten response times during outbreaks.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2339191&lang=1&reg=20"
+      },
+      {
+        "category": "Foreign affairs and defence",
+        "headline": "India and Japan deepen strategic cooperation at fourth 2+2 meeting",
+        "summary": "Foreign and defence ministers met in Tokyo on 19 November and reaffirmed cooperation on maritime security, defence technology, exercises, economic security and a free, open Indo-Pacific.",
+        "why": "The partnership links regional deterrence with technology and industrial collaboration as both countries respond to a more contested Indo-Pacific.",
+        "link": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2338564&lang=2&reg=48"
+      },
+      {
+        "category": "Digital infrastructure",
+        "headline": "Karnataka power network gets an operational-technology cyber shield",
+        "summary": "KPTCL launched an integrated OT cybersecurity programme covering 1,474 substations and six Area Load Despatch Centres, with firewalls, segmentation, zero-trust access and removable-media scanning.",
+        "why": "Power-grid security is a control-system and continuity problem, not only an office-IT problem; the design shows how cyber resilience is becoming part of infrastructure engineering.",
+        "link": "https://www.newindianexpress.com/states/karnataka/2026/Nov/21/karnatakas-power-network-gets-cyber-protection"
+      },
+      {
+        "category": "Official statistics and governance",
+        "headline": "MoSPI schedules conference on India’s revised GDP, CPI and IIP series",
+        "summary": "MoSPI will hold a 23 November conference in Mumbai to explain the methods, data sources and improvements behind the new series of GDP, CPI and industrial production indicators.",
+        "why": "Base-year and methodology changes affect how growth, inflation and industrial cycles are compared; understanding the revisions prevents false trend breaks.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2339208&lang=1&reg=1"
+      }
+    ],
+    "world": [
+      {
+        "category": "Climate diplomacy",
+        "headline": "COP31 negotiations go into overtime over the climate deal",
+        "summary": "Negotiators continued talks in Antalya on 21 November after a draft agreement drew criticism for omitting explicit fossil-fuel language and for leaving finance and implementation disputes unresolved.",
+        "why": "The final wording will show whether climate diplomacy is moving from broad targets toward measurable cuts, adaptation finance and delivery.",
+        "link": "https://apnews.com/article/b54eebcade92e5ee4c513b9a5b2192a7"
+      },
+      {
+        "category": "Food security and humanitarian affairs",
+        "headline": "WFP plans to assist 91 million people in 2027 as food-crisis risk grows",
+        "summary": "The World Food Programme’s 2027 outlook seeks just over US$12 billion to help 91 million people, while warning that acute hunger affected as many as 266 million people in 2025.",
+        "why": "The plan highlights the shift from repeated emergency relief toward anticipatory finance, local partnerships and resilience before climate shocks become hunger emergencies.",
+        "link": "https://www.wfp.org/news/world-food-programme-sets-out-2027-plan-assist-91-million-people-need-food-crisis-looms"
+      },
+      {
+        "category": "Geopolitics and nuclear security",
+        "headline": "US, China and Russia signal nuclear-risk dialogue amid new tensions",
+        "summary": "After a trilateral meeting, the three governments said nuclear war cannot be won or fought and agreed to dialogue on proliferation and risk reduction; US officials also warned about China’s expanding arsenal.",
+        "why": "Dialogue among the three largest nuclear powers matters, but the gap between a political statement and verifiable arms control remains the central question.",
+        "link": "https://apnews.com/article/286391edaacc7e8544dc0dc023e253fb"
+      },
+      {
+        "category": "Quantum technology and cybersecurity",
+        "headline": "NIST researchers demonstrate quantum position verification",
+        "summary": "NIST and collaborators used entangled photons and a loophole-free Bell test to verify that a party was physically at a claimed location in an experiment in Boulder, Colorado.",
+        "why": "Location-bound authentication could eventually protect critical infrastructure and financial commands, though NIST says practical deployment is still more than a decade away.",
+        "link": "https://www.nist.gov/news-events/news/2026/11/quantum-physics-can-verify-persons-location-nist-researchers-show"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "AdaptiveAE: An Adaptive Exposure Strategy for HDR Capturing in Dynamic Scenes",
+      "authors": "Tianyi Xu, Fan Zhang, Boxin Shi, Tianfan Xue, Yujin Wang",
+      "year": "2025",
+      "venue": "ICCV 2025",
+      "field": "Computational photography and HDR capture",
+      "link": "https://arxiv.org/abs/2508.13503",
+      "scholar": "https://scholar.google.com/scholar?q=AdaptiveAE+An+Adaptive+Exposure+Strategy+for+HDR+Capturing+in+Dynamic+Scenes",
+      "summary": "AdaptiveAE treats multi-exposure HDR capture as a sequential control problem: choose shutter speed and ISO to balance noise, saturation and motion blur before fusion.",
+      "problem": "Fixed exposure brackets work poorly when a handheld scene contains both dark regions and moving objects, because longer exposures reduce noise but increase blur and ghosting.",
+      "difficulty": "The paper combines camera exposure physics, reinforcement learning and HDR reconstruction; the useful mental model is a policy that spends a limited exposure-time budget on the most informative next frame.",
+      "idea": "Use the previous frame’s semantic and illumination cues to adapt the next shutter-speed/ISO choice, so motion risk is handled during acquisition rather than repaired only after capture.",
+      "method": "A reinforcement-learning policy consumes prior LDR images, semantic information and exposure histograms. A blur-aware synthesis pipeline injects motion blur and sensor noise during training, and the policy sequentially refines the bracket under a user-defined time budget.",
+      "results": "The authors report state-of-the-art results across HDRV and DeepHDR Video benchmarks, with improved noise and motion control in dynamic scenes; a Sony Alpha 7C II test shows the policy adapting exposure as scene motion changes.",
+      "care": "The approach depends on realistic blur/noise simulation, a learned policy and assumptions such as fixed aperture and focus. Dataset shift, sensor-specific behavior and downstream fusion can change the practical gain.",
+      "learn": [
+        "Why shutter speed and ISO form a coupled noise–blur trade-off",
+        "How exposure bracketing becomes a sequential decision problem",
+        "Why capture-time control can be better than post-capture deghosting"
+      ],
+      "concepts": [
+        "HDR exposure bracketing",
+        "motion blur",
+        "reinforcement learning",
+        "sensor noise"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "Early Silicon of Raptor: The First 3D-DRAM Accelerator for Generative Inference",
+      "authors": "Prashant J. Nair, Ramyad Hadidi, Subramani Ganesh, Sangamesh Kodge, Shubhankit Rathore, Neil Thanawala, Nikitha Reddy, Gyanesh Saharia, Vinayak Patankar, Arun Tiruvur, Nithesh Kurella, Sudeep Bhoja",
+      "year": "2026",
+      "venue": "ISCA 2026",
+      "field": "Accelerator architecture and memory systems",
+      "link": "https://ieeexplore.ieee.org/document/11617716",
+      "scholar": "https://scholar.google.com/scholar?q=Early+Silicon+of+Raptor+The+First+3D-DRAM+Accelerator+for+Generative+Inference",
+      "summary": "Raptor argues that generative inference is mainly a memory problem and uses a logic-on-3D-DRAM design to combine high bandwidth, useful capacity and lower data-movement cost.",
+      "problem": "SRAM-based accelerators offer bandwidth but little capacity, while HBM offers capacity but is constrained by bandwidth and I/O power as autoregressive decoding repeatedly reads the KV cache.",
+      "difficulty": "The paper crosses package integration, memory mapping, thermal management and reliability; read it as a system co-design case study rather than as a claim that one memory technology wins every workload.",
+      "idea": "Map KV-cache streams onto configurable 3D-DRAM channels and make the stack production-ready with pinless data-bus inversion, thermal-aware refresh, topology-preserving redundancy and interleaved ECC.",
+      "method": "The authors characterize early silicon and compare it with HBM- and SRAM-based baselines across Llama-3.1 70B, DeepSeek-V3, Kimi K2, GPT-OSS, Whisper and Canary. They measure bandwidth, latency sensitivity, energy and reliability mechanisms, then connect those measurements to KV-cache placement, refresh behavior and the practical limits of the package-level design.",
+      "results": "The paper reports up to 100 TB/s per card and higher throughput than HBM and SRAM baselines across the evaluated models, with reduced sensitivity to network latency and bandwidth.",
+      "care": "This is early-silicon work from an accelerator vendor, so comparisons depend on system configuration, model mapping and workload phase. Thermal limits, yield, software support and total cost still determine deployment value.",
+      "learn": [
+        "Why decode-phase inference is often memory-bandwidth-bound",
+        "How 3D stacking changes the capacity–bandwidth trade-off",
+        "Why ECC, refresh and thermal design are performance features in a real accelerator"
+      ],
+      "concepts": [
+        "KV cache",
+        "3D-stacked DRAM",
+        "memory bandwidth",
+        "error-correcting code"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "About Volcanoes",
+      "authors": "U.S. Geological Survey Volcano Hazards Program",
+      "year": "n.d.",
+      "venue": "U.S. Geological Survey",
+      "field": "Earth science",
+      "link": "https://www.usgs.gov/programs/VHP/about-volcanoes",
+      "scholar": null,
+      "summary": "The USGS explains volcanoes as vents and landforms built from erupted material, with magma rising because it is buoyant and pressurized by dissolved gas.",
+      "problem": "Why do some eruptions quietly pour lava while others explode into ash, rocks and hot gas? The beginner challenge is to connect what happens underground—magma composition, dissolved gas and pressure—to the different hazards observed at the surface.",
+      "difficulty": "The key distinction is intuitive but worth tracing carefully: thin magma lets gas escape, while thick magma traps gas and allows pressure to build. The page adds the vocabulary needed to separate lava flows, tephra, ashfall and lahars without requiring prior geology.",
+      "idea": "Magma composition controls viscosity and gas escape, so the same basic rise-to-the-surface process can produce very different hazards.",
+      "method": "USGS combines geological observations, eruption records, rock and gas analysis, and hazard mapping to connect magma properties with eruption style and landform shape. The explainer moves from the vent and rising magma to viscosity, gas release, erupted fragments and water-driven flows, giving each process a concrete hazard connection.",
+      "results": "Runny magma tends to produce lava flows; sticky, gas-rich magma can fragment into tephra and ash, and water mixed with hot volcanic material can create destructive lahars.",
+      "care": "This is a general primer, not a forecast for a particular volcano or community. Local plumbing, water, topography, wind, monitoring coverage and eruption history determine the actual hazard, so the broad relationships here should not be treated as a site-specific warning.",
+      "learn": [
+        "The difference between magma and lava",
+        "Why viscosity controls eruption explosivity",
+        "How ash, tephra and lahars create hazards far from a vent"
+      ],
+      "concepts": [
+        "magma",
+        "viscosity",
+        "tephra",
+        "lahar"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "The Rosetta Stone",
+      "authors": "The British Museum",
+      "year": "n.d.",
+      "venue": "British Museum collection guide",
+      "field": "Ancient history and writing",
+      "link": "https://www.britishmuseum.org/collection/object/Y_EA24",
+      "scholar": null,
+      "summary": "The Rosetta Stone carries the same priestly decree in hieroglyphic, Demotic and Greek, giving scholars a bridge from a readable language to ancient Egyptian scripts.",
+      "problem": "How can a civilization’s writing become readable again after the people who used it are gone? The Rosetta Stone makes the question concrete: one decree survives in three scripts, but only one of those scripts was already understood by scholars.",
+      "difficulty": "The memorable trick is not a mysterious code-breaker but parallel text: one message survives in multiple scripts with one known language as the anchor.",
+      "idea": "Comparing repeated names and phrases across Greek, Demotic and hieroglyphic text turned a single artifact into a key for reconstructing a whole writing system.",
+      "method": "The museum guide combines object description, the historical setting of the 196 BC decree and the long comparative work that matched the Greek text with Egyptian scripts. It highlights repeated names and phrases, the relationship between hieroglyphic and Demotic forms, and why comparison across versions provided evidence rather than a guess based on visual resemblance alone.",
+      "results": "The trilingual inscription helped scholars decipher hieroglyphs and opened access to records of ancient Egyptian religion, administration and daily life. Its importance is methodological as well as historical: parallel wording supplied a testable bridge between a known language and scripts whose meanings had been lost.",
+      "care": "The stone was an unusually powerful bridge; most undeciphered scripts lack such a parallel text, so decipherment usually requires many fragments, language comparisons and cautious inference.",
+      "learn": [
+        "Why parallel text is powerful evidence in decipherment",
+        "The roles of hieroglyphic and Demotic scripts",
+        "How one artifact can unlock a much larger historical record"
+      ],
+      "concepts": [
+        "hieroglyphs",
+        "Demotic",
+        "trilingual inscription",
+        "decipherment"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$125.53",
+        "change": -14.01,
+        "reason": "Latest completed U.S. session, Friday 20 November; the AI-linked sell-off made Nvidia the clearest stress signal in the semiconductor complex.",
+        "thesis": "Accelerated-computing demand, a broad software ecosystem and data-centre scale remain the core long-term advantages.",
+        "risk": "The stock is highly exposed to AI-capex durability, valuation compression, export controls and intense accelerator competition."
+      },
+      {
+        "symbol": "AAPL",
+        "price": "$342.56",
+        "change": -1.9,
+        "reason": "Friday close; Apple fell with the broad megacap technology risk-off move.",
+        "thesis": "A large installed base, services revenue and hardware-software integration provide a diversified cash-generation engine.",
+        "risk": "Premium valuation, product-cycle execution, regulation and supply-chain or demand weakness can narrow the margin for error."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$484.52",
+        "change": -2.76,
+        "reason": "Friday close; Microsoft weakened alongside software and AI names as investors questioned the pace and payoff of infrastructure spending.",
+        "thesis": "Recurring enterprise software, cloud distribution and deep developer relationships support durable platform economics.",
+        "risk": "AI capital intensity, cloud competition, regulation and slower enterprise spending could challenge returns on the build-out."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE.NS",
+        "price": "₹1,377.50",
+        "change": 0.14,
+        "reason": "Latest completed NSE session, Friday 20 November; Reliance edged higher while Indian benchmarks rallied.",
+        "thesis": "Energy, telecom and retail give the group several cash-flow engines and optionality in consumer and digital businesses.",
+        "risk": "Commodity cycles, large capital requirements, regulatory decisions and execution across unrelated businesses complicate valuation."
+      },
+      {
+        "symbol": "HDFCBANK.NS",
+        "price": "₹846.00",
+        "change": 2.94,
+        "reason": "Friday close; HDFC Bank rose as banking shares led the domestic rebound.",
+        "thesis": "Scale, deposit gathering and a broad retail-and-corporate franchise can compound if credit costs remain controlled.",
+        "risk": "Asset quality, deposit competition, interest-rate changes and integration or technology execution can affect returns."
+      },
+      {
+        "symbol": "TCS.NS",
+        "price": "₹2,376.20",
+        "change": 1.43,
+        "reason": "Friday close; TCS participated in a stronger NSE session after recent weakness in Indian IT shares.",
+        "thesis": "Long customer relationships, global delivery and recurring technology work create a resilient export-services base.",
+        "risk": "Discretionary IT spending, currency moves, wage inflation and automation can pressure growth and margins."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "ADI",
+        "company": "Analog Devices",
+        "report_date": "2026-11-24",
+        "timing": "Before market open",
+        "fiscal_period": "Q4 fiscal 2026",
+        "why_watch": "Watch industrial and automotive demand, gross margin and commentary on edge, data-centre and signal-chain orders.",
+        "link": "https://investor.analog.com/news-releases/news-release-details/analog-devices-report-fourth-quarter-fiscal-year-2026-financial/"
+      },
+      {
+        "symbol": "DELL",
+        "company": "Dell Technologies",
+        "report_date": "2026-11-24",
+        "timing": "After market close",
+        "fiscal_period": "Q3 fiscal 2027",
+        "why_watch": "Watch AI-server demand, backlog conversion, margins and working capital as infrastructure spending faces a stressed market tape.",
+        "link": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+      },
+      {
+        "symbol": "ADSK",
+        "company": "Autodesk",
+        "report_date": "2026-11-24",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Q3 fiscal 2027",
+        "why_watch": "Watch annualized recurring revenue, billings and adoption of AI features across design, construction and manufacturing workflows.",
+        "link": "https://investors.autodesk.com/index.php/news-releases/news-release-details/autodesk-extends-invitation-join-financial-results-conference-53"
+      },
+      {
+        "symbol": "MDT",
+        "company": "Medtronic",
+        "report_date": "2026-11-24",
+        "timing": "Before market open",
+        "fiscal_period": "Q2 fiscal 2027",
+        "why_watch": "Watch organic growth across cardiac, surgical, diabetes and neuromodulation portfolios, plus guidance after recent portfolio changes.",
+        "link": "https://news.medtronic.com/2026-11-04-Medtronic-to-announce-financial-results-for-its-second-quarter-of-fiscal-year-2027"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "HDR exposure scheduling can be treated as a control loop that spends a limited capture-time budget on the next most useful frame.",
+      "3D-stacked DRAM makes packaging and data movement part of accelerator architecture, not an afterthought to compute design.",
+      "Operational-technology security protects physical processes, so grid segmentation, identity and removable-media controls belong in reliability planning.",
+      "Revised GDP, CPI and IIP bases can change measured trends; compare series only after understanding the methodology and back-series treatment.",
+      "Climate diplomacy is judged by implementation details such as fossil-fuel language, finance and measurable delivery, not only by summit attendance.",
+      "Quantum position verification combines timing, entanglement and Bell-test evidence to bind a digital action to a physical place, but deployment remains distant.",
+      "A volcano’s eruption style is largely a gas-and-viscosity problem, while the Rosetta Stone shows why parallel observations are powerful in science and history."
+    ],
+    "explore": "A common systems idea runs from AdaptiveAE and Raptor to KPTCL: performance and safety improve when sensing, memory, control and failure handling are co-designed instead of patched after the fact. An HDR camera balances exposure, noise and motion at capture; a 3D-DRAM accelerator moves the memory bottleneck into the package; and a power-grid security programme treats cyber controls as part of physical continuity. A useful next investigation is a low-power camera-SoC budget that maps sensor-to-ISP bandwidth, buffer residency, energy per accepted frame and security policy together, then tests the design under motion, thermal stress and fault injection."
+  }
+}
