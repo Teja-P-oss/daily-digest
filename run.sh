@@ -14,7 +14,7 @@ CODEX_MODEL="${CODEX_MODEL:-gpt-5.6-terra}"
 # compatible Codex model when that model is available in the signed-in ChatGPT account.
 CODEX_ADVANCE_MODEL="${CODEX_ADVANCE_MODEL:-$CODEX_MODEL}"
 CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-medium}"
-CODEX_ADVANCE_REASONING_EFFORT="${CODEX_ADVANCE_REASONING_EFFORT:-low}"
+CODEX_ADVANCE_REASONING_EFFORT="${CODEX_ADVANCE_REASONING_EFFORT:-$CODEX_REASONING_EFFORT}"
 
 usage() {
     echo "Usage: bash run.sh [NUMBER_OF_DAYS] [--date YYYY-MM-DD] [--force] [--check]"

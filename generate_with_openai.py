@@ -32,12 +32,18 @@ BRIEF_PATH = ROOT / "DIGEST_BRIEF.md"
 DEFAULT_MODEL = "gpt-5.6-terra"
 CHEAP_MODEL = "gpt-5.4-mini"
 DEFAULT_REASONING_EFFORT = "medium"
-ADVANCE_REASONING_EFFORT = "low"
+ADVANCE_REASONING_EFFORT = "medium"
+CHEAP_REASONING_EFFORT = "low"
 DEFAULT_MAX_TOOL_CALLS = 12
-ADVANCE_MAX_TOOL_CALLS = 8
+ADVANCE_MAX_TOOL_CALLS = 10
+CHEAP_MAX_TOOL_CALLS = 8
 DEFAULT_MAX_OUTPUT_TOKENS = 18_000
-ADVANCE_MAX_OUTPUT_TOKENS = 14_000
-SEARCH_CONTEXT_SIZE = "low"
+ADVANCE_MAX_OUTPUT_TOKENS = DEFAULT_MAX_OUTPUT_TOKENS
+CHEAP_MAX_OUTPUT_TOKENS = 14_000
+SEARCH_CONTEXT_SIZE = "medium"
+CHEAP_SEARCH_CONTEXT_SIZE = "low"
+TEXT_VERBOSITY = "medium"
+CHEAP_TEXT_VERBOSITY = "low"
 ACTIVE_RESPONSE_STATES = {"queued", "in_progress"}
 MAX_ADVANCE_DAYS = 7
 
@@ -51,6 +57,7 @@ class GenerationProfile:
     max_tool_calls: int
     max_output_tokens: int
     search_context_size: str = SEARCH_CONTEXT_SIZE
+    text_verbosity: str = TEXT_VERBOSITY
 
 
 def used_paper_titles(exclude_date: date, limit: int = 24) -> list[str]:
@@ -168,17 +175,37 @@ def generation_profile(
     advance_reasoning_effort: str,
     max_tool_calls: int | None,
     max_output_tokens: int | None,
+    cheap_advance: bool = False,
 ) -> GenerationProfile:
     """Select safe defaults while allowing deliberate per-run overrides."""
+    use_cheap_profile = advance and cheap_advance
     return GenerationProfile(
-        model=advance_model if advance else model,
-        reasoning_effort=advance_reasoning_effort if advance else reasoning_effort,
+        model=(
+            CHEAP_MODEL
+            if use_cheap_profile and advance_model == DEFAULT_MODEL
+            else (advance_model if advance else model)
+        ),
+        reasoning_effort=(
+            CHEAP_REASONING_EFFORT
+            if use_cheap_profile
+            else (advance_reasoning_effort if advance else reasoning_effort)
+        ),
         max_tool_calls=max_tool_calls
         if max_tool_calls is not None
-        else (ADVANCE_MAX_TOOL_CALLS if advance else DEFAULT_MAX_TOOL_CALLS),
+        else (
+            CHEAP_MAX_TOOL_CALLS
+            if use_cheap_profile
+            else (ADVANCE_MAX_TOOL_CALLS if advance else DEFAULT_MAX_TOOL_CALLS)
+        ),
         max_output_tokens=max_output_tokens
         if max_output_tokens is not None
-        else (ADVANCE_MAX_OUTPUT_TOKENS if advance else DEFAULT_MAX_OUTPUT_TOKENS),
+        else (
+            CHEAP_MAX_OUTPUT_TOKENS
+            if use_cheap_profile
+            else (ADVANCE_MAX_OUTPUT_TOKENS if advance else DEFAULT_MAX_OUTPUT_TOKENS)
+        ),
+        search_context_size=CHEAP_SEARCH_CONTEXT_SIZE if use_cheap_profile else SEARCH_CONTEXT_SIZE,
+        text_verbosity=CHEAP_TEXT_VERBOSITY if use_cheap_profile else TEXT_VERBOSITY,
     )
 
 
@@ -191,6 +218,7 @@ def request_digest(
     reasoning_effort: str = DEFAULT_REASONING_EFFORT,
     max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS,
     search_context_size: str = SEARCH_CONTEXT_SIZE,
+    text_verbosity: str = TEXT_VERBOSITY,
 ) -> Digest:
     client = client or OpenAI(max_retries=5, timeout=1200.0)
     print(f"Researching {report_date.isoformat()} with {model}...")
@@ -215,7 +243,7 @@ def request_digest(
         max_output_tokens=max_output_tokens,
         reasoning={"effort": reasoning_effort},
         text_format=Digest,
-        text={"verbosity": "low"},
+        text={"verbosity": text_verbosity},
         background=True,
         store=True,
         metadata={
@@ -275,8 +303,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--advance-model",
-        default=os.environ.get("OPENAI_ADVANCE_MODEL", CHEAP_MODEL),
-        help=f"model for advance editions (default: {CHEAP_MODEL})",
+        default=os.environ.get("OPENAI_ADVANCE_MODEL", DEFAULT_MODEL),
+        help=f"model for advance editions (default: {DEFAULT_MODEL})",
     )
     parser.add_argument(
         "--reasoning-effort",
@@ -289,6 +317,11 @@ def build_parser() -> argparse.ArgumentParser:
         choices=("low", "medium", "high"),
         default=os.environ.get("OPENAI_ADVANCE_REASONING_EFFORT", ADVANCE_REASONING_EFFORT),
         help=f"reasoning effort for advance editions (default: {ADVANCE_REASONING_EFFORT})",
+    )
+    parser.add_argument(
+        "--cheap-advance",
+        action="store_true",
+        help=f"opt into the lower-cost {CHEAP_MODEL} profile for advance editions",
     )
     parser.add_argument(
         "--max-tool-calls",
@@ -344,6 +377,7 @@ def main(argv: list[str] | None = None) -> int:
             advance_reasoning_effort=args.advance_reasoning_effort,
             max_tool_calls=args.max_tool_calls,
             max_output_tokens=args.max_output_tokens,
+            cheap_advance=args.cheap_advance,
         )
         print(
             f"Using {profile.model} ({profile.reasoning_effort} reasoning, "
@@ -357,6 +391,7 @@ def main(argv: list[str] | None = None) -> int:
             reasoning_effort=profile.reasoning_effort,
             max_output_tokens=profile.max_output_tokens,
             search_context_size=profile.search_context_size,
+            text_verbosity=profile.text_verbosity,
         )
         published = publish_digest(digest, report_date)
         edition_label = "advance vacation edition" if advance else "current edition"

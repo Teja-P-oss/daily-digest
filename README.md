@@ -48,9 +48,10 @@ Each day is a full, separately researched generation, so a long vacation batch c
 time and consume corresponding Codex or API usage. The script publishes days one at a time; if a later
 day fails, earlier successfully pushed days remain available and rerunning the same command skips them.
 For the API path, current and historical issues keep the full-quality profile, while advance issues
-use the cheaper `gpt-5.4-mini` profile with low reasoning, low search context, eight searches, and a
-14,000-token cap. The shared brief is sent as a stable prompt prefix so repeated API runs can use
-prompt caching. Override this with `OPENAI_ADVANCE_MODEL` or the matching CLI options when needed.
+also keep the full-quality model and medium reasoning by default. Token savings come from prompt
+caching, compact archive context, low-redundancy search limits, and compact output instructions.
+The cheaper `gpt-5.4-mini` lane is opt-in with `--cheap-advance`; use it only for bounded advance
+runs where a small quality tradeoff is acceptable.
 
 When an advance date actually arrives, replace it with live news and market data using:
 
@@ -80,10 +81,11 @@ uses separately billed OpenAI API credit.
 
 The Action is intentionally on-demand and is not scheduled, preventing unexpected API spending. It
 uses `gpt-5.6-terra` with medium reasoning for current and historical issues. Advance issues use
-`gpt-5.4-mini` with low reasoning by default; set `OPENAI_ADVANCE_MODEL` if your account uses another
-compatible model. Search context and output limits are intentionally compact, and can be overridden
-with `--max-tool-calls` or `--max-output-tokens`. Concurrent runs are serialized. A repeated run for
-an existing date exits before calling the API unless replacement is explicitly enabled.
+the same full-quality model with medium reasoning by default. The cheaper `gpt-5.4-mini` profile is
+available only when explicitly requested with `--cheap-advance`. Search context and output limits are
+intentionally compact, and can be overridden with `--max-tool-calls` or `--max-output-tokens`.
+Concurrent runs are serialized. A repeated run for an existing date exits before calling the API
+unless replacement is explicitly enabled.
 
 ## Publish a prepared JSON file directly
 

@@ -315,7 +315,7 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertEqual(publish.call_count, 2)
         self.assertEqual(request.call_args_list[0].args[1], today + timedelta(days=1))
         self.assertTrue(request.call_args_list[0].kwargs["advance"])
-        self.assertEqual(request.call_args_list[0].args[0], api_generator.CHEAP_MODEL)
+        self.assertEqual(request.call_args_list[0].args[0], api_generator.DEFAULT_MODEL)
         self.assertEqual(request.call_args_list[0].args[2], api_generator.ADVANCE_MAX_TOOL_CALLS)
         self.assertEqual(
             request.call_args_list[0].kwargs["reasoning_effort"],
@@ -383,10 +383,10 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertIsInstance(result, digest_app.Digest)
         self.assertEqual(captured["model"], "gpt-5.6-terra")
         self.assertEqual(captured["reasoning"]["effort"], "medium")
-        self.assertEqual(captured["text"]["verbosity"], "low")
+        self.assertEqual(captured["text"]["verbosity"], "medium")
         self.assertEqual(captured["text"]["format"]["type"], "json_schema")
         self.assertEqual(captured["max_output_tokens"], api_generator.DEFAULT_MAX_OUTPUT_TOKENS)
-        self.assertEqual(captured["tools"][0]["search_context_size"], "low")
+        self.assertEqual(captured["tools"][0]["search_context_size"], "medium")
         self.assertEqual(captured["input"][0]["role"], "developer")
         self.assertIn("# Teja's Daily Digest generation brief", captured["input"][0]["content"][0]["text"])
         self.assertEqual(captured["input"][1]["role"], "user")
@@ -401,7 +401,7 @@ class OpenAIRequestTests(unittest.TestCase):
         current = api_generator.generation_profile(
             advance=False,
             model=api_generator.DEFAULT_MODEL,
-            advance_model=api_generator.CHEAP_MODEL,
+            advance_model=api_generator.DEFAULT_MODEL,
             reasoning_effort=api_generator.DEFAULT_REASONING_EFFORT,
             advance_reasoning_effort=api_generator.ADVANCE_REASONING_EFFORT,
             max_tool_calls=None,
@@ -410,7 +410,7 @@ class OpenAIRequestTests(unittest.TestCase):
         advance = api_generator.generation_profile(
             advance=True,
             model=api_generator.DEFAULT_MODEL,
-            advance_model=api_generator.CHEAP_MODEL,
+            advance_model=api_generator.DEFAULT_MODEL,
             reasoning_effort=api_generator.DEFAULT_REASONING_EFFORT,
             advance_reasoning_effort=api_generator.ADVANCE_REASONING_EFFORT,
             max_tool_calls=None,
@@ -418,9 +418,29 @@ class OpenAIRequestTests(unittest.TestCase):
         )
         self.assertEqual(current.max_tool_calls, api_generator.DEFAULT_MAX_TOOL_CALLS)
         self.assertEqual(current.max_output_tokens, api_generator.DEFAULT_MAX_OUTPUT_TOKENS)
-        self.assertEqual(advance.model, api_generator.CHEAP_MODEL)
+        self.assertEqual(advance.model, api_generator.DEFAULT_MODEL)
         self.assertEqual(advance.max_tool_calls, api_generator.ADVANCE_MAX_TOOL_CALLS)
         self.assertEqual(advance.max_output_tokens, api_generator.ADVANCE_MAX_OUTPUT_TOKENS)
+        self.assertEqual(advance.reasoning_effort, api_generator.ADVANCE_REASONING_EFFORT)
+        self.assertEqual(advance.search_context_size, api_generator.SEARCH_CONTEXT_SIZE)
+
+    def test_cheap_advance_profile_is_explicit(self) -> None:
+        profile = api_generator.generation_profile(
+            advance=True,
+            model=api_generator.DEFAULT_MODEL,
+            advance_model=api_generator.DEFAULT_MODEL,
+            reasoning_effort=api_generator.DEFAULT_REASONING_EFFORT,
+            advance_reasoning_effort=api_generator.ADVANCE_REASONING_EFFORT,
+            max_tool_calls=None,
+            max_output_tokens=None,
+            cheap_advance=True,
+        )
+        self.assertEqual(profile.model, api_generator.CHEAP_MODEL)
+        self.assertEqual(profile.reasoning_effort, api_generator.CHEAP_REASONING_EFFORT)
+        self.assertEqual(profile.max_tool_calls, api_generator.CHEAP_MAX_TOOL_CALLS)
+        self.assertEqual(profile.max_output_tokens, api_generator.CHEAP_MAX_OUTPUT_TOKENS)
+        self.assertEqual(profile.search_context_size, api_generator.CHEAP_SEARCH_CONTEXT_SIZE)
+        self.assertEqual(profile.text_verbosity, api_generator.CHEAP_TEXT_VERBOSITY)
 
 
 if __name__ == "__main__":
