@@ -8,8 +8,10 @@ import json
 import os
 import sys
 import time
+from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
+from typing import Any
 
 from openai import OpenAI
 
@@ -28,11 +30,30 @@ from update_website import (
 ROOT = Path(__file__).resolve().parent
 BRIEF_PATH = ROOT / "DIGEST_BRIEF.md"
 DEFAULT_MODEL = "gpt-5.6-terra"
+CHEAP_MODEL = "gpt-5.4-mini"
+DEFAULT_REASONING_EFFORT = "medium"
+ADVANCE_REASONING_EFFORT = "low"
+DEFAULT_MAX_TOOL_CALLS = 12
+ADVANCE_MAX_TOOL_CALLS = 8
+DEFAULT_MAX_OUTPUT_TOKENS = 18_000
+ADVANCE_MAX_OUTPUT_TOKENS = 14_000
+SEARCH_CONTEXT_SIZE = "low"
 ACTIVE_RESPONSE_STATES = {"queued", "in_progress"}
 MAX_ADVANCE_DAYS = 7
 
 
-def used_paper_titles(exclude_date: date) -> list[str]:
+@dataclass(frozen=True)
+class GenerationProfile:
+    """Token and model limits for one type of edition."""
+
+    model: str
+    reasoning_effort: str
+    max_tool_calls: int
+    max_output_tokens: int
+    search_context_size: str = SEARCH_CONTEXT_SIZE
+
+
+def used_paper_titles(exclude_date: date, limit: int = 24) -> list[str]:
     titles: list[str] = []
     for path in sorted(DATA_DIR.glob("????-??-??.json"), reverse=True):
         if path.stem == exclude_date.isoformat():
@@ -44,12 +65,12 @@ def used_paper_titles(exclude_date: date) -> list[str]:
         for paper in papers.values():
             if isinstance(paper, dict) and paper.get("title"):
                 titles.append(str(paper["title"]))
-        if len(titles) >= 40:
+        if len(titles) >= limit:
             break
-    return titles[:40]
+    return titles[:limit]
 
 
-def recent_inside_tracks(exclude_date: date, issue_limit: int = 8) -> list[str]:
+def recent_inside_tracks(exclude_date: date, issue_limit: int = 6) -> list[str]:
     tracks: list[str] = []
     issues_read = 0
     for path in sorted(DATA_DIR.glob("????-??-??.json"), reverse=True):
@@ -72,7 +93,7 @@ def recent_inside_tracks(exclude_date: date, issue_limit: int = 8) -> list[str]:
     return tracks
 
 
-def build_prompt(report_date: date, advance: bool = False) -> str:
+def edition_context(report_date: date, advance: bool = False) -> str:
     if advance:
         date_context = (
             f"This is an advance vacation edition for the future date {report_date.isoformat()}. "
@@ -88,7 +109,6 @@ def build_prompt(report_date: date, advance: bool = False) -> str:
             "and do not use later outcomes as if they were already known."
         )
 
-    brief = BRIEF_PATH.read_text(encoding="utf-8")
     used_titles = used_paper_titles(report_date)
     recent_tracks = recent_inside_tracks(report_date)
     archive_context = ""
@@ -103,10 +123,62 @@ def build_prompt(report_date: date, advance: bool = False) -> str:
             + "\n- ".join(used_titles)
         )
     return (
-        "Follow this editorial and output contract exactly. Return only the structured digest.\n\n"
-        f"{brief}\n\nEdition-specific context:\n"
         f"Create Teja's Daily Digest for {report_date.isoformat()} in India Standard Time.\n"
         f"{date_context}{archive_context}"
+    )
+
+
+def build_prompt(report_date: date, advance: bool = False) -> str:
+    """Return the complete prompt text for inspection and backwards-compatible callers."""
+    brief = BRIEF_PATH.read_text(encoding="utf-8")
+    return (
+        "Follow this editorial and output contract exactly. Return only the structured digest.\n\n"
+        f"{brief}\n\nEdition-specific context:\n{edition_context(report_date, advance)}"
+    )
+
+
+def build_input(report_date: date, advance: bool = False) -> list[dict[str, Any]]:
+    """Keep the reusable brief separate from the changing date/archive context."""
+    brief = BRIEF_PATH.read_text(encoding="utf-8")
+    return [
+        {
+            "role": "developer",
+            "content": [
+                {
+                    "type": "input_text",
+                    "text": (
+                        "You are a meticulous research editor. Browse before making factual claims, "
+                        "distinguish evidence from inference, and produce accurate structured output. "
+                        "Return only the structured digest.\n\n"
+                        f"{brief}"
+                    ),
+                }
+            ],
+        },
+        {"role": "user", "content": edition_context(report_date, advance)},
+    ]
+
+
+def generation_profile(
+    *,
+    advance: bool,
+    model: str,
+    advance_model: str,
+    reasoning_effort: str,
+    advance_reasoning_effort: str,
+    max_tool_calls: int | None,
+    max_output_tokens: int | None,
+) -> GenerationProfile:
+    """Select safe defaults while allowing deliberate per-run overrides."""
+    return GenerationProfile(
+        model=advance_model if advance else model,
+        reasoning_effort=advance_reasoning_effort if advance else reasoning_effort,
+        max_tool_calls=max_tool_calls
+        if max_tool_calls is not None
+        else (ADVANCE_MAX_TOOL_CALLS if advance else DEFAULT_MAX_TOOL_CALLS),
+        max_output_tokens=max_output_tokens
+        if max_output_tokens is not None
+        else (ADVANCE_MAX_OUTPUT_TOKENS if advance else DEFAULT_MAX_OUTPUT_TOKENS),
     )
 
 
@@ -116,21 +188,20 @@ def request_digest(
     max_tool_calls: int,
     advance: bool = False,
     client: OpenAI | None = None,
+    reasoning_effort: str = DEFAULT_REASONING_EFFORT,
+    max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS,
+    search_context_size: str = SEARCH_CONTEXT_SIZE,
 ) -> Digest:
     client = client or OpenAI(max_retries=5, timeout=1200.0)
     print(f"Researching {report_date.isoformat()} with {model}...")
     response = client.responses.parse(
         model=model,
-        instructions=(
-            "You are a meticulous research editor. Browse before making factual claims, distinguish "
-            "evidence from inference, and produce accurate structured output."
-        ),
-        input=build_prompt(report_date, advance),
+        input=build_input(report_date, advance),
         tools=[
             {
                 "type": "web_search",
                 "external_web_access": True,
-                "search_context_size": "medium",
+                "search_context_size": search_context_size,
                 "user_location": {
                     "type": "approximate",
                     "country": "IN",
@@ -141,10 +212,10 @@ def request_digest(
         tool_choice="auto",
         parallel_tool_calls=True,
         max_tool_calls=max_tool_calls,
-        max_output_tokens=22000,
-        reasoning={"effort": "medium"},
+        max_output_tokens=max_output_tokens,
+        reasoning={"effort": reasoning_effort},
         text_format=Digest,
-        text={"verbosity": "medium"},
+        text={"verbosity": "low"},
         background=True,
         store=True,
         metadata={
@@ -152,7 +223,7 @@ def request_digest(
             "edition_kind": "advance" if advance else "current",
             "application": "tejas-daily-digest",
         },
-        prompt_cache_key="tejas-daily-digest-v4",
+        prompt_cache_key="tejas-daily-digest-v5",
     )
 
     deadline = time.monotonic() + 25 * 60
@@ -203,12 +274,37 @@ def build_parser() -> argparse.ArgumentParser:
         help=f"OpenAI model ID (default: {DEFAULT_MODEL})",
     )
     parser.add_argument(
+        "--advance-model",
+        default=os.environ.get("OPENAI_ADVANCE_MODEL", CHEAP_MODEL),
+        help=f"model for advance editions (default: {CHEAP_MODEL})",
+    )
+    parser.add_argument(
+        "--reasoning-effort",
+        choices=("low", "medium", "high"),
+        default=os.environ.get("OPENAI_REASONING_EFFORT", DEFAULT_REASONING_EFFORT),
+        help=f"reasoning effort for current/historical editions (default: {DEFAULT_REASONING_EFFORT})",
+    )
+    parser.add_argument(
+        "--advance-reasoning-effort",
+        choices=("low", "medium", "high"),
+        default=os.environ.get("OPENAI_ADVANCE_REASONING_EFFORT", ADVANCE_REASONING_EFFORT),
+        help=f"reasoning effort for advance editions (default: {ADVANCE_REASONING_EFFORT})",
+    )
+    parser.add_argument(
         "--max-tool-calls",
         type=int,
-        default=18,
-        choices=range(8, 41),
-        metavar="8-40",
-        help="maximum web searches allowed for one edition",
+        default=None,
+        choices=range(6, 25),
+        metavar="6-24",
+        help="override the edition-specific web-search budget",
+    )
+    parser.add_argument(
+        "--max-output-tokens",
+        type=int,
+        default=None,
+        choices=range(12000, 24001),
+        metavar="12000-24000",
+        help="override the edition-specific output-token cap",
     )
     return parser
 
@@ -240,7 +336,28 @@ def main(argv: list[str] | None = None) -> int:
         raise DigestError("OPENAI_API_KEY is not set.")
 
     for report_date, advance in pending:
-        digest = request_digest(args.model, report_date, args.max_tool_calls, advance=advance)
+        profile = generation_profile(
+            advance=advance,
+            model=args.model,
+            advance_model=args.advance_model,
+            reasoning_effort=args.reasoning_effort,
+            advance_reasoning_effort=args.advance_reasoning_effort,
+            max_tool_calls=args.max_tool_calls,
+            max_output_tokens=args.max_output_tokens,
+        )
+        print(
+            f"Using {profile.model} ({profile.reasoning_effort} reasoning, "
+            f"{profile.max_tool_calls} searches, {profile.max_output_tokens} output tokens)."
+        )
+        digest = request_digest(
+            profile.model,
+            report_date,
+            profile.max_tool_calls,
+            advance=advance,
+            reasoning_effort=profile.reasoning_effort,
+            max_output_tokens=profile.max_output_tokens,
+            search_context_size=profile.search_context_size,
+        )
         published = publish_digest(digest, report_date)
         edition_label = "advance vacation edition" if advance else "current edition"
         print(f"Published {published} as a validated {edition_label}.")

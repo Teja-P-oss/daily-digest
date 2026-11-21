@@ -304,7 +304,7 @@ class OpenAIRequestTests(unittest.TestCase):
                 mock.patch.object(
                     api_generator,
                     "request_digest",
-                    side_effect=lambda model, report_date, max_tool_calls, advance: advance_digest(),
+                    side_effect=lambda model, report_date, max_tool_calls, advance, **kwargs: advance_digest(),
                 ) as request,
                 mock.patch.object(api_generator, "publish_digest", return_value=data_dir / "issue.json") as publish,
             ):
@@ -315,6 +315,12 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertEqual(publish.call_count, 2)
         self.assertEqual(request.call_args_list[0].args[1], today + timedelta(days=1))
         self.assertTrue(request.call_args_list[0].kwargs["advance"])
+        self.assertEqual(request.call_args_list[0].args[0], api_generator.CHEAP_MODEL)
+        self.assertEqual(request.call_args_list[0].args[2], api_generator.ADVANCE_MAX_TOOL_CALLS)
+        self.assertEqual(
+            request.call_args_list[0].kwargs["reasoning_effort"],
+            api_generator.ADVANCE_REASONING_EFFORT,
+        )
 
     def test_optimized_response_settings_keep_structured_output(self) -> None:
         captured: dict = {}
@@ -377,11 +383,13 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertIsInstance(result, digest_app.Digest)
         self.assertEqual(captured["model"], "gpt-5.6-terra")
         self.assertEqual(captured["reasoning"]["effort"], "medium")
-        self.assertNotIn("verbosity", captured)
-        self.assertEqual(captured["text"]["verbosity"], "medium")
+        self.assertEqual(captured["text"]["verbosity"], "low")
         self.assertEqual(captured["text"]["format"]["type"], "json_schema")
-        self.assertEqual(captured["max_output_tokens"], 22000)
-        self.assertEqual(captured["tools"][0]["search_context_size"], "medium")
+        self.assertEqual(captured["max_output_tokens"], api_generator.DEFAULT_MAX_OUTPUT_TOKENS)
+        self.assertEqual(captured["tools"][0]["search_context_size"], "low")
+        self.assertEqual(captured["input"][0]["role"], "developer")
+        self.assertIn("# Teja's Daily Digest generation brief", captured["input"][0]["content"][0]["text"])
+        self.assertEqual(captured["input"][1]["role"], "user")
 
     def test_stable_brief_precedes_dynamic_context_for_prompt_caching(self) -> None:
         prompt = api_generator.build_prompt(date(2026, 9, 6))
@@ -389,7 +397,30 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertIn("one anchor + one adjacent", prompt)
 
     def test_default_web_search_budget_is_reduced(self) -> None:
-        self.assertEqual(api_generator.build_parser().parse_args([]).max_tool_calls, 18)
+        self.assertIsNone(api_generator.build_parser().parse_args([]).max_tool_calls)
+        current = api_generator.generation_profile(
+            advance=False,
+            model=api_generator.DEFAULT_MODEL,
+            advance_model=api_generator.CHEAP_MODEL,
+            reasoning_effort=api_generator.DEFAULT_REASONING_EFFORT,
+            advance_reasoning_effort=api_generator.ADVANCE_REASONING_EFFORT,
+            max_tool_calls=None,
+            max_output_tokens=None,
+        )
+        advance = api_generator.generation_profile(
+            advance=True,
+            model=api_generator.DEFAULT_MODEL,
+            advance_model=api_generator.CHEAP_MODEL,
+            reasoning_effort=api_generator.DEFAULT_REASONING_EFFORT,
+            advance_reasoning_effort=api_generator.ADVANCE_REASONING_EFFORT,
+            max_tool_calls=None,
+            max_output_tokens=None,
+        )
+        self.assertEqual(current.max_tool_calls, api_generator.DEFAULT_MAX_TOOL_CALLS)
+        self.assertEqual(current.max_output_tokens, api_generator.DEFAULT_MAX_OUTPUT_TOKENS)
+        self.assertEqual(advance.model, api_generator.CHEAP_MODEL)
+        self.assertEqual(advance.max_tool_calls, api_generator.ADVANCE_MAX_TOOL_CALLS)
+        self.assertEqual(advance.max_output_tokens, api_generator.ADVANCE_MAX_OUTPUT_TOKENS)
 
 
 if __name__ == "__main__":

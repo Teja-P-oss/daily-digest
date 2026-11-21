@@ -9,8 +9,12 @@ DAYS=""
 REPLACE=false
 CHECK_ONLY=false
 MAX_ADVANCE_DAYS=7
-CODEX_MODEL="gpt-5.6-terra"
-CODEX_REASONING_EFFORT="medium"
+CODEX_MODEL="${CODEX_MODEL:-gpt-5.6-terra}"
+# Keep the desktop default on the known-good model; set CODEX_ADVANCE_MODEL to a cheaper
+# compatible Codex model when that model is available in the signed-in ChatGPT account.
+CODEX_ADVANCE_MODEL="${CODEX_ADVANCE_MODEL:-$CODEX_MODEL}"
+CODEX_REASONING_EFFORT="${CODEX_REASONING_EFFORT:-medium}"
+CODEX_ADVANCE_REASONING_EFFORT="${CODEX_ADVANCE_REASONING_EFFORT:-low}"
 
 usage() {
     echo "Usage: bash run.sh [NUMBER_OF_DAYS] [--date YYYY-MM-DD] [--force] [--check]"
@@ -170,7 +174,8 @@ if ! "$CODEX_BIN" login status; then
     echo "Codex is not signed in. Run '$CODEX_BIN login' and choose ChatGPT." >&2
     exit 1
 fi
-echo "Generation model: $CODEX_MODEL ($CODEX_REASONING_EFFORT reasoning)"
+echo "Current/historical model: $CODEX_MODEL ($CODEX_REASONING_EFFORT reasoning)"
+echo "Advance model: $CODEX_ADVANCE_MODEL ($CODEX_ADVANCE_REASONING_EFFORT reasoning)"
 
 if [[ "$CHECK_ONLY" == "true" ]]; then
     echo "Codex desktop generation is ready."
@@ -194,16 +199,20 @@ for index in "${!TARGET_DATES[@]}"; do
 
     if [[ "$advance_value" == "true" ]]; then
         mode_instruction="This is an advance vacation edition for a future date. Follow every advance rule in DIGEST_BRIEF.md. Future news and prices are unknowable: use sourced evergreen India/world knowledge, set stock prices to 'Not available — advance edition', set changes to null, and pass --advance to publish.sh."
+        selected_model="$CODEX_ADVANCE_MODEL"
+        selected_reasoning="$CODEX_ADVANCE_REASONING_EFFORT"
     else
         mode_instruction="This is a current or historical edition. Use real general news and verified market data appropriate to the date. Do not pass --advance to publish.sh."
+        selected_model="$CODEX_MODEL"
+        selected_reasoning="$CODEX_REASONING_EFFORT"
     fi
 
-    prompt="You are running the Teja's Daily Digest desktop publishing task. Read AGENTS.md and DIGEST_BRIEF.md before acting. Generate the edition for $date_value. $mode_instruction Use live web search and verify every factual claim and source URL. Inspect recent archive titles and fields: avoid exact repeats, rotate overused subtopics, use the required one-anchor-plus-one-adjacent inside mix, and keep outside learning picks beginner-friendly. Include the verified upcoming US earnings calendar. Prepare the complete digest JSON in a temporary file outside data/. Do not change application code. Do not call run.sh recursively. Publish only through bash publish.sh with the correct --date and --input arguments. $replace_instruction Complete the task only after validation, commit, and push succeed; otherwise preserve the existing archive and explain the failure."
+    prompt="You are running the Teja's Daily Digest desktop publishing task. Read AGENTS.md and DIGEST_BRIEF.md before acting. Generate the edition for $date_value. $mode_instruction Use live web search and verify every factual claim and source URL. Inspect recent archive titles and fields: avoid exact repeats, rotate overused subtopics, use the required one-anchor-plus-one-adjacent inside mix, and keep outside learning picks beginner-friendly. Include the verified upcoming US earnings calendar. Keep prose compact while satisfying the schema. Prepare the complete digest JSON in a temporary file outside data/. Do not change application code. Do not call run.sh recursively. Publish only through bash publish.sh with the correct --date and --input arguments. $replace_instruction Complete the task only after validation, commit, and push succeed; otherwise preserve the existing archive and explain the failure."
 
-    echo "Launching Codex for $date_value through your ChatGPT subscription..."
+    echo "Launching Codex for $date_value through your ChatGPT subscription with $selected_model ($selected_reasoning reasoning)..."
     "$CODEX_BIN" --search exec \
-        --model "$CODEX_MODEL" \
-        --config "model_reasoning_effort=\"$CODEX_REASONING_EFFORT\"" \
+        --model "$selected_model" \
+        --config "model_reasoning_effort=\"$selected_reasoning\"" \
         --approve-for-me \
         -C "$SCRIPT_DIR" \
         "$prompt"

@@ -47,6 +47,10 @@ jumping to the furthest future date.
 Each day is a full, separately researched generation, so a long vacation batch can take substantial
 time and consume corresponding Codex or API usage. The script publishes days one at a time; if a later
 day fails, earlier successfully pushed days remain available and rerunning the same command skips them.
+For the API path, current and historical issues keep the full-quality profile, while advance issues
+use the cheaper `gpt-5.4-mini` profile with low reasoning, low search context, eight searches, and a
+14,000-token cap. The shared brief is sent as a stable prompt prefix so repeated API runs can use
+prompt caching. Override this with `OPENAI_ADVANCE_MODEL` or the matching CLI options when needed.
 
 When an advance date actually arrives, replace it with live news and market data using:
 
@@ -75,8 +79,11 @@ uses separately billed OpenAI API credit.
 6. Enable **Replace the edition** only when intentionally refreshing existing dates.
 
 The Action is intentionally on-demand and is not scheduled, preventing unexpected API spending. It
-uses `gpt-5.6-terra` with medium reasoning. Concurrent runs are serialized. A repeated run for an
-existing date exits before calling the API unless replacement is explicitly enabled.
+uses `gpt-5.6-terra` with medium reasoning for current and historical issues. Advance issues use
+`gpt-5.4-mini` with low reasoning by default; set `OPENAI_ADVANCE_MODEL` if your account uses another
+compatible model. Search context and output limits are intentionally compact, and can be overridden
+with `--max-tool-calls` or `--max-output-tokens`. Concurrent runs are serialized. A repeated run for
+an existing date exits before calling the API unless replacement is explicitly enabled.
 
 ## Publish a prepared JSON file directly
 
