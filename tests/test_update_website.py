@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from datetime import date, timedelta
 from pathlib import Path
+from types import SimpleNamespace
 from unittest import mock
 
 import httpx2
@@ -441,6 +442,27 @@ class OpenAIRequestTests(unittest.TestCase):
         self.assertEqual(profile.max_output_tokens, api_generator.CHEAP_MAX_OUTPUT_TOKENS)
         self.assertEqual(profile.search_context_size, api_generator.CHEAP_SEARCH_CONTEXT_SIZE)
         self.assertEqual(profile.text_verbosity, api_generator.CHEAP_TEXT_VERBOSITY)
+
+    def test_response_token_usage_includes_reasoning_and_cached_input(self) -> None:
+        response = SimpleNamespace(
+            usage={
+                "input_tokens": 1200,
+                "input_tokens_details": {"cached_tokens": 900},
+                "output_tokens": 2400,
+                "output_tokens_details": {"reasoning_tokens": 1500},
+                "total_tokens": 3600,
+            }
+        )
+        self.assertEqual(
+            api_generator.response_token_usage(response),
+            {
+                "input_tokens": 1200,
+                "cached_input_tokens": 900,
+                "output_tokens": 2400,
+                "reasoning_tokens": 1500,
+                "total_tokens": 3600,
+            },
+        )
 
 
 if __name__ == "__main__":

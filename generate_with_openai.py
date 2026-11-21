@@ -60,6 +60,46 @@ class GenerationProfile:
     text_verbosity: str = TEXT_VERBOSITY
 
 
+def _usage_field(value: Any, name: str, default: int | None = None) -> int | None:
+    """Read a usage field from either an SDK object or a test/API dictionary."""
+    if value is None:
+        return default
+    if isinstance(value, dict):
+        return value.get(name, default)
+    return getattr(value, name, default)
+
+
+def response_token_usage(response: Any) -> dict[str, int] | None:
+    """Return the token counters exposed by the Responses API, when available."""
+    usage = getattr(response, "usage", None)
+    if usage is None:
+        return None
+    input_details = _usage_field(usage, "input_tokens_details")
+    output_details = _usage_field(usage, "output_tokens_details")
+    return {
+        "input_tokens": _usage_field(usage, "input_tokens", 0) or 0,
+        "cached_input_tokens": _usage_field(input_details, "cached_tokens", 0) or 0,
+        "output_tokens": _usage_field(usage, "output_tokens", 0) or 0,
+        "reasoning_tokens": _usage_field(output_details, "reasoning_tokens", 0) or 0,
+        "total_tokens": _usage_field(usage, "total_tokens", 0) or 0,
+    }
+
+
+def print_token_usage(response: Any) -> None:
+    usage = response_token_usage(response)
+    if usage is None:
+        print("Token usage: unavailable in the completed response.")
+        return
+    print(
+        "Token usage: "
+        f"input={usage['input_tokens']}, "
+        f"cached_input={usage['cached_input_tokens']}, "
+        f"output={usage['output_tokens']}, "
+        f"reasoning={usage['reasoning_tokens']}, "
+        f"total={usage['total_tokens']}"
+    )
+
+
 def used_paper_titles(exclude_date: date, limit: int = 24) -> list[str]:
     titles: list[str] = []
     for path in sorted(DATA_DIR.glob("????-??-??.json"), reverse=True):
@@ -274,6 +314,7 @@ def request_digest(
         detail = getattr(response, "error", None) or getattr(response, "incomplete_details", None)
         raise DigestError(f"OpenAI generation ended with status {response.status}: {detail}")
 
+    print_token_usage(response)
     parsed = getattr(response, "output_parsed", None)
     digest = parsed if isinstance(parsed, Digest) else Digest.model_validate_json(response.output_text)
     validate_digest(digest, report_date)
