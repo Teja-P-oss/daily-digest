@@ -1,0 +1,289 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-22",
+    "note": "Current issue for 2026-11-22; weekend stock figures use Friday, 2026-11-20 closes."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Neighbourhood diplomacy",
+        "headline": "Nepal PM Balendra Shah begins two-day India visit",
+        "summary": "Shah began a two-day visit on Sunday, with talks expected to cover financial assistance, trade, connectivity, innovation, aviation and cultural ties.",
+        "why": "The visit tests whether quiet diplomacy can rebuild momentum on cross-border projects and practical cooperation after early distance between the governments.",
+        "link": "https://indianexpress.com/article/india/nepal-pm-balen-shah-india-visit-diplomatic-reset-quiet-diplomacy-10973532/"
+      },
+      {
+        "category": "Border security",
+        "headline": "India and China conclude another commander-level round on Arunachal frontier",
+        "summary": "The second eastern-sector Corps Commander-level round lasted nearly 10 days as both sides sought rules to prevent ground-level friction before severe winter conditions.",
+        "why": "Whether agreed measures will be implemented remains unclear, but communication channels and clearer engagement rules matter in a remote sector where winter logistics are difficult.",
+        "link": "https://indianexpress.com/article/india/india-china-commanders-meet-again-to-try-and-calm-arunachal-frontier-10973140/"
+      },
+      {
+        "category": "Water management",
+        "headline": "India and Bangladesh start Dhaka review before Ganges treaty expires",
+        "summary": "The 91st Joint Rivers Commission meeting began in Dhaka on Sunday to review implementation of the 1996 Ganges Water Sharing Treaty, which is due to expire on December 12. Treaty renewal is outside the commission's formal mandate.",
+        "why": "The technical review keeps bilateral flow and implementation discussions active as the agreement approaches expiry, while making clear that renewal needs a separate political channel.",
+        "link": "https://www.dhakatribune.com/bangladesh/foreign-affairs/425394/bangladesh-india-begin-two-day-joint-rivers"
+      },
+      {
+        "category": "Weather and preparedness",
+        "headline": "IMD warns of isolated heavy rain in Tamil Nadu and Kerala",
+        "summary": "The India Meteorological Department forecast isolated heavy rain over Tamil Nadu from November 23 to 27 and Kerala from November 24 to 26 under the influence of easterly waves.",
+        "why": "The lead time helps residents, transport operators and local authorities prepare for rain-related travel and drainage disruption in the affected areas.",
+        "link": "https://internal.imd.gov.in/press_release/20261122_pr_5516.pdf"
+      }
+    ],
+    "world": [
+      {
+        "category": "Climate diplomacy",
+        "headline": "COP31 draft is challenged for omitting an explicit fossil-fuel phase-out",
+        "summary": "As talks ran into a second day of overtime, the EU, Marshall Islands and Panama objected that the proposed text referred to earlier climate decisions but did not explicitly mention fossil fuels or a phase-out.",
+        "why": "The dispute tests whether a consensus document can renew transition commitments and specify adaptation finance, two issues that shape national policy after the summit.",
+        "link": "https://apnews.com/article/climate-un-turkey-fossil-fuels-global-warming-f6e36c4caf13ec6fed57c9f077cbd067"
+      },
+      {
+        "category": "Space science",
+        "headline": "BepiColombo's twin spacecraft enter Mercury orbit after an eight-year cruise",
+        "summary": "The European-Japanese BepiColombo mission entered orbit around Mercury on Saturday. The spacecraft are scheduled to separate next month and study the planet from different altitudes.",
+        "why": "The paired orbiters will provide complementary views of a poorly explored planet, helping scientists build a fuller picture of its surface and environment.",
+        "link": "https://apnews.com/article/mercury-bepicolombo-space-planet-esa-0c80bbf2039ed4f6ee4a34426b3594a0"
+      },
+      {
+        "category": "Education and technology",
+        "headline": "South Korea's education minister resigns amid AI-assisted exam-cheating turmoil",
+        "summary": "The minister stepped down after last-minute anti-cheating rules caused confusion before the national college entrance exam; authorities reported 111 suspected electronic-device cases during the test.",
+        "why": "High-stakes exam systems must balance stronger device screening with clear, predictable rules, as AI tools make cheating methods harder to detect.",
+        "link": "https://en.yna.co.kr/view/AEN20261122001051315?section=national/national"
+      },
+      {
+        "category": "Industrial safety",
+        "headline": "Factory fire in Indonesia leaves workers missing as search continues",
+        "summary": "A fire at a candy factory in Banten province killed at least three workers and left 36 unaccounted for, according to officials cited by the Associated Press on Sunday.",
+        "why": "The rescue operation is urgent, and the incident puts evacuation planning, factory safety and accountability for missing workers under scrutiny.",
+        "link": "https://apnews.com/article/indonesia-serang-candy-factory-fires-fb73ec65390a34dc1e4aff4f87d6d111"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "UltraFusion: Ultra High Dynamic Imaging using Exposure Fusion",
+      "authors": "Zixuan Chen, Yujin Wang, Xin Cai, Zhiyuan You, Zheming Lu, Fan Zhang, Shi Guo, Tianfan Xue",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "HDR computational photography and exposure fusion",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/html/Chen_UltraFusion_Ultra_High_Dynamic_Imaging_using_Exposure_Fusion_CVPR_2025_paper.html",
+      "scholar": "https://scholar.google.com/scholar?q=UltraFusion+Ultra+High+Dynamic+Imaging+using+Exposure+Fusion",
+      "summary": "UltraFusion treats very wide exposure fusion as guided inpainting: an underexposed frame softly guides a generative prior to restore clipped highlights in an overexposed frame, aiming to reduce ghosting in difficult scenes.",
+      "problem": "A sensor cannot capture the full brightness range of some scenes in one exposure. Combining several exposures extends that range, but motion, lighting changes and imperfect alignment can create ghosts or leave important highlights clipped.",
+      "difficulty": "The method must recover information absent from the bright frame without blindly copying a second exposure that may be misaligned or lit differently. The key distinction is between using the darker frame as a hint and treating every pixel in it as ground truth.",
+      "idea": "Model highlight recovery as guided inpainting. The underexposed image supplies a soft guide for the missing bright-region detail, while a learned image prior fills gaps without requiring rigid pixel-to-pixel agreement between exposures.",
+      "method": "The authors train a generative model for multi-exposure fusion and frame the saturated regions as missing content to inpaint. An underexposed input guides reconstruction of clipped highlights in the overexposed image, but it is a soft condition so small alignment errors or lighting differences do not become hard constraints. They evaluate the approach on existing HDR benchmarks and introduce a real-world UltraFusion dataset with exposure differences reaching nine stops.",
+      "results": "The paper reports improved results over HDR-Transformer on current HDR benchmarks and demonstrates fusion on its new real-world scenes with up to nine stops between exposures. The claimed contribution is broader exposure tolerance with fewer visible ghosting and tone-mapping artifacts.",
+      "care": "A generative prior can make a plausible highlight that is not a faithful measurement of the scene. The reported scores and examples do not establish sensor-to-display latency, mobile power cost or reliability for every moving subject, so high-stakes use needs provenance and task-specific checks.",
+      "learn": [
+        "Why large exposure gaps make alignment and ghosting harder",
+        "How soft guidance differs from copying the dark frame pixel by pixel",
+        "Why plausible HDR detail still needs a fidelity check"
+      ],
+      "concepts": [
+        "high dynamic range",
+        "exposure fusion",
+        "guided inpainting",
+        "generative prior",
+        "ghosting"
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "Towards an Energy-Efficient RISC-V Core Architecture with Dynamic Dual-Issue and Clock Gating",
+      "authors": "Ahmad Othman, Hueseyin Ege Pamuk, Ahmed Kamaleldin, Diana Göhringer",
+      "year": "2025",
+      "venue": "28th Euromicro Conference on Digital System Design (DSD 2025)",
+      "field": "Embedded CPU architecture and power management",
+      "link": "https://doi.org/10.1109/DSD67783.2025.00050",
+      "scholar": "https://scholar.google.com/scholar?q=Towards+an+Energy-Efficient+RISC-V+Core+Architecture+with+Dynamic+Dual-Issue+and+Clock+Gating",
+      "summary": "This paper dynamically gates a dual-issue RISC-V core's second instruction path when workload demand does not justify keeping it active, targeting lower switching power with limited performance loss.",
+      "problem": "A dual-issue core can execute more instructions per cycle, but its wider datapath consumes dynamic power even when a workload rarely fills both issue slots. Embedded systems need a way to trade some peak throughput for lower energy during lighter workloads.",
+      "difficulty": "Power savings depend on when the extra issue path is idle and on how quickly the controller can react without hurting throughput. Clock gating must also preserve safe clock behavior, so the design combines a workload policy with hardware clock-gating structures rather than simply lowering the clock rate.",
+      "idea": "Use a threshold-based controller to enable the second issue path only when workload demand and the chosen performance-energy tradeoff justify it. When it is underused, gate its clock so sequential logic avoids unnecessary switching.",
+      "method": "The authors integrate latch- and flip-flop-based clock-gating mechanisms into the open-source VeeR EH1 dual-issue RISC-V core. A workload-adaptive controller dynamically activates the second-issue datapath according to a threshold and the selected energy-performance tradeoff. They implement the design on FPGA hardware and evaluate it with CoreMark, reporting both energy efficiency and dynamic-power outcomes for the prototype.",
+      "results": "On the evaluated FPGA and CoreMark setup, the paper reports a 5% improvement in energy efficiency and dynamic-power savings of up to 15%. The result illustrates that gating an underused issue path can reduce switching while retaining the option to run both issue slots when performance demand calls for it.",
+      "care": "These are prototype results from FPGA evaluation and CoreMark, not a measured benefit for a production mobile SoC or every application. ASIC clock-tree design, library cells, gating overhead, timing closure and workload mix can change both the savings and the performance cost.",
+      "learn": [
+        "How a dual-issue CPU trades a wider datapath for possible throughput",
+        "Why clock gating reduces switching when a block is idle",
+        "How workload-aware thresholds expose an energy-performance control"
+      ],
+      "concepts": [
+        "RISC-V",
+        "dual issue",
+        "clock gating",
+        "dynamic power",
+        "CoreMark"
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "Selecting a Map Projection",
+      "authors": "National Geographic Education",
+      "year": "n.d.",
+      "venue": "National Geographic Education resource",
+      "field": "Cartography and geography",
+      "link": "https://education.nationalgeographic.org/resource/selecting-map-projection/",
+      "scholar": null,
+      "summary": "This introductory lesson explains why flattening a globe always distorts something and shows how mapmakers choose projections for different purposes, such as preserving shape or area.",
+      "problem": "A globe is three-dimensional, while a paper map or screen is flat. The useful question is not which world map is perfectly accurate, but which property a map should preserve for the job it needs to do.",
+      "difficulty": "The core idea is intuitive: flattening a curved surface is like peeling an orange and pressing the peel onto a table. Some maps keep local shapes or angles more faithfully, while others preserve area or balance several distortions.",
+      "idea": "Treat a map projection as a deliberate tradeoff. Before trusting a map, ask what it is designed to show accurately and what it stretches, shrinks or bends to do so.",
+      "method": "The National Geographic Education lesson compares flat representations of Earth and explains why each projection has tradeoffs. It links the choice to the map’s purpose: some projections preserve local shapes or angles, others preserve area, and compromise maps balance several distortions when showing the whole world.",
+      "results": "The memorable lesson is that no flat map can preserve every property of the globe at once. A projection is useful when its strengths match the question—for example, navigation, comparing land area or showing the whole world—so map choice is part of interpreting the evidence.",
+      "care": "This is a beginner lesson rather than a surveying manual. It simplifies the mathematics and does not recommend one projection for every region or dataset; local maps and thematic maps need different choices, and a familiar-looking world map can still mislead comparisons of size.",
+      "learn": [
+        "Why every flat map distorts the globe in some way",
+        "How a map's purpose affects its projection choice",
+        "Why apparent area on a map is not always real area"
+      ],
+      "concepts": [
+        "map projection",
+        "scale",
+        "area distortion",
+        "conformal map"
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "How Languages Change",
+      "authors": "Yale University Library",
+      "year": "n.d.",
+      "venue": "Yale University Library online exhibition",
+      "field": "Historical linguistics",
+      "link": "https://onlineexhibits.library.yale.edu/s/language-is-everywhere/page/change",
+      "scholar": null,
+      "summary": "Yale's accessible exhibition shows how small differences in pronunciation, grammar and vocabulary accumulate across generations, sometimes producing related languages and sometimes spreading through contact.",
+      "problem": "Languages can feel stable within one lifetime, yet they change as people learn, speak and interact. Historical linguists use patterned differences to ask how languages are related and what their shared past may have looked like.",
+      "difficulty": "The family-tree picture is useful but incomplete: languages can split into branches and also borrow words or features from neighbors. The page explains these ideas with familiar English examples and needs no prior linguistics knowledge.",
+      "idea": "Language change grows from many small acts of learning and social use. Differences that cluster in a group or region can spread, while contact between communities lets features move across language boundaries.",
+      "method": "The Yale Library exhibit introduces language families through a tree metaphor and explains how systematic changes can reveal relationships over time. It also uses English vocabulary borrowed from French and Latin to show why language history is not only branching: contact between speakers creates connections across branches, while learning and social patterns help changes spread.",
+      "results": "The main lesson is that language change is ordinary and patterned, not simply decay. Similarities and differences can help reconstruct relationships, but borrowing and multilingual contact complicate a simple family tree and preserve evidence of how communities interacted.",
+      "care": "The exhibit is a short introduction, not a complete account of every language or a method for dating a specific split. The tree metaphor can overstate clean separation, because contact, multilingualism and uneven written records all affect what researchers can infer.",
+      "learn": [
+        "How language families represent historical relationships",
+        "Why borrowed words reveal contact between communities",
+        "How learning and social groups help language changes spread"
+      ],
+      "concepts": [
+        "language family",
+        "language change",
+        "borrowing",
+        "historical linguistics"
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "NVDA",
+        "price": "$125.53",
+        "change": -14.01,
+        "reason": "Friday, 20 November close; Nvidia fell 14.01% in the sharp AI-linked sell-off.",
+        "thesis": "CUDA, accelerator and networking sales position Nvidia at the center of data-centre AI build-outs.",
+        "risk": "If AI spending slows, competition increases or export limits tighten, premium growth expectations can reset quickly."
+      },
+      {
+        "symbol": "AAPL",
+        "price": "$342.56",
+        "change": -1.9,
+        "reason": "Friday, 20 November close; Apple shares declined 1.90% in the completed US session.",
+        "thesis": "A large installed base and services attach rate add recurring revenue alongside cyclical device launches.",
+        "risk": "Hardware replacement cycles, China exposure, regulation and a premium valuation can constrain growth."
+      },
+      {
+        "symbol": "MSFT",
+        "price": "$484.52",
+        "change": -2.76,
+        "reason": "Friday, 20 November close; Microsoft shares declined 2.76% in the completed US session.",
+        "thesis": "Azure, productivity subscriptions, developer tools and a broad enterprise base diversify Microsoft's cash flows.",
+        "risk": "Cloud competition and AI infrastructure costs may pressure margins if customer adoption monetizes slowly."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "RELIANCE.NS",
+        "price": "₹1,377.50",
+        "change": 0.14,
+        "reason": "Friday, 20 November NSE close; Reliance gained 0.14% in the completed session.",
+        "thesis": "Telecom, retail and energy link Reliance to Indian digital usage and consumer spending.",
+        "risk": "Commodity cycles, heavy investment and execution across several businesses complicate valuation."
+      },
+      {
+        "symbol": "HDFCBANK.NS",
+        "price": "₹846.00",
+        "change": 2.94,
+        "reason": "Friday, 20 November NSE close; HDFC Bank gained 2.94% in the completed session.",
+        "thesis": "A large deposit base and broad lending franchise support the bank's ability to fund growth across customer segments.",
+        "risk": "Deposit competition, credit quality, funding costs and technology execution can affect margins and returns."
+      },
+      {
+        "symbol": "TCS.NS",
+        "price": "₹2,376.20",
+        "change": 1.43,
+        "reason": "Friday, 20 November NSE close; TCS gained 1.43% in the completed session.",
+        "thesis": "Global delivery and long customer relationships expose TCS to demand for technology modernization and outsourcing.",
+        "risk": "Discretionary IT spending, currency moves, wage inflation and automation may weigh on growth or margins."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "ADI",
+        "company": "Analog Devices",
+        "report_date": "2026-11-24",
+        "timing": "Before market open",
+        "fiscal_period": "Q4 fiscal 2026",
+        "why_watch": "Compare industrial and automotive orders with data-centre demand; gross margin will show how mix and utilization shape earnings quality.",
+        "link": "https://www.analog.com/en/newsroom/press-releases/2026/10-22-2026-adi-report-4q-fy2026-financial-results.html"
+      },
+      {
+        "symbol": "DELL",
+        "company": "Dell Technologies",
+        "report_date": "2026-11-24",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Q3 fiscal 2027",
+        "why_watch": "Track AI-optimized server orders, backlog conversion and Infrastructure Solutions Group margins to gauge the quality of data-centre spending.",
+        "link": "https://investors.delltechnologies.com/news-events/press-releases/detail/1661/dell-technologies-to-hold-conference-call-nov-24-to-discuss-third-quarter-fiscal-2027-financial-results"
+      },
+      {
+        "symbol": "ADSK",
+        "company": "Autodesk",
+        "report_date": "2026-11-24",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Q3 fiscal 2027",
+        "why_watch": "Watch billings, remaining performance obligations and free cash flow for evidence that design-software subscriptions and renewals remain resilient.",
+        "link": "https://investors.autodesk.com/news-releases/news-release-details/autodesk-extends-invitation-join-financial-results-conference-53"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "UltraFusion uses the underexposed frame as soft guidance for clipped highlights, but generated detail still needs a fidelity check.",
+      "A workload-aware gate can save switching power by idling a dual-issue CPU path; FPGA results do not establish mobile-SoC savings.",
+      "Every flat map trades one kind of geographic distortion for another, so choose a projection for the question being asked.",
+      "Language families show systematic historical relationships, while borrowed words record contact between communities.",
+      "Analog Devices has a confirmed Nov. 24 pre-market release; Dell and Autodesk confirmed the date but not release timing.",
+      "Friday's US technology sell-off and gains in the three Indian watchlist names show how market moves can diverge by region."
+    ],
+    "explore": "Compare UltraFusion's soft image guidance with the RISC-V paper's workload-aware clock gating: both use a signal to decide when a powerful path should contribute, while avoiding a rigid always-on rule. A useful next experiment would measure how confidence thresholds trade image fidelity against latency and energy on a mobile HDR pipeline, then compare that control policy with power gating on representative camera workloads."
+  }
+}
