@@ -1,0 +1,296 @@
+{
+  "edition": {
+    "kind": "current",
+    "generated_on": "2026-11-24",
+    "note": "Current edition for 24 November 2026. Indian prices use the 23 November NSE close because the exchange was closed on the 24th; US prices use the latest completed session, 20 November."
+  },
+  "news": {
+    "india": [
+      {
+        "category": "Astronomy",
+        "headline": "Indian astronomers identify a chemically primitive stellar fossil",
+        "summary": "Researchers identified HE 1153−0518 as a carbon-enhanced, iron-poor star whose composition preserves clues to early generations of stars. Subaru spectroscopy and other observations supported the analysis, published in Monthly Notices of the Royal Astronomical Society.",
+        "why": "Stellar chemistry lets astronomers test how the first generations of stars enriched the early universe, even though this object itself is not a surviving first-generation star.",
+        "link": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2340331&lang=1&reg=22"
+      },
+      {
+        "category": "Environmental materials",
+        "headline": "Guwahati team reports a light-assisted method to break down pyrene",
+        "summary": "An IASST team tested a copper-nanowire framework combined with palladium or aluminium nanostructures to remove pyrene from water. Under their laboratory irradiation and ultrasonication conditions, the palladium hybrid removed 99% and the aluminium version 85%.",
+        "why": "The result is a promising materials demonstration for a persistent pollutant, while the reported lab conditions mean it is not yet evidence of field-ready water cleanup.",
+        "link": "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2340334&lang=1&reg=3"
+      },
+      {
+        "category": "Cybersecurity",
+        "headline": "Persistent Systems says outside law firm disclosed a cyber incident",
+        "summary": "Persistent Systems told exchanges that a US immigration law firm it used reported a cybersecurity incident. Some employee immigration data and supporting documents were purportedly taken; the company said its own systems were secure and business continued normally.",
+        "why": "The disclosure highlights how sensitive employee records can be exposed through a third-party provider even when a company says its own network was not affected.",
+        "link": "https://nsearchives.nseindia.com/corporate/PERSISTENTUSER1_23112026074246_CompanyStatementforexchangesreleaseNov232026Signed.pdf"
+      },
+      {
+        "category": "Sport",
+        "headline": "New Zealand bats through final day to draw first Test with India",
+        "summary": "New Zealand survived 120 overs in their second innings in Wellington to secure a draw after India needed eight wickets on the final day. The teams shared the World Test Championship points from the match.",
+        "why": "The result leaves the series open and rewards New Zealand's extended defensive stand, while India missed a chance to take a first-match lead.",
+        "link": "https://www.icc-cricket.com/tournaments/world-test-championship/news/new-zealand-survive-final-day-test-to-hold-india-to-a-draw"
+      }
+    ],
+    "world": [
+      {
+        "category": "Geopolitics",
+        "headline": "Ukraine says sea drones sank Russian corvette near Benghazi",
+        "summary": "Ukraine said its sea drones sank a Russian naval corvette near Benghazi, Libya. AP reported Libyan officials confirmed severe damage; a Russian cargo ship and a separate Maltese-flagged commercial vessel were also reported hit nearby.",
+        "why": "The reported strike extends the maritime dimension of the war into divided Libya, where the attack could also sharpen local and international tensions.",
+        "link": "https://apnews.com/article/libya-russia-ukriane-war-benghazi-ship-drone-cbd82b965a111dcf4605b8b2d0493780"
+      },
+      {
+        "category": "Labor and transport",
+        "headline": "Belgian austerity strike cancels flights at Brussels airports",
+        "summary": "A nationwide strike over proposed austerity measures and a budget deadlock halted arrivals and departures at Brussels Airport from 7 a.m. to 9 p.m. local time; Charleroi airport also suspended air traffic.",
+        "why": "The cancellations disrupt travelers and add pressure to negotiations over the government budget before its year-end deadline.",
+        "link": "https://www.aljazeera.com/amp/news/2026/11/23/anti-austerity-strike-spurs-transport-chaos-across-belgium"
+      },
+      {
+        "category": "Public health",
+        "headline": "WHO chief visits Cuba amid shortages and worsening power outages",
+        "summary": "WHO Director-General Tedros Adhanom Ghebreyesus began a three-day visit as Cuba's economic crisis strains healthcare. AP reported shortages of syringes, gauze, vaccines and anesthetics, plus difficulty obtaining parts for dialysis and CT equipment.",
+        "why": "Reliable electricity and basic medical supplies determine whether hospitals can deliver routine and urgent care, making the crisis a direct health-system concern.",
+        "link": "https://apnews.com/article/cuba-who-director-general-health-system-tedros-4432aa03abf3f5fc8b6f2e480f451b8c"
+      },
+      {
+        "category": "Migration and forensics",
+        "headline": "DNA work identifies six people lost on Atlantic migration route",
+        "summary": "A Brazilian forensic investigator and families in Mauritania used relatives' DNA to identify six of nine people whose bodies were found off Brazil in 2024. The boat was believed to have been travelling from West Africa toward the Canary Islands.",
+        "why": "Cross-border identification gives families answers and shows how forensic partnerships can restore identities to people who disappear on dangerous migration routes.",
+        "link": "https://apnews.com/article/migration-bodies-identification-investigation-takeaways-africa-brazil-047aaed0c39efea679aeac1483e59003"
+      }
+    ]
+  },
+  "papers": {
+    "domain1": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "Image Quality Assessment: From Human to Machine Preference",
+      "authors": "Chunyi Li, Yuan Tian, Xiaoyue Ling, Zicheng Zhang, Haodong Duan, Haoning Wu, Ziheng Jia, Xiaohong Liu, Xiongkuo Min, Guo Lu, Weisi Lin, and Guangtao Zhai",
+      "year": "2025",
+      "venue": "CVPR 2025",
+      "field": "Image quality assessment for machine vision",
+      "link": "https://openaccess.thecvf.com/content/CVPR2025/papers/Li_Image_Quality_Assessment_From_Human_to_Machine_Preference_CVPR_2025_paper.pdf",
+      "scholar": "https://scholar.google.com/scholar?q=%22Image+Quality+Assessment%3A+From+Human+to+Machine+Preference%22",
+      "summary": "This paper asks whether image-quality metrics can reflect what a vision model prefers, rather than what a person finds pleasing. It introduces a large annotated benchmark and evaluates image-quality assessment against machine-task outcomes.",
+      "problem": "Many quality scores are designed around human judgments of sharpness, noise or natural appearance. An image that looks better to a person may still remove details a detector or classifier needs, so camera and vision systems need evaluation tied to their actual downstream task.",
+      "difficulty": "The central challenge is defining a fair preference when different models and tasks rely on different visual cues. The benchmark and score comparisons are useful, but their conclusions depend on which models, distortions and tasks are represented; there is no single universal machine-quality preference.",
+      "idea": "Treat image quality as conditional on the observer and task. The authors build a machine-preference dataset and use it to test whether quality metrics rank images in ways aligned with downstream vision-model behavior, exposing gaps in human-centered scoring.",
+      "method": "The work collects 2.25 million machine-preference annotations across 30,000 reference and distorted image pairs. It organizes comparisons by task and model, then evaluates candidate quality metrics against the collected preferences and downstream performance so that metric agreement can be measured rather than assumed.",
+      "results": "The benchmark shows that conventional human-oriented image-quality measures do not reliably capture machine preferences. The dataset offers a way to compare task-aware metrics, but results remain tied to the selected models, tasks, image content and distortions rather than establishing one score for every vision system.",
+      "care": "A preference score is not a guarantee that a camera image is safe, useful or robust in every deployment. Model changes can change what details matter, and benchmark distortions may not cover real sensor, optics, compression or lighting failures. Use task-specific validation alongside human review and capture-quality checks.",
+      "learn": [
+        "Human visual preference and machine-task utility can rank the same image pair differently.",
+        "A benchmark can make the intended observer and task explicit instead of hiding them inside a single score.",
+        "The reported machine preference should be rechecked when the downstream model or operating conditions change."
+      ],
+      "concepts": [
+        "Image quality assessment (IQA): methods that estimate how good an image appears or performs.",
+        "Machine preference: a model's relative preference between image alternatives for a specified task.",
+        "Distortion: an alteration such as blur, noise or compression that changes image content.",
+        "Task-aware evaluation: judging image quality by its effect on a named downstream job."
+      ]
+    },
+    "domain2": {
+      "content_type": "research paper",
+      "level": "intermediate",
+      "reading_time": "20–30 min",
+      "title": "Managing Memory Tiers with CXL in Virtualized Environments",
+      "authors": "Yuhong Zhong, Daniel S. Berger, Carl Waldspurger, Ryan Wee, Ishwar Agarwal, Rajat Agarwal, Frank Hady, Karthik Kumar, Mark D. Hill, Mosharaf Chowdhury, and Asaf Cidon",
+      "year": "2024",
+      "venue": "USENIX OSDI 2024",
+      "field": "Computer systems and memory tiering",
+      "link": "https://www.usenix.org/conference/osdi24/presentation/zhong-yuhong",
+      "scholar": "https://scholar.google.com/scholar?q=%22Managing+Memory+Tiers+with+CXL+in+Virtualized+Environments%22",
+      "summary": "The paper studies how cloud platforms can use fast local memory and larger, slower CXL-attached memory together while hosting multiple virtual machines. It presents Memstrata, a management design aimed at keeping tiered memory useful without letting one tenant's allocation badly slow others.",
+      "problem": "Memory capacity is expensive, yet putting some data in a slower tier can hurt performance. In a shared virtualized server, tenants compete for fast memory and their workloads change, so a platform must allocate tiers while predicting and limiting performance loss for each guest.",
+      "difficulty": "The systems problem spans hardware placement, guest memory behavior and interference among tenants. A solution must work online without perfect knowledge of future access patterns, and results depend on the workload mix, the quality of slowdown estimates and how representative the prototype evaluation is.",
+      "idea": "Memstrata combines hardware-supported Flat Memory Mode with software allocation policies for multiple tenants. It uses page coloring to distribute fast-memory capacity and estimates each workload's slowdown, then adjusts placement to balance capacity use with performance protection.",
+      "method": "The authors build a prototype around CXL memory tiering in a virtualized environment. They characterize workloads, estimate the performance impact of tiering, and use page coloring to control which physical memory regions virtual machines can use. Evaluation compares the approach across diverse workloads and measures both the fraction kept within a degradation target and severe outlier slowdowns.",
+      "results": "In the evaluated prototype, more than 82% of workloads saw less than 5% degradation, while the fraction with slowdown above 30% fell to below 6%. These results suggest that coordinated tier management can make slower memory more practical, though they apply to the tested workloads and system configuration.",
+      "care": "The headline percentages are not a promise for every server or application. CXL generation, memory capacity, workload locality and tenant mix can change the trade-off. Operators still need to define acceptable slowdown, monitor changing access patterns and account for hardware costs and tail latency before deploying a tiering policy.",
+      "learn": [
+        "Memory tiering trades access speed for capacity and cost.",
+        "Virtualization makes memory placement a shared-resource policy problem, not just a per-process optimization.",
+        "An online estimate of slowdown can help a platform protect tenants while using more of its total memory."
+      ],
+      "concepts": [
+        "CXL: an interconnect standard that can attach memory and devices to a processor system.",
+        "Memory tier: a class of memory with a particular balance of speed, capacity and cost.",
+        "Page coloring: an operating-system technique for steering memory pages to selected cache or memory regions.",
+        "Virtual machine (VM): a software-defined computer that runs as an isolated guest on shared hardware."
+      ]
+    },
+    "outside1": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "Roman Aqueducts",
+      "authors": "National Geographic Education",
+      "year": "n.d.",
+      "venue": "National Geographic Education resource",
+      "field": "Ancient engineering and public infrastructure",
+      "link": "https://education.nationalgeographic.org/resource/roman-aqueducts/",
+      "scholar": null,
+      "summary": "This short explainer shows how Roman communities carried fresh water from distant sources into towns and cities. It describes aqueducts as connected channels, pipes, tunnels and bridges, with gravity and carefully chosen slopes doing much of the work.",
+      "problem": "Growing settlements needed a dependable supply of clean water beyond what nearby wells and streams could provide. The engineering problem was to keep water moving over long distances and varied terrain without modern pumps, while bringing it to public fountains, baths and homes.",
+      "difficulty": "The piece is approachable and emphasizes the basic route and structures rather than detailed surveying or construction calculations. Readers should remember that the famous arched bridges were only visible portions of larger systems, and that the resource is a concise overview rather than a full technical history.",
+      "idea": "The memorable principle is that a small, steady downward slope can move water across a landscape. Romans combined terrain knowledge with channels, tunnels and bridges, using arches where a valley or obstacle needed to be crossed.",
+      "method": "The educational resource explains the system through historical context and descriptions of its physical parts. It connects water sources to cities and distinguishes elevated bridge sections from the broader network of conduits. The account is a general introduction, not an original archaeological study or a step-by-step engineering plan.",
+      "results": "The main lesson is that aqueducts were networks rather than just rows of arches. Their route, gradient and maintenance allowed gravity to transport water over distance, supporting urban public life. The visible structures remain striking, but much of the engineering could be hidden underground or integrated into the landscape.",
+      "care": "This overview simplifies a varied history: Roman water systems differed by place and period, and their construction depended on local geology, labor and political priorities. Treat its description as a starting point, then consult site-specific archaeological sources before drawing conclusions about a particular aqueduct or its social impact.",
+      "learn": [
+        "Gravity can move water over distance when the route maintains a gentle downward gradient.",
+        "An aqueduct system may include underground channels and tunnels as well as bridges.",
+        "The iconic arches were only one part of infrastructure that delivered water into cities."
+      ],
+      "concepts": [
+        "Aqueduct: a structure or channel that carries water from one place to another.",
+        "Gradient: the rate at which a route rises or falls over distance.",
+        "Conduit: a channel or pipe that guides water.",
+        "Arcade: a row of arches that can support an elevated channel across a low area."
+      ]
+    },
+    "outside2": {
+      "content_type": "explainer",
+      "level": "introductory",
+      "reading_time": "10–15 min",
+      "title": "The Art of Slow Looking",
+      "authors": "Amy Kirschke",
+      "year": "2025",
+      "venue": "Milwaukee Art Museum blog",
+      "field": "Art appreciation",
+      "link": "https://blog.mam.org/member-magazine/_2025/dec-feb/the-art-of-slow-looking/",
+      "scholar": null,
+      "summary": "This museum guide offers a simple timed exercise for spending longer with one artwork. It encourages viewers to notice lines, shapes, colors and space, change their viewpoint, and observe how a slower look changes what they notice or feel.",
+      "problem": "Museum visitors often move quickly from object to object and rely on labels to tell them what matters. The article asks whether giving one artwork sustained attention can reveal details and associations that a brief glance or an explanatory label might crowd out.",
+      "difficulty": "No art-history background is needed, but the exercise asks the reader to stay with uncertainty and describe observations before settling on an interpretation. The guidance is a reflective practice, not a scientific test or a claim that every viewer will find the same meaning.",
+      "idea": "Slow looking turns attention into an active exercise: set aside about ten minutes, inspect the artwork from different positions, and notice visual details before deciding what they mean. The method makes room for personal response as well as close observation.",
+      "method": "The author presents a practical museum activity rather than a formal research method. Readers choose an artwork, give it a sustained timed look, identify features such as color, shape, line and movement, shift position, and reflect on thoughts or feelings that emerge. The sequence can be tried with a painting, sculpture or even an image at home.",
+      "results": "The useful outcome is a repeatable way to see more than the first impression. A longer look can reveal relationships between shapes, patterns or gestures and help a viewer form their own questions. Its value is experiential: the article proposes an activity, not measured evidence that slow looking improves every person's response.",
+      "care": "Personal interpretation is valuable, but it does not replace historical context or expert evidence when making claims about an artwork. The exercise is deliberately open-ended and may not fit every setting or visitor. Use it as a way to pay attention, then compare observations with labels, curatorial sources or other viewers' readings.",
+      "learn": [
+        "A timed pause can reveal visual details missed during a quick visit.",
+        "Describing what is visible before interpreting it helps separate observation from assumption.",
+        "Changing viewpoint can change which patterns or relationships stand out."
+      ],
+      "concepts": [
+        "Slow looking: sustained attention to an artwork before moving on or deciding what it means.",
+        "Composition: how visual elements are arranged within an artwork.",
+        "Observation: noticing and describing visible details without immediately explaining them.",
+        "Interpretation: the meaning a viewer draws from an artwork and its context."
+      ]
+    }
+  },
+  "stocks": {
+    "us": [
+      {
+        "symbol": "AMZN",
+        "price": "$246.82",
+        "change": -4.1,
+        "reason": "20 Nov close, the latest completed US session at preparation; down 4.10% from 19 Nov.",
+        "thesis": "Amazon combines cloud infrastructure with retail and advertising, giving it exposure to both enterprise technology spending and consumer demand.",
+        "risk": "Heavy infrastructure investment, cloud competition and thin retail margins can pressure returns if revenue growth slows."
+      },
+      {
+        "symbol": "COST",
+        "price": "$1,102.15",
+        "change": 0.76,
+        "reason": "20 Nov close, the latest completed US session at preparation; up 0.76% from 19 Nov.",
+        "thesis": "Costco's membership model and high-volume, low-price approach can support repeat visits and recurring fee income.",
+        "risk": "A high valuation, modest merchandise margins and weaker renewals or consumer spending could weigh on results."
+      },
+      {
+        "symbol": "TSLA",
+        "price": "$345.82",
+        "change": -7.64,
+        "reason": "20 Nov close, the latest completed US session at preparation; down 7.64% from 19 Nov.",
+        "thesis": "Tesla combines electric vehicles with energy storage and software ambitions, giving investors several potential growth drivers to assess.",
+        "risk": "Price competition, vehicle margin pressure and execution or regulatory challenges could limit growth and profitability."
+      }
+    ],
+    "india": [
+      {
+        "symbol": "SHRIRAMFIN.NS",
+        "price": "₹993.85",
+        "change": 2.25,
+        "reason": "23 Nov NSE close, the latest completed Indian session before the 24 Nov exchange holiday; up 2.25%.",
+        "thesis": "Shriram Finance is a non-bank lender with exposure to vehicle and other consumer financing, making credit growth central to its story.",
+        "risk": "Borrower stress, higher funding costs and an economic slowdown can weaken collections and credit quality."
+      },
+      {
+        "symbol": "TATASTEEL.NS",
+        "price": "₹162.90",
+        "change": -8.48,
+        "reason": "23 Nov NSE close, the latest completed Indian session before the 24 Nov exchange holiday; down 8.48%.",
+        "thesis": "Tata Steel is a cyclical producer whose demand is linked to construction, infrastructure and industrial activity.",
+        "risk": "Steel prices, global overcapacity, energy costs and the expense of lowering emissions can make earnings volatile."
+      },
+      {
+        "symbol": "AXISBANK.NS",
+        "price": "₹1,392.50",
+        "change": -3.7,
+        "reason": "23 Nov NSE close, the latest completed Indian session before the 24 Nov exchange holiday; down 3.70%.",
+        "thesis": "Axis Bank's lending and deposit franchise provides a way to follow private-sector credit demand and banking margins.",
+        "risk": "Asset-quality deterioration, deposit competition, funding costs and regulatory changes can pressure growth or profitability."
+      }
+    ]
+  },
+  "earnings": {
+    "us": [
+      {
+        "symbol": "CRM",
+        "company": "Salesforce",
+        "report_date": "2026-12-02",
+        "timing": "After market close",
+        "fiscal_period": "Q3 FY2027",
+        "why_watch": "Track remaining performance obligations and current RPO, and whether interest in AI agents converts into recurring paid customer demand.",
+        "link": "https://investor.salesforce.com/news/news-details/2026/Salesforce-Announces-Date-of-Third-Quarter-Fiscal-2027-Earnings-Release-and-Webcast/"
+      },
+      {
+        "symbol": "ZS",
+        "company": "Zscaler",
+        "report_date": "2026-12-02",
+        "timing": "After market close",
+        "fiscal_period": "Q1 FY2027",
+        "why_watch": "Billings and annual recurring revenue can show whether cloud-security demand and larger customer expansions are translating into contracted growth.",
+        "link": "https://ir.zscaler.com/node/16781/pdf"
+      },
+      {
+        "symbol": "COO",
+        "company": "The Cooper Companies",
+        "report_date": "2026-12-03",
+        "timing": "After market close",
+        "fiscal_period": "Q4 and FY2026",
+        "why_watch": "Compare CooperVision contact-lens growth with CooperSurgical demand to see how its vision-care and women's-health businesses are progressing.",
+        "link": "https://investor.coopercos.com/news-releases/news-release-details/coopercompanies-announces-release-date-fourth-quarter-and-full-6"
+      },
+      {
+        "symbol": "COST",
+        "company": "Costco Wholesale",
+        "report_date": "2026-12-10",
+        "timing": "Time not confirmed",
+        "fiscal_period": "Q1 FY2027",
+        "why_watch": "Comparable sales excluding gas and foreign exchange, membership-fee growth and renewal rates will help show whether traffic and loyalty remain strong.",
+        "link": "https://investor.costco.com/overview/"
+      }
+    ]
+  },
+  "takeaways": {
+    "remember": [
+      "A star's elemental abundances can preserve evidence about earlier stellar generations.",
+      "A lab pollutant-removal percentage depends on the tested water and treatment conditions.",
+      "Third-party data handling can expose sensitive records even when a company's own systems remain secure.",
+      "Machine image quality depends on the downstream task and model, not only human preference.",
+      "CXL memory tiering can trade some access speed for capacity, but shared workloads need slowdown controls.",
+      "Cross-border DNA comparisons can restore identities to people lost along migration routes."
+    ],
+    "explore": "Image-quality assessment and memory tiering both show why system performance should be measured at the level of the real workload: a visually pleasing frame may not help a detector, and a larger memory pool may not help a tenant if latency rises too far. A useful next investigation is to sketch a camera pipeline running on a memory-constrained edge device, then ask how image-quality scores, model accuracy, memory placement and tail latency should be measured together under different lighting and bandwidth conditions."
+  }
+}
